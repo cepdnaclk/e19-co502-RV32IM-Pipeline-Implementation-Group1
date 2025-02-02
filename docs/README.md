@@ -62,8 +62,8 @@ The processor follows a **6-stage pipeline** structure:
 
 ## Links
 
-- [Project Repository](https://github.com/cepdnaclk/e19-co502-RV32IM-Pipeline-Implementation-Group1){:target="_blank"}
-- [Project Page](https://github.com/cepdnaclk/e19-co502-RV32IM-Pipeline-Implementation-Group1){:target="_blank"}
+- [Project Repository](https://github.com/cepdnaclk/e19-co502-RV32IM-Pipeline-Implementation-Group1)
+- [Project Page](https://github.com/cepdnaclk/e19-co502-RV32IM-Pipeline-Implementation-Group1)
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 

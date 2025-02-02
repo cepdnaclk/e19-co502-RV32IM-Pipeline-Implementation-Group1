@@ -1,0 +1,206 @@
+$date
+	Sun Feb 02 12:46:01 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module fetch_stage_tb $end
+$var wire 32 ! pc_out_dec [31:0] $end
+$var wire 32 " pc_out [31:0] $end
+$var wire 32 # pc_mux_out [31:0] $end
+$var wire 32 $ pc_ex [31:0] $end
+$var wire 32 % instr_out_dec [31:0] $end
+$var wire 32 & instr_out [31:0] $end
+$var reg 1 ' clk $end
+$var reg 1 ( pc_sel_ex $end
+$var reg 1 ) rst $end
+$scope module if_id_pipeline_reg $end
+$var wire 1 * busywait $end
+$var wire 1 ' clk $end
+$var wire 1 ) rst $end
+$var wire 32 + pc_in [31:0] $end
+$var wire 32 , instr_in [31:0] $end
+$var reg 32 - instr_out [31:0] $end
+$var reg 32 . pc_out [31:0] $end
+$upscope $end
+$scope module imem $end
+$var wire 1 ' clk $end
+$var wire 1 ) rst $end
+$var wire 32 / pc [31:0] $end
+$var reg 32 0 instr [31:0] $end
+$upscope $end
+$scope module pc_ $end
+$var wire 1 1 busywait $end
+$var wire 1 ' clk $end
+$var wire 1 ) rst $end
+$var wire 32 2 pc_in [31:0] $end
+$var reg 32 3 pc_out [31:0] $end
+$upscope $end
+$scope module pc_adder $end
+$var wire 32 4 data [31:0] $end
+$var wire 32 5 out [31:0] $end
+$upscope $end
+$scope module pc_mux $end
+$var wire 32 6 a [31:0] $end
+$var wire 32 7 b [31:0] $end
+$var wire 1 ( sel $end
+$var wire 32 8 out [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx 8
+bx 7
+bx 6
+bx 5
+bx 4
+bx 3
+bx 2
+z1
+bx 0
+bx /
+bx .
+bx -
+bx ,
+bx +
+z*
+0)
+0(
+0'
+bx &
+bx %
+bx $
+bx #
+bx "
+bx !
+$end
+#50
+1)
+#100
+b100 #
+b100 2
+b100 8
+b100 $
+b100 5
+b100 6
+b100 7
+b0 "
+b0 +
+b0 /
+b0 3
+b0 4
+1'
+#150
+0)
+#200
+0'
+#300
+1'
+#320
+b10010011 &
+b10010011 ,
+b10010011 0
+#400
+0'
+#500
+1'
+#600
+0'
+#700
+1'
+#800
+0'
+#900
+1'
+#1000
+0'
+#1100
+1'
+#1200
+0'
+#1300
+1'
+#1400
+0'
+#1500
+1'
+#1600
+0'
+#1700
+1'
+#1800
+0'
+#1900
+1'
+#2000
+0'
+#2100
+1'
+#2200
+0'
+#2300
+1'
+#2400
+0'
+#2500
+1'
+#2600
+0'
+#2700
+1'
+#2800
+0'
+#2900
+1'
+#3000
+0'
+#3100
+1'
+#3200
+0'
+#3300
+1'
+#3400
+0'
+#3500
+1'
+#3600
+0'
+#3700
+1'
+#3800
+0'
+#3900
+1'
+#4000
+0'
+#4100
+1'
+#4200
+0'
+#4300
+1'
+#4400
+0'
+#4500
+1'
+#4600
+0'
+#4700
+1'
+#4800
+0'
+#4900
+1'
+#5000
+0'
+#5100
+1'
+#5150

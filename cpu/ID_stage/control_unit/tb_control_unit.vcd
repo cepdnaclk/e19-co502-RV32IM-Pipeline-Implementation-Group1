@@ -1,0 +1,218 @@
+$date
+	Sun Feb 02 13:21:06 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module control_unit_tb $end
+$var wire 2 ! wb_sel [1:0] $end
+$var wire 1 " reg_write_en $end
+$var wire 3 # mem_write [2:0] $end
+$var wire 4 $ mem_read [3:0] $end
+$var wire 4 % imm_sel [3:0] $end
+$var wire 1 & data2_alu_sel $end
+$var wire 1 ' data1_alu_sel $end
+$var wire 3 ( branch_jump [2:0] $end
+$var wire 5 ) alu_op [4:0] $end
+$var reg 3 * funct3 [2:0] $end
+$var reg 7 + funct7 [6:0] $end
+$var reg 7 , opcode [6:0] $end
+$var reg 1 - reset $end
+$scope module uut $end
+$var wire 1 ' data1_alu_sel $end
+$var wire 1 & data2_alu_sel $end
+$var wire 3 . funct3 [2:0] $end
+$var wire 1 / funct3_mux_select $end
+$var wire 7 0 funct7 [6:0] $end
+$var wire 7 1 opcode [6:0] $end
+$var wire 1 " reg_write_en $end
+$var wire 1 - reset $end
+$var wire 2 2 wb_sel [1:0] $end
+$var wire 3 3 mem_write [2:0] $end
+$var wire 4 4 mem_read [3:0] $end
+$var wire 4 5 imm_sel [3:0] $end
+$var wire 3 6 branch_jump [2:0] $end
+$var wire 5 7 alu_op [4:0] $end
+$scope module funct3_mux $end
+$var wire 3 8 data1 [2:0] $end
+$var wire 3 9 data2 [2:0] $end
+$var wire 1 / sel $end
+$var wire 3 : out [2:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx :
+b0 9
+bx 8
+bx 7
+bx 6
+bx 5
+bx 4
+bx 3
+bx 2
+bx 1
+bx 0
+x/
+bx .
+x-
+bx ,
+bx +
+bx *
+bx )
+bx (
+x'
+x&
+bx %
+bx $
+bx #
+x"
+bx !
+$end
+#100
+0-
+b0 +
+b0 0
+b0 *
+b0 .
+b0 8
+b0 ,
+b0 1
+#110
+bx000 )
+bx000 7
+b0 :
+#130
+0&
+b0xxx %
+b0xxx 5
+0/
+0'
+0"
+b1 !
+b1 2
+b0 (
+b0 6
+b0 )
+b0 7
+b0 #
+b0 3
+b0 $
+b0 4
+#200
+b110011 ,
+b110011 1
+#230
+1"
+#400
+b10011 ,
+b10011 1
+#430
+b10 %
+b10 5
+1&
+#600
+b10 *
+b10 .
+b10 8
+b11 ,
+b11 1
+#610
+b10 )
+b10 7
+b10 :
+#630
+1/
+b0 !
+b0 2
+b10 #
+b10 3
+b10 (
+b10 6
+b1010 $
+b1010 4
+#640
+b0 )
+b0 7
+b0 :
+#800
+b100011 ,
+b100011 1
+#830
+0"
+b1 !
+b1 2
+b100 %
+b100 5
+b110 #
+b110 3
+b10 $
+b10 4
+#1000
+b0 *
+b0 .
+b0 8
+b1100011 ,
+b1100011 1
+#1030
+b11 %
+b11 5
+b0 (
+b0 6
+1'
+b0 $
+b0 4
+b0 #
+b0 3
+#1200
+b1101111 ,
+b1101111 1
+#1230
+b1 %
+b1 5
+1"
+b10 (
+b10 6
+b11 !
+b11 2
+#1400
+b110111 ,
+b110111 1
+#1430
+0/
+b0 %
+b0 5
+0'
+b0 (
+b0 6
+b10 !
+b10 2
+b11000 )
+b11000 7
+#1600
+b10111 ,
+b10111 1
+#1630
+1/
+1'
+b1 !
+b1 2
+b0 )
+b0 7
+#1800
+1-
+#1830
+0"
+#1900
+0-
+#1930
+1"
+#2000

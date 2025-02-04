@@ -1,1 +1,1 @@
-# EV32IM - Pipeline Processor
+# RV32IM - Pipeline Processor

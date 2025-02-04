@@ -1,5 +1,5 @@
 `include "IF_stage/pc/pc.v"
-`include "utils/muxs/mux_32b_2to1.v"
+`include "utils/muxes/mux_32b_2to1.v"
 `include "utils/adders/adder_32b_4.v"
 `include "pipeline_regs/if_id_pipeline_reg.v"
 `include "pipeline_regs/id_ex_pipeline_reg.v"
@@ -10,7 +10,7 @@
 `include "ID_stage/control_unit/control_unit.v"
 `include "EX_stage/alu/alu.v"
 `include "EX_stage/branch/branch_logic.v"
-`include "utils/muxs/mux_32b_4to1.v"
+`include "utils/muxes/mux_32b_4to1.v"
 
 `timescale 1ns/100ps
 
@@ -28,13 +28,51 @@ module cpu(
     output BUSYWAIT_OUT
 );
     wire BUSYWAIT;
-
     assign BUSYWAIT = BUSYWAIT_IN;
+
+    // Wires
+    //IF
+    wire [31:0] PC_INT_IF, PC_PLUS_4_IF;
+
+    //ID
+    wire [31:0] INST_ID, PC_ID, DATA1_ID, DATA2_ID, IMM_ID;
+    wire [3:0] IMM_SEL_ID;
+    wire [4:0] ALU_OP_ID;
+    wire [2:0] MEM_WRITE_ID;
+    wire [3:0] MEM_READ_ID;
+    wire [3:0] BRANCH_JUMP_ID;
+    wire [1:0] WB_SEL_ID;
+    wire DATA1_ALU_SEL_ID, DATA2_ALU_SEL_ID, WRITE_EN_ID;
+
+    //EX
+    wire PC_MUX_SEL_EX;
+    wire [31:0] NEXT_PC_EX, PC_EX, DATA1_EX, DATA2_EX, IMM_EX, ALU_OUT_EX, ALU_DATA1_EX, ALU_DATA2_EX;
+    wire [3:0] IMM_SEL_EX;
+    wire [4:0] ALU_OP_EX, WADDR_EX;
+    wire [2:0] MEM_WRITE_EX;
+    wire [3:0] BRANCH_JUMP_EX;
+    wire [3:0] MEM_READ_EX;
+    wire [1:0] WB_SEL_EX;
+    wire DATA1_ALU_SEL_EX, DATA2_ALU_SEL_EX, WRITE_EN_EX;
+
+    //MEM
+    wire [31:0] PC_MA, ALU_OUT_MA, IMM_MA, DATA2_MA, PC_PLUS_4_MA;
+    wire [4:0] WADDR_MA;
+    wire [1:0] WB_SEL_MA;
+    wire WRITE_EN_MA;
+    wire [2:0] MEM_WRITE_MA;
+    wire [3:0] MEM_READ_MA;
+
+    //WB
+    wire [31:0] WRITE_DATA_WB;
+    wire [31:0] PC_WB, ALU_OUT_WB, DMEM_DATA_READ_WB, IMM_WB;
+    wire [1:0] WB_SEL_WB;
+    wire [4:0] WADDR_WB;
+    wire WRITE_EN_WB;
 
     ////////////////////////////////////////////////////////////////////////
     // Stage 1: Instruction Fetch (IF) 
 
-    wire [31:0] PC_INT_IF, PC_PLUS_4_IF;
 
     // PC mux
     mux_32b_2to1 pc_mux(
@@ -76,15 +114,6 @@ module cpu(
 
     ////////////////////////////////////////////////////////////////////////
     // Stage 2: Instruction Decode (ID)
-
-    wire [31:0] INST_ID, PC_ID, DATA1_ID, DATA2_ID, IMM_ID;
-    wire [3:0] IMM_SEL_ID;
-    wire [4:0] ALU_OP_ID;
-    wire [2:0] MEM_WRITE_ID;
-    wire [3:0] MEM_READ_ID;
-    wire [3:0] BRANCH_JUMP_ID;
-    wire [1:0] WB_SEL_ID;
-    wire DATA1_ALU_SEL_ID, DATA2_ALU_SEL_ID, WRITE_EN_ID;
 
     // Register File
     reg_files reg_files_inst(
@@ -164,15 +193,6 @@ module cpu(
 
     ////////////////////////////////////////////////////////////////////////
     // Stage 3: Execute (EX)
-    wire PC_MUX_SEL_EX;
-    wire [31:0] NEXT_PC_EX, PC_EX, DATA1_EX, DATA2_EX, IMM_EX, ALU_OUT_EX, ALU_DATA1_EX, ALU_DATA2_EX;
-    wire [3:0] IMM_SEL_EX;
-    wire [4:0] ALU_OP_EX, WADDR_EX;
-    wire [2:0] MEM_WRITE_EX;
-    wire [3:0] BRANCH_JUMP_EX;
-    wire [3:0] MEM_READ_EX;
-    wire [1:0] WB_SEL_EX;
-    wire DATA1_ALU_SEL_EX, DATA2_ALU_SEL_EX, WRITE_EN_EX;
 
     // ALU DATA1 mux
     mux_32b_2to1 alu_mux_1(
@@ -235,13 +255,6 @@ module cpu(
     ////////////////////////////////////////////////////////////////////////
     // Stage 4: Memory Access (MEM)
 
-    wire [31:0] PC_MA, ALU_OUT_MA, IMM_MA, DATA2_MA, PC_PLUS_4_MA;
-    wire [4:0] WADDR_MA;
-    wire [1:0] WB_SEL_MA;
-    wire WRITE_EN_MA;
-    wire [2:0] MEM_WRITE_MA;
-    wire [3:0] MEM_READ_MA;
-
     // PC plus 4
     adder_32b_4 pc_plus_4_ma(
         .data(PC_MA),
@@ -278,12 +291,6 @@ module cpu(
 
     ////////////////////////////////////////////////////////////////////////
     // Stage 5: Write Back (WB)
-
-    wire [31:0] WRITE_DATA_WB;
-    wire [31:0] PC_WB, ALU_OUT_WB, DMEM_DATA_READ_WB, IMM_WB;
-    wire [1:0] WB_SEL_WB;
-    wire [4:0] WADDR_WB;
-    wire WRITE_EN_WB;
 
     // WB mux
     mux_32b_4to1 wb_mux(

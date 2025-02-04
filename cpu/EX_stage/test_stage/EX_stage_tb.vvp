@@ -550,5 +550,5 @@ T_3 ;
     "EX_stage_tb.v";
     "././alu/alu.v";
     "././branch/branch_logic.v";
-    "./../utils/muxs/mux_32b_2to1.v";
+    "./../utils/muxes/mux_32b_2to1.v";
     "./../pipeline_regs/ex_mem_pipeline_reg.v";

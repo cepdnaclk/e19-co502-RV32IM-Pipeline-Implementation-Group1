@@ -9,7 +9,9 @@ This program presents a primitive data memory module for CO224 Lab 6 - Part 2
 This memory allows data to be read and written as 4-Byte blocks
 */
 
-module data_memory(
+`timescale 1ns/100ps
+
+module dmem(
 	clock,
     reset,
     read,

@@ -192,4 +192,4 @@ T_5 ;
     "./../imem/imem.v";
     "./../pc/pc.v";
     "./../../utils/adders/adder_32b_4.v";
-    "./../../utils/muxs/mux_32b_2to1.v";
+    "./../../utils/muxes/mux_32b_2to1.v";

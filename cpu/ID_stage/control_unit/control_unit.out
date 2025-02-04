@@ -416,4 +416,4 @@ L_000001894f719850 .functor MUXZ 3, o000001894f6b8178, L_000001894f740238, L_000
     "N/A";
     "<interactive>";
     ".\ID_stage\Control_unit\control_unit.v";
-    "././utils/muxs/mux_3b_2to1.v";
+    "././utils/muxes/mux_3b_2to1.v";

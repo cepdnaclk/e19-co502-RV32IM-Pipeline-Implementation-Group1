@@ -7,7 +7,7 @@
 :vpi_module "F:\iverilog\lib\ivl\vhdl_textio.vpi";
 :vpi_module "F:\iverilog\lib\ivl\v2005_math.vpi";
 :vpi_module "F:\iverilog\lib\ivl\va_math.vpi";
-S_0000012a019cdb60 .scope module, "data_memory_tb" "data_memory_tb" 2 4;
+S_0000012a019cdb60 .scope module, "dmem_tb" "dmem_tb" 2 4;
  .timescale -9 -10;
 v0000012a01a2dc70_0 .net "DEBUG_DATA", 31 0, L_0000012a01a2dd10;  1 drivers
 v0000012a01a2d8b0_0 .net "DEBUG_READ_ACC", 0 0, L_0000012a019d3d60;  1 drivers
@@ -20,7 +20,7 @@ v0000012a01a2d4f0_0 .net "readdata", 31 0, v0000012a019c4b20_0;  1 drivers
 v0000012a01a2d810_0 .var "reset", 0 0;
 v0000012a01a2d6d0_0 .var "write", 2 0;
 v0000012a01a2d270_0 .var "writedata", 31 0;
-S_0000012a019cdcf0 .scope module, "uut" "data_memory" 2 20, 3 12 0, S_0000012a019cdb60;
+S_0000012a019cdcf0 .scope module, "uut" "dmem" 2 20, 3 12 0, S_0000012a019cdb60;
  .timescale 0 0;
     .port_info 0 /INPUT 1 "clock";
     .port_info 1 /INPUT 1 "reset";
@@ -307,5 +307,5 @@ T_5 ;
 :file_names 4;
     "N/A";
     "<interactive>";
-    "data_memory_tb.v";
-    "./data_memory.v";
+    "dmem_tb.v";
+    "./dmem.v";

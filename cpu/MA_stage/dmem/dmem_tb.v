@@ -1,7 +1,7 @@
-`include "data_memory.v"
+`include "dmem.v"
 `timescale 1ns/100ps
 
-module data_memory_tb;
+module dmem_tb;
 
     // Testbench Signals
     reg clock;
@@ -16,8 +16,8 @@ module data_memory_tb;
     wire DEBUG_READ_ACC;
     wire DEBUG_WRITE_ACC;
 
-    // Instantiate the data_memory module
-    data_memory uut (
+    // Instantiate the dmem module
+    dmem uut (
         .clock(clock),
         .reset(reset),
         .read(read),

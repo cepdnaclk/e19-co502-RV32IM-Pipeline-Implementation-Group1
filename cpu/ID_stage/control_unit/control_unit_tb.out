@@ -520,4 +520,4 @@ T_1 ;
     "<interactive>";
     ".\ID_stage\control_unit\control_unit_tb.v";
     "././ID_stage/control_unit/control_unit.v";
-    "././utils/muxs/mux_3b_2to1.v";
+    "././utils/muxes/mux_3b_2to1.v";

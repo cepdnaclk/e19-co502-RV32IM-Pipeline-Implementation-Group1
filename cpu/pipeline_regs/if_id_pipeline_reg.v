@@ -7,7 +7,6 @@ module if_id_pipeline_reg(clk, rst, pc_in, pc_out, instr_in, instr_out, busywait
     output reg [31:0] pc_out, instr_out;
 
     always @(posedge clk) begin
-        #1
         if (rst == 1'b1) begin
             pc_out <= 32'dx;
             instr_out <= 32'dx;

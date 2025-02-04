@@ -20,7 +20,6 @@ module id_ex_pipeline_reg(
 );
 
     always @(posedge clk or posedge rst) begin
-        #1
         if (rst) begin
             reg_write_en_out <= 0;
             data1_alu_sel_out <= 0;

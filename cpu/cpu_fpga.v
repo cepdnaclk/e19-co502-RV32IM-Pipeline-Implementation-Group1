@@ -4,11 +4,10 @@
 
 `timescale 1ns/100ps
 
-module cpu_tb();
-
-    // Inputs
-    reg CLK;
-    reg RST;
+module cpu_fpga(
+    input CLK;
+    input RST;
+);
 
     // Outputs
     wire [31:0] PC, INST, DMEM_DATA_READ, DMEM_DATA_WRITE, DMEM_ADDR;
@@ -52,28 +51,28 @@ module cpu_tb();
     );
 
     // Clock generation
-    always #5 CLK = ~CLK;
+    // always #5 CLK = ~CLK;
 
-    // Testbench logic
-    initial begin
-        // Open a file for logging
-        $dumpfile("cpu_tb.vcd");
-        $dumpvars(0, cpu_tb);
+    // // Testbench logic
+    // initial begin
+    //     // Open a file for logging
+    //     $dumpfile("cpu_tb.vcd");
+    //     $dumpvars(0, cpu_tb);
 
-        // Initialize inputs
-        CLK = 0;
-        RST = 1; // Assert reset
+    //     // Initialize inputs
+    //     CLK = 0;
+    //     RST = 1; // Assert reset
 
-        // Wait for global reset
-        #10;
-        RST = 0; // Deassert reset
+    //     // Wait for global reset
+    //     #10;
+    //     RST = 0; // Deassert reset
 
-        // Run the simulation for a few clock cycles
-        #500;
+    //     // Run the simulation for a few clock cycles
+    //     #500;
 
-        // End simulation
-        $finish;
-    end
+    //     // End simulation
+    //     $finish;
+    // end
 
     // // Monitor to print inputs and outputs
     // initial begin

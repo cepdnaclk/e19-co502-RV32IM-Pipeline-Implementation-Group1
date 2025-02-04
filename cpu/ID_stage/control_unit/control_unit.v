@@ -1,8 +1,8 @@
 `ifdef TB_RUN
-    `include "../../utils/muxs/mux_3b_2to1.v"
+    `include "../../utils/muxes/mux_3b_2to1.v"
     `include "../../utils/encordings.v"
 `else
-    `include "./utils/muxs/mux_3b_2to1.v"
+    `include "./utils/muxes/mux_3b_2to1.v"
     `include "./utils/encordings.v"
 `endif
 

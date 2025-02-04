@@ -2,7 +2,7 @@
 
 `include "../pc/pc.v"
 `include "../../pipeline_regs/if_id_pipeline_reg.v"
-`include "../../utils/muxs/mux_32b_2to1.v"
+`include "../../utils/muxes/mux_32b_2to1.v"
 `include "../../utils/adders/adder_32b_4.v"
 `include "../imem/imem.v"
 `timescale 1ns/100ps

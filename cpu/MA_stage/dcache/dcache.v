@@ -2,7 +2,7 @@
 
 // Need to fix this
 
-module data_cache_memory(
+module dcache(
 	clock,
     reset,
     read,

@@ -1,14 +1,3 @@
-/*
-Program	: 256x8-bit data memory (4-Byte blocks)
-Author	: Isuru Nawinne
-Date    : 30/05/2020
-
-Description	:
-
-This program presents a primitive data memory module for CO224 Lab 6 - Part 2
-This memory allows data to be read and written as 4-Byte blocks
-*/
-
 `timescale 1ns/100ps
 
 module dmem(
@@ -40,73 +29,47 @@ assign DEBUG_DATA = memory_array[0];
 assign DEBUG_READ_ACC = readaccess;
 assign DEBUG_WRITE_ACC = writeaccess;
 
-//TODO: can increase memory size because we have 32 bit vyte addressing space
-//Declare memory array 256x8-bits 
+reg readaccess, writeaccess;
 reg [7:0] memory_array [255:0];
 
-//Detecting an incoming memory access
-reg readaccess, writeaccess;
-always @(read, write)
-begin
-	//busywait = (read[3] || write[2])? 1 : 0;
-	busywait = 1'b0;
-	readaccess = (read[3] && !write[2])? 1 : 0;
-	writeaccess = (!read[3] && write[2])? 1 : 0;
-end
-
 integer i;
-//Reading & writing
+
+// Read & Write Operations
 always @(negedge clock)
-begin
-	// resetting the memory
-	if (reset)
-    begin
-        for (i=0;i<256; i=i+1)
-            memory_array[i] = 0;
-        
-        // busywait = 0;
-		// readaccess = 0;
-		// writeaccess = 0;
-    end
-	else
-	begin
-		if(readaccess)
-		begin
-			#2
-			//TODO set the delay to a ralistic value, #4 used for tesing		
-			readdata[7:0]     = memory_array[{address[31:2],2'b00}];
-			readdata[15:8]    = memory_array[{address[31:2],2'b01}];
-			readdata[23:16]   = memory_array[{address[31:2],2'b10}];
-			readdata[31:24]   = memory_array[{address[31:2],2'b11}];
-			// busywait = 0;
-			// readaccess = 0;
-		end
-		if(writeaccess)
-		begin
-			#3
-			memory_array[{address[31:2],2'b00}] = writedata[7:0];
-			memory_array[{address[31:2],2'b01}] = writedata[15:8];
-			memory_array[{address[31:2],2'b10}] = writedata[23:16];
-			memory_array[{address[31:2],2'b11}] = writedata[31:24];
-
-			// busywait = 0;
-			// writeaccess = 0;
-		end
-	end
-end
-
-
-//Reset memory
-always @(posedge reset)
 begin
     if (reset)
     begin
-        for (i=0;i<256; i=i+1)
-            memory_array[i] = 0;
-        
+        for (i=0; i<256; i=i+1)
+            memory_array[i] = 8'b0;
+
         busywait = 0;
-		readaccess = 0;
-		writeaccess = 0;
+        readaccess = 0;
+        writeaccess = 0;
+    end
+    else
+    begin
+        readaccess = (read[3] && !write[2]) ? 1'b1 : 1'b0;
+        writeaccess = (!read[3] && write[2]) ? 1'b1 : 1'b0;
+
+        // if (readaccess || writeaccess)
+        //     busywait = 1;
+        // else
+        //     busywait = 0;
+
+        if (readaccess)
+        begin
+            readdata[7:0]   = memory_array[{address[31:2],2'b00}];
+            readdata[15:8]  = memory_array[{address[31:2],2'b01}];
+            readdata[23:16] = memory_array[{address[31:2],2'b10}];
+            readdata[31:24] = memory_array[{address[31:2],2'b11}];
+        end
+        if (writeaccess)
+        begin
+            memory_array[{address[31:2],2'b00}] = writedata[7:0];
+            memory_array[{address[31:2],2'b01}] = writedata[15:8];
+            memory_array[{address[31:2],2'b10}] = writedata[23:16];
+            memory_array[{address[31:2],2'b11}] = writedata[31:24];
+        end
     end
 end
 

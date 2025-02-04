@@ -50,7 +50,7 @@ module control_unit_tb;
 
     // Testbench logic
     initial begin
-        #10
+        /*#1*/0
 
         // Initialize inputs
         opcode = 7'b0000000;
@@ -59,67 +59,67 @@ module control_unit_tb;
         reset = 0;
 
         // Test case 1: R-type instruction (ADD)
-        #10;
+        /*#1*/0;
         opcode = `OP_R_TYPE;
         funct3 = 3'b000;
         funct7 = 7'b0000000;
-        #10;
+        /*#1*/0;
 
         // Test case 2: I-type instruction (ADDI)
-        #10;
+        /*#1*/0;
         opcode = `OP_I_TYPE;
         funct3 = 3'b000;
         funct7 = 7'b0000000;
-        #10;
+        /*#1*/0;
 
         // Test case 3: Load instruction (LW)
-        #10;
+        /*#1*/0;
         opcode = `OP_LOAD;
         funct3 = 3'b010;
         funct7 = 7'b0000000;
-        #10;
+        /*#1*/0;
 
         // Test case 4: Store instruction (SW)
-        #10;
+        /*#1*/0;
         opcode = `OP_STORE;
         funct3 = 3'b010;
         funct7 = 7'b0000000;
-        #10;
+        /*#1*/0;
 
         // Test case 5: Branch instruction (BEQ)
-        #10;
+        /*#1*/0;
         opcode = `OP_BRANCH;
         funct3 = 3'b000;
         funct7 = 7'b0000000;
-        #10;
+        /*#1*/0;
 
         // Test case 6: JAL instruction
-        #10;
+        /*#1*/0;
         opcode = `OP_JAL;
         funct3 = 3'b000;
         funct7 = 7'b0000000;
-        #10;
+        /*#1*/0;
 
         // Test case 7: LUI instruction
-        #10;
+        /*#1*/0;
         opcode = `OP_LUI;
         funct3 = 3'b000;
         funct7 = 7'b0000000;
-        #10;
+        /*#1*/0;
 
         // Test case 8: AUIPC instruction
-        #10;
+        /*#1*/0;
         opcode = `OP_AUIPC;
         funct3 = 3'b000;
         funct7 = 7'b0000000;
-        #10;
+        /*#1*/0;
 
         // Test case 9: Reset condition
-        #10;
+        /*#1*/0;
         reset = 1;
-        #10;
+        /*#1*/0;
         reset = 0;
-        #10;
+        /*#1*/0;
 
         // End simulation
         $finish;

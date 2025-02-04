@@ -1,0 +1,5 @@
+Warning (10273): Verilog HDL warning at if_id_pipeline_reg.v(11): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at if_id_pipeline_reg.v(12): extended using "x" or "z"
+Info (10281): Verilog HDL Declaration information at cpu.v(59): object "PC_PLUS_4_MA" differs only in case from object "pc_plus_4_ma" in the same scope
+Warning (10273): Verilog HDL warning at imem.v(23): extended using "x" or "z"
+Warning (10268): Verilog HDL information at imem.v(21): always construct contains both blocking and non-blocking assignments

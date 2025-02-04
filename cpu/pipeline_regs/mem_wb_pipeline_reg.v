@@ -12,7 +12,6 @@ module mem_wb_pipeline_reg(
     output reg [4:0] dest_addr_out,
     output reg [1:0] wb_sel_out
 );
-
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             reg_write_out <= 1'b0;
@@ -20,7 +19,7 @@ module mem_wb_pipeline_reg(
             mem_data_out <= 32'b0;
             alu_result_out <= 32'b0;
             imm_out <= 32'b0;
-            dest_addr_out <= 32'b0;
+            dest_addr_out <= 5'b0;
             wb_sel_out <= 2'b0;
         end else begin
             if (!busywait) begin

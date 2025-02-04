@@ -6,5 +6,5 @@ module mux_32b_2to1(
     input sel,
     output [31:0] out
 );
-    assign #1 out = (sel == 1'b1) ? data2 : data1;
+    assign /*#1*/ out = (sel == 1'b1) ? data2 : data1;
 endmodule

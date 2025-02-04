@@ -35,139 +35,139 @@ module alu_tb;
         SELECT = 0;
 
         // Wait for global reset
-        #10;
+        /*#1*/0;
 
         // Test Case 1: FORWARD (DATA1)
         DATA1 = 32'h12345678;
         DATA2 = 32'h00000000;
         SELECT = `FORWARD;
-        #10;
+        /*#1*/0;
         $display("FORWARD: DATA1 = %h, RESULT = %h", DATA1, RESULT);
 
         // Test Case 2: ADD
         DATA1 = 32'h0000000A;
         DATA2 = 32'h0000000B;
         SELECT = `ADD;
-        #10;
+        /*#1*/0;
         $display("ADD: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 3: SUB
         DATA1 = 32'h0000000F;
         DATA2 = 32'h0000000A;
         SELECT = `SUB;
-        #10;
+        /*#1*/0;
         $display("SUB: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 4: SLL (Shift Left Logical)
         DATA1 = 32'h00000001;
         DATA2 = 32'h00000004;
         SELECT = `SLL;
-        #10;
+        /*#1*/0;
         $display("SLL: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 5: SLT (Set Less Than)
         DATA1 = 32'h0000000A;
         DATA2 = 32'h0000000B;
         SELECT = `SLT;
-        #10;
+        /*#1*/0;
         $display("SLT: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 6: SLTU (Set Less Than Unsigned)
         DATA1 = 32'h0000000A;
         DATA2 = 32'h0000000B;
         SELECT = `SLTU;
-        #10;
+        /*#1*/0;
         $display("SLTU: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 6: XOR
         DATA1 = 32'h0000FFFF;
         DATA2 = 32'hFFFF0000;
         SELECT = `XOR;
-        #10;
+        /*#1*/0;
         $display("XOR: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 7: MUL
         DATA1 = 32'h00000002;
         DATA2 = 32'h00000003;
         SELECT = `MUL;
-        #10;
+        /*#1*/0;
         $display("MUL: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 8: DIV
         DATA1 = 32'h0000000A;
         DATA2 = 32'h00000002;
         SELECT = `DIV;
-        #10;
+        /*#1*/0;
         $display("DIV: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 9: REM (Remainder)
         DATA1 = 32'h0000000B;
         DATA2 = 32'h00000003;
         SELECT = `REM;
-        #10;
+        /*#1*/0;
         $display("REM: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 10: AND
         DATA1 = 32'h0000FFFF;
         DATA2 = 32'hFFFF0000;
         SELECT = `AND;
-        #10;
+        /*#1*/0;
         $display("AND: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 11: OR
         DATA1 = 32'h0000FFFF;
         DATA2 = 32'hFFFF0000;
         SELECT = `OR;
-        #10;
+        /*#1*/0;
         $display("OR: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 12: SRL (Shift Right Logical)
         DATA1 = 32'h0000000F;
         DATA2 = 32'h00000002;
         SELECT = `SRL;
-        #10;
+        /*#1*/0;
         $display("SRL: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 13: SRA (Shift Right Arithmetic)
         DATA1 = 32'h80000000;
         DATA2 = 32'h00000001;
         SELECT = `SRA;
-        #10;
+        /*#1*/0;
         $display("SRA: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 14: MULH (Multiply High)
         DATA1 = 32'ha0000002;
         DATA2 = 32'hb0000003;
         SELECT = `MULH;
-        #10;
+        /*#1*/0;
         $display("MULH: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 15: MULHSU (Multiply High Signed/Unsigned)
         DATA1 = 32'h80000002;
         DATA2 = 32'h00000003;
         SELECT = `MULHSU;
-        #10;
+        /*#1*/0;
         $display("MULHSU: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 16: MULHU (Multiply High Unsigned)
         DATA1 = 32'h80000002;
         DATA2 = 32'h00000003;
         SELECT = `MULHU;
-        #10;
+        /*#1*/0;
         $display("MULHU: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 17: DIVU (Divide Unsigned)
         DATA1 = 32'h0000000A;
         DATA2 = 32'h00000002;
         SELECT = `DIVU;
-        #10;
+        /*#1*/0;
         $display("DIVU: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // Test Case 18: REMU (Remainder Unsigned)
         DATA1 = 32'h0000000B;
         DATA2 = 32'h00000003;
         SELECT = `REMU;
-        #10;
+        /*#1*/0;
         $display("REMU: DATA1 = %h, DATA2 = %h, RESULT = %h", DATA1, DATA2, RESULT);
 
         // End simulation

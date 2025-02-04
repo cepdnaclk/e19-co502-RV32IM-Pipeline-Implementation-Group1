@@ -94,47 +94,47 @@ module EX_stage_tb ();
         WB_sel_out = 2'b00;
 
         // Release reset after a few clock cycles
-        #10 rst = 0;
+        /*#1*/0 rst = 0;
 
         // Test case 1: Simple ALU operation (ADD)
-        #10;
+        /*#1*/0;
         data1_out = 32'h00000001;
         data2_out = 32'h00000002;
         aluop_out = `ADD; // Assuming 5'b00000 is the opcode for ADD
-        #10;
+        /*#1*/0;
         $display("Test case 1: ALU ADD operation");
         $display("data1_out = %h, data2_out = %h, alu_res_out = %h", data1_mux_out, data2_out, alu_res_out);
 
         // Test case 2: ALU operation with immediate (SUB)
-        #10;
+        /*#1*/0;
         data1_out = 32'h00000005;
         imm_out = 32'h00000002;
         data2alusel_out = 1; // Select immediate
         aluop_out = `SUB; // Assuming 5'b00001 is the opcode for SUB
-        #10;
+        /*#1*/0;
         $display("Test case 2: ALU SUB operation with immediate");
         $display("data1_out = %h, imm_out = %h, alu_res_out = %h", data1_out, imm_out, alu_res_out);
 
         // Test case 3: Branch logic (BEQ)
-        #10;
+        /*#1*/0;
         data1_out = 32'h00000003;
         data2_out = 32'h00000003;
         branch_jump_out = `BEQ; // Assuming 3'b001 is the opcode for BEQ
-        #10;
+        /*#1*/0;
         $display("Test case 3: Branch logic BEQ");
         $display("data1_out = %h, data2_out = %h, branch_logic_out = %b", data1_out, data2_out, branch_logic_out);
 
         // Test case 4: Branch logic (BNE)
-        #10;
+        /*#1*/0;
         data1_out = 32'h00000004;
         data2_out = 32'h00000005;
         branch_jump_out = `BNE; // Assuming 3'b010 is the opcode for BNE
-        #10;
+        /*#1*/0;
         $display("Test case 4: Branch logic BNE");
         $display("data1_out = %h, data2_out = %h, branch_logic_out = %b", data1_out, data2_out, branch_logic_out);
 
         // End simulation
-        #10 $finish;
+        /*#1*/0 $finish;
     end
 
     // Clock generation

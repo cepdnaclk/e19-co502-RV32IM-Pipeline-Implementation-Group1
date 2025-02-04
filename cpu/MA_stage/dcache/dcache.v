@@ -130,7 +130,7 @@ module dcache(
     always @ (*)
     begin
         // TODO : set the time delay
-        #1 // loading the current values
+        /*#1*/ // loading the current values
         CURRENT_VALID = validBit_array[index];
         CURRENT_DIRTY = dirtyBit_array[index];
         CURRENT_DATA  = data_array[index];
@@ -149,7 +149,7 @@ module dcache(
     begin
         if (readaccess) // detect the idle read status
         // TODO : set the time delay
-        #1
+        /*#1*/
         begin
             // fetching data
             case(offset)
@@ -308,7 +308,7 @@ module dcache(
     begin
         if (writeCache_mem)
         begin
-            #1
+            /*#1*/
             // put the read data to the cache
             data_array[index] = MAIN_MEM_READ_DATA;
             tag_array[index] = tag;
@@ -378,25 +378,25 @@ module dcache(
                 2'b00:
                     begin
                         data_array[index][31:0] = (data_array[index][31:0] & write_mask);
-                        // #1
+                        // /*#1*/
                         data_array[index][31:0] = (data_array[index][31:0] | cache_writedata);
                     end
                 2'b01:
                     begin
                         data_array[index][63:32] = (data_array[index][63:32] & write_mask);
-                        // #1
+                        // /*#1*/
                         data_array[index][63:32] = (data_array[index][63:32] | cache_writedata);
                     end
                 2'b10:
                     begin
                         data_array[index][95:64] = (data_array[index][95:64] & write_mask);
-                        // #1
+                        // /*#1*/
                         data_array[index][95:64] = (data_array[index][95:64] | cache_writedata);
                     end
                 2'b11:
                     begin
                         data_array[index][127:96] = ( data_array[index][127:96] & write_mask);
-                        // #1
+                        // /*#1*/
                         data_array[index][127:96] = (data_array[index][127:96] | cache_writedata);
                     end
             endcase

@@ -5,9 +5,20 @@
 `timescale 1ns/100ps
 
 module cpu_fpga(
-    input CLK;
-    input RST;
+    input CLK_GEN,
+    input RST,
+    output reg CLK
 );
+    reg [31:0] SET_Count;
+
+    always @(posedge CLK_GEN) begin
+        if (SET_Count == 100000000) begin  
+            CLK <= ~CLK;  
+            SET_Count <= 32'h0; 
+        end else begin
+            SET_Count <= SET_Count + 1;
+        end
+    end
 
     // Outputs
     wire [31:0] PC, INST, DMEM_DATA_READ, DMEM_DATA_WRITE, DMEM_ADDR;
@@ -49,35 +60,5 @@ module cpu_fpga(
         .readdata(DMEM_DATA_READ),
         .busywait(BUSYWAIT)
     );
-
-    // Clock generation
-    // always #5 CLK = ~CLK;
-
-    // // Testbench logic
-    // initial begin
-    //     // Open a file for logging
-    //     $dumpfile("cpu_tb.vcd");
-    //     $dumpvars(0, cpu_tb);
-
-    //     // Initialize inputs
-    //     CLK = 0;
-    //     RST = 1; // Assert reset
-
-    //     // Wait for global reset
-    //     #10;
-    //     RST = 0; // Deassert reset
-
-    //     // Run the simulation for a few clock cycles
-    //     #500;
-
-    //     // End simulation
-    //     $finish;
-    // end
-
-    // // Monitor to print inputs and outputs
-    // initial begin
-    //     $monitor($time, " | CLK: %b | RST: %b | PC: %h | INST: %h | DMEM_ADDR: %h | DMEM_DATA_WRITE: %h | DMEM_DATA_READ: %h | DMEM_READ: %b | DMEM_WRITE: %b | BUSYWAIT: %b",
-    //              CLK, RST, PC, INST, DMEM_ADDR, DMEM_DATA_WRITE, DMEM_DATA_READ, DMEM_READ, DMEM_WRITE, BUSYWAIT);
-    // end
 
 endmodule

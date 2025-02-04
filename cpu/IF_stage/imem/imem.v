@@ -32,7 +32,7 @@ module imem(clk, rst, pc, instr);
             mem[8] = 32'h00002203;
         end
         else begin
-            #2 instr <= mem[pc[31:2]];
+            /*#2*/ instr <= mem[pc[31:2]];
         end
     end
 endmodule

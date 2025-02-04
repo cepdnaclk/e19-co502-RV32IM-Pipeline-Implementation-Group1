@@ -18,7 +18,6 @@ module id_ex_pipeline_reg(
     output reg [3:0] mem_read_out,
     output reg [1:0] wb_sel_out
 );
-
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             reg_write_en_out <= 0;

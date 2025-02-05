@@ -55,14 +55,14 @@ module fetch_stage_tb;
         pc_sel_ex = 1'b0;
         #5
         rst = 1'b1;
-        /*#1*/0
+        #10
         rst = 1'b0;
         #500
         $finish;
     end
 
     always begin
-        /*#1*/0 clk = ~clk;
+        #10 clk = ~clk;
     end
     
 endmodule

@@ -58,6 +58,7 @@ begin
 
         if (readaccess)
         begin
+            #2
             readdata[7:0]   = memory_array[{address[31:2],2'b00}];
             readdata[15:8]  = memory_array[{address[31:2],2'b01}];
             readdata[23:16] = memory_array[{address[31:2],2'b10}];
@@ -65,6 +66,7 @@ begin
         end
         if (writeaccess)
         begin
+            #2
             memory_array[{address[31:2],2'b00}] = writedata[7:0];
             memory_array[{address[31:2],2'b01}] = writedata[15:8];
             memory_array[{address[31:2],2'b10}] = writedata[23:16];

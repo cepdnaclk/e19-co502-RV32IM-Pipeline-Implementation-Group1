@@ -5,6 +5,6 @@ module adder_32b_4(
     output [31:0] out
 );
 
-    assign /*#1*/ out = data + 4;
+    assign #1 out = data + 4;
 
 endmodule

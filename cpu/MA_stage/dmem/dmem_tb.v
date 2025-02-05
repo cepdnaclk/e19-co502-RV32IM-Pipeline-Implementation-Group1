@@ -44,34 +44,34 @@ module dmem_tb;
         writedata = 0;
         
         // Apply reset
-        /*#1*/0 reset = 1;
-        /*#1*/0 reset = 0;
+        #10 reset = 1;
+        #10 reset = 0;
 
         // Write to memory at address 0x04
-        /*#1*/0;
+        #10;
         address = 32'h04;
         writedata = 32'hAABBCCDD;
         write = 3'b100; // Write enable
-        /*#1*/0 write = 3'b000; // Disable write
+        #10 write = 3'b000; // Disable write
         
         // Read from memory at address 0x04
-        /*#1*/0;
+        #10;
         address = 32'h04;
         read = 4'b1000; // Read enable
-        /*#1*/0 read = 4'b0000; // Disable read
+        #10 read = 4'b0000; // Disable read
 
         // Write to memory at address 0x08
-        /*#1*/0;
+        #10;
         address = 32'h08;
         writedata = 32'h11223344;
         write = 3'b100;
-        /*#1*/0 write = 3'b000;
+        #10 write = 3'b000;
 
         // Read from memory at address 0x08
-        /*#1*/0;
+        #10;
         address = 32'h08;
         read = 4'b1000;
-        /*#1*/0 read = 4'b0000;
+        #10 read = 4'b0000;
 
         // End simulation
         #50;

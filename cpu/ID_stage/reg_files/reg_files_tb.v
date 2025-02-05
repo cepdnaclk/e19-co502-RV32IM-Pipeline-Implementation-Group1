@@ -44,23 +44,23 @@ module reg_files_tb;
         wd = 32'b0;
 
         // Test case 1: Reset the register file
-        /*#1*/0;
+        #10;
         rst = 1;
-        /*#1*/0;
+        #10;
         rst = 0;
-        /*#1*/0;
+        #10;
 
         // Test case 2: Write to register 5
         waddr = 5'b00101; // Register 5
         wd = 32'h12345678; // Data to write
         we = 1; // Enable write
-        /*#1*/0;
+        #10;
 
         // Test case 3: Read from register 5 and register 10
         addr1 = 5'b00101; // Read from register 5
         addr2 = 5'b01010; // Read from register 10
         we = 0; // Disable write
-        /*#1*/0;
+        #10;
 
         // Test case 4: Write to register 10 and read from register 5 simultaneously
         waddr = 5'b01010; // Register 10
@@ -68,11 +68,11 @@ module reg_files_tb;
         we = 1; // Enable write
         addr1 = 5'b00101; // Read from register 5
         addr2 = 5'b01010; // Read from register 10
-        /*#1*/0;
+        #10;
 
         // Test case 5: Read from register 10 after write
         we = 0; // Disable write
-        /*#1*/0;
+        #10;
 
         // End simulation
         $finish;

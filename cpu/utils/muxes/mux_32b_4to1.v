@@ -10,7 +10,7 @@ module mux_32b_4to1(
 );
 
     // The output is assigned based on the value of sel
-    assign /*#1*/ out = (sel == 2'b00) ? data1 :
+    assign #1 out = (sel == 2'b00) ? data1 :
                  (sel == 2'b01) ? data2 :
                  (sel == 2'b10) ? data3 : data4;
 

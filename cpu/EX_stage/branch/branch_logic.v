@@ -24,7 +24,7 @@ module branch_logic (
     assign BGEU = ($unsigned(data1) >= $unsigned(data2));
 
     always @(*) begin
-        /*#2*/ // Delay for branch decision
+        #2 // Delay for branch decision
         
         if (op[3]) begin
             case (op[2:0])

@@ -28,70 +28,70 @@ module branch_logic_tb;
         data1 = 32'h12345678;
         data2 = 32'h12345678;
         op = 4'b1000;  // BEQ
-        /*#1*/0;
+        #10;
         $display("BEQ: data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // Test Case 2: BEQ (Not Equal)
         data1 = 32'h12345678;
         data2 = 32'h87654321;
         op = 4'b1000;  // BEQ
-        /*#1*/0;
+        #10;
         $display("BEQ (Not Equal): data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // Test Case 3: BNE (Branch if Not Equal)
         data1 = 32'h12345678;
         data2 = 32'h87654321;
         op = 4'b1001;  // BNE
-        /*#1*/0;
+        #10;
         $display("BNE: data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // Test Case 4: BNE (Equal)
         data1 = 32'h12345678;
         data2 = 32'h12345678;
         op = 4'b1001;  // BNE
-        /*#1*/0;
+        #10;
         $display("BNE (Equal): data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // Test Case 5: BLT (Signed Less Than)
         data1 = 32'h80000000;
         data2 = 32'h00000001;
         op = 4'b1100;  // BLT
-        /*#1*/0;
+        #10;
         $display("BLT: data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // Test Case 6: BGE (Signed Greater Than or Equal)
         data1 = 32'h00000001;
         data2 = 32'h80000000;
         op = 4'b1101;  // BGE
-        /*#1*/0;
+        #10;
         $display("BGE: data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // Test Case 7: BLTU (Unsigned Less Than)
         data1 = 32'h00000001;
         data2 = 32'hFFFFFFFF;
         op = 4'b1110;  // BLTU
-        /*#1*/0;
+        #10;
         $display("BLTU: data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // Test Case 8: BGEU (Unsigned Greater Than or Equal)
         data1 = 32'hFFFFFFFF;
         data2 = 32'h00000001;
         op = 4'b1111;  // BGEU
-        /*#1*/0;
+        #10;
         $display("BGEU: data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // Test Case 9: JAL/JALR (Always Branch)
         data1 = 32'h12345678;
         data2 = 32'h87654321;
         op = 4'b1010;  // JAL_JALR (Unconditional)
-        /*#1*/0;
+        #10;
         $display("JAL/JALR: data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // Test Case 10: No Branch (op[3] == 0)
         data1 = 32'h00000001;
         data2 = 32'h00000002;
         op = 4'b0000;  // No branch (op[3] == 0)
-        /*#1*/0;
+        #10;
         $display("No Branch: data1 = %h, data2 = %h, op = %b, out = %b", data1, data2, op, out);
 
         // End simulation

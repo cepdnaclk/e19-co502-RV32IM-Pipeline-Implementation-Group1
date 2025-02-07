@@ -3,7 +3,7 @@ name: Deploy via SSH with Jump Host
 on:
   push:
     branches:
-      - main
+      - test # Change if using a different branch
 
 jobs:
   deploy:
@@ -18,4 +18,17 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY_TESLA }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H tesla.ce.pdn.ac.lk >> ~/.ssh/known_hosts
-          ssh e19129@10.40.18.26 "cd /path/to/project && ./script.sh"
+
+      - name: SSH to Server A and SSH to Server B
+        run: |
+          ssh -i ~/.ssh/id_rsa e19129@tesla.ce.pdn.ac.lk << 'EOF'
+            echo "Setting up SSH for Server A → Server B"
+            mkdir -p ~/.ssh
+            echo "Host serverB
+                  HostName serverB-ip
+                  User userB
+                  IdentityFile ~/.ssh/id_rsa_serverB
+                  StrictHostKeyChecking no" > ~/.ssh/config
+            chmod 600 ~/.ssh/config
+            ssh e19129@10.40.18.26 "cd /path/to/project && ./script.sh"
+          EOF

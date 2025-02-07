@@ -1,0 +1,34 @@
+name: Deploy via SSH with Jump Host
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup SSH Key for GitHub → Server A
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY_TESLA }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H tesla.ce.pdn.ac.lk >> ~/.ssh/known_hosts
+
+      - name: SSH to Server A and SSH to Server B
+        run: |
+          ssh -i ~/.ssh/id_rsa e19129@10.40.18.26 << 'EOF'
+            echo "Setting up SSH for Server A → Server B"
+            mkdir -p ~/.ssh
+            echo "Host serverB
+                  HostName serverB-ip
+                  User userB
+                  IdentityFile ~/.ssh/id_rsa_serverB
+                  StrictHostKeyChecking no" > ~/.ssh/config
+            chmod 600 ~/.ssh/config
+            ssh userB@serverB-ip "cd /path/to/project && ./script.sh"
+          EOF

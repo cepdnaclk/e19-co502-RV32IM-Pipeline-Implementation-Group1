@@ -18,7 +18,4 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY_TESLA }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H tesla.ce.pdn.ac.lk >> ~/.ssh/known_hosts
-
-      - name: SSH to Server A and SSH to Server B
-        run: |
           ssh e19129@10.40.18.26 "cd /path/to/project && ./script.sh"

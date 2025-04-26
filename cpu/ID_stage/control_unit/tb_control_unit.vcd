@@ -1,5 +1,5 @@
 $date
-	Sun Feb 02 13:21:06 2025
+	Sat Apr 26 15:10:04 2025
 $end
 $version
 	Icarus Verilog
@@ -15,7 +15,7 @@ $var wire 4 $ mem_read [3:0] $end
 $var wire 4 % imm_sel [3:0] $end
 $var wire 1 & data2_alu_sel $end
 $var wire 1 ' data1_alu_sel $end
-$var wire 3 ( branch_jump [2:0] $end
+$var wire 4 ( branch_jump [3:0] $end
 $var wire 5 ) alu_op [4:0] $end
 $var reg 3 * funct3 [2:0] $end
 $var reg 7 + funct7 [6:0] $end
@@ -34,7 +34,7 @@ $var wire 2 2 wb_sel [1:0] $end
 $var wire 3 3 mem_write [2:0] $end
 $var wire 4 4 mem_read [3:0] $end
 $var wire 4 5 imm_sel [3:0] $end
-$var wire 3 6 branch_jump [2:0] $end
+$var wire 4 6 branch_jump [3:0] $end
 $var wire 5 7 alu_op [4:0] $end
 $scope module funct3_mux $end
 $var wire 3 8 data1 [2:0] $end
@@ -90,11 +90,12 @@ b0 1
 bx000 )
 bx000 7
 b0 :
+#120
+0/
 #130
 0&
 b0xxx %
 b0xxx 5
-0/
 0'
 0"
 b1 !
@@ -129,8 +130,12 @@ b11 1
 b10 )
 b10 7
 b10 :
-#630
+#620
 1/
+#630
+b0 )
+b0 7
+b0 :
 b0 !
 b0 2
 b10 #
@@ -139,10 +144,6 @@ b10 (
 b10 6
 b1010 $
 b1010 4
-#640
-b0 )
-b0 7
-b0 :
 #800
 b100011 ,
 b100011 1
@@ -165,8 +166,8 @@ b1100011 1
 #1030
 b11 %
 b11 5
-b0 (
-b0 6
+b1000 (
+b1000 6
 1'
 b0 $
 b0 4
@@ -179,15 +180,16 @@ b1101111 1
 b1 %
 b1 5
 1"
-b10 (
-b10 6
+b1010 (
+b1010 6
 b11 !
 b11 2
 #1400
 b110111 ,
 b110111 1
-#1430
+#1420
 0/
+#1430
 b0 %
 b0 5
 0'
@@ -200,8 +202,9 @@ b11000 7
 #1600
 b10111 ,
 b10111 1
-#1630
+#1620
 1/
+#1630
 1'
 b1 !
 b1 2

@@ -17,7 +17,7 @@ module control_unit_tb;
     wire [4:0] alu_op;
     wire [2:0] mem_write;
     wire [3:0] mem_read;
-    wire [2:0] branch_jump;
+    wire [3:0] branch_jump;
     wire [3:0] imm_sel;
     wire [1:0] wb_sel;
 

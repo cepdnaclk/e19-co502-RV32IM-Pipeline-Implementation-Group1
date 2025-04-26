@@ -57,6 +57,7 @@ module alu(DATA1, DATA2, SELECT, RESULT);
             `SRA: RESULT = sraData;
             `OR: RESULT = orData;
             `AND: RESULT = andData;
+
             `MUL: RESULT = mulData;
             `MULH: RESULT = mulhData;
             `MULHSU: RESULT = mulhsuData;
@@ -65,6 +66,7 @@ module alu(DATA1, DATA2, SELECT, RESULT);
             `DIVU: RESULT = divuData;
             `REM: RESULT = remData;
             `REMU: RESULT = remuData;
+            
             // `FORWARD: RESULT = forwardData;
             default: RESULT = 32'b0;  // Prevents undefined behavior
         endcase

@@ -25,7 +25,6 @@ module branch_logic (
 
     always @(*) begin
         #2 // Delay for branch decision
-        
         if (op[3]) begin
             case (op[2:0])
                 3'b010: out = 1'b1;  // JAL/JALR (Unconditional branch)

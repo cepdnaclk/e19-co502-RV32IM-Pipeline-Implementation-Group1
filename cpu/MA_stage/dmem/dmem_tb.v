@@ -12,9 +12,6 @@ module dmem_tb;
     reg [31:0] writedata;
     wire [31:0] readdata;
     wire busywait;
-    wire [31:0] DEBUG_DATA;
-    wire DEBUG_READ_ACC;
-    wire DEBUG_WRITE_ACC;
 
     // Instantiate the dmem module
     dmem uut (
@@ -25,52 +22,92 @@ module dmem_tb;
         .address(address),
         .writedata(writedata),
         .readdata(readdata),
-        .busywait(busywait),
-        .DEBUG_DATA(DEBUG_DATA),
-        .DEBUG_READ_ACC(DEBUG_READ_ACC),
-        .DEBUG_WRITE_ACC(DEBUG_WRITE_ACC)
+        .busywait(busywait)
     );
 
-    // Generate a clock signal (10ns period -> 100MHz)
+    // Clock generation
     always #5 clock = ~clock;
 
     initial begin
-        // Initialize signals
+        // Initialization
         clock = 0;
         reset = 0;
         read = 0;
         write = 0;
         address = 0;
         writedata = 0;
-        
-        // Apply reset
+
+        // Reset memory
         #10 reset = 1;
         #10 reset = 0;
 
-        // Write to memory at address 0x04
+        // === STORE WORD ===
         #10;
-        address = 32'h04;
+        address = 32'h10;
         writedata = 32'hAABBCCDD;
-        write = 3'b100; // Write enable
-        #10 write = 3'b000; // Disable write
-        
-        // Read from memory at address 0x04
-        #10;
-        address = 32'h04;
-        read = 4'b1000; // Read enable
-        #10 read = 4'b0000; // Disable read
-
-        // Write to memory at address 0x08
-        #10;
-        address = 32'h08;
-        writedata = 32'h11223344;
-        write = 3'b100;
+        write = 3'b110; // SW (funct3 = 010)
         #10 write = 3'b000;
 
-        // Read from memory at address 0x08
+        // === LOAD WORD ===
         #10;
-        address = 32'h08;
-        read = 4'b1000;
+        address = 32'h10;
+        read = 4'b1010; // LW (funct3 = 010)
+        #10 read = 4'b0000;
+
+        // === LOAD BYTE (signed) ===
+        #10;
+        address = 32'h10;
+        read = 4'b1000; // LB (funct3 = 000)
+        #10 read = 4'b0000;
+
+        // === LOAD BYTE UNSIGNED ===
+        #10;
+        address = 32'h10;
+        read = 4'b1100; // LBU (funct3 = 100)
+        #10 read = 4'b0000;
+
+        // === LOAD HALF (signed) ===
+        #10;
+        address = 32'h10;
+        read = 4'b1001; // LH (funct3 = 001)
+        #10 read = 4'b0000;
+
+        // === LOAD HALF UNSIGNED ===
+        #10;
+        address = 32'h10;
+        read = 4'b1101; // LHU (funct3 = 101)
+        #10 read = 4'b0000;
+
+        // === STORE BYTE ===
+        #10;
+        address = 32'h20;
+        writedata = 32'h0000007F; // Byte value 0x7F
+        write = 3'b100; // SB (funct3 = 000)
+        #10 write = 3'b000;
+
+        // === LOAD BYTE from 0x20 (signed) ===
+        #10;
+        address = 32'h20;
+        read = 4'b1000; // LB
+        #10 read = 4'b0000;
+
+        // === STORE HALF ===
+        #10;
+        address = 32'h30;
+        writedata = 32'h00007FFF; // Halfword 0x7FFF
+        write = 3'b101; // SH (funct3 = 001)
+        #10 write = 3'b000;
+
+        // === LOAD HALF from 0x30 (signed) ===
+        #10;
+        address = 32'h30;
+        read = 4'b1010; // LH
+        #10 read = 4'b0000;
+
+        // === LOAD HALF from 0x30 (unsigned) ===
+        #10;
+        address = 32'h30;
+        read = 4'b1101; // LHU
         #10 read = 4'b0000;
 
         // End simulation
@@ -78,10 +115,10 @@ module dmem_tb;
         $finish;
     end
 
-    // Monitor changes in memory access
+    // Monitor signal activity
     initial begin
-        $monitor("Time=%0t | Address=0x%h | WriteData=0x%h | ReadData=0x%h | Write=%b | Read=%b | BusyWait=%b", 
-                  $time, address, writedata, readdata, write, read, busywait);
+        $monitor("T=%0t | Addr=0x%h | WData=0x%h | RData=0x%h | Write=%b | Read=%b | BusyWait=%b", 
+                 $time, address, writedata, readdata, write, read, busywait);
     end
 
 endmodule

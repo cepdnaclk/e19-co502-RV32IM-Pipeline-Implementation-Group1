@@ -11,6 +11,8 @@ module dmem(
     output reg busywait // busywait signal
 );
 
+
+
     reg readaccess, writeaccess;
     reg [7:0] memory_array [255:0];
 

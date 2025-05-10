@@ -8,8 +8,8 @@ module if_id_pipeline_reg(clk, rst, pc_in, pc_out, instr_in, instr_out, busywait
 
     always @(posedge clk) begin
         if (rst == 1'b1) begin
-            pc_out <= 32'dx;
-            instr_out <= 32'dx;
+            pc_out <= 32'd0;
+            instr_out <= 32'd0;
         end
         else begin
             if (!busywait) begin

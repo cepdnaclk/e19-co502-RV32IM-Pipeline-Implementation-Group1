@@ -100,7 +100,7 @@ module cpu(
     // IF/ID pipeline register
     if_id_pipeline_reg if_id_pipeline_reg_inst(
         .clk(CLK),
-        .rst(RST),
+        .rst(RST | PC_MUX_SEL_EX),
         .pc_in(PC_IF),
         .pc_out(PC_ID),
         .instr_in(INST_IF),
@@ -160,7 +160,7 @@ module cpu(
     // IF/ID pipeline register
     id_ex_pipeline_reg id_ex_pipeline_reg_inst(
         .clk(CLK),
-        .rst(RST),
+        .rst(RST | PC_MUX_SEL_EX),
         .reg_write_en_in(WRITE_EN_ID),
         .reg_write_en_out(WRITE_EN_EX),
         .data1_alu_sel_in(DATA1_ALU_SEL_ID),

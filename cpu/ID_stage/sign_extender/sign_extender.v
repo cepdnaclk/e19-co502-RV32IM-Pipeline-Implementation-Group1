@@ -44,7 +44,7 @@ always @(*) begin
 
         // B-type (branch)
         `IMM_TYPE4:
-            imm_ext = {{20{inst[31]}}, inst[31], inst[7], inst[30:25], inst[11:8]};
+            imm_ext = {{19{inst[31]}}, inst[31], inst[7], inst[30:25], inst[11:8], {1'b0}};
 
         // S-type (store)
         `IMM_TYPE5:

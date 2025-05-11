@@ -79,7 +79,7 @@ module cpu(
     // PC mux
     mux_32b_2to1 pc_mux(
         .data1(PC_PLUS_4_IF),
-        .data2(NEXT_PC_EX),
+        .data2(ALU_OUT_EX),
         .out(PC_INT_IF),
         .sel(PC_MUX_SEL_EX)
     );

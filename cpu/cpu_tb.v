@@ -65,11 +65,11 @@ module cpu_tb();
         RST = 1; // Assert reset
 
         // Wait for global reset
-        #10;
+        #15;
         RST = 0; // Deassert reset
 
         // Run the simulation for a few clock cycles
-        #120;
+        #300;
 
         // End simulation
         $finish;

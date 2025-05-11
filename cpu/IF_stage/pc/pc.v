@@ -7,7 +7,6 @@ module pc(clk, rst, pc_in, pc_out, busywait);
     output reg [31:0] pc_out;
 
     always @(posedge clk) begin
-        #1
         if (rst == 1'b1) begin
             pc_out <= 32'h0;
         end

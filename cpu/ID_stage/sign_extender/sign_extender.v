@@ -33,7 +33,7 @@ always @(*) begin
             if (imm_sel[3]) 
                 imm_ext = {{11{1'b0}}, TYPE1, 1'b0}; 
             else 
-                imm_ext = {{11{inst[31]}}, inst[31], inst[19:12], inst[20], inst[30:21], 1'b0};
+                imm_ext = {{12{inst[31]}}, inst[19:12], inst[20], inst[30:21], 1'b0};
 
         // I-type (load and arithmetic)
         `IMM_TYPE3:
@@ -44,7 +44,7 @@ always @(*) begin
 
         // B-type (branch)
         `IMM_TYPE4:
-            imm_ext = {{19{inst[31]}}, inst[31], inst[7], inst[30:25], inst[11:8], {1'b0}};
+            imm_ext = {{20{inst[31]}}, inst[7], inst[30:25], inst[11:8], 1'b0};
 
         // S-type (store)
         `IMM_TYPE5:
@@ -60,5 +60,4 @@ always @(*) begin
         default: imm_ext = 32'b0;
     endcase
 end
-
 endmodule

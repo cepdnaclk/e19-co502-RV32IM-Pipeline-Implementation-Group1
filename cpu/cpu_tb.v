@@ -77,8 +77,8 @@ module cpu_tb();
 
     // Monitor to print inputs and outputs
     initial begin
-        $monitor($time, " | CLK: %b | RST: %b | PC: %h | INST: %h | DMEM_ADDR: %h | DMEM_DATA_WRITE: %h | DMEM_DATA_READ: %h | DMEM_READ: %b | DMEM_WRITE: %b | BUSYWAIT: %b",
-                 CLK, RST, PC, INST, DMEM_ADDR, DMEM_DATA_WRITE, DMEM_DATA_READ, DMEM_READ, DMEM_WRITE, BUSYWAIT);
+        // $monitor($time, " | CLK: %b | RST: %b | PC: %h | INST: %h | DMEM_ADDR: %h | DMEM_DATA_WRITE: %h | DMEM_DATA_READ: %h | DMEM_READ: %b | DMEM_WRITE: %b | BUSYWAIT: %b",
+        //          CLK, RST, PC, INST, DMEM_ADDR, DMEM_DATA_WRITE, DMEM_DATA_READ, DMEM_READ, DMEM_WRITE, BUSYWAIT);
     end
 
 endmodule

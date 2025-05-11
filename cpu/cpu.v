@@ -57,7 +57,7 @@ module cpu(
     wire DATA1_ALU_SEL_EX, DATA2_ALU_SEL_EX, WRITE_EN_EX;
 
     //MEM
-    wire [31:0] PC_MA, ALU_OUT_MA, IMM_MA, DATA2_MA, PC_PLUS_4_MA;
+    wire [31:0] PC_MA, ALU_OUT_MA, DATA2_MA, PC_PLUS_4_MA;
     wire [4:0] WADDR_MA;
     wire [1:0] WB_SEL_MA;
     wire WRITE_EN_MA;
@@ -66,7 +66,7 @@ module cpu(
 
     //WB
     wire [31:0] WRITE_DATA_WB;
-    wire [31:0] PC_WB, ALU_OUT_WB, DMEM_DATA_READ_WB, IMM_WB;
+    wire [31:0] PC_WB, ALU_OUT_WB, DMEM_DATA_READ_WB;
     wire [1:0] WB_SEL_WB;
     wire [4:0] WADDR_WB;
     wire WRITE_EN_WB;
@@ -186,6 +186,8 @@ module cpu(
         .branch_jump_out(BRANCH_JUMP_EX),
         .wb_sel_in(WB_SEL_ID),
         .wb_sel_out(WB_SEL_EX),
+        .imm_in(IMM_ID),
+        .imm_out(IMM_EX),
         .busywait(BUSYWAIT)
     );
 
@@ -290,7 +292,7 @@ module cpu(
     mux_32b_3to1 wb_mux(
         .data1(DMEM_DATA_READ_WB),
         .data2(ALU_OUT_WB),
-        data3(PC_WB),
+        .data3(PC_WB),
         .out(WRITE_DATA_WB),
         .sel(WB_SEL_WB)
     );

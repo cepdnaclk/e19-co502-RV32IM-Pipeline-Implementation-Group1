@@ -48,7 +48,7 @@ module reg_files(clk, rst, addr1, addr2, data1, data2, we, wd, waddr);
             mem[31] <= 32'b0;
         end
         else if(we == 1'b1 && waddr != 5'd0) begin
-            #2 mem[waddr] <= wd;
+            #2 mem[waddr] = wd;
         end
 
         // $display("mem[0] = %d, mem[1] = %d, mem[2] = %d, mem[3] = %d, mem[4] = %d" , mem[0], mem[1], mem[2], mem[3], mem[4]);

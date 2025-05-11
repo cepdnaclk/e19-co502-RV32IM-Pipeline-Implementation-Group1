@@ -11,6 +11,7 @@
 `include "EX_stage/alu/alu.v"
 `include "EX_stage/branch/branch_logic.v"
 `include "utils/muxes/mux_32b_4to1.v"
+`include "utils/muxes/mux_32b_3to1.v"
 
 `timescale 1ns/100ps
 
@@ -173,8 +174,6 @@ module cpu(
         .read_data1_out(DATA1_EX),
         .read_data2_in(DATA2_ID),
         .read_data2_out(DATA2_EX),
-        .imm_in(IMM_ID),
-        .imm_out(IMM_EX),
         .dest_addr_in(INST_ID[11:7]),
         .dest_addr_out(WADDR_EX),
         .aluop_in(ALU_OP_ID),
@@ -238,8 +237,6 @@ module cpu(
         .alu_result_out(ALU_OUT_MA),
         .read_data2_in(DATA2_EX),
         .read_data2_out(DATA2_MA),
-        .imm_in(IMM_EX),
-        .imm_out(IMM_MA),
         .dest_addr_in(WADDR_EX),
         .dest_addr_out(WADDR_MA),
         .mem_write_in(MEM_WRITE_EX),
@@ -280,8 +277,6 @@ module cpu(
         .mem_data_out(DMEM_DATA_READ_WB),
         .alu_result_in(ALU_OUT_MA),
         .alu_result_out(ALU_OUT_WB),
-        .imm_in(IMM_MA),
-        .imm_out(IMM_WB),
         .dest_addr_in(WADDR_MA),
         .dest_addr_out(WADDR_WB),
         .wb_sel_in(WB_SEL_MA),
@@ -292,12 +287,10 @@ module cpu(
     ////////////////////////////////////////////////////////////////////////
     // Stage 5: Write Back (WB)
 
-    // WB mux
-    mux_32b_4to1 wb_mux(
+    mux_32b_3to1 wb_mux(
         .data1(DMEM_DATA_READ_WB),
         .data2(ALU_OUT_WB),
-        .data3(IMM_WB),
-        .data4(PC_WB),
+        data3(PC_WB),
         .out(WRITE_DATA_WB),
         .sel(WB_SEL_WB)
     );

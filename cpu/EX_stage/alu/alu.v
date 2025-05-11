@@ -6,69 +6,79 @@
 
 `timescale 1ns/100ps
 
-module alu(DATA1, DATA2, SELECT, RESULT);
+module alu (
+    input  signed [31:0] DATA1,    // Signed input (for signed ops)
+    input         [31:0] DATA2,    // Unsigned input (cast where needed)
+    input         [4:0]  SELECT,   // Operation selector
+    output reg    [31:0] RESULT    // Output result
+);
 
-    // Initialize input ports
-    input [31:0] DATA1, DATA2;
-    input [4:0] SELECT;
-    // Initialize output ports
-    output reg [31:0] RESULT;
+    // Intermediate wires for each operation
+    wire [31:0] forwardData;
+    wire [31:0] addData, subData;
+    wire [31:0] sllData, srlData, sraData;
+    wire [31:0] sltData, sltuData;
+    wire [31:0] xorData, orData, andData;
+    wire [31:0] mulData, mulhData, mulhsuData, mulhuData;
+    wire [31:0] divData, divuData, remData, remuData;
 
-    // Define the wires
-    wire [31:0] addData, subData, sllData, sltData, sltuData, xorData, srlData, sraData, orData, andData, mulData, mulhData, mulhuData, mulhsuData, divData, divuData, remData, remuData;
-
-    // Assign operations
-    // assign #1 forwardData = DATA1;
+    // === Combinational logic ===
+    assign #1 forwardData = DATA2;
     assign #2 addData = DATA1 + DATA2;
     assign #2 subData = DATA1 - DATA2;
 
-    assign #1 sltData = ($signed(DATA1) < $signed(DATA2)) ? 32'd1 : 32'd0;
+    assign #1 sltData = (DATA1 < $signed(DATA2)) ? 32'd1 : 32'd0;
     assign #1 sltuData = ($unsigned(DATA1) < $unsigned(DATA2)) ? 32'd1 : 32'd0;
 
-    assign #1 sllData = DATA1 << DATA2[4:0];  // Limit shift amount to 5 bits
-    assign #1 srlData = DATA1 >> DATA2[4:0];  // Limit shift amount to 5 bits
-    assign #1 sraData = $signed(DATA1) >>> DATA2[4:0];  // Correct SRA
+    assign #1 sllData = DATA1 << DATA2[4:0];                    // Logical left
+    assign #1 srlData = DATA1 >> DATA2[4:0];                    // Logical right
+    assign #1 sraData = DATA1 >>> DATA2[4:0];                   // Arithmetic right
 
     assign #1 xorData = DATA1 ^ DATA2;
-    assign #1 orData = DATA1 | DATA2;
+    assign #1 orData  = DATA1 | DATA2;
     assign #1 andData = DATA1 & DATA2;
 
-    assign #3 mulData = $signed(DATA1) * $signed(DATA2);
-    assign #3 mulhData = ($signed(DATA1) * $signed(DATA2)) >> 32;
-    assign #3 mulhsuData = ($signed(DATA1) * $unsigned(DATA2)) >> 32;
-    assign #3 mulhuData = ($unsigned(DATA1) * $unsigned(DATA2)) >> 32;
+    // Multiplication with proper 64-bit casts
+    assign #3 mulData   = DATA1 * DATA2;
+    assign #3 mulhData  = ($signed({{32{DATA1[31]}}, DATA1}) * $signed({{32{DATA2[31]}}, DATA2})) >> 32;
+    assign #3 mulhsuData = ($signed({{32{DATA1[31]}}, DATA1}) * $unsigned({32'b0, DATA2})) >> 32;
+    assign #3 mulhuData = ($unsigned({32'b0, DATA1}) * $unsigned({32'b0, DATA2})) >> 32;
 
-    assign #3 divData = (DATA2 == 0) ? 32'b0 : DATA1 / DATA2;
-    assign #3 divuData = (DATA2 == 0) ? 32'b0 : $unsigned(DATA1) / $unsigned(DATA2);
-    assign #3 remData = (DATA2 == 0) ? 32'b0 : DATA1 % DATA2;
-    assign #3 remuData = (DATA2 == 0) ? 32'b0 : $unsigned(DATA1) % $unsigned(DATA2);
+    // Division and remainder with divide-by-zero protection
+    assign #3 divData  = (DATA2 == 0) ? 32'd0 : DATA1 / DATA2;
+    assign #3 divuData = (DATA2 == 0) ? 32'd0 : $unsigned(DATA1) / $unsigned(DATA2);
+    assign #3 remData  = (DATA2 == 0) ? 32'd0 : DATA1 % DATA2;
+    assign #3 remuData = (DATA2 == 0) ? 32'd0 : $unsigned(DATA1) % $unsigned(DATA2);
 
-    // Select operation based on SELECT signal
-    always @(*) 
-    begin
+    // === Output selection based on operation code ===
+    always @(*) begin
         case (SELECT)
-            `ADD: RESULT = addData;
-            `SUB: RESULT = subData;
-            `SLL: RESULT = sllData;
-            `SLT: RESULT = sltData;
-            `SLTU: RESULT = sltuData;
-            `XOR: RESULT = xorData;
-            `SRL: RESULT = srlData;
-            `SRA: RESULT = sraData;
-            `OR: RESULT = orData;
-            `AND: RESULT = andData;
+            `ADD:    RESULT = addData;
+            `SUB:    RESULT = subData;
+            `SLL:    RESULT = sllData;
+            `SLT:    RESULT = sltData;
+            `SLTU:   RESULT = sltuData;
+            `XOR:    RESULT = xorData;
+            `SRL:    RESULT = srlData;
+            `SRA:    RESULT = sraData;
+            `OR:     RESULT = orData;
+            `AND:    RESULT = andData;
 
-            `MUL: RESULT = mulData;
-            `MULH: RESULT = mulhData;
+            `MUL:    RESULT = mulData;
+            `MULH:   RESULT = mulhData;
             `MULHSU: RESULT = mulhsuData;
-            `MULHU: RESULT = mulhuData;
-            `DIV: RESULT = divData;
-            `DIVU: RESULT = divuData;
-            `REM: RESULT = remData;
-            `REMU: RESULT = remuData;
-            
-            // `FORWARD: RESULT = forwardData;
-            default: RESULT = 32'b0;  // Prevents undefined behavior
+            `MULHU:  RESULT = mulhuData;
+            `DIV:    RESULT = divData;
+            `DIVU:   RESULT = divuData;
+            `REM:    RESULT = remData;
+            `REMU:   RESULT = remuData;
+
+            default: begin
+                if (SELECT[4:3] == 2'b11)
+                    RESULT = forwardData;
+                else
+                    RESULT = 32'd0;
+            end
         endcase
     end
 

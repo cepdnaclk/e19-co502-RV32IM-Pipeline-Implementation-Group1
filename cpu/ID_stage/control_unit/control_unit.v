@@ -85,8 +85,8 @@ module control_unit(opcode, funct3, funct7, alu_op, reg_write_en, mem_write, mem
                               (opcode == `OP_BRANCH) ; //B_inst 
 
     // Register file write mux select signal genaration
-    assign #3 wb_sel[0] = ~(opcode == `OP_LOAD | opcode == `OP_LUI); // Added LUI 
-    assign #3 wb_sel[1] = (opcode == `OP_LUI) | (opcode == `OP_JAL) | (opcode == `OP_JALR); 
+    assign #3 wb_sel[0] = ~(opcode == `OP_LOAD); 
+    assign #3 wb_sel[1] = ((opcode == `OP_JAL) | (opcode == `OP_JALR)); 
 
 
 endmodule 

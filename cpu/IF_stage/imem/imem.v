@@ -20,16 +20,13 @@ module imem(clk, rst, pc, instr);
 
     always @(posedge clk) begin
         if (rst == 1'b1) begin
-            instr <= 32'dx;
-            mem[0] = 32'h00500093;
-            mem[1] = 32'h00A00113;
-            mem[2] = 32'h00A00113;
-            mem[3] = 32'h00A00113;
-            mem[4] = 32'h002081B3;
-            mem[5] = 32'h002081B3;
-            mem[6] = 32'h002081B3;
-            mem[7] = 32'h00302023;
-            mem[8] = 32'h00002203;
+            instr <= 32'd0;
+            mem[0] = 32'h00500093;   // ADDI x1, x0, 5
+            mem[1] = 32'h00A00113;   // ADDI x2, x0, 10
+            mem[2] = 32'h002081B3;   // ADD x3, x1, x2
+            mem[3] = 32'h00302023;   // SW x3, 0(x0)
+            mem[4] = 32'h00002203;   // LW x4, 0(x0)
+            mem[5] = 32'h002202b3;   // ADD x5, x4, x2
         end
         else begin
             #2 instr <= mem[pc[31:2]];

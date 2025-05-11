@@ -15,27 +15,27 @@ module ex_mem_pipeline_reg(
     output reg [3:0] mem_read_out,
     output reg [1:0] wb_sel_out
 );
-    always @(posedge clk or posedge rst) begin
+    always @(posedge clk) begin
         if (rst) begin
-            reg_write_out <= 1'b0;
-            dest_addr_out <= 5'b0;
-            pc_out <= 32'b0;
-            alu_result_out <= 32'b0;
-            read_data2_out <= 32'b0;
-            mem_write_out <= 3'b0;
-            mem_read_out <= 4'b0;
-            wb_sel_out <= 2'b0;
+            reg_write_out <= #1 1'b0;
+            dest_addr_out <= #1 5'b0;
+            pc_out <= #1 32'b0;
+            alu_result_out <= #1 32'b0;
+            read_data2_out <= #1 32'b0;
+            mem_write_out <= #1 3'b0;
+            mem_read_out <= #1 4'b0;
+            wb_sel_out <= #1 2'b0;
         end
         else begin
             if (!busywait) begin
-            reg_write_out <= reg_write_in;
-            dest_addr_out <= dest_addr_in;
-            pc_out <= pc_in;
-            alu_result_out <= alu_result_in;
-            read_data2_out <= read_data2_in;
-            mem_read_out <= mem_read_in;
-            mem_write_out <= mem_write_in;
-            wb_sel_out <= wb_sel_in;
+                reg_write_out <= #1 reg_write_in;
+                dest_addr_out <= #1 dest_addr_in;
+                pc_out <= #1 pc_in;
+                alu_result_out <= #1 alu_result_in;
+                read_data2_out <= #1 read_data2_in;
+                mem_read_out <= #1 mem_read_in;
+                mem_write_out <= #1 mem_write_in;
+                wb_sel_out <= #1 wb_sel_in;
             end
         end
     end

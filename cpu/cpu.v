@@ -8,6 +8,7 @@
 `include "ID_stage/reg_files/reg_files.v"
 `include "ID_stage/sign_extender/sign_extender.v"
 `include "ID_stage/control_unit/control_unit.v"
+`include "ID_stage/hazard_unit/hazard_unit.v"
 `include "EX_stage/alu/alu.v"
 `include "EX_stage/branch/branch_logic.v"
 `include "utils/muxes/mux_32b_4to1.v"
@@ -42,18 +43,18 @@ module cpu(
     wire [2:0] MEM_WRITE_ID;
     wire [3:0] MEM_READ_ID;
     wire [3:0] BRANCH_JUMP_ID;
-    wire [1:0] WB_SEL_ID;
-    wire DATA1_ALU_SEL_ID, DATA2_ALU_SEL_ID, WRITE_EN_ID;
+    wire [1:0] WB_SEL_ID, FORWARDING_DATA1_SEL_ID, FORWARDING_DATA2_SEL_ID;
+    wire DATA1_ALU_SEL_ID, DATA2_ALU_SEL_ID, WRITE_EN_ID, HAZARD_STALL, HAZARD_BUBBLE;
 
     //EX
     wire PC_MUX_SEL_EX;
-    wire [31:0] NEXT_PC_EX, PC_EX, DATA1_EX, DATA2_EX, IMM_EX, ALU_OUT_EX, ALU_DATA1_EX, ALU_DATA2_EX;
+    wire [31:0] NEXT_PC_EX, PC_EX, DATA1_EX, DATA2_EX, IMM_EX, ALU_OUT_EX, ALU_DATA1_EX, ALU_DATA2_EX, FORWARDING_DATA1, FORWARDING_DATA2;
     wire [3:0] IMM_SEL_EX;
     wire [4:0] ALU_OP_EX, WADDR_EX;
     wire [2:0] MEM_WRITE_EX;
     wire [3:0] BRANCH_JUMP_EX;
     wire [3:0] MEM_READ_EX;
-    wire [1:0] WB_SEL_EX;
+    wire [1:0] WB_SEL_EX, FORWARDING_DATA1_SEL_EX, FORWARDING_DATA2_SEL_EX;
     wire DATA1_ALU_SEL_EX, DATA2_ALU_SEL_EX, WRITE_EN_EX;
 
     //MEM
@@ -89,7 +90,7 @@ module cpu(
         .rst(RST),
         .pc_in(PC_INT_IF),
         .pc_out(PC_IF),
-        .busywait(BUSYWAIT)
+        .busywait(BUSYWAIT | HAZARD_STALL)
     );
 
     // PC + 4
@@ -106,7 +107,7 @@ module cpu(
         .pc_out(PC_ID),
         .instr_in(INST_IF),
         .instr_out(INST_ID),
-        .busywait(BUSYWAIT)
+        .busywait(BUSYWAIT | HAZARD_STALL)
     );
 
     // always @(posedge CLK) begin
@@ -158,10 +159,26 @@ module cpu(
     //     $display("[ID] PC: %h, RS1: %h, RS2: %h, IMM: %h, ALU_OP: %b", PC_ID, DATA1_ID, DATA2_ID, IMM_ID, ALU_OP_ID);
     // end
 
+    // Hazard Unit
+    hazard_unit hazard_unit_inst(
+        .addr1(INST_ID[19:15]),
+        .addr2(INST_ID[24:20]),
+        .ex_rd(WADDR_EX),
+        .mem_rd(WADDR_MA),
+        .ex_we(WRITE_EN_EX),
+        .mem_we(WRITE_EN_MA),
+        .ex_memr(MEM_READ_EX[3]),
+        .mem_memr(MEM_READ_MA[3]),
+        .forwarding_data1sel(FORWARDING_DATA1_SEL_ID),
+        .forwarding_data2sel(FORWARDING_DATA2_SEL_ID),
+        .bubble(HAZARD_BUBBLE),
+        .stall(HAZARD_STALL)
+    );
+
     // IF/ID pipeline register
     id_ex_pipeline_reg id_ex_pipeline_reg_inst(
         .clk(CLK),
-        .rst(RST | PC_MUX_SEL_EX),
+        .rst(RST | PC_MUX_SEL_EX | HAZARD_BUBBLE),
         .reg_write_en_in(WRITE_EN_ID),
         .reg_write_en_out(WRITE_EN_EX),
         .data1_alu_sel_in(DATA1_ALU_SEL_ID),
@@ -188,6 +205,10 @@ module cpu(
         .wb_sel_out(WB_SEL_EX),
         .imm_in(IMM_ID),
         .imm_out(IMM_EX),
+        .data1sel_in(FORWARDING_DATA1_SEL_ID),
+        .data1sel_out(FORWARDING_DATA1_SEL_EX),
+        .data2sel_in(FORWARDING_DATA2_SEL_ID),
+        .data2sel_out(FORWARDING_DATA2_SEL_EX),
         .busywait(BUSYWAIT)
     );
 
@@ -195,9 +216,26 @@ module cpu(
     ////////////////////////////////////////////////////////////////////////
     // Stage 3: Execute (EX)
 
+    // forwarding muxes
+    mux_32b_3to1 forwarding_mux_1(
+        .data1(DATA1_EX),
+        .data2(ALU_OUT_MA),
+        .data3(WRITE_DATA_WB),
+        .out(FORWARDING_DATA1),
+        .sel(FORWARDING_DATA1_SEL_EX)
+    );
+
+    mux_32b_3to1 forwarding_mux_2(
+        .data1(DATA2_EX),
+        .data2(ALU_OUT_MA),
+        .data3(WRITE_DATA_WB),
+        .out(FORWARDING_DATA2),
+        .sel(FORWARDING_DATA2_SEL_EX)
+    );
+
     // ALU DATA1 mux
     mux_32b_2to1 alu_mux_1(
-        .data1(DATA1_EX),
+        .data1(FORWARDING_DATA1),
         .data2(PC_EX),
         .out(ALU_DATA1_EX),
         .sel(DATA1_ALU_SEL_EX)
@@ -205,7 +243,7 @@ module cpu(
 
     // ALU DATA2 mux
     mux_32b_2to1 alu_mux_2(
-        .data1(DATA2_EX),
+        .data1(FORWARDING_DATA2),
         .data2(IMM_EX),
         .out(ALU_DATA2_EX),
         .sel(DATA2_ALU_SEL_EX)
@@ -221,8 +259,8 @@ module cpu(
 
     // Branch/Jump Logic
     branch_logic branch_logic_inst(
-        .data1(DATA1_EX),
-        .data2(DATA2_EX),
+        .data1(FORWARDING_DATA1),
+        .data2(FORWARDING_DATA2),
         .op(BRANCH_JUMP_EX),
         .out(PC_MUX_SEL_EX)
     );
@@ -237,7 +275,7 @@ module cpu(
         .pc_out(PC_MA),
         .alu_result_in(ALU_OUT_EX),
         .alu_result_out(ALU_OUT_MA),
-        .read_data2_in(DATA2_EX),
+        .read_data2_in(FORWARDING_DATA2),
         .read_data2_out(DATA2_MA),
         .dest_addr_in(WADDR_EX),
         .dest_addr_out(WADDR_MA),

@@ -69,16 +69,21 @@ module cpu_tb();
         RST = 0; // Deassert reset
 
         // Run the simulation for a few clock cycles
-        #300;
+        #700;
 
         // End simulation
         $finish;
     end
 
+    // // Monitor to print inputs and outputs
+    // initial begin
+    //     $monitor($time, " | CLK: %b | RST: %b | PC: %h | INST: %h | DMEM_ADDR: %h | DMEM_DATA_WRITE: %h | DMEM_DATA_READ: %h | DMEM_READ: %b | DMEM_WRITE: %b | BUSYWAIT: %b",
+    //              CLK, RST, PC, INST, DMEM_ADDR, DMEM_DATA_WRITE, DMEM_DATA_READ, DMEM_READ, DMEM_WRITE, BUSYWAIT);
+    // end
+
     // Monitor to print inputs and outputs
     initial begin
-        $monitor($time, " | CLK: %b | RST: %b | PC: %h | INST: %h | DMEM_ADDR: %h | DMEM_DATA_WRITE: %h | DMEM_DATA_READ: %h | DMEM_READ: %b | DMEM_WRITE: %b | BUSYWAIT: %b",
-                 CLK, RST, PC, INST, DMEM_ADDR, DMEM_DATA_WRITE, DMEM_DATA_READ, DMEM_READ, DMEM_WRITE, BUSYWAIT);
+        $monitor($time, " | CLK: %b | RST: %b | PC: %h | INST: %h",  CLK, RST, PC, INST);
     end
 
 endmodule

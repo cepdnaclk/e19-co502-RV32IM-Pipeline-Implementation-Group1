@@ -4,10 +4,12 @@
 
 `timescale 1ns/100ps
 
-module cpu_tb();
+module cpu_tb(
+    input wire CLK
+);
 
     // Inputs
-    reg CLK;
+    // reg CLK;
     reg RST;
 
     // Outputs
@@ -52,7 +54,7 @@ module cpu_tb();
     );
 
     // Clock generation
-    always #5 CLK = ~CLK;
+    // always #5 CLK = ~CLK;
 
     // Testbench logic
     initial begin

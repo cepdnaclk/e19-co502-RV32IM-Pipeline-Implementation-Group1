@@ -1,10 +1,9 @@
 name: Remote Script Runner
 
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
-      - main # or any branch you want
+      - main # change this to your desired branch if needed
 jobs:
   run-script:
     if: github.event.pull_request.merged == true

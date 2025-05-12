@@ -1,4 +1,4 @@
-Updating 6fd2d71..6fd8651
+Updating 89578d0..c0ee118
 Fast-forward
- .github/workflows/deploy.yml | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+ .github/workflows/deploy.yml | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)

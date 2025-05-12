@@ -1,17 +1,17 @@
-# .github/workflows/ssh-tesla-ls.yml
-name: SSH into Tesla and List
+# .github/workflows/ssh-tesla-run-target.yml
+name: SSH into Tesla and Run Target Script
 
 on:
   push:
     branches: [main]
-  workflow_dispatch: # allow manual trigger
+  workflow_dispatch:
 
 jobs:
-  ls-tesla:
+  run-on-tesla:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout (not strictly needed here)
+      - name: Checkout (not strictly needed)
         uses: actions/checkout@v3
 
       - name: Setup SSH key
@@ -26,7 +26,8 @@ jobs:
           ssh-keyscan -H tesla.ce.pdn.ac.lk >> $HOME/.ssh/known_hosts || true
           chmod 600 $HOME/.ssh/known_hosts
 
-      - name: SSH into Tesla and ls
+      - name: SSH into Tesla and run run_on_target.sh
         run: |
           ssh -o StrictHostKeyChecking=yes \
-              e19129@tesla.ce.pdn.ac.lk 'ls -la ~'
+              e19129@tesla.ce.pdn.ac.lk \
+              'cd ~/riscv_pipeline && ./run_on_target.sh'

@@ -1,16 +1,18 @@
-name: Remote Script Runner
+# .github/workflows/ssh-tesla-ls.yml
+name: SSH into Tesla and List
 
 on:
   push:
     branches: [main]
-  workflow_dispatch:
+  workflow_dispatch: # allow manual trigger
 
 jobs:
-  run-script:
+  ls-tesla:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout (not strictly needed here)
+        uses: actions/checkout@v3
 
       - name: Setup SSH key
         run: |
@@ -18,14 +20,13 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > $HOME/.ssh/id_rsa
           chmod 600 $HOME/.ssh/id_rsa
 
-      - name: Add known hosts
+      - name: Add tesla to known_hosts
         run: |
           mkdir -p $HOME/.ssh
           ssh-keyscan -H tesla.ce.pdn.ac.lk >> $HOME/.ssh/known_hosts || true
-          ssh-keyscan -H 10.40.18.26      >> $HOME/.ssh/known_hosts || true
           chmod 600 $HOME/.ssh/known_hosts
 
-      - name: Run remote script via jump host
+      - name: SSH into Tesla and ls
         run: |
-          ssh -o ProxyJump=e19129@tesla.ce.pdn.ac.lk \
-              e19129@10.40.18.26 'bash -l ~/path/to/script.sh'
+          ssh -o StrictHostKeyChecking=yes \
+              e19129@tesla.ce.pdn.ac.lk 'ls -la ~'

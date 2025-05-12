@@ -82,8 +82,8 @@ module cpu_tb();
     // end
 
     // Monitor to print inputs and outputs
-    initial begin
-        $monitor($time, " | CLK: %b | RST: %b | PC: %h | INST: %h",  CLK, RST, PC, INST);
-    end
+    // initial begin
+    //     $monitor($time, " | CLK: %b | RST: %b | PC: %h | INST: %h",  CLK, RST, PC, INST);
+    // end
 
 endmodule

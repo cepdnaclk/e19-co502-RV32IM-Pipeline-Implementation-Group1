@@ -23,7 +23,6 @@
 
 `define FORWARD 5'b11xxx
 
-
 // Immediate Types
 `define IMM_TYPE1 3'b000
 `define IMM_TYPE2 3'b001

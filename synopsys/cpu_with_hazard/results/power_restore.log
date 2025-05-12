@@ -306,7 +306,7 @@ Total 1 type of message is suppressed
 
 Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
 Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
-Maximum memory usage for this session: 3900.76 MB
+Maximum memory usage for this session: 3900.85 MB
 CPU usage for this session: 94 seconds 
 Elapsed time for this session: 82 seconds
 Diagnostics summary: 90 warnings, 85 informationals

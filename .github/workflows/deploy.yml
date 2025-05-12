@@ -4,9 +4,7 @@ name: SSH into Tesla and Run Target Script
 on:
   push:
     branches:
-      - main
-    tags:
-      - "power"
+      - synopsys
   workflow_dispatch:
 
 jobs:

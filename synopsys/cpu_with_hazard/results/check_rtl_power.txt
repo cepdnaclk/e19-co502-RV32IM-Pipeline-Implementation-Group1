@@ -2,7 +2,7 @@
 Report : check_rtl_power
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Mon May 12 16:40:39 2025
+Date   : Tue May 13 00:02:24 2025
 ****************************************
 
 
@@ -12,16 +12,16 @@ Family         Check          Check info                                        
 ClockGating    CICG           Constant ICG                                      0              0.00           N.A.           N.A.           
 ClockGating    FICG           Floating ICG                                      0              0.00           N.A.           N.A.           
 ClockGating    RICG           Redundant ICG                                     0              0.00           N.A.           N.A.           
-ClockGating    SCECG          Common clock enable ICG                           1              4.55           N.A.           N.A.           
+ClockGating    SCECG          Common clock enable ICG                           1              6.82           N.A.           N.A.           
 ClockGating    CENDPT         ICG with max clock enable depth > 5               7              15.91          N.A.           N.A.           
 ClockGating    UCGREG         Ungated register                                  0              0.00           0              0.00           
-ClockGating    UCNREG         Untraced register                                 198            100.00         1461           100.00         
-ClockGating    IFRREG         Inferred only gated register                      198            100.00         1461           100.00         
+ClockGating    UCNREG         Untraced register                                 0              0.00           0              0.00           
+ClockGating    IFRREG         Inferred only gated register                      194            100.00         1461           100.00         
 ClockGating    INSREG         Instantiated only gated register                  0              0.00           0              0.00           
 ClockGating    BTHREG         Inferred and Instantiated gated register          0              0.00           0              0.00           
 ClockGating    CCGREG         Registers with clock enable depth > 5             0              0.00           0              0.00           
 ClockGating    XORREG         Register with XOR based self gating               0              0.00           0              0.00           
-ClockGating    CECREG         Registers with clock enable condition             1              0.51           8              0.55           
+ClockGating    CECREG         Registers with clock enable condition             1              0.52           8              0.55           
 ConstantInput  ENHREG         Registers with tied-high enable                   0              0.00           0              0.00           
 ConstantInput  ENLREG         Registers with tied-low enable                    0              0.00           0              0.00           
 SeqOpt         DUPREG         Duplicate Registers                               0              0.00           0              0.00           

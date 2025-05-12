@@ -3,7 +3,10 @@ name: SSH into Tesla and Run Target Script
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+    tags:
+      - "power"
   workflow_dispatch:
 
 jobs:
@@ -11,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout (not strictly needed)
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Setup SSH key

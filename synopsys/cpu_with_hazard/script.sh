@@ -1,7 +1,19 @@
 #!/bin/bash
 
-# Set up a timestamped results directory
+# Prepare directories
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 RESULTS_DIR="results"
+OLD_RESULTS_DIR="old_results"
+
+# Step -1: Archive old results if they exist
+if [ -d "$RESULTS_DIR" ]; then
+    echo "========== Archiving old results =========="
+    mkdir -p "$OLD_RESULTS_DIR"
+    mv "$RESULTS_DIR" "$OLD_RESULTS_DIR/results_$TIMESTAMP"
+    echo "Old results moved to $OLD_RESULTS_DIR/results_$TIMESTAMP"
+fi
+
+# Now create a fresh results directory
 mkdir -p "$RESULTS_DIR"
 
 # Step 0: Git Pull

@@ -1,0 +1,7 @@
+/INPUT
+/TZ_OUTDIR
+/HDL_LIBRARIES
+/neuron_LIB
+/cpu_LIB
+
+*.svf

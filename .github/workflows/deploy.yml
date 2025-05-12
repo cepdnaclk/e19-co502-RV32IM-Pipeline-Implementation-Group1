@@ -6,7 +6,6 @@ on:
       - main # change this to your desired branch if needed
 jobs:
   run-script:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:

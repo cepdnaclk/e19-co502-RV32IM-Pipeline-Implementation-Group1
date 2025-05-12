@@ -1,5 +1,1 @@
-Updating bf45593..a13ab0c
-Fast-forward
- cpu/cpu_tb.v                            | 8 +++++---
- synopsys/cpu_with_hazard/sdc/clocks.sdc | 2 +-
- 2 files changed, 6 insertions(+), 4 deletions(-)
+Already up to date.

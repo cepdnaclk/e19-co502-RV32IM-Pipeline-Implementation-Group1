@@ -29,16 +29,17 @@ fi
 
 # Step 3: RTL Synthesis
 echo "========== STEP 3: RTL Synthesis =========="
-rtl_shell -f rtla.tcl | tee "$RESULTS_DIR/rtl_synthesis.log"
+#rtl_shell -f rtla.tcl | tee "$RESULTS_DIR/rtl_synthesis.log"
 
 # Step 4: Power Restoration
 echo "========== STEP 4: Power Restoration =========="
-pwr_shell -f restore_new.tcl | tee "$RESULTS_DIR/power_restore.log"
+#pwr_shell -f restore_new.tcl | tee "$RESULTS_DIR/power_restore.log"
 
 # Step 5: Git Commit and Push
 echo "========== STEP 5: Git Commit and Push =========="
 git add .
 git commit -m "Auto commit: results and logs after synthesis and power analysis"
+git pull --rebase --autostash origin main | tee "$RESULTS_DIR/git_pull_before_push.log"
 git push | tee "$RESULTS_DIR/git_push.log"
 
 echo "========== All Steps Completed =========="

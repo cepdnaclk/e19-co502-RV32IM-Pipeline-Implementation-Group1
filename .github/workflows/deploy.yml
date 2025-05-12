@@ -2,15 +2,15 @@ name: Remote Script Runner
 
 on:
   push:
-    branches:
-      - main # change this to your desired branch if needed
+    branches: [main]
+  workflow_dispatch:
+
 jobs:
   run-script:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Setup SSH key
         run: |
@@ -18,11 +18,13 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
 
-      - name: Add known hosts
+      - name: Add known hosts (ignore failures)
         run: |
-          ssh-keyscan -H tesla.ce.pdn.ac.lk >> ~/.ssh/known_hosts
-          ssh-keyscan -H 10.40.18.26 >> ~/.ssh/known_hosts
+          mkdir -p ~/.ssh
+          ssh-keyscan -H tesla.ce.pdn.ac.lk >> ~/.ssh/known_hosts || true
+          ssh-keyscan -H 10.40.18.26       >> ~/.ssh/known_hosts || true
 
       - name: Run script on remote server through jump host
         run: |
-          ssh -o ProxyJump=e19129@tesla.ce.pdn.ac.lk e19129@10.40.18.26 'bash -l ~/path/to/script.sh'
+          ssh -o ProxyJump=e19129@tesla.ce.pdn.ac.lk \
+              e19129@10.40.18.26 'bash -l ~/path/to/script.sh'

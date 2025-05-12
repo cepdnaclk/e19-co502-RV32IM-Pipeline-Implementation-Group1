@@ -5,7 +5,7 @@ Report : Averaged Power
 	-verbose
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Mon May 12 16:40:39 2025
+Date   : Tue May 13 00:02:23 2025
 ****************************************
 
 Library(s) Used:
@@ -27,40 +27,16 @@ Cell               Design       Wire_model  Library       Selection_type
 --------------------------------------------------------------------------------
                    cpu          ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
                                                           automatic-by-area
-sign_extender_inst sign_extender
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-pc_inst            pc           ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-if_id_pipeline_reg_inst
-                   if_id_pipeline_reg
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
 alu_mux_1          mux_32b_2to1_1
                                 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
                                                           automatic-by-area
-branch_logic_inst  branch_logic ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
 alu_mux_2          mux_32b_2to1 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
                                                           automatic-by-area
-reg_files_inst     reg_files    ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-pc_mux             mux_32b_2to1_0
+ex_mem_pipeline_reg_inst
+                   ex_mem_pipeline_reg
                                 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
                                                           automatic-by-area
-pc_plus_4_ma       adder_32b_4  ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-wb_mux             mux_32b_3to1 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-mem_wb_pipeline_reg_inst
-                   mem_wb_pipeline_reg
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-id_ex_pipeline_reg_inst
-                   id_ex_pipeline_reg
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-pc_plus_4          adder_32b_4_0
+sign_extender_inst sign_extender
                                 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
                                                           automatic-by-area
 alu_inst           alu          ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
@@ -75,17 +51,7 @@ alu_inst/mult_45   DW_mult_uns_J22_H10_D1
                                 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
                                                           automatic-by-area
 alu_inst/snps_DIVREM_19
-                   DW_div_uns_a_width32_b_width32_J22_H9_D2
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-forwarding_mux_1   mux_32b_3to1_0
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-forwarding_mux_2   mux_32b_3to1_1
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-ex_mem_pipeline_reg_inst
-                   ex_mem_pipeline_reg
+                   DW_div_uns_a_width32_b_width32_J105_P5_D2
                                 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
                                                           automatic-by-area
 control_unit_inst  control_unit ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
@@ -93,7 +59,41 @@ control_unit_inst  control_unit ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
 control_unit_inst/funct3_mux
                    mux_3b_2to1  ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
                                                           automatic-by-area
+pc_plus_4_ma       adder_32b_4  ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+forwarding_mux_1   mux_32b_3to1_0
+                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+wb_mux             mux_32b_3to1 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+branch_logic_inst  branch_logic ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+forwarding_mux_2   mux_32b_3to1_1
+                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+pc_plus_4          adder_32b_4_0
+                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+pc_mux             mux_32b_2to1_0
+                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+id_ex_pipeline_reg_inst
+                   id_ex_pipeline_reg
+                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
 hazard_unit_inst   hazard_unit  ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+mem_wb_pipeline_reg_inst
+                   mem_wb_pipeline_reg
+                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+if_id_pipeline_reg_inst
+                   if_id_pipeline_reg
+                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+pc_inst            pc           ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
+                                                          automatic-by-area
+reg_files_inst     reg_files    ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
                                                           automatic-by-area
 
 Power-specific unit information :
@@ -108,34 +108,34 @@ Power-specific unit information :
                                       Int      Switch   Leak     Total
 Hierarchy                             Power    Power    Power    Power    %
 ----------------------------------------------------------------------------------
-cpu                                   1.97e-04 2.01e-04 1.66e-05 4.15e-04 100.0
-  sign_extender_inst (sign_extender)  4.47e-06 3.51e-06 1.94e-07 8.18e-06   2.0
-  pc_inst (pc)                        3.47e-06 2.50e-06 1.79e-07 6.15e-06   1.5
-  if_id_pipeline_reg_inst (if_id_pipeline_reg)
-                                      1.25e-05 9.45e-06 3.68e-07 2.23e-05   5.4
-  alu_mux_1 (mux_32b_2to1_1)          2.58e-07 1.47e-06 3.36e-08 1.76e-06   0.4
-  branch_logic_inst (branch_logic)    1.06e-06 1.17e-06 1.30e-07 2.36e-06   0.6
-  alu_mux_2 (mux_32b_2to1)            6.97e-07 7.57e-06 3.54e-08 8.31e-06   2.0
-  reg_files_inst (reg_files)          4.67e-05 1.93e-05 6.27e-06 7.23e-05  17.4
-  pc_mux (mux_32b_2to1_0)             5.44e-07 3.16e-07 3.43e-08 8.95e-07   0.2
-  pc_plus_4_ma (adder_32b_4)          1.67e-07 2.35e-08 4.18e-08 2.32e-07   0.1
-  wb_mux (mux_32b_3to1)               4.56e-07 3.62e-07 5.97e-08 8.78e-07   0.2
-  mem_wb_pipeline_reg_inst (mem_wb_pipeline_reg)
-                                      1.01e-05 8.57e-06 5.74e-07 1.93e-05   4.6
-  id_ex_pipeline_reg_inst (id_ex_pipeline_reg)
-                                      1.84e-05 1.39e-05 8.96e-07 3.32e-05   8.0
-  pc_plus_4 (adder_32b_4_0)           2.60e-07 1.23e-07 4.19e-08 4.25e-07   0.1
-  alu_inst (alu)                      8.37e-05 1.19e-04 6.92e-06 2.10e-04  50.5
-    mult_43 (DW_mult_tc_J22_H7_D1)    7.37e-06 1.37e-05 1.34e-06 2.24e-05   5.4
-    mult_44 (DW_mult_tc_J22_H8_D1)    7.03e-06 1.25e-05 1.36e-06 2.09e-05   5.0
-    mult_45 (DW_mult_uns_J22_H10_D1)  8.20e-06 1.82e-05 1.36e-06 2.77e-05   6.7
-    snps_DIVREM_19 (DW_div_uns_a_width32_b_width32_J22_H9_D2)
-                                      4.35e-05 3.94e-05 1.65e-06 8.46e-05  20.4
-  forwarding_mux_1 (mux_32b_3to1_0)   4.05e-07 1.69e-07 5.92e-08 6.34e-07   0.2
-  forwarding_mux_2 (mux_32b_3to1_1)   1.19e-07 1.04e-07 5.88e-08 2.82e-07   0.1
+cpu                                   1.88e-04 1.96e-04 3.94e-05 4.24e-04 100.0
+  alu_mux_1 (mux_32b_2to1_1)          3.42e-07 1.58e-06 8.59e-08 2.01e-06   0.5
+  alu_mux_2 (mux_32b_2to1)            1.47e-06 6.46e-06 4.08e-07 8.34e-06   2.0
   ex_mem_pipeline_reg_inst (ex_mem_pipeline_reg)
-                                      1.19e-05 8.20e-06 6.00e-07 2.08e-05   5.0
-  control_unit_inst (control_unit)    5.37e-07 1.79e-06 4.05e-08 2.37e-06   0.6
-    funct3_mux (mux_3b_2to1)          8.30e-08 6.31e-08 3.99e-09 1.50e-07   0.0
-  hazard_unit_inst (hazard_unit)      7.26e-07 5.51e-07 4.07e-08 1.32e-06   0.3
+                                      1.41e-05 7.49e-06 6.43e-07 2.22e-05   5.2
+  sign_extender_inst (sign_extender)  3.62e-06 2.70e-06 2.17e-07 6.54e-06   1.5
+  alu_inst (alu)                      7.67e-05 1.24e-04 2.89e-05 2.30e-04  54.2
+    mult_43 (DW_mult_tc_J22_H7_D1)    5.73e-06 1.01e-05 1.36e-06 1.72e-05   4.0
+    mult_44 (DW_mult_tc_J22_H8_D1)    5.45e-06 8.99e-06 1.38e-06 1.58e-05   3.7
+    mult_45 (DW_mult_uns_J22_H10_D1)  6.31e-06 1.33e-05 1.38e-06 2.10e-05   4.9
+    snps_DIVREM_19 (DW_div_uns_a_width32_b_width32_J105_P5_D2)
+                                      4.48e-05 5.65e-05 2.22e-05 1.23e-04  29.1
+  control_unit_inst (control_unit)    4.67e-07 1.38e-06 4.06e-08 1.89e-06   0.4
+    funct3_mux (mux_3b_2to1)          7.14e-08 3.29e-08 3.99e-09 1.08e-07   0.0
+  pc_plus_4_ma (adder_32b_4)          1.30e-07 1.79e-08 4.18e-08 1.90e-07   0.0
+  forwarding_mux_1 (mux_32b_3to1_0)   3.86e-07 1.44e-07 5.92e-08 5.89e-07   0.1
+  wb_mux (mux_32b_3to1)               4.38e-07 3.70e-07 8.30e-08 8.91e-07   0.2
+  branch_logic_inst (branch_logic)    8.72e-07 1.02e-06 1.34e-07 2.02e-06   0.5
+  forwarding_mux_2 (mux_32b_3to1_1)   1.17e-07 1.21e-07 1.91e-07 4.28e-07   0.1
+  pc_plus_4 (adder_32b_4_0)           2.04e-07 1.85e-07 4.19e-08 4.31e-07   0.1
+  pc_mux (mux_32b_2to1_0)             6.08e-07 1.91e-07 9.86e-08 8.98e-07   0.2
+  id_ex_pipeline_reg_inst (id_ex_pipeline_reg)
+                                      1.94e-05 1.33e-05 9.19e-07 3.36e-05   7.9
+  hazard_unit_inst (hazard_unit)      5.54e-07 3.80e-07 4.04e-08 9.75e-07   0.2
+  mem_wb_pipeline_reg_inst (mem_wb_pipeline_reg)
+                                      1.22e-05 7.25e-06 6.18e-07 2.01e-05   4.7
+  if_id_pipeline_reg_inst (if_id_pipeline_reg)
+                                      1.06e-05 9.30e-06 3.32e-07 2.03e-05   4.8
+  pc_inst (pc)                        6.64e-06 1.21e-06 2.07e-07 8.06e-06   1.9
+  reg_files_inst (reg_files)          3.92e-05 1.92e-05 6.34e-06 6.47e-05  15.3
 1

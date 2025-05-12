@@ -3,7 +3,7 @@ Report : Averaged Power
 	-groups sequential
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Mon May 12 16:40:39 2025
+Date   : Tue May 13 00:02:23 2025
 ****************************************
 
 
@@ -16,12 +16,12 @@ Date   : Mon May 12 16:40:39 2025
                         Internal  Switching  Leakage    Total
 Power Group             Power     Power      Power      Power   (     %)  Attrs
 --------------------------------------------------------------------------------
-sequential              6.482e-05 2.500e-05 6.483e-06 9.630e-05 (100.00%) 
+sequential                 0.0000    0.0000    0.0000    0.0000 (  N/A )  
 
-  Net Switching Power  = 2.500e-05   (25.96%)
-  Cell Internal Power  = 6.482e-05   (67.31%)
-  Cell Leakage Power   = 6.483e-06   ( 6.73%)
+  Net Switching Power  =    0.0000           
+  Cell Internal Power  =    0.0000           
+  Cell Leakage Power   =    0.0000           
                          ---------
-Total Power            = 9.630e-05  (100.00%)
+Total Power            =    0.0000           
 
 1

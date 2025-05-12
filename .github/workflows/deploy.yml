@@ -1,34 +1,30 @@
-name: Deploy via SSH with Jump Host
+name: Remote Script Runner
 
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches:
-      - test # Change if using a different branch
-
+      - main # or any branch you want
 jobs:
-  deploy:
+  run-script:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
 
-      - name: Setup SSH Key for GitHub → Server A
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup SSH key
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY_TESLA }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H tesla.ce.pdn.ac.lk >> ~/.ssh/known_hosts
 
-      - name: SSH to Server A and SSH to Server B
+      - name: Add known hosts
         run: |
-          ssh -i ~/.ssh/id_rsa e19129@tesla.ce.pdn.ac.lk << 'EOF'
-            echo "Setting up SSH for Server A → Server B"
-            mkdir -p ~/.ssh
-            echo "Host serverB
-                  HostName serverB-ip
-                  User userB
-                  IdentityFile ~/.ssh/id_rsa_serverB
-                  StrictHostKeyChecking no" > ~/.ssh/config
-            chmod 600 ~/.ssh/config
-            ssh e19129@10.40.18.26 "cd /path/to/project && ./script.sh"
-          EOF
+          ssh-keyscan -H tesla.ce.pdn.ac.lk >> ~/.ssh/known_hosts
+          ssh-keyscan -H 10.40.18.26 >> ~/.ssh/known_hosts
+
+      - name: Run script on remote server through jump host
+        run: |
+          ssh -o ProxyJump=e19129@tesla.ce.pdn.ac.lk e19129@10.40.18.26 'bash -l ~/path/to/script.sh'

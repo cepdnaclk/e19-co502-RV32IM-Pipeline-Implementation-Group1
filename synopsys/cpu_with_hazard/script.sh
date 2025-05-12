@@ -18,6 +18,15 @@ echo "========== STEP 2: Run Simulation =========="
 ./simv +fsdb+all=on +fsdb+delta | tee "../synopsys/cpu_with_hazard/$RESULTS_DIR/simulation.log"
 popd > /dev/null
 
+# Check and optionally remove existing library directory
+LIB_DIR="cpu_LIB"
+if [ -d "$LIB_DIR" ]; then
+    echo "Library directory '$LIB_DIR' already exists."
+    echo "Removing existing library directory before synthesis to avoid errors..."
+    rm -rf "$LIB_DIR"
+fi
+
+
 # Step 3: RTL Synthesis
 echo "========== STEP 3: RTL Synthesis =========="
 rtl_shell -f rtla.tcl | tee "$RESULTS_DIR/rtl_synthesis.log"

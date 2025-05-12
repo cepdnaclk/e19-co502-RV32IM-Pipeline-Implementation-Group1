@@ -2,7 +2,7 @@
 Report : check_rtl_power
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Mon May 12 15:42:00 2025
+Date   : Mon May 12 16:02:35 2025
 ****************************************
 
 

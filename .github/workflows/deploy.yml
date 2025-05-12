@@ -14,17 +14,18 @@ jobs:
 
       - name: Setup SSH key
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+          mkdir -p $HOME/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > $HOME/.ssh/id_rsa
+          chmod 600 $HOME/.ssh/id_rsa
 
-      - name: Add known hosts (ignore failures)
+      - name: Add known hosts
         run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan -H tesla.ce.pdn.ac.lk >> ~/.ssh/known_hosts || true
-          ssh-keyscan -H 10.40.18.26       >> ~/.ssh/known_hosts || true
+          mkdir -p $HOME/.ssh
+          ssh-keyscan -H tesla.ce.pdn.ac.lk >> $HOME/.ssh/known_hosts || true
+          ssh-keyscan -H 10.40.18.26      >> $HOME/.ssh/known_hosts || true
+          chmod 600 $HOME/.ssh/known_hosts
 
-      - name: Run script on remote server through jump host
+      - name: Run remote script via jump host
         run: |
           ssh -o ProxyJump=e19129@tesla.ce.pdn.ac.lk \
               e19129@10.40.18.26 'bash -l ~/path/to/script.sh'

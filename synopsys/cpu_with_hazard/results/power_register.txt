@@ -3,7 +3,7 @@ Report : Averaged Power
 	-groups register
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Tue May 13 00:55:58 2025
+Date   : Tue May 13 08:24:36 2025
 ****************************************
 
 

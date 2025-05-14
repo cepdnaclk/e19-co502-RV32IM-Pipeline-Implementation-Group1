@@ -1,5 +1,5 @@
-Updating 3f69996..0f976d4
+Updating 94a3256..c947179
 Fast-forward
- cpu/EX_stage/alu/alu.v        | 105 +++----
- cpu/EX_stage/alu/alu_tb.v.out | 694 ++++++++++++++++++++++++++----------------
- 2 files changed, 469 insertions(+), 330 deletions(-)
+ cpu/EX_stage/alu/alu.v        |  210 +++++--
+ cpu/EX_stage/alu/alu_tb.v.out | 1308 ++++++++++++++++++++++++++---------------
+ 2 files changed, 1011 insertions(+), 507 deletions(-)

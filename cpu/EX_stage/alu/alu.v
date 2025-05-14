@@ -13,73 +13,56 @@ module alu (
     output reg    [31:0] RESULT    // Output result
 );
 
-    // Intermediate wires for each operation
-    wire [31:0] forwardData;
-    wire [31:0] addData, subData;
-    wire [31:0] sllData, srlData, sraData;
-    wire [31:0] sltData, sltuData;
-    wire [31:0] xorData, orData, andData;
-    wire [31:0] mulData, mulhData, mulhsuData, mulhuData;
-    wire [31:0] divData, divuData, remData, remuData;
-
-    // === Combinational logic ===
-    assign #1 forwardData = DATA2;
-    assign #2 addData = DATA1 + DATA2;
-    assign #2 subData = DATA1 - DATA2;
-
-    assign #1 sltData = (DATA1 < $signed(DATA2)) ? 32'd1 : 32'd0;
-    assign #1 sltuData = ($unsigned(DATA1) < $unsigned(DATA2)) ? 32'd1 : 32'd0;
-
-    assign #1 sllData = DATA1 << DATA2[4:0];                    // Logical left
-    assign #1 srlData = DATA1 >> DATA2[4:0];                    // Logical right
-    assign #1 sraData = DATA1 >>> DATA2[4:0];                   // Arithmetic right
-
-    assign #1 xorData = DATA1 ^ DATA2;
-    assign #1 orData  = DATA1 | DATA2;
-    assign #1 andData = DATA1 & DATA2;
-
-    // Multiplication with proper 64-bit casts
-    assign #3 mulData   = DATA1 * DATA2;
-    assign #3 mulhData  = ($signed({{32{DATA1[31]}}, DATA1}) * $signed({{32{DATA2[31]}}, DATA2})) >> 32;
-    assign #3 mulhsuData = ($signed({{32{DATA1[31]}}, DATA1}) * $unsigned({32'b0, DATA2})) >> 32;
-    assign #3 mulhuData = ($unsigned({32'b0, DATA1}) * $unsigned({32'b0, DATA2})) >> 32;
-
-    // Division and remainder with divide-by-zero protection
-    assign #3 divData  = (DATA2 == 0) ? 32'd0 : DATA1 / DATA2;
-    assign #3 divuData = (DATA2 == 0) ? 32'd0 : $unsigned(DATA1) / $unsigned(DATA2);
-    assign #3 remData  = (DATA2 == 0) ? 32'd0 : DATA1 % DATA2;
-    assign #3 remuData = (DATA2 == 0) ? 32'd0 : $unsigned(DATA1) % $unsigned(DATA2);
-
-    // === Output selection based on operation code ===
+    // Internal operation results
+    reg [31:0] operation_result;
+    
+    // Only execute the selected operation
     always @(*) begin
+        // Default output
+        operation_result = 32'd0;
+        
         case (SELECT)
-            `ADD:    RESULT = addData;
-            `SUB:    RESULT = subData;
-            `SLL:    RESULT = sllData;
-            `SLT:    RESULT = sltData;
-            `SLTU:   RESULT = sltuData;
-            `XOR:    RESULT = xorData;
-            `SRL:    RESULT = srlData;
-            `SRA:    RESULT = sraData;
-            `OR:     RESULT = orData;
-            `AND:    RESULT = andData;
-
-            `MUL:    RESULT = mulData;
-            `MULH:   RESULT = mulhData;
-            `MULHSU: RESULT = mulhsuData;
-            `MULHU:  RESULT = mulhuData;
-            `DIV:    RESULT = divData;
-            `DIVU:   RESULT = divuData;
-            `REM:    RESULT = remData;
-            `REMU:   RESULT = remuData;
-
+            // Arithmetic operations
+            `ADD:    operation_result = #2 DATA1 + DATA2;
+            `SUB:    operation_result = #2 DATA1 - DATA2;
+            
+            // Shift operations
+            `SLL:    operation_result = #1 DATA1 << DATA2[4:0];
+            `SRL:    operation_result = #1 DATA1 >> DATA2[4:0];
+            `SRA:    operation_result = #1 DATA1 >>> DATA2[4:0];
+            
+            // Comparison operations
+            `SLT:    operation_result = #1 (DATA1 < $signed(DATA2)) ? 32'd1 : 32'd0;
+            `SLTU:   operation_result = #1 ($unsigned(DATA1) < $unsigned(DATA2)) ? 32'd1 : 32'd0;
+            
+            // Logical operations
+            `XOR:    operation_result = #1 DATA1 ^ DATA2;
+            `OR:     operation_result = #1 DATA1 | DATA2;
+            `AND:    operation_result = #1 DATA1 & DATA2;
+            
+            // Multiplication operations
+            `MUL:    operation_result = #3 DATA1 * DATA2;
+            `MULH:   operation_result = #3 ($signed({{32{DATA1[31]}}, DATA1}) * $signed({{32{DATA2[31]}}, DATA2})) >> 32;
+            `MULHSU: operation_result = #3 ($signed({{32{DATA1[31]}}, DATA1}) * $unsigned({32'b0, DATA2})) >> 32;
+            `MULHU:  operation_result = #3 ($unsigned({32'b0, DATA1}) * $unsigned({32'b0, DATA2})) >> 32;
+            
+            // Division and remainder operations
+            `DIV:    operation_result = #3 (DATA2 == 0) ? 32'd0 : $signed(DATA1) / $signed(DATA2);
+            `DIVU:   operation_result = #3 (DATA2 == 0) ? 32'd0 : $unsigned(DATA1) / $unsigned(DATA2);
+            `REM:    operation_result = #3 (DATA2 == 0) ? 32'd0 : $signed(DATA1) % $signed(DATA2);
+            `REMU:   operation_result = #3 (DATA2 == 0) ? 32'd0 : $unsigned(DATA1) % $unsigned(DATA2);
+            
+            // Forward operation (special case)
             default: begin
                 if (SELECT[4:3] == 2'b11)
-                    RESULT = forwardData;
+                    operation_result = #1 DATA2;
                 else
-                    RESULT = 32'd0;
+                    operation_result = 32'd0;
             end
         endcase
+        
+        // Assign to output
+        RESULT = operation_result;
     end
 
 endmodule

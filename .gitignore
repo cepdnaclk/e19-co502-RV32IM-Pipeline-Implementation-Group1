@@ -1,0 +1,17 @@
+# Ignore any directory named csrc anywhere
+**/csrc/
+
+# Ignore any file named novas.fsdb anywhere
+**/novas.fsdb
+
+# Ignore any file named novas_dump.log anywhere
+**/novas_dump.log
+
+# Ignore any file named simv anywhere
+**/simv
+
+# Ignore any directory named simv.daidir anywhere
+**/simv.daidir/
+
+# Ignore any file named ucli.key anywhere
+**/ucli.key

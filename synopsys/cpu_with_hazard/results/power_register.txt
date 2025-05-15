@@ -3,7 +3,7 @@ Report : Averaged Power
 	-groups register
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Wed May 14 16:38:22 2025
+Date   : Wed May 14 20:12:20 2025
 ****************************************
 
 
@@ -16,12 +16,12 @@ Date   : Wed May 14 16:38:22 2025
                         Internal  Switching  Leakage    Total
 Power Group             Power     Power      Power      Power   (     %)  Attrs
 --------------------------------------------------------------------------------
-register                1.829e-05 1.066e-05 4.679e-06 3.363e-05 (100.00%) 
+register                1.429e-05 1.062e-05 4.672e-06 2.959e-05 (100.00%) 
 
-  Net Switching Power  = 1.066e-05   (31.71%)
-  Cell Internal Power  = 1.829e-05   (54.38%)
-  Cell Leakage Power   = 4.679e-06   (13.91%)
+  Net Switching Power  = 1.062e-05   (35.90%)
+  Cell Internal Power  = 1.429e-05   (48.31%)
+  Cell Leakage Power   = 4.672e-06   (15.79%)
                          ---------
-Total Power            = 3.363e-05  (100.00%)
+Total Power            = 2.959e-05  (100.00%)
 
 1

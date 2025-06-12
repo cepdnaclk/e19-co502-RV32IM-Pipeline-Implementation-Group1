@@ -168,7 +168,7 @@ module cpu(
         .ex_we(WRITE_EN_EX),
         .mem_we(WRITE_EN_MA),
         .ex_memr(MEM_READ_EX[3]),
-        .mem_memr(MEM_READ_MA[3]),
+        // .mem_memr(MEM_READ_MA[3]),
         .forwarding_data1sel(FORWARDING_DATA1_SEL_ID),
         .forwarding_data2sel(FORWARDING_DATA2_SEL_ID),
         .bubble(HAZARD_BUBBLE),

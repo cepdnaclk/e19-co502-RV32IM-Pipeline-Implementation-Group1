@@ -10,7 +10,7 @@ module hazard_unit(
     input wire ex_we,            // Register write enable in EX stage
     input wire mem_we,           // Register write enable in MEM stage
     input wire ex_memr,          // Memory read in EX stage (load instruction)
-    input wire mem_memr,         // Memory read in MEM stage
+    // input wire mem_memr,         // Memory read in MEM stage
     
     output reg [1:0] forwarding_data1sel,   // Forwarding select for rs1 (00:ID, 01:EX, 10:MEM)
     output reg [1:0] forwarding_data2sel,   // Forwarding select for rs2 (00:ID, 01:EX, 10:MEM)

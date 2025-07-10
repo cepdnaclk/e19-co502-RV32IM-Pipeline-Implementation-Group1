@@ -8,7 +8,7 @@
 module cpu_fpga(
     input CLK_GEN,
     input RST,
-    output reg CLK,
+    output reg CLK
 );
     wire [31:0] PC_out,
     wire [31:0] INST_out

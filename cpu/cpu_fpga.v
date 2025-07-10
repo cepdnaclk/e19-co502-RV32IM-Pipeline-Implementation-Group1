@@ -8,10 +8,10 @@
 module cpu_fpga(
     input CLK_GEN,
     input RST,
-    output reg CLK
+    output reg CLK,
+    output wire PC_out,
+    output wire INST_out
 );
-    wire [31:0] PC_out;
-    wire [31:0] INST_out;
 
     reg [31:0] SET_Count;
 
@@ -26,8 +26,8 @@ module cpu_fpga(
     end
 
     // Basic outputs
-    assign PC_out = PC;
-    assign INST_out = INST;
+    assign PC_out = |PC;
+    assign INST_out = |INST;
 
     // Internal wires for CPU connections
     wire [31:0] PC, INST, DMEM_DATA_READ, DMEM_DATA_WRITE_INT, DMEM_ADDR_INT;

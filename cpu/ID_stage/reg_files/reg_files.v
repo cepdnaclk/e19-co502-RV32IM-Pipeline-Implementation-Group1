@@ -51,7 +51,7 @@ module reg_files(clk, rst, addr1, addr2, data1, data2, we, wd, waddr);
             #2 mem[waddr] <= wd;
         end
 
-        $display("mem[0] = %d, mem[1] = %d, mem[2] = %d, mem[3] = %d, mem[4] = %d, mem[5] = %d, mem[6] = %d" , mem[0], mem[1], mem[2], mem[3], mem[4], mem[5], mem[6]);
+        $display("reg[0] = %d, reg[1] = %d, reg[2] = %d, reg[3] = %d, reg[4] = %d, reg[5] = %d, reg[6] = %d" , mem[0], mem[1], mem[2], mem[3], mem[4], mem[5], mem[6]);
     end
 
 endmodule

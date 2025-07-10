@@ -1,4 +1,4 @@
-// Updated CPU_FPGA module with key pipeline stage signal outputs
+// Updated CPU_FPGA module with debug signals as internal wires
 `include "cpu_v2.v"
 `include "./IF_stage/imem/imem.v"
 `include "./MA_stage/dmem/dmem.v"
@@ -10,67 +10,7 @@ module cpu_fpga(
     input RST,
     output reg CLK,
     output wire [31:0] PC_out,
-    output wire [31:0] INST_out,
-    
-    // IF Stage Outputs
-    output wire [31:0] PC_PLUS_4_IF,
-    
-    // ID Stage Outputs - Control Unit Signals
-    output wire WRITE_EN_ID,
-    output wire DATA1_ALU_SEL_ID,
-    output wire DATA2_ALU_SEL_ID,
-    output wire [4:0] ALU_OP_ID,
-    output wire [2:0] MEM_WRITE_ID,
-    output wire [3:0] MEM_READ_ID,
-    output wire [3:0] BRANCH_JUMP_ID,
-    output wire [3:0] IMM_SEL_ID,
-    output wire [1:0] WB_SEL_ID,
-    
-    // ID Stage Outputs - Data Signals
-    output wire [31:0] INST_ID,
-    output wire [31:0] PC_ID,
-    output wire [31:0] DATA1_ID,
-    output wire [31:0] DATA2_ID,
-    output wire [31:0] IMM_ID,
-    
-    // ID Stage Outputs - Hazard Unit Signals
-    output wire HAZARD_STALL,
-    output wire HAZARD_BUBBLE,
-    output wire [1:0] FORWARDING_DATA1_SEL_ID,
-    output wire [1:0] FORWARDING_DATA2_SEL_ID,
-    
-    // EX Stage Outputs
-    output wire [31:0] PC_EX,
-    output wire [31:0] ALU_OUT_EX,
-    output wire [31:0] ALU_DATA1_EX,
-    output wire [31:0] ALU_DATA2_EX,
-    output wire [31:0] FORWARDING_DATA1,
-    output wire [31:0] FORWARDING_DATA2,
-    output wire PC_MUX_SEL_EX,
-    output wire [4:0] WADDR_EX,
-    
-    // MEM Stage Outputs
-    output wire [31:0] PC_MA,
-    output wire [31:0] ALU_OUT_MA,
-    output wire [31:0] DATA2_MA,
-    output wire [4:0] WADDR_MA,
-    output wire WRITE_EN_MA,
-    
-    // WB Stage Outputs
-    output wire [31:0] PC_WB,
-    output wire [31:0] ALU_OUT_WB,
-    output wire [31:0] DMEM_DATA_READ_WB,
-    output wire [31:0] WRITE_DATA_WB,
-    output wire [4:0] WADDR_WB,
-    output wire WRITE_EN_WB,
-    output wire [1:0] WB_SEL_WB,
-    
-    // Memory Interface Outputs (for debugging)
-    output wire [31:0] DMEM_ADDR,
-    output wire [31:0] DMEM_DATA_WRITE,
-    output wire [3:0] DMEM_READ,
-    output wire [2:0] DMEM_WRITE,
-    output wire BUSYWAIT
+    output wire [31:0] INST_out
 );
 
     reg [31:0] SET_Count;
@@ -89,13 +29,74 @@ module cpu_fpga(
     assign PC_out = PC;
     assign INST_out = INST;
 
-    // Internal wires
+    // Internal wires for CPU connections
     wire [31:0] PC, INST, DMEM_DATA_READ, DMEM_DATA_WRITE_INT, DMEM_ADDR_INT;
     wire [3:0] DMEM_READ_INT;
     wire [2:0] DMEM_WRITE_INT;
     wire BUSYWAIT_INT;
     
-    // Assign memory interface outputs
+    // Internal debug signals (previously exposed as outputs)
+    // IF Stage Signals
+    wire [31:0] PC_PLUS_4_IF;
+    
+    // ID Stage Signals - Control Unit
+    wire WRITE_EN_ID;
+    wire DATA1_ALU_SEL_ID;
+    wire DATA2_ALU_SEL_ID;
+    wire [4:0] ALU_OP_ID;
+    wire [2:0] MEM_WRITE_ID;
+    wire [3:0] MEM_READ_ID;
+    wire [3:0] BRANCH_JUMP_ID;
+    wire [3:0] IMM_SEL_ID;
+    wire [1:0] WB_SEL_ID;
+    
+    // ID Stage Signals - Data
+    wire [31:0] INST_ID;
+    wire [31:0] PC_ID;
+    wire [31:0] DATA1_ID;
+    wire [31:0] DATA2_ID;
+    wire [31:0] IMM_ID;
+    
+    // ID Stage Signals - Hazard Unit
+    wire HAZARD_STALL;
+    wire HAZARD_BUBBLE;
+    wire [1:0] FORWARDING_DATA1_SEL_ID;
+    wire [1:0] FORWARDING_DATA2_SEL_ID;
+    
+    // EX Stage Signals
+    wire [31:0] PC_EX;
+    wire [31:0] ALU_OUT_EX;
+    wire [31:0] ALU_DATA1_EX;
+    wire [31:0] ALU_DATA2_EX;
+    wire [31:0] FORWARDING_DATA1;
+    wire [31:0] FORWARDING_DATA2;
+    wire PC_MUX_SEL_EX;
+    wire [4:0] WADDR_EX;
+    
+    // MEM Stage Signals
+    wire [31:0] PC_MA;
+    wire [31:0] ALU_OUT_MA;
+    wire [31:0] DATA2_MA;
+    wire [4:0] WADDR_MA;
+    wire WRITE_EN_MA;
+    
+    // WB Stage Signals
+    wire [31:0] PC_WB;
+    wire [31:0] ALU_OUT_WB;
+    wire [31:0] DMEM_DATA_READ_WB;
+    wire [31:0] WRITE_DATA_WB;
+    wire [4:0] WADDR_WB;
+    wire WRITE_EN_WB;
+    wire [1:0] WB_SEL_WB;
+    
+    // Memory Interface Signals (for internal use)
+    wire [31:0] DMEM_ADDR;
+    wire [31:0] DMEM_DATA_WRITE;
+    wire [3:0] DMEM_READ;
+    wire [2:0] DMEM_WRITE;
+    wire BUSYWAIT;
+    
+    // Assign memory interface signals
     assign DMEM_ADDR = DMEM_ADDR_INT;
     assign DMEM_DATA_WRITE = DMEM_DATA_WRITE_INT;
     assign DMEM_READ = DMEM_READ_INT;

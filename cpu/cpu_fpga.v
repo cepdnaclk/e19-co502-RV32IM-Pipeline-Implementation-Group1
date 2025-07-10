@@ -10,8 +10,8 @@ module cpu_fpga(
     input RST,
     output reg CLK
 );
-    wire [31:0] PC_out,
-    wire [31:0] INST_out
+    wire [31:0] PC_out;
+    wire [31:0] INST_out;
 
     reg [31:0] SET_Count;
 

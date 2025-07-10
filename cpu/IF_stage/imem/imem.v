@@ -1,8 +1,8 @@
 `ifdef TB_RUN
     `define MEMFILE "../imem/memfile.mem"
 `else
-    // `define MEMFILE "./IF_stage/imem/memfile.mem"
-    `define MEMFILE "memfile.mem"
+    `define MEMFILE "./IF_stage/imem/memfile.mem"
+    // `define MEMFILE "memfile.mem"
 `endif
 
 `timescale 1ns/100ps

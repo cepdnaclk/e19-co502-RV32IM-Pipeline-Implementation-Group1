@@ -8,16 +8,16 @@
 module cpu_fpga(
     input CLK_GEN,
     input RST,
+
     output reg CLK,
     output wire PC_out,
     output wire INST_out,
-    
     // 6 more useful single-bit debug outputs (total 8)
     output wire CPU_ACTIVE,     // CPU is actively executing (not stalled)
     output wire REG_WRITE,      // Register file write operation
     output wire MEM_ACCESS,     // Any memory operation (read or write)
     output wire BRANCH_TAKEN,   // Branch or jump instruction executed
-    output wire ALU_ZERO,       // ALU result is zero (important for branches)
+    // output wire ALU_ZERO,       // ALU result is zero (important for branches)
     output wire HAZARD_DETECTED // Pipeline hazard detected
 );
 
@@ -115,8 +115,8 @@ module cpu_fpga(
     assign CPU_ACTIVE = ~(HAZARD_STALL | BUSYWAIT_INT);  // CPU actively executing (not stalled/waiting)
     assign REG_WRITE = WRITE_EN_WB;                      // Register file write enable
     assign MEM_ACCESS = |MEM_READ_ID | |MEM_WRITE_ID;    // Any memory operation happening
-    assign BRANCH_TAKEN = PC_MUX_SEL_EX;                 // Branch/jump instruction taken
-    assign ALU_ZERO = ~|ALU_OUT_EX;                      // ALU output is zero (critical for conditional branches)
+    assign BRANCH_TAKEN = PC_MUX_SEL_EX || ~|ALU_OUT_EX;                 // Branch/jump instruction taken
+    // assign ALU_ZERO = ~|ALU_OUT_EX;                      // ALU output is zero (critical for conditional branches)
     assign HAZARD_DETECTED = HAZARD_STALL | HAZARD_BUBBLE; // Any pipeline hazard detected
 
     // Instantiate the CPU module

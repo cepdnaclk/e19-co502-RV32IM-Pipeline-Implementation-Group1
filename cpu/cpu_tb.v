@@ -69,7 +69,7 @@ module cpu_tb();
         RST = 0; // Deassert reset
 
         // Run the simulation for a few clock cycles
-        #800;
+        #2000;
 
         // End simulation
         $finish;

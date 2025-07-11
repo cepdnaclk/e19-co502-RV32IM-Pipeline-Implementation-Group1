@@ -15,3 +15,4 @@ jal x0, Loop
 Done:
 lw x6, -4(x5)
 add x1, x6, x6
+jal x0, _boot

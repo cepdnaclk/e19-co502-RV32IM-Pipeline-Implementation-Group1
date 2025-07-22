@@ -28,6 +28,13 @@ report_power -group black_box > "results/power_black_box.txt"
 report_power -group io_pad > "results/power_io_pad.txt"
 
 report_power -hierarchy -levels 100 -verbose > "results/power_by_module.txt"
+report_power -hierarchy -levels 100 -verbose > "results/power_by_module_all.txt"
+report_power -hierarchy -levels 20 -verbose > "results/power_by_module_20.txt"
+report_power -hierarchy -levels 10 -verbose > "results/power_by_module_10.txt"
+report_power -hierarchy -levels 5 -verbose > "results/power_by_module_5.txt"
+report_power -hierarchy -levels 3 -verbose > "results/power_by_module_3.txt"
+report_power -hierarchy -levels 2 -verbose > "results/power_by_module_2.txt"
+
 
 
 echo "========== STEP 5: RTL Metrics =========="

@@ -275,12 +275,6 @@ report_power -group combinational > "results/power_combinational.txt"
 report_power -group black_box > "results/power_black_box.txt"
 report_power -group io_pad > "results/power_io_pad.txt"
 report_power -hierarchy -levels 100 -verbose > "results/power_by_module.txt"
-report_power -hierarchy -levels 100 -verbose > "results/power_by_module_all.txt"
-report_power -hierarchy -levels 20 -verbose > "results/power_by_module_20.txt"
-report_power -hierarchy -levels 10 -verbose > "results/power_by_module_10.txt"
-report_power -hierarchy -levels 5 -verbose > "results/power_by_module_5.txt"
-report_power -hierarchy -levels 3 -verbose > "results/power_by_module_3.txt"
-report_power -hierarchy -levels 2 -verbose > "results/power_by_module_2.txt"
 echo "========== STEP 5: RTL Metrics =========="
 ========== STEP 5: RTL Metrics ==========
 report_rtl_metrics -list > "results/rtl_metrics_list.txt"
@@ -299,9 +293,9 @@ Total 1 type of message is suppressed
 
 Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
 Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
-Maximum memory usage for this session: 4084.61 MB
-CPU usage for this session: 127 seconds 
-Elapsed time for this session: 64 seconds
+Maximum memory usage for this session: 4085.61 MB
+CPU usage for this session: 85 seconds 
+Elapsed time for this session: 56 seconds
 Diagnostics summary: 51 warnings, 118 informationals
 
 Thank you for using pwr_shell!

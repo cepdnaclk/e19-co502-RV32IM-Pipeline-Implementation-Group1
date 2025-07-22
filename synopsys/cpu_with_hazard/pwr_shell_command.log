@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running pwr_shell Version W-2024.09-SP2 for linux64 -- Nov 27, 2024
-#@ # Date:   Tue Jul 22 10:07:41 2025
+#@ # Date:   Tue Jul 22 11:01:14 2025
 #@ # Run by: e19129@localhost.localdomain
 #@ 
 
@@ -1002,7 +1002,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Tue Jul 22 10:07:33 2025
+#@ # Created by rtl write_script on Tue Jul 22 11:01:07 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1032,7 +1032,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Tue Jul 22 10:07:33 2025
+#@ # Created by rtl write_script on Tue Jul 22 11:01:07 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1059,7 +1059,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Tue Jul 22 10:07:33 2025
+#@ # Created by rtl write_script on Tue Jul 22 11:01:07 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1289,7 +1289,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Tue Jul 22 10:07:33 2025
+#@ # Created by rtl write_script on Tue Jul 22 11:01:07 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1312,7 +1312,7 @@ source -echo -verbose restore_new.tcl
 
 #@ # PrimePower/PTPX SAIF mapping file
 #@ # Design: "cpu_LIB:cpu.design"
-#@ # Date: "Tue Jul 22 10:07:33 2025"
+#@ # Date: "Tue Jul 22 11:01:07 2025"
 #@ # Vendor: "Synopsys, Inc"
 #@ # Program_name: "rtl"
 #@ # Program_version: "V-2023.12-SP5-3"
@@ -3323,7 +3323,7 @@ source -echo -verbose restore_new.tcl
 
 #@ # PrimePower/PTPX SAIF mapping file
 #@ # Design: "cpu_LIB:cpu.design"
-#@ # Date: "Tue Jul 22 10:07:33 2025"
+#@ # Date: "Tue Jul 22 11:01:07 2025"
 #@ # Vendor: "Synopsys, Inc"
 #@ # Program_name: "rtl"
 #@ # Program_version: "V-2023.12-SP5-3"
@@ -5346,6 +5346,13 @@ source -echo -verbose restore_new.tcl
 #@ report_power -group io_pad > "results/power_io_pad.txt"
 #@ 
 #@ report_power -hierarchy -levels 100 -verbose > "results/power_by_module.txt"
+#@ report_power -hierarchy -levels 100 -verbose > "results/power_by_module_all.txt"
+#@ report_power -hierarchy -levels 20 -verbose > "results/power_by_module_20.txt"
+#@ report_power -hierarchy -levels 10 -verbose > "results/power_by_module_10.txt"
+#@ report_power -hierarchy -levels 5 -verbose > "results/power_by_module_5.txt"
+#@ report_power -hierarchy -levels 3 -verbose > "results/power_by_module_3.txt"
+#@ report_power -hierarchy -levels 2 -verbose > "results/power_by_module_2.txt"
+#@ 
 #@ 
 #@ 
 #@ echo "========== STEP 5: RTL Metrics =========="

@@ -15,3 +15,5 @@
 
 # Ignore any file named ucli.key anywhere
 **/ucli.key
+
+**/*.vcd

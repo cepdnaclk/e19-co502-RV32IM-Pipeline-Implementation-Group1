@@ -3,7 +3,7 @@ Report : Averaged Power
 	-groups io_pad
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Thu May 15 23:31:38 2025
+Date   : Tue Jul 22 10:08:33 2025
 ****************************************
 
 

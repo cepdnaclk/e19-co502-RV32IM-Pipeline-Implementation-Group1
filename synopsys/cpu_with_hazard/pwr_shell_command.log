@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running pwr_shell Version W-2024.09-SP2 for linux64 -- Nov 27, 2024
-#@ # Date:   Thu May 15 23:29:57 2025
+#@ # Date:   Tue Jul 22 10:07:41 2025
 #@ # Run by: e19129@localhost.localdomain
 #@ 
 
@@ -875,6 +875,7 @@ source -echo -verbose restore_new.tcl
 #@ set_app_var power_enable_analysis true
 #@ set_app_var power_enable_multi_rtl_to_gate_mapping true
 #@ set_app_var power_enable_advanced_fsdb_reader true
+#@ set_host_options -max_cores 8
 #@ 
 #@ set search_path "*  ./ ./INPUT//ndm ../../cpu/"
 #@ 
@@ -954,7 +955,7 @@ source -echo -verbose restore_new.tcl
 #@ setConf POWERLIB_ONLY 0
 #@ setConf FAST_CGE_MODE 0
 #@ setConf IGNORE_VERSION_CHECKS 0
-#@ setConf EXTENDED_NAME /home/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB:cpu.design
+#@ setConf EXTENDED_NAME /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB:cpu.design
 #@ setConf KEEP_PHYSICAL_ONLY 0
 #@ setConf COPY_LIB_BLOCK 0
 #@ setConf EXPORT_MODULE_CELL_MAP 1
@@ -980,7 +981,7 @@ source -echo -verbose restore_new.tcl
 #@ setConf REF_LIBS [list   ts16ncfllogl16hdh090f.ndm   ts16ncfllogl16hdl090f.ndm   ts16ncfslogl16hdh090f.ndm   ts16ncfslogl16hdl090f.ndm ]
 #@ 
 #@ lappend ::search_path .
-#@ lappend ::search_path /home/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ndm
+#@ lappend ::search_path /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ndm
 #@ 
 #@ set ::link_library *
 #@ lappend ::link_library *
@@ -1001,7 +1002,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Thu May 15 23:29:49 2025
+#@ # Created by rtl write_script on Tue Jul 22 10:07:33 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1017,7 +1018,7 @@ source -echo -verbose restore_new.tcl
 #@ ################################################################################
 #@ 
 #@ 
-#@ # /home/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/sdc/clocks.sdc, #   line 1
+#@ # /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/sdc/clocks.sdc, #   line 1
 #@ create_clock -name CLK -period 10 -waveform {0 5} [get_ports {CLK}]
 #@ 
 #@ # SPECIAL inbuilt contraints, controlled using app options:  
@@ -1031,7 +1032,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Thu May 15 23:29:49 2025
+#@ # Created by rtl write_script on Tue Jul 22 10:07:33 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1058,7 +1059,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Thu May 15 23:29:49 2025
+#@ # Created by rtl write_script on Tue Jul 22 10:07:33 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1074,195 +1075,221 @@ source -echo -verbose restore_new.tcl
 #@ ################################################################################
 #@ 
 #@ 
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {pc_inst/pc_out_reg[23:16]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] 0.026 [get_pins     {pc_inst/pc_out_reg[15:8]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {pc_inst/pc_out_reg[7:0]/CK}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0591087 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_31/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0238228 [get_pins     {pc_inst/clock_gate_pc_out_reg/CK}]
 #@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_31/Q}]
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {pc_inst/clock_gate_pc_out_reg/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0595856 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_32/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.069828 [get_pins     {if_id_pipeline_reg_inst/clock_gate_instr_out_reg/CK}]
 #@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_32/Q}]
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {if_id_pipeline_reg_inst/clock_gate_instr_out_reg/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0626755 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_33/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_33/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0492477 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_34/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_34/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0360107 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg_35/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg_35/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0541496 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg_36/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg_36/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0592041 [get_pins     {mem_wb_pipeline_reg_inst/clock_gate_alu_result_out_reg_37/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {mem_wb_pipeline_reg_inst/clock_gate_alu_result_out_reg_37/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.061245 [get_pins     {mem_wb_pipeline_reg_inst/clock_gate_alu_result_out_reg_38/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {mem_wb_pipeline_reg_inst/clock_gate_alu_result_out_reg_38/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0478745 [get_pins     {reg_files_inst/clock_gate_mem_reg/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0492287 [get_pins     {reg_files_inst/clock_gate_mem_reg/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0483131 [get_pins     {reg_files_inst/clock_gate_mem_reg_1/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0488472 [get_pins     {reg_files_inst/clock_gate_mem_reg_1/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_1/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0494576 [get_pins     {reg_files_inst/clock_gate_mem_reg_2/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0485611 [get_pins     {reg_files_inst/clock_gate_mem_reg_2/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_2/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0487137 [get_pins     {reg_files_inst/clock_gate_mem_reg_3/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0490379 [get_pins     {reg_files_inst/clock_gate_mem_reg_3/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_3/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0494003 [get_pins     {reg_files_inst/clock_gate_mem_reg_4/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0462341 [get_pins     {reg_files_inst/clock_gate_mem_reg_4/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_4/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0496864 [get_pins     {reg_files_inst/clock_gate_mem_reg_5/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0495529 [get_pins     {reg_files_inst/clock_gate_mem_reg_5/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_5/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.047245 [get_pins     {reg_files_inst/clock_gate_mem_reg_6/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0505066 [get_pins     {reg_files_inst/clock_gate_mem_reg_6/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_6/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0480843 [get_pins     {reg_files_inst/clock_gate_mem_reg_7/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0496674 [get_pins     {reg_files_inst/clock_gate_mem_reg_7/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_7/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0474739 [get_pins     {reg_files_inst/clock_gate_mem_reg_8/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0463676 [get_pins     {reg_files_inst/clock_gate_mem_reg_8/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_8/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0491714 [get_pins     {reg_files_inst/clock_gate_mem_reg_9/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0474739 [get_pins     {reg_files_inst/clock_gate_mem_reg_9/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_9/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.046196 [get_pins     {reg_files_inst/clock_gate_mem_reg_10/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0474739 [get_pins     {reg_files_inst/clock_gate_mem_reg_10/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_10/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0464058 [get_pins     {reg_files_inst/clock_gate_mem_reg_11/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0468445 [get_pins     {reg_files_inst/clock_gate_mem_reg_11/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_11/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0482178 [get_pins     {reg_files_inst/clock_gate_mem_reg_12/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0465965 [get_pins     {reg_files_inst/clock_gate_mem_reg_12/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_12/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0492096 [get_pins     {reg_files_inst/clock_gate_mem_reg_13/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0467873 [get_pins     {reg_files_inst/clock_gate_mem_reg_13/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_13/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0483513 [get_pins     {reg_files_inst/clock_gate_mem_reg_14/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0502777 [get_pins     {reg_files_inst/clock_gate_mem_reg_14/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_14/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0492096 [get_pins     {reg_files_inst/clock_gate_mem_reg_15/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0490952 [get_pins     {reg_files_inst/clock_gate_mem_reg_15/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_15/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0485039 [get_pins     {reg_files_inst/clock_gate_mem_reg_16/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_16/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0453186 [get_pins     {reg_files_inst/clock_gate_mem_reg_17/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_17/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0462914 [get_pins     {reg_files_inst/clock_gate_mem_reg_18/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_18/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.047493 [get_pins     {reg_files_inst/clock_gate_mem_reg_19/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_19/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0485992 [get_pins     {reg_files_inst/clock_gate_mem_reg_20/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_20/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0475883 [get_pins     {reg_files_inst/clock_gate_mem_reg_21/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_21/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0480652 [get_pins     {reg_files_inst/clock_gate_mem_reg_22/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_22/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0487518 [get_pins     {reg_files_inst/clock_gate_mem_reg_23/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_23/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0463867 [get_pins     {reg_files_inst/clock_gate_mem_reg_24/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_24/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0470924 [get_pins     {reg_files_inst/clock_gate_mem_reg_25/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_25/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0479126 [get_pins     {reg_files_inst/clock_gate_mem_reg_26/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_26/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0468826 [get_pins     {reg_files_inst/clock_gate_mem_reg_27/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_27/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0471497 [get_pins     {reg_files_inst/clock_gate_mem_reg_28/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_28/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0481033 [get_pins     {reg_files_inst/clock_gate_mem_reg_29/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_29/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0472069 [get_pins     {reg_files_inst/clock_gate_mem_reg_30/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_30/Q}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {pc_inst/pc_out_reg[31:24]/CK}]
 #@ # -origin useful_skew
 #@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {ex_mem_pipeline_reg_inst/alu_result_out_reg[15:8]/CK}]
 #@ # -origin useful_skew
 #@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {ex_mem_pipeline_reg_inst/alu_result_out_reg[7:0]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {ex_mem_pipeline_reg_inst/read_data2_out_reg[31:24]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {ex_mem_pipeline_reg_inst/read_data2_out_reg[23:16]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {ex_mem_pipeline_reg_inst/read_data2_out_reg[15:8]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {ex_mem_pipeline_reg_inst/read_data2_out_reg[7:0]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] 0.013 [get_pins     {ex_mem_pipeline_reg_inst/mem_read_out_reg[3:0]/CK}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0472641 [get_pins     {reg_files_inst/clock_gate_mem_reg_16/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_16/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0468636 [get_pins     {reg_files_inst/clock_gate_mem_reg_17/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_17/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0470543 [get_pins     {reg_files_inst/clock_gate_mem_reg_18/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_18/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0485611 [get_pins     {reg_files_inst/clock_gate_mem_reg_19/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_19/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0472069 [get_pins     {reg_files_inst/clock_gate_mem_reg_20/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_20/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0479507 [get_pins     {reg_files_inst/clock_gate_mem_reg_21/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_21/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0482178 [get_pins     {reg_files_inst/clock_gate_mem_reg_22/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_22/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0473976 [get_pins     {reg_files_inst/clock_gate_mem_reg_23/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_23/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0469208 [get_pins     {reg_files_inst/clock_gate_mem_reg_24/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_24/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0478935 [get_pins     {reg_files_inst/clock_gate_mem_reg_25/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_25/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.047493 [get_pins     {reg_files_inst/clock_gate_mem_reg_26/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_26/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0467873 [get_pins     {reg_files_inst/clock_gate_mem_reg_27/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_27/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0476646 [get_pins     {reg_files_inst/clock_gate_mem_reg_28/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_28/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.048275 [get_pins     {reg_files_inst/clock_gate_mem_reg_29/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_29/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0471306 [get_pins     {reg_files_inst/clock_gate_mem_reg_30/CK}]
-#@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {reg_files_inst/clock_gate_mem_reg_30/Q}]
-#@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0398445 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0568008 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg/Q}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.013 [get_pins     {mem_wb_pipeline_reg_inst/pc_out_reg[31:24]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.013 [get_pins     {mem_wb_pipeline_reg_inst/pc_out_reg[23:16]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.013 [get_pins     {mem_wb_pipeline_reg_inst/mem_data_out_reg[23:16]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.013 [get_pins     {mem_wb_pipeline_reg_inst/mem_data_out_reg[15:8]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.013 [get_pins     {mem_wb_pipeline_reg_inst/mem_data_out_reg[7:0]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.013 [get_pins     {mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.013 [get_pins     {mem_wb_pipeline_reg_inst/pc_out_reg[15:8]/CK}]
+#@ # -origin useful_skew
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.013 [get_pins     {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/CK}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0655937 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0523949 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.041523 [get_pins     {mem_wb_pipeline_reg_inst/clock_gate_alu_result_out_reg/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0783539 [get_pins     {mem_wb_pipeline_reg_inst/clock_gate_alu_result_out_reg/CK}]
 #@ # -origin user
 #@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {mem_wb_pipeline_reg_inst/clock_gate_alu_result_out_reg/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0720406 [get_pins     {if_id_pipeline_reg_inst/clock_gate_instr_out_reg/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0588608 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_31/CK}]
 #@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {if_id_pipeline_reg_inst/clock_gate_instr_out_reg/Q}]
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_31/Q}]
 #@ # -origin estimated
-#@ set_clock_latency -clock [get_clocks {CLK}] -0.0391197 [get_pins     {pc_inst/clock_gate_pc_out_reg/CK}]
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0593376 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_32/CK}]
 #@ # -origin user
-#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {pc_inst/clock_gate_pc_out_reg/Q}]
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_32/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0649071 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_33/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {id_ex_pipeline_reg_inst/clock_gate_imm_out_reg_33/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0620079 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg_34/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg_34/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.0425339 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg_35/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {ex_mem_pipeline_reg_inst/clock_gate_alu_result_out_reg_35/Q}]
+#@ # -origin estimated
+#@ set_clock_latency -clock [get_clocks {CLK}] -0.065937 [get_pins     {mem_wb_pipeline_reg_inst/clock_gate_alu_result_out_reg_36/CK}]
+#@ # -origin user
+#@ set_clock_latency -clock [get_clocks {CLK}] 0 [get_pins     {mem_wb_pipeline_reg_inst/clock_gate_alu_result_out_reg_36/Q}]
 #@ 
-#@ # MD5_SIGNATURE: 92248C0B46C59DB3CAAA0CA65BEBBB7E 
+#@ # MD5_SIGNATURE: F99D348DA4CDB819EC3C59796ABCD922 
 #@ # -- End source TZ_OUTDIR/cpu_constraints/scenario_func@cworst.tcl.gz
 
 #@ # -- Starting source TZ_OUTDIR/cpu_constraints/design.tcl.gz
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Thu May 15 23:29:49 2025
+#@ # Created by rtl write_script on Tue Jul 22 10:07:33 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1285,7 +1312,7 @@ source -echo -verbose restore_new.tcl
 
 #@ # PrimePower/PTPX SAIF mapping file
 #@ # Design: "cpu_LIB:cpu.design"
-#@ # Date: "Thu May 15 23:29:47 2025"
+#@ # Date: "Tue Jul 22 10:07:33 2025"
 #@ # Vendor: "Synopsys, Inc"
 #@ # Program_name: "rtl"
 #@ # Program_version: "V-2023.12-SP5-3"
@@ -1642,6 +1669,8 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[26]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q5}]
 #@ set_rtl_to_gate_name -rtl {INST_ID[25]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q6}]
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[25]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q6}]
+#@ set_rtl_to_gate_name -rtl {INST_ID[24]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q7}]
+#@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[24]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q7}]
 #@ set_rtl_to_gate_name -rtl {INST_ID[23]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[23:16]/Q0}]
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[23]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[23:16]/Q0}]
 #@ set_rtl_to_gate_name -rtl {INST_ID[22]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[23:16]/Q1}]
@@ -1690,42 +1719,42 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[1]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[7:0]/Q6}]
 #@ set_rtl_to_gate_name -rtl {INST_ID[0]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[0]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[7:0]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WRITE_EN_WB} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/reg_write_out} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {WRITE_EN_EX} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/reg_write_en_out} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {WRITE_EN_MA} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/reg_write_out} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WRITE_EN_WB} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/reg_write_out} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {WRITE_EN_EX} -gate [get_pin {id_ex_pipeline_reg_inst/reg_write_en_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/reg_write_en_out} -gate [get_pin {id_ex_pipeline_reg_inst/reg_write_en_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {WRITE_EN_MA} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/reg_write_out} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg/Q}]
 #@ set_rtl_to_gate_name -rtl {MEM_READ_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q0}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_read_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q0}]
 #@ set_rtl_to_gate_name -rtl {DATA1_ALU_SEL_EX} -gate [get_pin {id_ex_pipeline_reg_inst/data1_alu_sel_out_reg/Q}]
@@ -1828,38 +1857,38 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[17]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[23:16]/Q6}]
 #@ set_rtl_to_gate_name -rtl {DATA1_EX[16]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[23:16]/Q7}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[16]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[23:16]/Q7}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[15]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[15]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q0}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[14]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[14]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q1}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[13]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[13]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q2}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[12]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[12]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q3}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[11]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q4}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[11]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q4}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[10]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q5}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[10]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q5}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[9]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[9]/Q}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[9]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[9]/Q}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[8]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q6}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[8]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q6}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[7]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q7}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[7]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q7}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[6]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[6]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q0}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[5]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[5]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q1}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q2}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q3}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[15]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[15]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q0}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[14]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[14]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q1}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[13]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q2}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[13]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q2}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[12]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q3}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[12]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q3}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[11]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q4}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[11]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q4}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[10]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q5}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[10]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q5}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[9]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q6}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[9]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q6}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[8]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q7}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[8]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q7}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[7]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[7]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[6]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[6]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[5]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[5]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {DATA2_EX[31]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data2_out[31]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {DATA2_EX[30]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[31:24]/Q1}]
@@ -1924,36 +1953,36 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data2_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[7:0]/Q6}]
 #@ set_rtl_to_gate_name -rtl {DATA2_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data2_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[7:0]/Q7}]
-#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q4}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q4}]
+#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q5}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q5}]
+#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q6}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q6}]
+#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q7}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q7}]
 #@ set_rtl_to_gate_name -rtl {ALU_OP_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[0]/Q}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[0]/Q}]
-#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]/Q}]
 #@ set_rtl_to_gate_name -rtl {MEM_READ_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_read_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {MEM_READ_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q2}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_read_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q2}]
 #@ set_rtl_to_gate_name -rtl {MEM_READ_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q3}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_read_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q3}]
-#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q0}]
-#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q1}]
-#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q2}]
-#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {WB_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
 #@ set_rtl_to_gate_name -rtl {WB_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
@@ -2022,14 +2051,14 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/imm_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/imm_out_reg[7:0]/Q6}]
 #@ set_rtl_to_gate_name -rtl {IMM_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/imm_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/imm_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/imm_out_reg[7:0]/Q7}]
-#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA1_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data1sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA1_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data1sel_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA2_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data2sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA2_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data2sel_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA1_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data1sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA1_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data1sel_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA2_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data2sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data2sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data2sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA2_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/data2sel_out_reg[1:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data2sel_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/data2sel_out_reg[1:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {PC_MA[31]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[31]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {PC_MA[30]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[31:24]/Q1}]
@@ -2078,26 +2107,26 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[9]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[15:8]/Q6}]
 #@ set_rtl_to_gate_name -rtl {PC_MA[8]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[15:8]/Q7}]
 #@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[8]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[15:8]/Q7}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[7]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q0}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[7]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q0}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[6]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q1}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[6]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q1}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[5]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[5]/Q}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[5]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[5]/Q}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q2}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q2}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q3}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q3}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[2:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[2:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[2:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[2:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[0]/Q}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[0]/Q}]
-#@ set_rtl_to_gate_name -rtl {WB_SEL_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {WB_SEL_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/wb_sel_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[7]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[7]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[6]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[6]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[5]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[5]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {WB_SEL_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WB_SEL_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/wb_sel_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {PC_WB[31]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[31]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {PC_WB[30]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[31:24]/Q1}]
@@ -2146,22 +2175,22 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[9]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[15:8]/Q6}]
 #@ set_rtl_to_gate_name -rtl {PC_WB[8]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[15:8]/Q7}]
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[8]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[15:8]/Q7}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[7]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q0}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[7]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q0}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[6]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q1}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[6]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q1}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[5]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q2}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[5]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q2}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q3}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q3}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[3]/Q}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[3]/Q}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[2:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[2:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[2:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[2:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[0]/Q}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[7]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[7]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[6]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[6]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[5]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[5]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {DMEM_DATA_READ_WB[31]} -gate [get_pin {mem_wb_pipeline_reg_inst/mem_data_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/mem_data_out[31]} -gate [get_pin {mem_wb_pipeline_reg_inst/mem_data_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {DMEM_DATA_READ_WB[30]} -gate [get_pin {mem_wb_pipeline_reg_inst/mem_data_out_reg[31:24]/Q1}]
@@ -2290,12 +2319,10 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/alu_result_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/alu_result_out_reg[7:0]/Q6}]
 #@ set_rtl_to_gate_name -rtl {ALU_OUT_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/alu_result_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/alu_result_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/alu_result_out_reg[7:0]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WB_SEL_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {WB_SEL_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/wb_sel_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {INST_ID[24]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q7}]
-#@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[24]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q7}]
+#@ set_rtl_to_gate_name -rtl {WB_SEL_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WB_SEL_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/wb_sel_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {reg_files_inst/mem[31][31]} -gate [get_pin {reg_files_inst/mem_reg[31][31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {reg_files_inst/mem[31][30]} -gate [get_pin {reg_files_inst/mem_reg[31][31:24]/Q1}]
 #@ set_rtl_to_gate_name -rtl {reg_files_inst/mem[31][29]} -gate [get_pin {reg_files_inst/mem_reg[31][31:24]/Q2}]
@@ -3296,7 +3323,7 @@ source -echo -verbose restore_new.tcl
 
 #@ # PrimePower/PTPX SAIF mapping file
 #@ # Design: "cpu_LIB:cpu.design"
-#@ # Date: "Thu May 15 23:29:47 2025"
+#@ # Date: "Tue Jul 22 10:07:33 2025"
 #@ # Vendor: "Synopsys, Inc"
 #@ # Program_name: "rtl"
 #@ # Program_version: "V-2023.12-SP5-3"
@@ -3653,6 +3680,8 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[26]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q5}]
 #@ set_rtl_to_gate_name -rtl {INST_ID[25]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q6}]
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[25]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q6}]
+#@ set_rtl_to_gate_name -rtl {INST_ID[24]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q7}]
+#@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[24]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q7}]
 #@ set_rtl_to_gate_name -rtl {INST_ID[23]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[23:16]/Q0}]
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[23]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[23:16]/Q0}]
 #@ set_rtl_to_gate_name -rtl {INST_ID[22]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[23:16]/Q1}]
@@ -3701,42 +3730,42 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[1]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[7:0]/Q6}]
 #@ set_rtl_to_gate_name -rtl {INST_ID[0]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[0]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[7:0]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WRITE_EN_WB} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/reg_write_out} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WADDR_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WADDR_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WADDR_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {WRITE_EN_EX} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/reg_write_en_out} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {WRITE_EN_MA} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/reg_write_out} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WRITE_EN_WB} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/reg_write_out} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {WADDR_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {WADDR_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {WADDR_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/dest_addr_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/dest_addr_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {WRITE_EN_EX} -gate [get_pin {id_ex_pipeline_reg_inst/reg_write_en_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/reg_write_en_out} -gate [get_pin {id_ex_pipeline_reg_inst/reg_write_en_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {WRITE_EN_MA} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg/Q}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/reg_write_out} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg/Q}]
 #@ set_rtl_to_gate_name -rtl {MEM_READ_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q0}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_read_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q0}]
 #@ set_rtl_to_gate_name -rtl {DATA1_ALU_SEL_EX} -gate [get_pin {id_ex_pipeline_reg_inst/data1_alu_sel_out_reg/Q}]
@@ -3839,38 +3868,38 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[17]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[23:16]/Q6}]
 #@ set_rtl_to_gate_name -rtl {DATA1_EX[16]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[23:16]/Q7}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[16]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[23:16]/Q7}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[15]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[15]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q0}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[14]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[14]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q1}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[13]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[13]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q2}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[12]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[12]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q3}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[11]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q4}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[11]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q4}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[10]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q5}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[10]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q5}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[9]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[9]/Q}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[9]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[9]/Q}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[8]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q6}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[8]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q6}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[7]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q7}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[7]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:10,8:7]/Q7}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[6]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[6]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q0}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[5]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[5]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q1}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q2}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[6:3]/Q3}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q6}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q7}]
-#@ set_rtl_to_gate_name -rtl {DATA1_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[15]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[15]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q0}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[14]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[14]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q1}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[13]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q2}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[13]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q2}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[12]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q3}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[12]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q3}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[11]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q4}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[11]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q4}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[10]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q5}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[10]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q5}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[9]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q6}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[9]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q6}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[8]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q7}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[8]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[15:8]/Q7}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[7]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[7]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[6]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[6]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[5]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[5]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {DATA1_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data1_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data1_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {DATA2_EX[31]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data2_out[31]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {DATA2_EX[30]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[31:24]/Q1}]
@@ -3935,36 +3964,36 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data2_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[7:0]/Q6}]
 #@ set_rtl_to_gate_name -rtl {DATA2_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/read_data2_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/read_data2_out_reg[7:0]/Q7}]
-#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[4:1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[4]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q4}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[4]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q4}]
+#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q5}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q5}]
+#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q6}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q6}]
+#@ set_rtl_to_gate_name -rtl {ALU_OP_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q7}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q7}]
 #@ set_rtl_to_gate_name -rtl {ALU_OP_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[0]/Q}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/aluop_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/aluop_out_reg[0]/Q}]
-#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[0]_reg_write_en_out_reg_mem_write_out_reg[2]_mem_write_out_reg[1]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q2}]
+#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {MEM_WRITE_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_write_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]/Q}]
 #@ set_rtl_to_gate_name -rtl {MEM_READ_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_read_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {MEM_READ_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q2}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_read_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q2}]
 #@ set_rtl_to_gate_name -rtl {MEM_READ_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q3}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/mem_read_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_read_out_reg[3:0]/Q3}]
-#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q0}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q0}]
-#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q1}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q1}]
-#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q2}]
-#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/branch_jump_out_reg[3:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[3]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[2]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {BRANCH_JUMP_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/branch_jump_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]_branch_jump_out_reg[3]_branch_jump_out_reg[2]_branch_jump_out_reg[1]_branch_jump_out_reg[0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {WB_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
 #@ set_rtl_to_gate_name -rtl {WB_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
@@ -4033,14 +4062,14 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/imm_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/imm_out_reg[7:0]/Q6}]
 #@ set_rtl_to_gate_name -rtl {IMM_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/imm_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/imm_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/imm_out_reg[7:0]/Q7}]
-#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA1_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data1sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q4}]
-#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA1_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data1sel_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q5}]
-#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA2_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data2sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA2_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data2sel_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/mem_write_out_reg[0]_read_data1_out_reg[0]_data2sel_out_reg[1]_data2sel_out_reg[0]_data1sel_out_reg[1]_data1sel_out_reg[0]_read_data1_out_reg[2]_read_data1_out_reg[1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA1_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data1sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q0}]
+#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA1_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data1sel_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q1}]
+#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA2_SEL_EX[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data2sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data2sel_out[1]} -gate [get_pin {id_ex_pipeline_reg_inst/data2sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {FORWARDING_DATA2_SEL_EX[0]} -gate [get_pin {id_ex_pipeline_reg_inst/data2sel_out_reg[1:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {id_ex_pipeline_reg_inst/data2sel_out[0]} -gate [get_pin {id_ex_pipeline_reg_inst/data2sel_out_reg[1:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {PC_MA[31]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[31]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {PC_MA[30]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[31:24]/Q1}]
@@ -4089,26 +4118,26 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[9]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[15:8]/Q6}]
 #@ set_rtl_to_gate_name -rtl {PC_MA[8]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[15:8]/Q7}]
 #@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[8]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[15:8]/Q7}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[7]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q0}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[7]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q0}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[6]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q1}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[6]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q1}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[5]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[5]/Q}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[5]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[5]/Q}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q2}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q2}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q3}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:6,4:3]/Q3}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[2:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[2:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[2:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[2:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {PC_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[0]/Q}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[0]/Q}]
-#@ set_rtl_to_gate_name -rtl {WB_SEL_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {WB_SEL_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/wb_sel_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[7]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[7]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[6]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[6]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[5]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[5]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[4]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[3]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[2]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {PC_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/pc_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/pc_out_reg[7:0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {WB_SEL_MA[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {ex_mem_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WB_SEL_MA[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {ex_mem_pipeline_reg_inst/wb_sel_out[0]} -gate [get_pin {ex_mem_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {PC_WB[31]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[31]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {PC_WB[30]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[31:24]/Q1}]
@@ -4157,22 +4186,22 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[9]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[15:8]/Q6}]
 #@ set_rtl_to_gate_name -rtl {PC_WB[8]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[15:8]/Q7}]
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[8]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[15:8]/Q7}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[7]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q0}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[7]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q0}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[6]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q1}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[6]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q1}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[5]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q2}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[5]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q2}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q3}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:4]/Q3}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[3]/Q}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[3]/Q}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[2:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[2:1]/Q0}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[2:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[2:1]/Q1}]
-#@ set_rtl_to_gate_name -rtl {PC_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[0]/Q}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[0]/Q}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[7]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[7]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[6]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[6]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[5]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[5]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q2}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[4]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q3}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[3]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q4}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[2]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q5}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q6}]
+#@ set_rtl_to_gate_name -rtl {PC_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q7}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/pc_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/pc_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {DMEM_DATA_READ_WB[31]} -gate [get_pin {mem_wb_pipeline_reg_inst/mem_data_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/mem_data_out[31]} -gate [get_pin {mem_wb_pipeline_reg_inst/mem_data_out_reg[31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {DMEM_DATA_READ_WB[30]} -gate [get_pin {mem_wb_pipeline_reg_inst/mem_data_out_reg[31:24]/Q1}]
@@ -4301,12 +4330,10 @@ source -echo -verbose restore_new.tcl
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/alu_result_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/alu_result_out_reg[7:0]/Q6}]
 #@ set_rtl_to_gate_name -rtl {ALU_OUT_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/alu_result_out_reg[7:0]/Q7}]
 #@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/alu_result_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/alu_result_out_reg[7:0]/Q7}]
-#@ set_rtl_to_gate_name -rtl {WB_SEL_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q2}]
-#@ set_rtl_to_gate_name -rtl {WB_SEL_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/wb_sel_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/reg_write_out_reg_dest_addr_out_reg[0]_wb_sel_out_reg[1]_wb_sel_out_reg[0]_dest_addr_out_reg[4]_dest_addr_out_reg[3]_dest_addr_out_reg[2]_dest_addr_out_reg[1]/Q3}]
-#@ set_rtl_to_gate_name -rtl {INST_ID[24]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q7}]
-#@ set_rtl_to_gate_name -rtl {if_id_pipeline_reg_inst/instr_out[24]} -gate [get_pin {if_id_pipeline_reg_inst/instr_out_reg[31:24]/Q7}]
+#@ set_rtl_to_gate_name -rtl {WB_SEL_WB[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/wb_sel_out[1]} -gate [get_pin {mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0}]
+#@ set_rtl_to_gate_name -rtl {WB_SEL_WB[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
+#@ set_rtl_to_gate_name -rtl {mem_wb_pipeline_reg_inst/wb_sel_out[0]} -gate [get_pin {mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q1}]
 #@ set_rtl_to_gate_name -rtl {reg_files_inst/mem[31][31]} -gate [get_pin {reg_files_inst/mem_reg[31][31:24]/Q0}]
 #@ set_rtl_to_gate_name -rtl {reg_files_inst/mem[31][30]} -gate [get_pin {reg_files_inst/mem_reg[31][31:24]/Q1}]
 #@ set_rtl_to_gate_name -rtl {reg_files_inst/mem[31][29]} -gate [get_pin {reg_files_inst/mem_reg[31][31:24]/Q2}]

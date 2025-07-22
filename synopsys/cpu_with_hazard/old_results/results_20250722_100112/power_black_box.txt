@@ -3,7 +3,7 @@ Report : Averaged Power
 	-groups black_box
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Tue Jul 22 10:08:33 2025
+Date   : Tue Jul 22 09:57:16 2025
 ****************************************
 
 

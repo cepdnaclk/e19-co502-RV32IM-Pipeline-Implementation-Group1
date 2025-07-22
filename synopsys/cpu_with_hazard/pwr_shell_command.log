@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running pwr_shell Version W-2024.09-SP2 for linux64 -- Nov 27, 2024
-#@ # Date:   Thu May 15 23:29:57 2025
+#@ # Date:   Tue Jul 22 09:55:34 2025
 #@ # Run by: e19129@localhost.localdomain
 #@ 
 
@@ -954,7 +954,7 @@ source -echo -verbose restore_new.tcl
 #@ setConf POWERLIB_ONLY 0
 #@ setConf FAST_CGE_MODE 0
 #@ setConf IGNORE_VERSION_CHECKS 0
-#@ setConf EXTENDED_NAME /home/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB:cpu.design
+#@ setConf EXTENDED_NAME /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB:cpu.design
 #@ setConf KEEP_PHYSICAL_ONLY 0
 #@ setConf COPY_LIB_BLOCK 0
 #@ setConf EXPORT_MODULE_CELL_MAP 1
@@ -980,7 +980,7 @@ source -echo -verbose restore_new.tcl
 #@ setConf REF_LIBS [list   ts16ncfllogl16hdh090f.ndm   ts16ncfllogl16hdl090f.ndm   ts16ncfslogl16hdh090f.ndm   ts16ncfslogl16hdl090f.ndm ]
 #@ 
 #@ lappend ::search_path .
-#@ lappend ::search_path /home/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ndm
+#@ lappend ::search_path /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ndm
 #@ 
 #@ set ::link_library *
 #@ lappend ::link_library *
@@ -1001,7 +1001,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Thu May 15 23:29:49 2025
+#@ # Created by rtl write_script on Tue Jul 22 09:55:17 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1017,7 +1017,7 @@ source -echo -verbose restore_new.tcl
 #@ ################################################################################
 #@ 
 #@ 
-#@ # /home/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/sdc/clocks.sdc, #   line 1
+#@ # /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/sdc/clocks.sdc, #   line 1
 #@ create_clock -name CLK -period 10 -waveform {0 5} [get_ports {CLK}]
 #@ 
 #@ # SPECIAL inbuilt contraints, controlled using app options:  
@@ -1031,7 +1031,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Thu May 15 23:29:49 2025
+#@ # Created by rtl write_script on Tue Jul 22 09:55:17 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1058,7 +1058,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Thu May 15 23:29:49 2025
+#@ # Created by rtl write_script on Tue Jul 22 09:55:17 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1262,7 +1262,7 @@ source -echo -verbose restore_new.tcl
 
 #@ ################################################################################
 #@ #
-#@ # Created by rtl write_script on Thu May 15 23:29:49 2025
+#@ # Created by rtl write_script on Tue Jul 22 09:55:17 2025
 #@ #
 #@ ################################################################################
 #@ 
@@ -1285,7 +1285,7 @@ source -echo -verbose restore_new.tcl
 
 #@ # PrimePower/PTPX SAIF mapping file
 #@ # Design: "cpu_LIB:cpu.design"
-#@ # Date: "Thu May 15 23:29:47 2025"
+#@ # Date: "Tue Jul 22 09:55:15 2025"
 #@ # Vendor: "Synopsys, Inc"
 #@ # Program_name: "rtl"
 #@ # Program_version: "V-2023.12-SP5-3"
@@ -3296,7 +3296,7 @@ source -echo -verbose restore_new.tcl
 
 #@ # PrimePower/PTPX SAIF mapping file
 #@ # Design: "cpu_LIB:cpu.design"
-#@ # Date: "Thu May 15 23:29:47 2025"
+#@ # Date: "Tue Jul 22 09:55:15 2025"
 #@ # Vendor: "Synopsys, Inc"
 #@ # Program_name: "rtl"
 #@ # Program_version: "V-2023.12-SP5-3"

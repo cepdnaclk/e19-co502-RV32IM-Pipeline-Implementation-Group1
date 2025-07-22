@@ -2,10 +2,10 @@ Information: Derived library resistance unit is 1.000000 Kohm (Time unit is 1 ns
 
 
 ****************************************
-Report : read_parasitics /home/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/TZ_OUTDIR/cpu.gpd
+Report : read_parasitics /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/TZ_OUTDIR/cpu.gpd
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Thu May 15 23:31:33 2025
+Date   : Tue Jul 22 09:57:11 2025
 ****************************************
 
         0 error(s)

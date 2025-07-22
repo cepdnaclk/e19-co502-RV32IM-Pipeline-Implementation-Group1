@@ -2,7 +2,7 @@ Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detec
 Please use '-no_save' simv switch to avoid re-execution or '-suppress=ASLR_DETECTED_INFO' to suppress this message.
 Chronologic VCS simulator copyright 1991-2024
 Contains Synopsys proprietary information.
-Compiler version W-2024.09-SP1_Full64; Runtime version W-2024.09-SP1_Full64;  Jul 22 09:45 2025
+Compiler version W-2024.09-SP1_Full64; Runtime version W-2024.09-SP1_Full64;  May 15 23:19 2025
 *Verdi* Loading libsscore_vcs202409.so
 *Verdi* : FSDB_GATE & FSDB_RTL is disabled because delta cycle dumping is set.
 FSDB Dumper for VCS, Release Verdi_W-2024.09-SP1, Linux x86_64/64bit, 11/30/2024
@@ -19,5 +19,5 @@ $finish called from file "cpu_tb.v", line 75.
 $finish at simulation time                 7150
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 715000 ps
-CPU Time:      0.180 seconds;       Data structure size:   0.0Mb
-Tue Jul 22 09:45:15 2025
+CPU Time:      0.170 seconds;       Data structure size:   0.0Mb
+Thu May 15 23:19:53 2025

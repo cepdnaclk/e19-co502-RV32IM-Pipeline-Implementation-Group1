@@ -3,7 +3,7 @@ Report : Averaged Power
 	-groups combinational
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Thu May 15 23:31:38 2025
+Date   : Tue Jul 22 09:57:16 2025
 ****************************************
 
 

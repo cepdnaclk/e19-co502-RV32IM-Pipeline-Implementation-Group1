@@ -2,6 +2,7 @@ set_app_var power_enable_rtl_analysis true
 set_app_var power_enable_analysis true
 set_app_var power_enable_multi_rtl_to_gate_mapping true
 set_app_var power_enable_advanced_fsdb_reader true
+set_host_options -max_cores 8
 
 set search_path "*  ./ ./INPUT//ndm ../../cpu/"
 

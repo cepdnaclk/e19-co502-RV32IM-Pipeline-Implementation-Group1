@@ -10,9 +10,9 @@ set_app_options -name compile.flow.autoungroup -value false
 read_parasitic_tech -tlup ./INPUT/cln16ffc_1p11m_2xa1xd3xe2y2r_mim_ut-alrdl_cworst.tluplus -layermap ./INPUT/layers.map -name cworst
 read_parasitic_tech -tlup ./INPUT/cln16ffc_1p11m_2xa1xd3xe2y2r_mim_ut-alrdl_cbest.tluplus -layermap ./INPUT/layers.map -name cbest
 
-set_dont_touch [get_cells -hier -filter {ref_name=~"*HDBSVT16_FSDP*"}] true
-set_dont_touch [get_cells -hier -filter {ref_name=~"*HDBLVT16_CKGTPLT_V8_1*"}] true
-set_attribute -objects [get_cells -hier -filter "ref_name=~*SELECT_OP*"] -name map_to_mux -value true
+# set_dont_touch [get_cells -hier -filter {ref_name=~"*HDBSVT16_FSDP*"}] true
+# set_dont_touch [get_cells -hier -filter {ref_name=~"*HDBLVT16_CKGTPLT_V8_1*"}] true
+# set_attribute -objects [get_cells -hier -filter "ref_name=~*SELECT_OP*"] -name map_to_mux -value true
 
 set_app_options -name compile.datapath.ungroup -value false
 set_app_options -as_user_default -list {ungr.dw.hlo_enable_dw_ungrp false}

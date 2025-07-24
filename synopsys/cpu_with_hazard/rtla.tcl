@@ -21,9 +21,8 @@ save_block cpu_top_block
 set_rtl_power_analysis_options -scenario func@cworst -design cpu -strip_path cpu_tb/cpu_inst -fsdb "../../cpu/novas.fsdb"  -output_dir TZ_OUTDIR
 export_power_data
 
-report_power > "results/report_power.txt
-report_area > "results/report_area.txt
-report_timing > "results/report_timing.txt
-
+report_power > "results/report_power.txt"
+report_area > "results/report_area.txt"
+report_timing > "results/report_timing.txt"
 
 exit

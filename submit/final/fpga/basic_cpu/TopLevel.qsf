@@ -1,0 +1,543 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+# Date created = 14:06:07  February 04, 2025
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		TopLevel_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY TopLevel
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:06:07  FEBRUARY 04, 2025"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name VERILOG_FILE ../../cpu/cpu_fpga.v
+set_global_assignment -name SEARCH_PATH "e:\\education\\academic\\projects\\computer-archi\\e19-co502-rv32im-pipeline-implementation-group1\\cpu"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name BDF_FILE TopLevel.bdf
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_AB28 -to RST
+set_location_assignment PIN_Y2 -to CLK
+set_global_assignment -name CDF_FILE output_files/Chain1.cdf
+set_global_assignment -name ENABLE_SIGNALTAP ON
+set_global_assignment -name USE_SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name SIGNALTAP_FILE output_files/stp1.stp
+set_global_assignment -name SLD_NODE_CREATOR_ID 110 -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_ENTITY_NAME sld_signaltap -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to CLK -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_RAM_BLOCK_TYPE=AUTO" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_INFO=805334528" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_POWER_UP_TRIGGER=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_INVERSION_MASK_LENGTH=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ATTRIBUTE_MEM_MODE=OFF" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_FLOW_USE_GENERATED=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_BITS=11" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_BUFFER_FULL_STOP=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_CURRENT_RESOURCE_WIDTH=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLED=0" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL_PIPELINE=1" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_TRIGGER=1" -section_id auto_signaltap_0
+set_location_assignment PIN_G19 -to CLK_LED
+set_location_assignment PIN_F19 -to RST_LED
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "cpu_fpga:inst|CLK~reg0" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "cpu_fpga:inst|RST" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[11] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[12] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[14] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[15] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[16] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[17] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[18] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[19] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[20] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[21] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[22] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[23] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[28] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[29] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[30] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[31] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[32] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[33] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[34] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[35] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[36] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[37] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[38] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[39] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[40] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[41] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[42] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[43] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[44] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[45] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[46] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[47] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[48] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[49] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[50] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[51] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[52] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[53] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[54] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[55] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[56] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[57] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[58] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[59] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[60] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[61] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[62] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[63] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[64] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[65] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[66] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[67] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[68] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[69] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[70] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[71] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[72] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[73] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[74] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[75] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[76] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[77] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[78] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[79] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[80] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[81] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[82] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[83] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[84] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[85] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[86] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[87] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[88] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[89] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[90] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[91] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[92] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[93] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[94] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[95] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[96] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[97] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[98] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[99] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[100] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[101] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[102] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[103] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[104] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[105] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[106] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[107] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[108] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[109] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[110] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[111] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[112] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[113] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[114] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[115] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[116] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[117] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[118] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[119] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[120] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[121] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[122] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[123] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[124] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[125] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[126] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[127] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[128] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[129] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to "cpu_fpga:inst|CLK~reg0" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "cpu_fpga:inst|RST" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[15] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[16] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[17] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[18] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[19] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[20] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[21] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[22] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[23] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[28] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[29] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[30] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[31] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[32] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[33] -to "cpu_fpga:inst|cpu:cpu_inst|INST_IF[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[34] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[35] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[36] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[37] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[38] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[39] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[40] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[41] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[42] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[43] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[44] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[45] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[46] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[47] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[48] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[49] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[50] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[51] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[52] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[53] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[54] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[55] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[56] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[57] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[58] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[59] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[60] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[61] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[62] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[63] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[64] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[65] -to "cpu_fpga:inst|cpu:cpu_inst|PC_IF[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[66] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[67] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[68] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[69] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[70] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[71] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[72] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[73] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[74] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[75] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[76] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[77] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[78] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[79] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[80] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[81] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[82] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[83] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[84] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[85] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[86] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[87] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[88] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[89] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[90] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[91] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[92] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[93] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[94] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[95] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[96] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[97] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[0][9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[98] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[99] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[100] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[101] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[102] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[103] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[104] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[105] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[106] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[107] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[108] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[109] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[110] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[111] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[112] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[113] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[114] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[115] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[116] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[117] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[118] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[119] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[120] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[121] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[122] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[123] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[124] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[125] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[126] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[127] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[128] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[129] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[1][9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[130] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[131] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[132] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[133] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[134] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[135] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[136] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[137] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[138] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[139] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[140] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[141] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[142] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[143] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[144] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[145] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[146] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[147] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[148] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[149] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[150] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[151] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[152] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[153] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[154] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[155] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[156] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[157] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[158] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[159] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[160] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[161] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[162] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[163] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[164] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[165] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[166] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[167] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[168] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[169] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[170] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[171] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[172] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[173] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[174] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[175] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[176] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[177] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[178] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[179] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[180] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[181] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[182] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[183] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[184] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[185] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[186] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[187] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[188] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[189] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[190] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[191] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[192] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[193] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[194] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[195] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[196] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[197] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[198] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[199] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[200] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[201] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[202] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[203] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[204] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[205] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[206] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[207] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[208] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[209] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[210] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[211] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[212] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[213] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[214] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[215] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[216] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[217] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[218] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[219] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[220] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[221] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[222] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[223] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[224] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[225] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[130] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[131] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[132] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[133] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[134] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[135] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[136] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[137] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[138] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[139] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[140] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[141] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[142] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[143] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[144] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[145] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[146] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[147] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[148] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[149] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[150] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[151] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[152] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[153] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[154] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[155] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[156] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[157] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[158] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[159] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[160] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[161] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[2][9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[162] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[163] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[164] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[165] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[166] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[167] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[168] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[169] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[170] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[171] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[172] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[173] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[174] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[175] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[176] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[177] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[178] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[179] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[180] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[181] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[182] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[183] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[184] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[185] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[186] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[187] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[188] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[189] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[190] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[191] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[192] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[193] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[3][9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[194] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[195] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[196] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[197] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[198] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[199] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[200] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[201] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[202] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[203] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[204] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[205] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[206] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[207] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[208] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[209] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[210] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[211] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[212] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[213] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[214] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[215] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[216] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[217] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[218] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[219] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[220] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[221] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[222] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[223] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[224] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[225] -to "cpu_fpga:inst|cpu:cpu_inst|reg_files:reg_files_inst|mem[4][9]" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=000000000000000000000000" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=24" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=1024" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=1024" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=226" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=226" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_LOWORD=20745" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_NODE_CRC_HIWORD=21397" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ADVANCED_TRIGGER_ENTITY=sld_reserved_TopLevel_auto_signaltap_0_1_fcda," -section_id auto_signaltap_0
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp

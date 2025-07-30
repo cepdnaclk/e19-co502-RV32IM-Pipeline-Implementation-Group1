@@ -1,0 +1,26 @@
+# Synthesize the design
+rtl_shell -f rtla.tcl
+
+# Compute power
+pwr_shell -f restore_new.tcl
+
+# Start GUI
+start_gui
+
+# Report power
+report_power -help 
+report_power -cell_power [get_cells M1/C10/A0] 
+report_power -cell_power [get_cells clock_gate_Q_reg] 
+report_power -group register/sequential/combinational/black_box/io_pad 
+get_nets -hier 
+report_power -net_power <>
+
+# Report RTL metrics
+report_rtl_metrics -list 
+report_rtl_metrics -view hier -hier_attributes {gated_registers icg_cells latch_cells reg_cells sequential_cells 
+combinational_cells total_power} 
+report_rtl_metrics -view register -reg_attributes {dynamic_power switching_power leakage_power total_power 
+register_gated root_clk_name}
+
+# Check RTL power
+check_rtl_power

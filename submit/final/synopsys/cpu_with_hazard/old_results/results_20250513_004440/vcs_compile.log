@@ -1,0 +1,80 @@
+                         Chronologic VCS (TM)
+       Version W-2024.09-SP1_Full64 -- Mon May 12 23:51:12 2025
+
+                    Copyright (c) 1991 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Parsing design file 'cpu_tb.v'
+Parsing included file 'cpu.v'.
+Parsing included file 'IF_stage/pc/pc.v'.
+Back to file 'cpu.v'.
+Parsing included file 'utils/muxes/mux_32b_2to1.v'.
+Back to file 'cpu.v'.
+Parsing included file 'utils/adders/adder_32b_4.v'.
+Back to file 'cpu.v'.
+Parsing included file 'pipeline_regs/if_id_pipeline_reg.v'.
+Back to file 'cpu.v'.
+Parsing included file 'pipeline_regs/id_ex_pipeline_reg.v'.
+Back to file 'cpu.v'.
+Parsing included file 'pipeline_regs/ex_mem_pipeline_reg.v'.
+Back to file 'cpu.v'.
+Parsing included file 'pipeline_regs/mem_wb_pipeline_reg.v'.
+Back to file 'cpu.v'.
+Parsing included file 'ID_stage/reg_files/reg_files.v'.
+Back to file 'cpu.v'.
+Parsing included file 'ID_stage/sign_extender/sign_extender.v'.
+Parsing included file './utils/encordings.v'.
+Back to file 'ID_stage/sign_extender/sign_extender.v'.
+Back to file 'cpu.v'.
+Parsing included file 'ID_stage/control_unit/control_unit.v'.
+Parsing included file './utils/muxes/mux_3b_2to1.v'.
+Back to file 'ID_stage/control_unit/control_unit.v'.
+Parsing included file './utils/encordings.v'.
+Back to file 'ID_stage/control_unit/control_unit.v'.
+Back to file 'cpu.v'.
+Parsing included file 'ID_stage/hazard_unit/hazard_unit.v'.
+Back to file 'cpu.v'.
+Parsing included file 'EX_stage/alu/alu.v'.
+Parsing included file './utils/encordings.v'.
+Back to file 'EX_stage/alu/alu.v'.
+Back to file 'cpu.v'.
+Parsing included file 'EX_stage/branch/branch_logic.v'.
+Parsing included file './utils/encordings.v'.
+Back to file 'EX_stage/branch/branch_logic.v'.
+Back to file 'cpu.v'.
+Parsing included file 'utils/muxes/mux_32b_4to1.v'.
+Back to file 'cpu.v'.
+Parsing included file 'utils/muxes/mux_32b_3to1.v'.
+Back to file 'cpu.v'.
+Back to file 'cpu_tb.v'.
+Parsing included file './IF_stage/imem/imem.v'.
+Back to file 'cpu_tb.v'.
+Parsing included file './MA_stage/dmem/dmem.v'.
+Back to file 'cpu_tb.v'.
+Top Level Modules:
+       mux_32b_4to1
+       cpu_tb
+TimeScale is 1 ns / 100 ps
+
+Error-[IBLHS-NT] Illegal behavioral left hand side
+cpu_tb.v, 66
+  Net type cannot be used on the left side of this assignment.
+  The offending expression is : CLK
+  Source info: CLK = 0;
+
+1 error
+CPU time: .200 seconds to compile
+Verdi KDB elaboration done and the database successfully generated

@@ -1,0 +1,2370 @@
+
+
+
+                               RTL Architect (TM)
+
+               Version V-2023.12-SP5-3 for linux64 - Dec 17, 2024
+                           Base build date 11/18/2024
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+set_current_mismatch_config auto_fix 
+1
+set_attribute [get_mismatch_types missing_logical_reference] current_repair(auto_fix) create_blackbox
+Warning: Changing current repair(handler) for a mismatch type in between a flow is not recommended. (DMM-011)
+{missing_logical_reference}
+set CORES 8
+8
+set_host_options -max_cores $CORES
+1
+set_app_options -list { plan.macro.allow_unmapped_design true}
+plan.macro.allow_unmapped_design true
+set search_path "* ./ ./INPUT//ndm ../../cpu"
+* ./ ./INPUT//ndm ../../cpu
+create_lib cpu_LIB -ref_libs "ts16ncfllogl16hdh090f.ndm  ts16ncfllogl16hdl090f.ndm  ts16ncfslogl16hdh090f.ndm  ts16ncfslogl16hdl090f.ndm " -technology ./INPUT/ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf
+Information: The command 'create_lib' cleared the undo history. (UNDO-016)
+Warning: Layer 'VIA1' is missing the attribute 'fatTblTotalEncContactNumber'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 2348) (TECH-026)
+Warning: Layer 'VIA2' is missing the attribute 'fatTblTotalEncContactNumber'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 2479) (TECH-026)
+Warning: Layer 'AP' is missing the attribute 'minArea'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 3214) (TECH-026)
+Warning: DesignRule missing cornerMinSpacing specification for entry 0 of orthoSpacingExcludeCornerTbl. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8364) (TECH-073)
+Warning: DesignRule missing cornerMinSpacing specification for entry 0 of orthoSpacingExcludeCornerTbl. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8496) (TECH-073)
+Warning: DesignRule missing cornerMinSpacing specification for entry 0 of orthoSpacingExcludeCornerTbl. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8618) (TECH-073)
+Warning: DesignRule missing cornerMinSpacing specification for entry 0 of orthoSpacingExcludeCornerTbl. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8744) (TECH-073)
+Warning: DesignRule missing cornerMinSpacing specification for entry 0 of orthoSpacingExcludeCornerTbl. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8843) (TECH-073)
+Warning: DesignRule missing cornerMinSpacing specification for entry 0 of orthoSpacingExcludeCornerTbl. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8942) (TECH-073)
+Warning: Section DesignRule '' is missing the attribute 'endOfLineEncWidthThreshold'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8990) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'endOfLineEncWidthThreshold'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8999) (TECH-026)
+Warning: ContactCode not found for asymUpperEnclosureTbl entry 5 on Layer 'VIA1' (TECH-013)
+Warning: ContactCode not found for asymUpperEnclosureTbl entry 5 on Layer 'VIA2' (TECH-013)
+Warning: ContactCode not found for asymUpperEnclosureTbl entry 7 on Layer 'VIA2' (TECH-013)
+Warning: Layer 'AP' is missing the attribute 'minArea'. ( line 3231) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8292) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8293) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8383) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8417) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8418) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8513) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8514) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8548) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8549) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8635) (TECH-026)
+Warning: DesignRule '' is missing the attribute 'fatWireViaEncCutNameTbl'. (ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf line 8636) (TECH-026)
+Warning: Cut layer 'VIA0' has a non-cross primary default ContactCode 'VIA01'. (line 3571) (TECH-083w)
+Warning: Cut layer 'VIA7' has a non-cross primary default ContactCode 'VIA78_1cut'. (line 7718) (TECH-083w)
+Information: Loading technology file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ts16ncfslogl16hdl090f_m11f2f1f3f2f0f2_UTRDL.tf' (FILE-007)
+{cpu_LIB}
+analyze -f sv -vcs "-f src.f "
+Information: By default, the HDL template library is 'WORK' (LBR-??).
+Running PRESTO HDLC
+Parsing vcs commands file -f src.f 
+Compiling source file ../../cpu/cpu.v
+Opening include file ../../cpu/IF_stage/pc/pc.v
+Opening include file ../../cpu/utils/muxes/mux_32b_2to1.v
+Warning:  ../../cpu/IF_stage/pc/pc.v:15: delay controls are ignored for synthesis. (VER-176)
+Warning:  ../../cpu/IF_stage/pc/pc.v:15: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/IF_stage/pc/pc.v:15: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/utils/muxes/mux_32b_2to1.v:9: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/utils/adders/adder_32b_4.v
+Warning:  ../../cpu/utils/adders/adder_32b_4.v:8: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/pipeline_regs/if_id_pipeline_reg.v
+Opening include file ../../cpu/pipeline_regs/id_ex_pipeline_reg.v
+Warning:  ../../cpu/pipeline_regs/if_id_pipeline_reg.v:11: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/if_id_pipeline_reg.v:12: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/if_id_pipeline_reg.v:16: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/if_id_pipeline_reg.v:17: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Opening include file ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:23: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:24: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:25: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:26: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:27: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:28: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:29: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:30: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:31: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:32: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:33: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:34: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:35: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:36: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:37: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:40: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:41: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:42: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:43: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:44: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:45: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:46: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:47: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:48: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:49: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:50: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:51: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:52: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:53: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:54: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Opening include file ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:20: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:21: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:22: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:23: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:24: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:25: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:26: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:27: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:31: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:32: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:33: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:34: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:35: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:36: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:37: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:38: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Opening include file ../../cpu/ID_stage/reg_files/reg_files.v
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:17: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:18: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:19: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:20: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:21: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:22: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:25: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:26: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:27: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:28: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:29: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:30: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:11: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:12: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/ID_stage/sign_extender/sign_extender.v
+Opening include file ../../cpu/./utils/encordings.v
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:16: delay controls are ignored for synthesis. (VER-176)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:17: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:18: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:19: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:20: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:21: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:22: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:23: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:24: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:25: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:26: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:27: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:28: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:29: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:30: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:31: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:32: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:33: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:34: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:35: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:36: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:37: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:38: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:39: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:40: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:41: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:42: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:43: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:44: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:45: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:46: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:47: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:48: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:51: delay controls are ignored for synthesis. (VER-176)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:51: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:51: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Opening include file ../../cpu/ID_stage/control_unit/control_unit.v
+Opening include file ../../cpu/./utils/muxes/mux_3b_2to1.v
+Warning:  ../../cpu/./utils/muxes/mux_3b_2to1.v:9: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/./utils/encordings.v
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:31: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:35: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:40: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:43: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:46: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:47: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:50: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:51: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:54: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:55: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:64: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:74: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:77: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:85: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:88: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:89: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/ID_stage/hazard_unit/hazard_unit.v
+Opening include file ../../cpu/EX_stage/alu/alu.v
+Opening include file ../../cpu/./utils/encordings.v
+Opening include file ../../cpu/EX_stage/branch/branch_logic.v
+Opening include file ../../cpu/./utils/encordings.v
+Opening include file ../../cpu/utils/muxes/mux_32b_4to1.v
+Warning:  ../../cpu/EX_stage/branch/branch_logic.v:27: delay controls are ignored for synthesis. (VER-176)
+Warning:  ../../cpu/utils/muxes/mux_32b_4to1.v:15: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/utils/muxes/mux_32b_3to1.v
+Warning:  ../../cpu/utils/muxes/mux_32b_3to1.v:11: delays for continuous assignment are ignored. (VER-173)
+Presto compilation completed successfully.
+Elapsed = 00:00:00.03, CPU = 00:00:00.03
+1
+elaborate cpu
+Presto compilation completed successfully. (cpu)
+Information: Elaborating HDL template WORK:mux_32b_2to1 instantiated from 'cpu'. (ELAB-193)
+Presto compilation completed successfully. (mux_32b_2to1)
+Information: Elaborating HDL template WORK:pc instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine pc line 9 in file
+		'../../cpu/IF_stage/pc/pc.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     pc_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (pc)
+Information: Elaborating HDL template WORK:adder_32b_4 instantiated from 'cpu'. (ELAB-193)
+Presto compilation completed successfully. (adder_32b_4)
+Information: Elaborating HDL template WORK:if_id_pipeline_reg instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine if_id_pipeline_reg line 9 in file
+		'../../cpu/pipeline_regs/if_id_pipeline_reg.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    instr_out_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     pc_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (if_id_pipeline_reg)
+Information: Elaborating HDL template WORK:reg_files instantiated from 'cpu'. (ELAB-193)
+$display output: reg[0] = ?, reg[1] = ?, reg[2] = ?, reg[3] = ?, reg[4] = ?, reg[5] = ?, reg[6] = ?
+
+Inferred memory devices in process
+	in routine reg_files line 14 in file
+		'../../cpu/ID_stage/reg_files/reg_files.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       mem_reg       | Flip-flop | 1024  |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (reg_files)
+Information: Elaborating HDL template WORK:sign_extender instantiated from 'cpu'. (ELAB-193)
+
+Statistics for case statements in always block at line 26 in file
+	'../../cpu/ID_stage/sign_extender/sign_extender.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            27            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (sign_extender)
+Information: Elaborating HDL template WORK:control_unit instantiated from 'cpu'. (ELAB-193)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:66: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch. (ELAB-310)
+Presto compilation completed successfully. (control_unit)
+Information: Elaborating HDL template WORK:hazard_unit instantiated from 'cpu'. (ELAB-193)
+Presto compilation completed successfully. (hazard_unit)
+Information: Elaborating HDL template WORK:id_ex_pipeline_reg instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine id_ex_pipeline_reg line 21 in file
+		'../../cpu/pipeline_regs/id_ex_pipeline_reg.v'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+|   data2sel_out_reg    | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+| reg_write_en_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| data1_alu_sel_out_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| data2_alu_sel_out_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      pc_out_reg       | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  read_data1_out_reg   | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  read_data2_out_reg   | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      imm_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   dest_addr_out_reg   | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     aluop_out_reg     | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   mem_write_out_reg   | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  branch_jump_out_reg  | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   mem_read_out_reg    | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    wb_sel_out_reg     | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   data1sel_out_reg    | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+=================================================================================
+Presto compilation completed successfully. (id_ex_pipeline_reg)
+Information: Elaborating HDL template WORK:mux_32b_3to1 instantiated from 'cpu'. (ELAB-193)
+Presto compilation completed successfully. (mux_32b_3to1)
+Information: Elaborating HDL template WORK:alu instantiated from 'cpu'. (ELAB-193)
+Warning:  ../../cpu/EX_stage/alu/alu.v:33: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:35: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:41: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:42: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:44: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:53: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:55: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:87: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:89: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:94: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:95: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:96: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:109: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:110: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:111: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:118: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:119: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:120: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:131: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:134: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:146: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:147: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:150: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:155: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 63 in file
+	'../../cpu/EX_stage/alu/alu.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            93            |     no/auto      |
+|           108            |     no/auto      |
+|           117            |    auto/auto     |
+|           127            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 164 in file
+	'../../cpu/EX_stage/alu/alu.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           165            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (alu)
+Information: Elaborating HDL template WORK:branch_logic instantiated from 'cpu'. (ELAB-193)
+
+Statistics for case statements in always block at line 26 in file
+	'../../cpu/EX_stage/branch/branch_logic.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            29            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (branch_logic)
+Information: Elaborating HDL template WORK:ex_mem_pipeline_reg instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine ex_mem_pipeline_reg line 18 in file
+		'../../cpu/pipeline_regs/ex_mem_pipeline_reg.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   wb_sel_out_reg    | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  reg_write_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  dest_addr_out_reg  | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     pc_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+| alu_result_out_reg  | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+| read_data2_out_reg  | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  mem_write_out_reg  | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  mem_read_out_reg   | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (ex_mem_pipeline_reg)
+Information: Elaborating HDL template WORK:mem_wb_pipeline_reg instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine mem_wb_pipeline_reg line 15 in file
+		'../../cpu/pipeline_regs/mem_wb_pipeline_reg.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   wb_sel_out_reg    | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  reg_write_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     pc_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  mem_data_out_reg   | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+| alu_result_out_reg  | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  dest_addr_out_reg  | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (mem_wb_pipeline_reg)
+Information: Elaborating HDL template WORK:mux_3b_2to1 instantiated from 'control_unit'. (ELAB-193)
+Presto compilation completed successfully. (mux_3b_2to1)
+Information: Design elaboration summary: (FLW-8550)
+Number of modules read: 16
+Top level ports:        171
+Total in all modules
+  Ports:                1849
+  Nets:                 7616
+  Instances:            2586
+Design summary end. (FLW-8551)
+Elapsed = 00:00:00.62, CPU = 00:00:00.58
+1
+set_top_module cpu
+Information: User units loaded from library 'ts16ncfllogl16hdh090f' (LNK-040)
+Information: Added key list 'DesignWare' to design 'cpu'. (DWS-0216)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_AN2_CK_0P75' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_AN2_MMCK_0P5' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_AN2_MMCK_1' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_AN2_MMCK_2' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_AN2_MMCK_4' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_AN2_MMCK_8' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_MUX2_MMCK_0P5' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_MUX2_MMCK_1' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_MUX2_MMCK_2' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Cannot infer functionality of libcell 'ts16ncfllogl16hdh090f/HDBLVT16_MUX2_MMCK_4' and will be excluded from sequential mapping. (SQM-1061)
+Warning: Mapping to scan cell 'HDBLVT16_FSDAO22PQO_4' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Warning: Mapping to scan cell 'HDBLVT16_FSDPRBQ_DECOCT_1' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Warning: Mapping to scan cell 'HDBLVT16_FSDPRBQ_DECOCT_2' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Warning: Mapping to scan cell 'HDBLVT16_FSDPRBQ_DECOCT_4' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Warning: Mapping to scan cell 'HDBLVT16_FSDPRBQ_DECO_1' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Warning: Mapping to scan cell 'HDBLVT16_FSDPRBQ_DECO_2' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Warning: Mapping to scan cell 'HDBLVT16_FSDPRBQ_DECO_4' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Warning: Mapping to scan cell 'HDBLVT16_FSDPRBSBQO_ECOCT_1' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Warning: Mapping to scan cell 'HDBLVT16_FSDPRBSBQO_ECOCT_2' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Warning: Mapping to scan cell 'HDBLVT16_FSDPRBSBQO_ECO_1' in library is not possible because cell has 'dont_use' attribute. (SQM-1067)
+Gensys attachment is created: presto_gensys.attach:cpu_LIB:cpu.design 
+Elapsed = 00:00:09.80, CPU = 00:00:09.50
+1
+source tz_setup.tcl
+WARNING: Layer mapping file warning. Tech layer 'M12' mapped in layer mapping file cannot be found in technology section.
+WARNING: Layer mapping file warning. Tech layer 'VIA11' mapped in layer mapping file cannot be found in technology section.
+Warning: TLUPlus file (41.07MB) will not be preserved because it exceeds file size limit (20MB). (TLUP-035)
+WARNING: Layer mapping file warning. Tech layer 'M12' mapped in layer mapping file cannot be found in technology section.
+WARNING: Layer mapping file warning. Tech layer 'VIA11' mapped in layer mapping file cannot be found in technology section.
+Warning: TLUPlus file (41.07MB) will not be preserved because it exceeds file size limit (20MB). (TLUP-035)
+Warning: This option -max_number_of_levels will be ignored during clock gating insertion/optimizations. (CGT-3003)
+The following clock gating options are applied to: top-level (design)
+Minimum bitwidth: 3
+Maximum fanout: 8
+The following clock gating style is applied to: top-level (design)
+Target: pos_edge_flip_flop 
+Test control position: before
+Observation output: false
+Created scenario func@cworst for mode func and corner cworst
+All analysis types are activated.
+Scenario func@cworst (mode func corner cworst) is active for setup/leakage_power/dynamic_power/max_transition/max_capacitance/min_capacitance analysis.
+****************************************
+Report : scenario
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Tue Jul 22 10:01:40 2025
+****************************************
+
+                                                                     Leakage  Dynamic                              Cell  Signal
+Name            Mode            Corner          Active  Setup  Hold  Power    Power    Max_tran  Max_cap  Min_cap  EM    EM
+----------------------------------------------------------------------------------------------------------------------------------
+func@cworst *   func            cworst          true    true   false true     true     true      true     true     false false
+
+1
+rtl_opt
+Warning: app_option compile.flow.constant_and_unloaded_propagation_with_no_boundary_opt will be set as false during the rtl_opt. (RTLA-800)
+Warning: Ignoring -as_user_default option since application option <opt.mux.rtla_use_xref_signatures> is global scoped. (NDMUI-1004)
+Information: Starting 'rtl_opt' (FLW-8000)
+Information: Time: 2025-07-22 10:01:40 / Session:  00:00:22 / Command:  00:00:00 / CPU:  00:00:00 / Memory: 1916 MB (FLW-8100)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: Timer using 8 threads
+INFO: compile_fusion is running in balanced flow mode.
+INFO: EIO v2 is enabled
+INFO: Cost Function Configuration 0.5/0.5/0.5/0.5
+Information: Structural Congestion Optimization technology (Early SCO) has been enabled. (SCO-0001)
+****************************************
+Report : report_tbcs
+Version: V-2023.12-SP5-3
+Date   : Tue Jul 22 10:01:40 2025
+****************************************
+INFO: Start environment monitoring: recipes
+Information: Corner cworst: no PVT mismatches. (PVT-032)
+INFO: compile_fusion is running in balanced flow mode.
+INFO: EIO v2 is enabled
+INFO: Cost Function Configuration 0.5/0.5/0.5/0.5
+Information: The automatic clock gate timing flow is activated. Clock latencies set on clock gate cells will be automatically adjusted by an estimate for latency. (CGT-4005)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / conditioning (FLW-8000)
+Information: Time: 2025-07-22 10:01:47 / Session:  00:00:30 / Command:  00:00:07 / CPU:  00:00:08 / Memory: 2227 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / conditioning / Load Design (FLW-8000)
+Information: Time: 2025-07-22 10:01:47 / Session:  00:00:30 / Command:  00:00:07 / CPU:  00:00:08 / Memory: 2227 MB (FLW-8100)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: Ending   rtl_opt / conditioning / Load Design (FLW-8001)
+Information: Time: 2025-07-22 10:01:51 / Session:  00:00:34 / Command:  00:00:11 / CPU:  00:00:12 / Memory: 2251 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / MV Cell Insertion (FLW-8000)
+Information: Time: 2025-07-22 10:01:51 / Session:  00:00:34 / Command:  00:00:11 / CPU:  00:00:12 / Memory: 2251 MB (FLW-8100)
+MV related app options set by user:
+Information: Ending   rtl_opt / conditioning / MV Cell Insertion (FLW-8001)
+Information: Time: 2025-07-22 10:01:51 / Session:  00:00:34 / Command:  00:00:11 / CPU:  00:00:12 / Memory: 2251 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Constant and Equal Register Detection (FLW-8000)
+Information: Time: 2025-07-22 10:01:51 / Session:  00:00:34 / Command:  00:00:11 / CPU:  00:00:12 / Memory: 2251 MB (FLW-8100)
+Information: The register reg_files_inst/mem_reg[0][31] is removed as constant '0'. (SQM-4100)
+Information: The register reg_files_inst/mem_reg[0][30] is removed as constant '0'. (SQM-4100)
+Information: The register reg_files_inst/mem_reg[0][29] is removed as constant '0'. (SQM-4100)
+Information: The register reg_files_inst/mem_reg[0][28] is removed as constant '0'. (SQM-4100)
+Information: The register reg_files_inst/mem_reg[0][27] is removed as constant '0'. (SQM-4100)
+Information: The register reg_files_inst/mem_reg[0][26] is removed as constant '0'. (SQM-4100)
+Information: The register reg_files_inst/mem_reg[0][25] is removed as constant '0'. (SQM-4100)
+Information: The register reg_files_inst/mem_reg[0][24] is removed as constant '0'. (SQM-4100)
+Information: The register reg_files_inst/mem_reg[0][23] is removed as constant '0'. (SQM-4100)
+Information: The register reg_files_inst/mem_reg[0][22] is removed as constant '0'. (SQM-4100)
+Information: 32 registers were removed as constant. Use report_transformed_registers for a list. (SQM-3100)
+Information: Register Bits Before Sharing = 1461, After Sharing = 1461, Savings = 0 (SQM-2000)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: 22 out of 32 SQM-4100 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: Ending   rtl_opt / conditioning / Constant and Equal Register Detection (FLW-8001)
+Information: Time: 2025-07-22 10:01:56 / Session:  00:00:38 / Command:  00:00:15 / CPU:  00:00:17 / Memory: 2298 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Register Merging (FLW-8000)
+Information: Time: 2025-07-22 10:01:56 / Session:  00:00:38 / Command:  00:00:15 / CPU:  00:00:17 / Memory: 2298 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Register Merging (FLW-8001)
+Information: Time: 2025-07-22 10:01:56 / Session:  00:00:38 / Command:  00:00:15 / CPU:  00:00:17 / Memory: 2298 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Constant Propagation and Register Optimization (FLW-8000)
+Information: Time: 2025-07-22 10:01:56 / Session:  00:00:38 / Command:  00:00:15 / CPU:  00:00:17 / Memory: 2298 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Constant Propagation and Register Optimization (FLW-8001)
+Information: Time: 2025-07-22 10:01:59 / Session:  00:00:41 / Command:  00:00:18 / CPU:  00:00:19 / Memory: 2298 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / High-Level Optimization and Technology Mapping (1) (FLW-8000)
+Information: Time: 2025-07-22 10:02:00 / Session:  00:00:42 / Command:  00:00:20 / CPU:  00:00:21 / Memory: 2298 MB (FLW-8100)
+Information: Identified 1 crossbars in module 'reg_files'. 0 out of 0 potentially congested crossbars amongst these are candidates for mux tree implementation. (MUX-6091)
+Information: Identified 1 crossbars in module 'alu'. 0 out of 0 potentially congested crossbars amongst these are candidates for mux tree implementation. (MUX-6091)
+Information: 214 out of 224 SQM-1061 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: 256 out of 266 SQM-1067 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: Timer using 8 threads
+Information: Ending   rtl_opt / conditioning / High-Level Optimization and Technology Mapping (1) (FLW-8001)
+Information: Time: 2025-07-22 10:02:06 / Session:  00:00:49 / Command:  00:00:26 / CPU:  00:01:03 / Memory: 2644 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / High-Level Optimization and Technology Mapping (2) (FLW-8000)
+Information: Time: 2025-07-22 10:02:06 / Session:  00:00:49 / Command:  00:00:26 / CPU:  00:01:03 / Memory: 2644 MB (FLW-8100)
+Information: Added key list 'DesignWare' to design 'cpu'. (DWS-0216)
+Information: The hierarchy  is ungrouped due to set_ungroup directive. (UNG-1002)
+Warning: Sequential element 'data1_alu_sel_out_reg' of module 'id_ex_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Warning: Sequential element 'data2_alu_sel_out_reg' of module 'id_ex_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Warning: Sequential element 'dest_addr_out_reg[0]' of module 'id_ex_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Warning: Sequential element 'aluop_out_reg[0]' of module 'id_ex_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Warning: Sequential element 'mem_write_out_reg[0]' of module 'id_ex_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Warning: Sequential element 'dest_addr_out_reg[0]' of module 'ex_mem_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Warning: Sequential element 'mem_write_out_reg[0]' of module 'ex_mem_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Warning: Sequential element 'reg_write_out_reg' of module 'ex_mem_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Warning: Sequential element 'dest_addr_out_reg[0]' of module 'mem_wb_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Warning: Sequential element 'reg_write_out_reg' of module 'mem_wb_pipeline_reg' is mapped to library cell 'HDBLVT16_FSDPC1BQ_DLP_1' or its equivalents, which have multiple input ports defined as nextstate:data. This may result in synchronous input nets swapped. (SQM-1047)
+Information: Shift register Inferencing is enabled so only head flop will be replaced with scan cell and not all registers in shift register chains are scan replaced. (SQM-1074)
+Information: 1 out of 11 SQM-1047 messages were not printed due to limit 10  (MSG-3913)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: 15 out of 16 SQM-1074 messages were not printed due to limit 1  (MSG-3913)
+Information: Ending   rtl_opt / conditioning / High-Level Optimization and Technology Mapping (2) (FLW-8001)
+Information: Time: 2025-07-22 10:02:23 / Session:  00:01:05 / Command:  00:00:42 / CPU:  00:01:31 / Memory: 2644 MB (FLW-8100)
+Information: RTL multibit banking summary. (SQM-2008)
+	Total candidates in design:1461
+	Total candidates ignored:  6
+	Total candidates banked:   1450
+	Banking Ratio of this pass:99.25%
+	Banking ratio             :99.25% (Before banking 0.00%)
+	Use report_multibit for details.
+Information: Starting rtl_opt / conditioning / DFT Core Wrapper Analysis (FLW-8000)
+Information: Time: 2025-07-22 10:02:23 / Session:  00:01:05 / Command:  00:00:42 / CPU:  00:01:31 / Memory: 2644 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / DFT Core Wrapper Analysis (FLW-8001)
+Information: Time: 2025-07-22 10:02:23 / Session:  00:01:05 / Command:  00:00:42 / CPU:  00:01:31 / Memory: 2644 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Logic Simplification (2) (FLW-8000)
+Information: Time: 2025-07-22 10:02:23 / Session:  00:01:05 / Command:  00:00:43 / CPU:  00:01:31 / Memory: 2644 MB (FLW-8100)
+Information: Register Bits Before Sharing = 1461, After Sharing = 1461, Savings = 0 (SQM-2000)
+Information: Starting rtl_opt / conditioning / Logic Simplification (2) / Constant Propagation and Register Optimization (FLW-8000)
+Information: Time: 2025-07-22 10:02:24 / Session:  00:01:06 / Command:  00:00:43 / CPU:  00:01:32 / Memory: 2682 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Logic Simplification (2) / Constant Propagation and Register Optimization (FLW-8001)
+Information: Time: 2025-07-22 10:02:24 / Session:  00:01:06 / Command:  00:00:43 / CPU:  00:01:33 / Memory: 2682 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Logic Simplification (2) (FLW-8001)
+Information: Time: 2025-07-22 10:02:24 / Session:  00:01:06 / Command:  00:00:43 / CPU:  00:01:33 / Memory: 2682 MB (FLW-8100)
+Information: Result of rtl_opt / conditioning / Clock Gate Insertion (FLW-8500)
+--------------------------------------------------------------------------------
+|                             Clock Gating Options                             |
+--------------------------------------------------------------------------------
+|         Objects         |    Minimum Bitwidth     |      Maximum Fanout      |
+--------------------------+-------------------------+---------------------------
+|   top-level (design)    |          3 (d)          |      Unlimited (d)       |
+--------------------------------------------------------------------------------
+
+Number of Pre-Existing Clock Gates with dont touch attribute: 0
+Number of ICG library cells with CTS purpose: 114
+---------------------------------------------------------------------------------------------
+                          Tool Gated Register Summary                                        
+---------------------------------------------------------------------------------------------
+Clock Gating Type                   | Number of   | Register Count | Equivalent | % of Gated 
+                                    | Clock Gates |                | Bitwidth   | Bits       
+---------------------------------------------------------------------------------------------
+Regular Clock Gating                |          36 |            201 |       1461 |   100.00%
+---------------------------------------------------------------------------------------------
+Compile-fusion optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
+Compile-fusion                                          -           -         -         -       4203.24           -        7330              0.02      2682
+Information: Ending   rtl_opt / conditioning (FLW-8001)
+Information: Time: 2025-07-22 10:02:24 / Session:  00:01:06 / Command:  00:00:44 / CPU:  00:01:33 / Memory: 2682 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / conditioning (FLW-8000)
+Information: Time: 2025-07-22 10:02:24 / Session:  00:01:06 / Command:  00:00:44 / CPU:  00:01:33 / Memory: 2682 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / conditioning / Load Design (FLW-8000)
+Information: Time: 2025-07-22 10:02:24 / Session:  00:01:06 / Command:  00:00:44 / CPU:  00:01:33 / Memory: 2682 MB (FLW-8100)
+Warning: Auto deriving 'horizontal' routing direction for layer 'M1'. (DMM-115)
+Warning: Auto deriving 'vertical' routing direction for layer 'M2'. (DMM-115)
+Warning: Auto deriving 'horizontal' routing direction for layer 'M3'. (DMM-115)
+Warning: Auto deriving 'vertical' routing direction for layer 'M4'. (DMM-115)
+Warning: Auto deriving 'horizontal' routing direction for layer 'M5'. (DMM-115)
+Warning: Auto deriving 'vertical' routing direction for layer 'M6'. (DMM-115)
+Warning: Auto deriving 'horizontal' routing direction for layer 'M7'. (DMM-115)
+Warning: Auto deriving 'vertical' routing direction for layer 'M8'. (DMM-115)
+Warning: Auto deriving 'horizontal' routing direction for layer 'M9'. (DMM-115)
+Warning: Auto deriving 'vertical' routing direction for layer 'M10'. (DMM-115)
+Warning: Auto deriving 'horizontal' routing direction for layer 'M11'. (DMM-115)
+Warning: Auto deriving 'vertical' routing direction for layer 'AP'. (DMM-115)
+Information: Initializing core and die (AFP-1001)
+Information: Initializing rows (AFP-1003)
+Information: Initializing tracks (AFP-1004)
+Information: Generated core area = 5974.041504 (AFP-2021)
+Information: Generated core boundary = { {0 0} {0 77.184} {77.4 77.184} {77.4 0} } (AFP-2022)
+Information: Change threshold for extractor is reset. (FLW-1300)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Information: Ending   rtl_opt / conditioning / Load Design (FLW-8001)
+Information: Time: 2025-07-22 10:02:29 / Session:  00:01:12 / Command:  00:00:49 / CPU:  00:01:42 / Memory: 2682 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Clock Gate Re-structuring (FLW-8000)
+Information: Time: 2025-07-22 10:02:29 / Session:  00:01:12 / Command:  00:00:49 / CPU:  00:01:42 / Memory: 2682 MB (FLW-8100)
+Information: Result of rtl_opt / conditioning / Clock Gate Re-structuring (FLW-8500)
+Number of Pre-Existing Clock Gates with dont touch attribute: 0
+Number of ICG library cells with CTS purpose: 114
+---------------------------------------------------------------------------------------------
+                          Tool Gated Register Summary                                        
+---------------------------------------------------------------------------------------------
+Clock Gating Type                   | Number of   | Register Count | Equivalent | % of Gated 
+                                    | Clock Gates |                | Bitwidth   | Bits       
+---------------------------------------------------------------------------------------------
+Regular Clock Gating                |          36 |            201 |       1461 |   100.00%
+---------------------------------------------------------------------------------------------
+Information: Ending   rtl_opt / conditioning / Clock Gate Re-structuring (FLW-8001)
+Information: Time: 2025-07-22 10:02:29 / Session:  00:01:12 / Command:  00:00:49 / CPU:  00:01:42 / Memory: 2682 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Optimization (1) (FLW-8000)
+Information: Time: 2025-07-22 10:02:29 / Session:  00:01:12 / Command:  00:00:49 / CPU:  00:01:42 / Memory: 2682 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Optimization (1) / Logic Simplification and Register Optimization (FLW-8000)
+Information: Time: 2025-07-22 10:02:31 / Session:  00:01:13 / Command:  00:00:51 / CPU:  00:01:43 / Memory: 2682 MB (FLW-8100)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: Ending   rtl_opt / conditioning / Optimization (1) / Logic Simplification and Register Optimization (FLW-8001)
+Information: Time: 2025-07-22 10:02:33 / Session:  00:01:16 / Command:  00:00:53 / CPU:  00:01:46 / Memory: 2682 MB (FLW-8100)
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Information: Estimating clock gate latencies for scenario 'func@cworst'. (OPT-909)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: Starting rtl_opt / conditioning / Optimization (1) / Timing Optimization and DesignWare Reselection (FLW-8000)
+Information: Time: 2025-07-22 10:02:40 / Session:  00:01:22 / Command:  00:00:59 / CPU:  00:01:56 / Memory: 2690 MB (FLW-8100)
+Warning: Net name 'N_408' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_403' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_398' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_420' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_417' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_415' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_381' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_415' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_415' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_415' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_438' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_419' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_443' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_394' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_443' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_443' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_443' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_439' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_435' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_445' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_420' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_445' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_445' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_445' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_452' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_445' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_455' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_431' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_455' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_455' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_455' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_507' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_508' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_481' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_430' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_481' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_481' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_481' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_515' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_506' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_497' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_457' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_497' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_497' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_497' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_514' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_513' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_497' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_469' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_497' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_497' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_497' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_544' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_540' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_519' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_485' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_519' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_519' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_519' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_554' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_553' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_526' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_488' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_526' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_526' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_526' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_576' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_558' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_581' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_498' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_581' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_581' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Warning: Net name 'N_581' is omitted from the output file, because the net name does not match a connected port name. The net is implicitly renamed to match one of its connected ports. (VW-007)
+Information: 310 out of 320 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 370 out of 380 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Warning: Net 'alu_inst/DATA1[31]' is already connected to pin 'alu_inst/DATA1[31]'. It may cause loss of switching activity. (POW-116)
+Warning: Net 'pc_plus_4_ma/data[1]' is already connected to pin 'pc_plus_4_ma/data[1]'. It may cause loss of switching activity. (POW-116)
+Warning: Net 'pc_plus_4_ma/data[0]' is already connected to pin 'pc_plus_4_ma/data[0]'. It may cause loss of switching activity. (POW-116)
+Warning: Net 'pc_plus_4/data[1]' is already connected to pin 'pc_plus_4/data[1]'. It may cause loss of switching activity. (POW-116)
+Warning: Net 'pc_plus_4/data[0]' is already connected to pin 'pc_plus_4/data[0]'. It may cause loss of switching activity. (POW-116)
+Warning: Net 'alu_inst/snps_DIVREM_75/tmp_net11088' is already connected to pin 'alu_inst/snps_DIVREM_75/u_div/ctmi_4533/X'. It may cause loss of switching activity. (POW-116)
+Information: Ending   rtl_opt / conditioning / Optimization (1) / Timing Optimization and DesignWare Reselection (FLW-8001)
+Information: Time: 2025-07-22 10:03:34 / Session:  00:02:17 / Command:  00:01:54 / CPU:  00:03:01 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Optimization (1) (FLW-8001)
+Information: Time: 2025-07-22 10:03:34 / Session:  00:02:17 / Command:  00:01:54 / CPU:  00:03:01 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Register Retiming (FLW-8000)
+Information: Time: 2025-07-22 10:03:34 / Session:  00:02:17 / Command:  00:01:54 / CPU:  00:03:01 / Memory: 4488 MB (FLW-8100)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: Result of rtl_opt / conditioning / Register Retiming (FLW-8500)
+Information: No instance marked for retiming. (RTM-1031)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: Ending   rtl_opt / conditioning / Register Retiming (FLW-8001)
+Information: Time: 2025-07-22 10:03:43 / Session:  00:02:25 / Command:  00:02:02 / CPU:  00:03:09 / Memory: 4488 MB (FLW-8100)
+Information: Register Bits Before Sharing = 14, After Sharing = 14, Savings = 0 (SQM-2000)
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: Starting rtl_opt / conditioning / Optimization (2) (FLW-8000)
+Information: Time: 2025-07-22 10:03:45 / Session:  00:02:28 / Command:  00:02:05 / CPU:  00:03:12 / Memory: 4488 MB (FLW-8100)
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Information: Estimating clock gate latencies for scenario 'func@cworst'. (OPT-909)
+Information: Ending   rtl_opt / conditioning / Optimization (2) (FLW-8001)
+Information: Time: 2025-07-22 10:03:52 / Session:  00:02:34 / Command:  00:02:11 / CPU:  00:03:20 / Memory: 4488 MB (FLW-8100)
+Information: Structural Congestion Optimization technology (Early SCO) has been enabled. (SCO-0001)
+Information: Design has 10446 unplaced cells after preCond2Placement (FLW-5112)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Information: Starting rtl_opt / conditioning / Optimization (3) (FLW-8000)
+Information: Time: 2025-07-22 10:03:54 / Session:  00:02:36 / Command:  00:02:14 / CPU:  00:03:31 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Optimization (3) / Timing Optimization (FLW-8000)
+Information: Time: 2025-07-22 10:03:54 / Session:  00:02:36 / Command:  00:02:14 / CPU:  00:03:31 / Memory: 4488 MB (FLW-8100)
+Information: 246 out of 256 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 294 out of 304 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: Ending   rtl_opt / conditioning / Optimization (3) / Timing Optimization (FLW-8001)
+Information: Time: 2025-07-22 10:03:57 / Session:  00:02:39 / Command:  00:02:16 / CPU:  00:03:34 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Optimization (3) (FLW-8001)
+Information: Time: 2025-07-22 10:03:57 / Session:  00:02:40 / Command:  00:02:17 / CPU:  00:03:37 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Optimization (4) (FLW-8000)
+Information: Time: 2025-07-22 10:03:57 / Session:  00:02:40 / Command:  00:02:17 / CPU:  00:03:37 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Optimization (4) / Logic Simplification and Register Optimization (FLW-8000)
+Information: Time: 2025-07-22 10:03:57 / Session:  00:02:40 / Command:  00:02:17 / CPU:  00:03:37 / Memory: 4488 MB (FLW-8100)
+Information: 54 out of 64 SQM-1061 messages were not printed due to limit 10  (MSG-3913)
+Information: 66 out of 76 SQM-1067 messages were not printed due to limit 10  (MSG-3913)
+Information: Constant/unloaded/undriven multibit debanking summary (SQM-2009)
+Information: Ending   rtl_opt / conditioning / Optimization (4) / Logic Simplification and Register Optimization (FLW-8001)
+Information: Time: 2025-07-22 10:04:00 / Session:  00:02:42 / Command:  00:02:19 / CPU:  00:03:44 / Memory: 4488 MB (FLW-8100)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Information: Ending   rtl_opt / conditioning / Optimization (4) (FLW-8001)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:29 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Optimization (5) (FLW-8000)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:29 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Optimization (5) / Logic Simplification and Register Optimization (FLW-8000)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:29 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Optimization (5) / Logic Simplification and Register Optimization (FLW-8001)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:29 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Optimization (5) (FLW-8001)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:29 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Auto-Floorplan (2) (FLW-8000)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:29 / Memory: 4488 MB (FLW-8100)
+Information: Initializing core and die (AFP-1001)
+Information: Initializing rows (AFP-1003)
+Information: Initializing tracks (AFP-1004)
+Removing existing floorplan objects
+Creating core...
+Core utilization ratio = 70.38%
+Unplacing all cells...
+Creating site array...
+Creating routing tracks...
+Initializing floorplan completed.
+Information: Generated core area = 6441.949219 (AFP-2021)
+Information: Generated core boundary = { {0 0} {0 80.064} {80.46 80.064} {80.46 0} } (AFP-2022)
+Information: Shaping unshaped voltage areas (AFP-1011)
+Information: Placing unplaced pins (AFP-1007)
+Load DB...
+CPU Time for load db: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+
+Min routing layer: M1
+Max routing layer: AP
+
+
+CPU Time for Top Level Pre-Route Processing: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+CPU Time for Leaf Level Pre-Route Processing: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Number of block ports: 171
+Number of block pin locations assigned from router: 0
+CPU Time for Pin Preparation: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Number of PG ports on blocks: 0
+Number of pins created: 171
+CPU Time for Pin Creation: 00:00:00.01u 00:00:00.00s 00:00:00.01e: 
+Total Pin Placement CPU Time: 00:00:00.02u 00:00:00.00s 00:00:00.02e: 
+Information: Result of rtl_opt / conditioning / Auto-Floorplan (2) (FLW-8500)
+Information: Auto-Floorplan Summary (AFP-2023)
+-------------------------------------------------------------------------------
+              origin           area     boundary
+core  auto-floorplan        6441.95   { {0 0} {0 80.064} {80.46 80.064} {80.46 0} }
+die   auto-floorplan        6441.95   { {0 0} {0 80.064} {80.46 80.064} {80.46 0} }
+-------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------
+objects             total        candidates          modified         preserved                 
+voltage areas           0                 0                 0                 0
+ios                     0                 0                 0                 0
+macros                  0                 0                 0                 0
+pins                  171               171               171                 0
+-------------------------------------------------------------------------------
+Information: Ending   rtl_opt / conditioning / Auto-Floorplan (2) (FLW-8001)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:30 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Secondary PG connections (FLW-8000)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:30 / Memory: 4488 MB (FLW-8100)
+Information: Secondary PG:  Secondary PG connections skipped because it is not a UPF design (FLW-1247)
+Information: Ending   rtl_opt / conditioning / Secondary PG connections (FLW-8001)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:30 / Memory: 4488 MB (FLW-8100)
+Compile-fusion optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
+Compile-fusion                                          -           -         -         -       4533.62           -       10424              0.05      4488
+Information: Ending   rtl_opt / conditioning (FLW-8001)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:30 / Memory: 4488 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / estimation (FLW-8000)
+Information: Time: 2025-07-22 10:04:23 / Session:  00:03:05 / Command:  00:02:42 / CPU:  00:04:30 / Memory: 4488 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Timer using 8 threads
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+LLE:                                       disabled
+ML Acceleration:                           off
+Smart Arc Optimization:                    disabled
+************************************************************
+Number of Site types in the design = 1
+Setting up Chip Core
+Chip Core shape: (0 0) (804600 800640)
+Number of VARs = 1
+Number of unique PDs = 1
+Number of Power Domains = 1
+Number of Voltage Areas = 1
+Number of supply Nets = 2
+Number of used supplies = 0
+Blocked VAs: 
+Information: Change threshold for extractor is reset. (FLW-1300)
+Information: Starting rtl_opt / estimation / Load Design (FLW-8000)
+Information: Time: 2025-07-22 10:04:27 / Session:  00:03:09 / Command:  00:02:46 / CPU:  00:04:42 / Memory: 4488 MB (FLW-8100)
+ Information: Populating compatible release data
+Information: Populating data from multiAnalyze json.
+Information: Running as single analyze flow.
+Warning: DFT IP not instantiated successfully (DFT-2193)
+Information: Starting rtl_opt / estimation / Load Design / Incremental Auto-Floorplan (FLW-8000)
+Information: Time: 2025-07-22 10:04:27 / Session:  00:03:09 / Command:  00:02:47 / CPU:  00:04:43 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / Load Design / Incremental Auto-Floorplan (FLW-8001)
+Information: Time: 2025-07-22 10:04:27 / Session:  00:03:09 / Command:  00:02:47 / CPU:  00:04:43 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / Load Design (FLW-8001)
+Information: Time: 2025-07-22 10:04:27 / Session:  00:03:10 / Command:  00:02:47 / CPU:  00:04:43 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / pre-placement setup (FLW-8000)
+Information: Time: 2025-07-22 10:04:27 / Session:  00:03:10 / Command:  00:02:47 / CPU:  00:04:43 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / pre-placement setup (FLW-8001)
+Information: Time: 2025-07-22 10:04:28 / Session:  00:03:10 / Command:  00:02:47 / CPU:  00:04:43 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / Initial Placement (FLW-8000)
+Information: Time: 2025-07-22 10:04:28 / Session:  00:03:10 / Command:  00:02:47 / CPU:  00:04:43 / Memory: 4488 MB (FLW-8100)
+----------------------------------------------------------------
+running create_placement
+Corner Scaling is off, multiplier is 1.000000
+Information: timingScenario func@cworst timingCorner cworst.  Using corner cworst for worst leakage corner. (OPT-078)
+Information: Using default layer M4 (Current) (OPT-079)
+new default layer same as orig default layer
+Information: Using default layer M4 (Inferior) (OPT-079)
+Information: Nominal = 0.0168671  Design MT = inf  Target = 0.0893142  MaxRC = 0.052645 Fast Target = 0.027969 (OPT-081)
+nplLib: default vr hor dist = 269
+nplLib: default vr ver dist = 269
+nplLib: default vr buf size = 1
+nplLib: default vr buf size = 1
+Placer using max_unbuffered_distance = 269.15
+Info: embedded eLpp will optimize for scenario func@cworst
+Information: Activity propagation will be performed for scenario func@cworst.
+Information: Doing activity propagation for mode 'func' and corner 'cworst' with effort level 'superlow'. (POW-024)
+Information: Timer-derived activity data is cached on scenario func@cworst (POW-052)
+Information: Running switching activity propagation with 8 threads!
+
+ **** Information : No. of simulation cycles = 2 ****
+Info: e-eLpp used with low effort
+
+Placement Options:
+Effort:                        high_effort         
+Timing Driven:                 false               
+Buffering Aware Timing Driven: false               
+Seed locs:                     false               
+Incremental:                   false               
+Congestion:                    false               
+Fix Macros:                    true                
+Place Macros:                  false               
+Channel Size Macros:           false               
+
+
+Start transferring placement data.
+Information: Found 190 sequential and 0 combinational multibit cells in the design. (PLACE-090)
+Warning: a large fraction of the nets have zero toggle rate (65.883%)
+****** eLpp estimated wire length 
+0.67042% of the net wire length are clock nets
+0% of the clock net wire length has no activity
+Clock net wire length: 1.5724e+06
+Total net wire length: 2.3454e+08
+****** eLpp weights (no caps) (no lengths)
+Number of nets: 12633, of which 12565 non-clock nets
+Number of nets with 0 toggle rate: 8323 (65.883%)
+Max toggle rate = 0.2, average toggle rate = 0.00107061
+Max non-clock toggle rate = 0.0315613
+eLpp weight range = (0, 186.81)
+*** 37 nets are filtered out
+****** Net weight manager: report ******
+Weights included: eLpp  Timing  
+Number of nets with non-default weights: 12633
+Amt power = 0.1
+Timing factor = 1
+Non-default weight range: (0.792184, 19.4731)
+                             Min         Max         Avg       Stdev        Skew
+       Toggle Rates            0         0.2  0.00107061  0.00807306     13.1343
+      Power Weights            0      186.81    0.999997     7.54063     13.1343
+     Timing Weights     0.880204     2.64061           1    0.408393     3.36609
+      Final Weights     0.792184     19.4731           1    0.829138     9.82439
+Information: Automatic repeater spreading is enabled.
+Warning: all hierarchy boundaries are restricted! This is expected to reduce CDR's QoR; please disable these restrictions for additional QoR gain
+Warning: hierarchy boundary restrictions detected! This is expected to reduce CDR's QoR; please disable these restrictions for additional QoR gain
+Restructuring in 24 hierarchies
+CGRW: importing permutable pins & pairs, size 8 and above
+Completed transferring placement data.
+Running placement using 8 thread(s)
+Information: Enhanced Auto Density Control is used. (PLACE-098)
+Information: Enhanced auto density configuration is 13179.
+Information: Automatic density control has selected the following settings: max_density 0.55, congestion_driven_max_util 0.87. (PLACE-027)
+Information: HFW control 'off' invoked.
+Creating placement from scratch.
+coarse place 0% done.
+coarse place 13% done.
+coarse place 25% done.
+coarse place 38% done.
+Warning: a large fraction of the nets have zero toggle rate (66.5004%)
+coarse place 50% done.
+Warning: a large fraction of the nets have zero toggle rate (66.5242%)
+coarse place 63% done.
+Warning: a large fraction of the nets have zero toggle rate (66.5954%)
+coarse place 75% done.
+Warning: a large fraction of the nets have zero toggle rate (66.6588%)
+coarse place 88% done.
+Warning: a large fraction of the nets have zero toggle rate (66.6904%)
+coarse place 100% done.
+Information: Coarse placer wire length estimate = 94080.9
+Information: Coarse placer active wire length estimate = 213.788
+Information: Coarse placer weighted wire length estimate = 100236
+Information: Extraction observers are detached as design net change threshold is reached.
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Information: Estimating clock gate latencies for scenario 'func@cworst'. (OPT-909)
+----------------------------------------------------------------
+Non-default App Option report
+All App Options have their default value.
+Information: Ending   rtl_opt / estimation / Initial Placement (FLW-8001)
+Information: Time: 2025-07-22 10:04:39 / Session:  00:03:21 / Command:  00:02:59 / CPU:  00:05:10 / Memory: 4488 MB (FLW-8100)
+Information: Placing unplaced pins (AFP-1007)
+Load DB...
+CPU Time for load db: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+
+Min routing layer: M1
+Max routing layer: AP
+
+
+CPU Time for Top Level Pre-Route Processing: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+CPU Time for Leaf Level Pre-Route Processing: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+NEX(Warning): extract.rc_techfile_for_diode_mode_26_thickness not set, will igonre it
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M4. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M4. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M4. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M4. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M5. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M5. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M5. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M5. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M6. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M6. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M6. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M6. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M7. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M7. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M7. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M7. Automatically ignore this span threshold. (ZRT-800)
+Two layer enclosure iso-dense via enclosure rule is defined.
+Warning: Unsupported tech file value:  M4:  yDefaultWidth = 0.040000.  yDefaultWidth is less than minimum width.  Increasing yDefaultWidth value to 0.080000. (ZRT-091)
+Warning: Unsupported tech file value:  M5:  xDefaultWidth = 0.040000.  xDefaultWidth is less than minimum width.  Increasing xDefaultWidth value to 0.080000. (ZRT-091)
+Warning: Unsupported tech file value:  M6:  yDefaultWidth = 0.040000.  yDefaultWidth is less than minimum width.  Increasing yDefaultWidth value to 0.080000. (ZRT-091)
+Warning: Unsupported tech file value:  M7:  xDefaultWidth = 0.040000.  xDefaultWidth is less than minimum width.  Increasing xDefaultWidth value to 0.080000. (ZRT-091)
+Cell Min-Routing-Layer = M1
+Cell Max-Routing-Layer = AP
+Turn off antenna since no rule is specified
+Information: Option route.detail.force_end_on_preferred_grid will be ignored since none of the layers have preferred grid. (ZRT-703)
+Note - message 'ZRT-030' limit (10) exceeded. Remainder will be suppressed.
+Warning: the routing tracks on DPT layer M1 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M1 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M2 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M2 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M3 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M3 are without any mask information. (ZRT-727)
+
+Block Pin Constraint   Min Pin Max Pin Reserve
+                       Layer   Layer   Layer    Feedthroughs
+--------------------   ------  ------  ------   ------------
+cpu                    M2      AP      AP       Not allowed
+
+Warning: Contact VIA34_1cut's upper layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA34_1cut's upper layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA45_1cut's lower layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA45_1cut's lower layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA45_1cut's upper layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA45_1cut's upper layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA56_1cut's lower layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA56_1cut's lower layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA56_1cut's upper layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA56_1cut's upper layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA67_1cut's lower layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA67_1cut's lower layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA67_1cut's upper layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA67_1cut's upper layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Via on layer (VIA0) needs more than one tracks
+Warning: Layer M1 default pitch 0.090 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.100" & "wire/via-up 0.080". (ZRT-026)
+Wire on layer (M2) needs more than one tracks
+Via on layer (VIA1) needs more than one tracks
+Via on layer (VIA2) needs more than one tracks
+Warning: Layer M2 default pitch 0.064 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.100" & "wire/via-up 0.089". (ZRT-026)
+Wire on layer (M3) needs more than one tracks
+Via on layer (VIA2) needs more than one tracks
+Via on layer (VIA3) needs more than one tracks
+Warning: Layer M3 default pitch 0.070 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.099" & "wire/via-up 0.101". (ZRT-026)
+Wire on layer (M4) needs more than one tracks
+Via on layer (VIA3) needs more than one tracks
+Via on layer (VIA4) needs more than one tracks
+Warning: Layer M4 default pitch 0.080 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.131" & "wire/via-up 0.150". (ZRT-026)
+Wire on layer (M5) needs more than one tracks
+Via on layer (VIA4) needs more than one tracks
+Via on layer (VIA5) needs more than one tracks
+Warning: Layer M5 default pitch 0.080 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.150" & "wire/via-up 0.150". (ZRT-026)
+Wire on layer (M6) needs more than one tracks
+Via on layer (VIA5) needs more than one tracks
+Via on layer (VIA6) needs more than one tracks
+Warning: Layer M6 default pitch 0.080 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.150" & "wire/via-up 0.150". (ZRT-026)
+Wire on layer (M7) needs more than one tracks
+Via on layer (VIA6) needs more than one tracks
+Via on layer (VIA7) needs more than one tracks
+Warning: Layer M7 default pitch 0.080 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.150" & "wire/via-up 0.120". (ZRT-026)
+Wire on layer (M8) needs more than one tracks
+Via on layer (VIA7) needs more than one tracks
+Via on layer (VIA8) needs more than one tracks
+Warning: Layer M8 default pitch 0.126 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.153" & "wire/via-up 0.153". (ZRT-026)
+Wire on layer (M9) needs more than one tracks
+Via on layer (VIA8) needs more than one tracks
+Via on layer (VIA9) needs more than one tracks
+Warning: Layer M9 default pitch 0.126 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.153" & "wire/via-up 0.374". (ZRT-026)
+Wire on layer (M10) needs more than one tracks
+Via on layer (VIA9) needs more than one tracks
+Via on layer (VIA10) needs more than one tracks
+Warning: Layer M10 default pitch 0.900 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.954" & "wire/via-up 0.954". (ZRT-026)
+Wire on layer (M11) needs more than one tracks
+Via on layer (VIA10) needs more than one tracks
+Via on layer (RV) needs more than one tracks
+Warning: Layer M11 default pitch 0.900 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.954" & "wire/via-up 2.475". (ZRT-026)
+Via on layer (RV) needs more than one tracks
+Warning: Layer AP default pitch 3.600 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 4.500" & "wire/via-up 3.600". (ZRT-026)
+Transition layer name: M8(7)
+Information: When applicable Min-max layer allow_pin_connection mode will allow paths of length 0.89 outside the layer range. (ZRT-707)
+Information: When applicable Min-max layer allow_pin_connection mode will allow paths of length 0.89 outside the layer range on clock nets. (ZRT-718)
+Information: When applicable layer based tapering will taper up to 0.00 in distance from the pin. (ZRT-706)
+Note - message 'ZRT-625' limit (10) exceeded. Remainder will be suppressed.
+Warning: Cell if_id_pipeline_reg_inst/ctmi_181 is placed overlapping with other cells at {{71.331 12.513} {71.691 13.089}}. (ZRT-763)
+Start Global Route ... 
+[Init] Elapsed real time: 0:00:00 
+[Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[Init] Total (MB): Used   62  Alloctr   63  Proc 7854 
+Printing options for 'route.common.*'
+common.clock_topology                                   :	 normal              
+common.single_connection_to_pins                        :	 off                 
+
+Printing options for 'route.global.*'
+global.crosstalk_driven                                 :	 false               
+global.deterministic                                    :	 on                  
+
+Begin global routing.
+Constructing data structure ...
+Information: Double patterning layer M1 will be routed with target utilization ratio of 80 per cent. (ZRT-138)
+Information: Double patterning layer M2 will be routed with target utilization ratio of 80 per cent. (ZRT-138)
+Information: Double patterning layer M3 will be routed with target utilization ratio of 85 per cent. (ZRT-138)
+Information: Non-DPT layer M4 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M5 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M6 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M7 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M8 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M9 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M10 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M11 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer AP will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Design statistics:
+Design Bounding Box (-0.58um,-0.58um,81.04um,80.64um)
+Number of routing layers = 12
+layer M1, dir Hor, min width = 0.032um, min space = 0.032um pitch = 0.09um
+layer M2, dir Ver, min width = 0.032um, min space = 0.032um pitch = 0.064um
+layer M3, dir Hor, min width = 0.032um, min space = 0.032um pitch = 0.07um
+layer M4, dir Ver, min width = 0.04um, min space = 0.04um pitch = 0.08um
+layer M5, dir Hor, min width = 0.04um, min space = 0.04um pitch = 0.08um
+layer M6, dir Ver, min width = 0.04um, min space = 0.04um pitch = 0.08um
+layer M7, dir Hor, min width = 0.04um, min space = 0.04um pitch = 0.08um
+layer M8, dir Ver, min width = 0.062um, min space = 0.064um pitch = 0.126um
+layer M9, dir Hor, min width = 0.062um, min space = 0.064um pitch = 0.126um
+layer M10, dir Ver, min width = 0.45um, min space = 0.45um pitch = 0.9um
+layer M11, dir Hor, min width = 0.45um, min space = 0.45um pitch = 0.9um
+layer AP, dir Ver, min width = 1.8um, min space = 1.8um pitch = 3.6um
+Current Stage stats:
+[End of Build Tech Data] Elapsed real time: 0:00:00 
+[End of Build Tech Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Tech Data] Stage (MB): Used    1  Alloctr    1  Proc    0 
+[End of Build Tech Data] Total (MB): Used   67  Alloctr   68  Proc 7854 
+Net statistics:
+Total number of nets to route for block pin placement     = 170
+Number of interface nets to route for block pin placement = 170
+Current Stage stats:
+[End of Build All Nets] Elapsed real time: 0:00:00 
+[End of Build All Nets] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build All Nets] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Build All Nets] Total (MB): Used   68  Alloctr   68  Proc 7854 
+Net length statistics: 
+Net Count(Ignore Fully Rted) 340, Total Half Perimeter Wire Length (HPWL) 15400 microns
+HPWL   0 ~   50 microns: Net Count      169	Total HPWL         1659 microns
+HPWL  50 ~  100 microns: Net Count      171	Total HPWL        13741 microns
+HPWL 100 ~  200 microns: Net Count        0	Total HPWL            0 microns
+HPWL 200 ~  300 microns: Net Count        0	Total HPWL            0 microns
+HPWL 300 ~  400 microns: Net Count        0	Total HPWL            0 microns
+HPWL 400 ~  500 microns: Net Count        0	Total HPWL            0 microns
+HPWL 500 ~  600 microns: Net Count        0	Total HPWL            0 microns
+HPWL 600 ~  700 microns: Net Count        0	Total HPWL            0 microns
+HPWL 700 ~  800 microns: Net Count        0	Total HPWL            0 microns
+HPWL 800 ~  900 microns: Net Count        0	Total HPWL            0 microns
+HPWL 900 ~ 1000 microns: Net Count        0	Total HPWL            0 microns
+HPWL     > 1000 microns: Net Count        0	Total HPWL            0 microns
+Number of partitions: 1 (1 x 1)
+Size of partitions: 20 gCells x 20 gCells
+Average gCell capacity  45.05	 on layer (1)	 M1
+Average gCell capacity  63.64	 on layer (2)	 M2
+Average gCell capacity  57.90	 on layer (3)	 M3
+Average gCell capacity  50.90	 on layer (4)	 M4
+Average gCell capacity  50.65	 on layer (5)	 M5
+Average gCell capacity  50.90	 on layer (6)	 M6
+Average gCell capacity  50.65	 on layer (7)	 M7
+Average gCell capacity  32.30	 on layer (8)	 M8
+Average gCell capacity  32.15	 on layer (9)	 M9
+Average gCell capacity  4.45	 on layer (10)	 M10
+Average gCell capacity  4.45	 on layer (11)	 M11
+Average gCell capacity  1.05	 on layer (12)	 AP
+Average number of tracks per gCell 45.20	 on layer (1)	 M1
+Average number of tracks per gCell 63.75	 on layer (2)	 M2
+Average number of tracks per gCell 58.00	 on layer (3)	 M3
+Average number of tracks per gCell 51.00	 on layer (4)	 M4
+Average number of tracks per gCell 50.75	 on layer (5)	 M5
+Average number of tracks per gCell 51.00	 on layer (6)	 M6
+Average number of tracks per gCell 50.75	 on layer (7)	 M7
+Average number of tracks per gCell 32.40	 on layer (8)	 M8
+Average number of tracks per gCell 32.25	 on layer (9)	 M9
+Average number of tracks per gCell 4.55	 on layer (10)	 M10
+Average number of tracks per gCell 4.55	 on layer (11)	 M11
+Average number of tracks per gCell 1.15	 on layer (12)	 AP
+Number of gCells = 4800
+Current Stage stats:
+[End of Build Congestion Map] Elapsed real time: 0:00:00 
+[End of Build Congestion Map] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Congestion Map] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Build Congestion Map] Total (MB): Used   68  Alloctr   69  Proc 7854 
+Number of partitions: 1 (1 x 1)
+Size of partitions: 20 gCells x 20 gCells
+Current Stage stats:
+[End of Add Nets Demand] Elapsed real time: 0:00:00 
+[End of Add Nets Demand] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Add Nets Demand] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Add Nets Demand] Total (MB): Used   69  Alloctr   69  Proc 7854 
+Number of user frozen nets = 0
+Total stats:
+[End of Build Data] Elapsed real time: 0:00:00 
+[End of Build Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Data] Stage (MB): Used    2  Alloctr    2  Proc    0 
+[End of Build Data] Total (MB): Used   69  Alloctr   69  Proc 7854 
+Number of partitions: 1 (1 x 1)
+Size of partitions: 20 gCells x 20 gCells
+Current Stage stats:
+[End of Blocked Pin Detection] Elapsed real time: 0:00:00 
+[End of Blocked Pin Detection] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Blocked Pin Detection] Stage (MB): Used   12  Alloctr   12  Proc    0 
+[End of Blocked Pin Detection] Total (MB): Used   81  Alloctr   81  Proc 7854 
+Information: Using 8 threads for routing. (ZRT-444)
+Information: Buffer distance is estimated to be ~300.0000um (65 gCells)
+
+Start GR phase 0
+Number of partitions: 1 (1 x 1)
+Size of partitions: 20 gCells x 20 gCells
+[rtTop] Elapsed real time: 0:00:00 
+[rtTop] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+Current Stage stats:
+[End of Initial Routing] Elapsed real time: 0:00:00 
+[End of Initial Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Initial Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Initial Routing] Total (MB): Used   81  Alloctr   81  Proc 7854 
+Initial. Routing result:
+Initial. Both Dirs: Dmd-Cap  =     0 Max = 0 GRCs =     0 (0.00%)
+Initial. H routing: Dmd-Cap  =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. V routing: Dmd-Cap  =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. Both Dirs: Overflow =     0 Max = 0 GRCs =     0 (0.00%)
+Initial. H routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. V routing: Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M1         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M2         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M3         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M4         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M5         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M6         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M7         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M8         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M9         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M10        Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M11        Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. AP         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+
+Initial. Total Wire Length = 2943.72
+Initial. Layer M1 wire length = 0.00
+Initial. Layer M2 wire length = 1687.72
+Initial. Layer M3 wire length = 1256.00
+Initial. Layer M4 wire length = 0.00
+Initial. Layer M5 wire length = 0.00
+Initial. Layer M6 wire length = 0.00
+Initial. Layer M7 wire length = 0.00
+Initial. Layer M8 wire length = 0.00
+Initial. Layer M9 wire length = 0.00
+Initial. Layer M10 wire length = 0.00
+Initial. Layer M11 wire length = 0.00
+Initial. Layer AP wire length = 0.00
+Initial. Total Number of Contacts = 241
+Initial. Via VIA12_1cut_W1A count = 169
+Initial. Via VIA23_1cut count = 72
+Initial. Via VIA34_1cut count = 0
+Initial. Via VIA45_1cut count = 0
+Initial. Via VIA56_1cut count = 0
+Initial. Via VIA67_1cut count = 0
+Initial. Via VIA78_1cut count = 0
+Initial. Via VIA89_1cut count = 0
+Initial. Via VIA910_1cut count = 0
+Initial. Via VIA1011_1cut count = 0
+Initial. Via VIA11AP count = 0
+Initial. completed.
+[End of Whole Chip Routing] Elapsed real time: 0:00:00 
+[End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Whole Chip Routing] Stage (MB): Used   14  Alloctr   14  Proc    0 
+[End of Whole Chip Routing] Total (MB): Used   81  Alloctr   81  Proc 7854 
+[End of Global Routing] Elapsed real time: 0:00:00 
+[End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Global Routing] Stage (MB): Used   14  Alloctr   14  Proc    0 
+[End of Global Routing] Total (MB): Used   80  Alloctr   81  Proc 7854 
+[End of dbOut] Elapsed real time: 0:00:00 
+[End of dbOut] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of dbOut] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of dbOut] Total (MB): Used   70  Alloctr   71  Proc 7854 
+CPU Time for Global Route: 00:00:00.49u 00:00:00.03s 00:00:00.46e: 
+Number of block ports: 171
+Number of block pin locations assigned from router: 170
+CPU Time for Pin Preparation: 00:00:00.00u 00:00:00.00s 00:00:00.00e: 
+Number of PG ports on blocks: 0
+Number of pins created: 171
+CPU Time for Pin Creation: 00:00:00.01u 00:00:00.00s 00:00:00.01e: 
+Total Pin Placement CPU Time: 00:00:00.51u 00:00:00.03s 00:00:00.47e: 
+Information: Ending   rtl_opt / estimation (FLW-8001)
+Information: Time: 2025-07-22 10:04:40 / Session:  00:03:22 / Command:  00:02:59 / CPU:  00:05:10 / Memory: 4488 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / estimation (FLW-8000)
+Information: Time: 2025-07-22 10:04:40 / Session:  00:03:22 / Command:  00:02:59 / CPU:  00:05:10 / Memory: 4488 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / estimation / Load Design (FLW-8000)
+Information: Time: 2025-07-22 10:04:40 / Session:  00:03:22 / Command:  00:02:59 / CPU:  00:05:10 / Memory: 4488 MB (FLW-8100)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Number of Site types in the design = 1
+Setting up Chip Core
+Chip Core shape: (0 0) (804600 800640)
+Number of VARs = 1
+Number of unique PDs = 1
+Number of Power Domains = 1
+Number of Voltage Areas = 1
+Number of supply Nets = 2
+Number of used supplies = 0
+Blocked VAs: 
+Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
+Information: The following app options are used in cellmap
+        place.legalize.enable_color_aware_placement : false
+        place.legalize.use_nll_query_cm : false
+        place.legalize.enable_advanced_legalizer : false
+        place.legalize.enable_prerouted_net_check : true
+        place.legalize.enable_advanced_prerouted_net_check : false
+        place.legalize.always_continue : true
+        place.legalize.limit_legality_checks : false
+        place.common.pnet_aware_density : 1.0000
+        place.common.pnet_aware_min_width : 0.0000
+        place.common.pnet_aware_layers : {}
+        place.common.use_placement_model : false
+        place.common.enable_advanced_placement_model : true
+        cts.placement.cell_spacing_rule_style : maximum
+Total 0.0837 seconds to build cellmap data
+INFO: creating 47(r) x 47(c) GridCells YDim 1.728 XDim 1.728
+INFO: number of GridCells (cpu): 2209
+INFO: creating 47(r) x 47(c) GridCells YDim 1.728 XDim 1.728
+INFO: number of GridCells (cpu): 2209
+Total 0.1514 seconds to load 10424 cell instances into cellmap, 10424 cells are off site row
+Moveable cells: 10424; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
+Average cell width 0.6461, cell height 0.5861, cell area 0.4346 for total 10424 placed and application fixed cells
+Information: Enabling scaled virtual route (VR) (FLW-5761)
+Information: Enabling light RDE flow Mode (FLW-5761)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Information: Ending   rtl_opt / estimation / Load Design (FLW-8001)
+Information: Time: 2025-07-22 10:05:01 / Session:  00:03:43 / Command:  00:03:20 / CPU:  00:06:52 / Memory: 4488 MB (FLW-8100)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Information: Starting rtl_opt / estimation / Global Route (FLW-8000)
+Information: Time: 2025-07-22 10:05:01 / Session:  00:03:44 / Command:  00:03:21 / CPU:  00:06:58 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / Global Route (FLW-8001)
+Information: Time: 2025-07-22 10:05:01 / Session:  00:03:44 / Command:  00:03:21 / CPU:  00:06:58 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / Automatic Register Splitting (FLW-8000)
+Information: Time: 2025-07-22 10:05:01 / Session:  00:03:44 / Command:  00:03:21 / CPU:  00:06:58 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / Automatic Register Splitting (FLW-8001)
+Information: Time: 2025-07-22 10:05:02 / Session:  00:03:44 / Command:  00:03:21 / CPU:  00:06:58 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / High Fanout Synthesis (FLW-8000)
+Information: Time: 2025-07-22 10:05:02 / Session:  00:03:44 / Command:  00:03:21 / CPU:  00:06:58 / Memory: 4488 MB (FLW-8100)
+Warning: Skipping scan synthesis: no DFT setup has been detected. (DFT-1107)
+Information: The net parasitics of block cpu are cleared. (TIM-123)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+LLE:                                       disabled
+ML Acceleration:                           off
+Smart Arc Optimization:                    disabled
+************************************************************
+Information: The net parasitics of block cpu are cleared. (TIM-123)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+LLE:                                       disabled
+ML Acceleration:                           off
+Smart Arc Optimization:                    disabled
+************************************************************
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Information: Estimating clock gate latencies for scenario 'func@cworst'. (OPT-909)
+min assign layer = M4
+max assign layer = M11
+Corner Scaling is off, multiplier is 1.000000
+Information: timingScenario func@cworst timingCorner cworst.  Using corner cworst for worst leakage corner. (OPT-078)
+Information: Using default layer M4 (Current) (OPT-079)
+new default layer same as orig default layer
+Information: Using default layer M4 (Inferior) (OPT-079)
+Information: Nominal = 0.0168671  Design MT = inf  Target = 0.0893142  MaxRC = 0.052645 Fast Target = 0.027969 (OPT-081)
+Collecting Drivers ...  
+Design max_transition = inf
+Design max_capacitance = inf
+Using layer M4 for buffering distances in roi (originally M4)
+GRE layer bins: None, M4, M8, M10
+Running clock data isolation flow.
+Found 0 buffer-tree drivers
+No violators found
+Running tristate isolation flow.
+TSI: added 0 repeaters
+Running mv isolation flow.
+Found 0 buffer-tree drivers
+No violators found
+Found 83 buffer-tree drivers
+
+Roi-HfsDrc SN: 1798569713 435980330 0 67108865 (230.959793)
+
+Processing Buffer Trees  (ROI) ... 
+
+    [9]  10% ...
+    [18]  20% ...
+    [27]  30% ...
+    [36]  40% ...
+    [45]  50% ...
+    [54]  60% ...
+    [63]  70% ...
+    [72]  80% ...
+    [81]  90% ...
+    [83] 100% Done
+
+                  Deleted        Added
+------------ ------------ ------------
+    Buffers:            0          115
+  Inverters:          104           73
+------------ ------------ ------------
+      Total:          104          188
+------------ ------------ ------------
+
+Number of Drivers Sized: 75 [90.36%]
+
+                      P: 24 [28.92%]
+                      N: 51 [61.45%]
+
+Information: The net parasitics of block cpu are cleared. (TIM-123)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Zbuf-RUNTIME (Hr:Min:Sec)  CPU 0 hr : 0 min : 23.90 sec ELAPSE 0 hr : 0 min : 5.60 sec
+Zbuf-RUNTIME         (Min) CPU 0 min ELAPSE 0 min
+ZBuf-MEM(max-mem) total 4596084 K / inuse 3120084 K
+Information: Result of rtl_opt / estimation / High Fanout Synthesis (FLW-8500)
+Information: Top 10 transition violators after high fanout synthesis (HFS-1000)
+Slack     Fanout  Scenario    Driver                                                       
+
+Compile-fusion optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
+Compile-fusion                                     495.45      495.45         -         0       4594.06    23345.43       10514              0.07      4488
+Information: Ending   rtl_opt / estimation / High Fanout Synthesis (FLW-8001)
+Information: Time: 2025-07-22 10:05:15 / Session:  00:03:58 / Command:  00:03:35 / CPU:  00:07:39 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / Congestion/Timing Driven Placement (FLW-8000)
+Information: Time: 2025-07-22 10:05:15 / Session:  00:03:58 / Command:  00:03:35 / CPU:  00:07:39 / Memory: 4488 MB (FLW-8100)
+----------------------------------------------------------------
+running create_placement
+Start transferring placement data.
+Warning: To enable pin track alignment feature, the advanced legalizer has to be turned on using app option "place.legalize.enable_advanced_legalizer".
+Warning: Pin track alignment feature will be disabled in this run
+Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
+Information: The following app options are used in cellmap
+        place.legalize.enable_color_aware_placement : false
+        place.legalize.use_nll_query_cm : false
+        place.legalize.enable_advanced_legalizer : false
+        place.legalize.enable_prerouted_net_check : true
+        place.legalize.enable_advanced_prerouted_net_check : false
+        place.legalize.always_continue : true
+        place.legalize.limit_legality_checks : false
+        place.common.pnet_aware_density : 1.0000
+        place.common.pnet_aware_min_width : 0.0000
+        place.common.pnet_aware_layers : {}
+        place.common.use_placement_model : false
+        place.common.enable_advanced_placement_model : true
+        cts.placement.cell_spacing_rule_style : maximum
+Total 0.0834 seconds to build cellmap data
+Information: Extraction observers are detached as design net change threshold is reached.
+Snapped 10514 standard cells to the nearest cellrow to improve the accuracy of congestion analysis.
+Start Global Route ... 
+[Init] Elapsed real time: 0:00:00 
+[Init] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[Init] Total (MB): Used    7  Alloctr    8  Proc 7950 
+Printing options for 'route.common.*'
+common.clock_topology                                   :	 normal              
+common.single_connection_to_pins                        :	 off                 
+
+Printing options for 'route.global.*'
+global.crosstalk_driven                                 :	 false               
+global.deterministic                                    :	 on                  
+global.timing_driven                                    :	 false               
+
+Begin global routing.
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M4. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M4. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M4. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M4. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M5. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M5. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M5. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M5. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M6. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M6. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M6. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M6. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M7. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M7. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M7. Automatically ignore this span threshold. (ZRT-800)
+Warning: Invalid span threshold 0.0000 less than minWidth 0.0400 defined in tech file syntax *spanTbl*Threshold on M7. Automatically ignore this span threshold. (ZRT-800)
+Two layer enclosure iso-dense via enclosure rule is defined.
+Warning: Unsupported tech file value:  M4:  yDefaultWidth = 0.040000.  yDefaultWidth is less than minimum width.  Increasing yDefaultWidth value to 0.080000. (ZRT-091)
+Warning: Unsupported tech file value:  M5:  xDefaultWidth = 0.040000.  xDefaultWidth is less than minimum width.  Increasing xDefaultWidth value to 0.080000. (ZRT-091)
+Warning: Unsupported tech file value:  M6:  yDefaultWidth = 0.040000.  yDefaultWidth is less than minimum width.  Increasing yDefaultWidth value to 0.080000. (ZRT-091)
+Warning: Unsupported tech file value:  M7:  xDefaultWidth = 0.040000.  xDefaultWidth is less than minimum width.  Increasing xDefaultWidth value to 0.080000. (ZRT-091)
+Cell Min-Routing-Layer = M1
+Cell Max-Routing-Layer = AP
+Turn off antenna since no rule is specified
+Information: Option route.detail.force_end_on_preferred_grid will be ignored since none of the layers have preferred grid. (ZRT-703)
+Warning: the routing tracks on DPT layer M1 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M1 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M2 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M2 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M3 are without any mask information. (ZRT-727)
+Warning: the routing tracks on DPT layer M3 are without any mask information. (ZRT-727)
+Skipping 2 internal pins that are not physical. Set route.common.verbose_level to > 0 and run routing command to get skipped pin names.
+Info: number of net_type_blockage: 0 
+Information: Via ladder engine would be activated for pattern must join connection in certain commands. Please refer to man-page for the command list. (ZRT-619)
+Warning: Port  VDD at {{70.065,-0.045} {70.515,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Warning: Port  VDD at {{60.435,-0.045} {60.885,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Warning: Port  VDD at {{61.245,-0.045} {61.695,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Warning: Port  VDD at {{60.975,-0.045} {61.425,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Warning: Port  VDD at {{57.105,-0.045} {57.555,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Warning: Port  VDD at {{53.595,-0.045} {54.045,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Warning: Port  VDD at {{53.145,-0.045} {53.595,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Warning: Port  VDD at {{52.065,-0.045} {52.515,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Warning: Port  VDD at {{55.575,-0.045} {56.025,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Warning: Port  VDD at {{52.785,-0.045} {53.235,0.045}} is out of boundary. Cannot be routed. (ZRT-720)
+Skipping 293 ectangle_only route guides because they don't cover the design boundary in the layer's  preferred direction.
+Warning: Contact VIA34_1cut's upper layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA34_1cut's upper layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA45_1cut's lower layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA45_1cut's lower layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA45_1cut's upper layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA45_1cut's upper layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA56_1cut's lower layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA56_1cut's lower layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA56_1cut's upper layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA56_1cut's upper layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA67_1cut's lower layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA67_1cut's lower layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Warning: Contact VIA67_1cut's upper layer enclosure does not satisfy legal width requirement. (ZRT-083)
+Warning: Contact VIA67_1cut's upper layer enclosure does not satisfy legal dimension requirement. (ZRT-120)
+Via on layer (VIA0) needs more than one tracks
+Warning: Layer M1 default pitch 0.090 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.100" & "wire/via-up 0.080". (ZRT-026)
+Wire on layer (M2) needs more than one tracks
+Via on layer (VIA1) needs more than one tracks
+Via on layer (VIA2) needs more than one tracks
+Warning: Layer M2 default pitch 0.064 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.100" & "wire/via-up 0.089". (ZRT-026)
+Wire on layer (M3) needs more than one tracks
+Via on layer (VIA2) needs more than one tracks
+Via on layer (VIA3) needs more than one tracks
+Warning: Layer M3 default pitch 0.070 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.099" & "wire/via-up 0.101". (ZRT-026)
+Wire on layer (M4) needs more than one tracks
+Via on layer (VIA3) needs more than one tracks
+Via on layer (VIA4) needs more than one tracks
+Warning: Layer M4 default pitch 0.080 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.131" & "wire/via-up 0.150". (ZRT-026)
+Wire on layer (M5) needs more than one tracks
+Via on layer (VIA4) needs more than one tracks
+Via on layer (VIA5) needs more than one tracks
+Warning: Layer M5 default pitch 0.080 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.150" & "wire/via-up 0.150". (ZRT-026)
+Wire on layer (M6) needs more than one tracks
+Via on layer (VIA5) needs more than one tracks
+Via on layer (VIA6) needs more than one tracks
+Warning: Layer M6 default pitch 0.080 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.150" & "wire/via-up 0.150". (ZRT-026)
+Wire on layer (M7) needs more than one tracks
+Via on layer (VIA6) needs more than one tracks
+Via on layer (VIA7) needs more than one tracks
+Warning: Layer M7 default pitch 0.080 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.150" & "wire/via-up 0.120". (ZRT-026)
+Wire on layer (M8) needs more than one tracks
+Via on layer (VIA7) needs more than one tracks
+Via on layer (VIA8) needs more than one tracks
+Warning: Layer M8 default pitch 0.126 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.153" & "wire/via-up 0.153". (ZRT-026)
+Wire on layer (M9) needs more than one tracks
+Via on layer (VIA8) needs more than one tracks
+Via on layer (VIA9) needs more than one tracks
+Warning: Layer M9 default pitch 0.126 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.153" & "wire/via-up 0.374". (ZRT-026)
+Wire on layer (M10) needs more than one tracks
+Via on layer (VIA9) needs more than one tracks
+Via on layer (VIA10) needs more than one tracks
+Warning: Layer M10 default pitch 0.900 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.954" & "wire/via-up 0.954". (ZRT-026)
+Wire on layer (M11) needs more than one tracks
+Via on layer (VIA10) needs more than one tracks
+Via on layer (RV) needs more than one tracks
+Warning: Layer M11 default pitch 0.900 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 0.954" & "wire/via-up 2.475". (ZRT-026)
+Via on layer (RV) needs more than one tracks
+Warning: Layer AP default pitch 3.600 may be too small to handle up/down via. Note, that minimum requirements are "wire/via-down 4.500" & "wire/via-up 3.600". (ZRT-026)
+Transition layer name: M8(7)
+Information: When applicable Min-max layer allow_pin_connection mode will allow paths of length 0.89 outside the layer range. (ZRT-707)
+Information: When applicable Min-max layer allow_pin_connection mode will allow paths of length 0.89 outside the layer range on clock nets. (ZRT-718)
+Information: When applicable layer based tapering will taper up to 0.00 in distance from the pin. (ZRT-706)
+Warning: Cell reg_files_inst/mem_reg[3][7:0] is placed overlapping with other cells at {{30.870 0.576} {37.170 1.728}}. (ZRT-763)
+Warning: Cell alu_inst/snps_DIVREM_75/ctmi_5801 is placed overlapping with other cells at {{80.100 27.648} {80.280 28.224}}. (ZRT-763)
+Current Stage stats:
+[End of Read DB] Elapsed real time: 0:00:00 
+[End of Read DB] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:01
+[End of Read DB] Stage (MB): Used   46  Alloctr   47  Proc  -32 
+[End of Read DB] Total (MB): Used   54  Alloctr   55  Proc 7918 
+Constructing data structure ...
+Information: Double patterning layer M1 will be routed with target utilization ratio of 80 per cent. (ZRT-138)
+Information: Double patterning layer M2 will be routed with target utilization ratio of 80 per cent. (ZRT-138)
+Information: Double patterning layer M3 will be routed with target utilization ratio of 85 per cent. (ZRT-138)
+Information: Non-DPT layer M4 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M5 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M6 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M7 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M8 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M9 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M10 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer M11 will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Information: Non-DPT layer AP will be routed with target utilization ratio of 100 per cent. (ZRT-138)
+Design statistics:
+Design Bounding Box (0.00um,0.00um,80.46um,80.06um)
+Number of routing layers = 12
+layer M1, dir Hor, min width = 0.032um, min space = 0.032um pitch = 0.09um
+layer M2, dir Ver, min width = 0.032um, min space = 0.032um pitch = 0.064um
+layer M3, dir Hor, min width = 0.032um, min space = 0.032um pitch = 0.07um
+layer M4, dir Ver, min width = 0.04um, min space = 0.04um pitch = 0.08um
+layer M5, dir Hor, min width = 0.04um, min space = 0.04um pitch = 0.08um
+layer M6, dir Ver, min width = 0.04um, min space = 0.04um pitch = 0.08um
+layer M7, dir Hor, min width = 0.04um, min space = 0.04um pitch = 0.08um
+layer M8, dir Ver, min width = 0.062um, min space = 0.064um pitch = 0.126um
+layer M9, dir Hor, min width = 0.062um, min space = 0.064um pitch = 0.126um
+layer M10, dir Ver, min width = 0.45um, min space = 0.45um pitch = 0.9um
+layer M11, dir Hor, min width = 0.45um, min space = 0.45um pitch = 0.9um
+layer AP, dir Ver, min width = 1.8um, min space = 1.8um pitch = 3.6um
+Current Stage stats:
+[End of Build Tech Data] Elapsed real time: 0:00:00 
+[End of Build Tech Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Tech Data] Stage (MB): Used    2  Alloctr    2  Proc    0 
+[End of Build Tech Data] Total (MB): Used   56  Alloctr   57  Proc 7918 
+Net statistics:
+Total number of nets     = 12735
+Number of nets to route  = 12667
+Number of single or zero port nets = 30
+31 nets are fully connected,
+ of which 31 are detail routed and 0 are global routed.
+Current Stage stats:
+[End of Build All Nets] Elapsed real time: 0:00:00 
+[End of Build All Nets] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build All Nets] Stage (MB): Used    9  Alloctr   10  Proc    0 
+[End of Build All Nets] Total (MB): Used   66  Alloctr   68  Proc 7918 
+Net length statistics: 
+Net Count(Ignore Fully Rted) 12674, Total Half Perimeter Wire Length (HPWL) 81915 microns
+HPWL   0 ~   50 microns: Net Count    12574	Total HPWL        75143 microns
+HPWL  50 ~  100 microns: Net Count      100	Total HPWL         6772 microns
+HPWL 100 ~  200 microns: Net Count        0	Total HPWL            0 microns
+HPWL 200 ~  300 microns: Net Count        0	Total HPWL            0 microns
+HPWL 300 ~  400 microns: Net Count        0	Total HPWL            0 microns
+HPWL 400 ~  500 microns: Net Count        0	Total HPWL            0 microns
+HPWL 500 ~  600 microns: Net Count        0	Total HPWL            0 microns
+HPWL 600 ~  700 microns: Net Count        0	Total HPWL            0 microns
+HPWL 700 ~  800 microns: Net Count        0	Total HPWL            0 microns
+HPWL 800 ~  900 microns: Net Count        0	Total HPWL            0 microns
+HPWL 900 ~ 1000 microns: Net Count        0	Total HPWL            0 microns
+HPWL     > 1000 microns: Net Count        0	Total HPWL            0 microns
+Number of partitions: 1 (1 x 1)
+Size of partitions: 70 gCells x 70 gCells
+Average gCell capacity  1.40	 on layer (1)	 M1
+Average gCell capacity  7.29	 on layer (2)	 M2
+Average gCell capacity  15.06	 on layer (3)	 M3
+Average gCell capacity  14.34	 on layer (4)	 M4
+Average gCell capacity  14.27	 on layer (5)	 M5
+Average gCell capacity  14.34	 on layer (6)	 M6
+Average gCell capacity  14.27	 on layer (7)	 M7
+Average gCell capacity  9.10	 on layer (8)	 M8
+Average gCell capacity  9.06	 on layer (9)	 M9
+Average gCell capacity  1.26	 on layer (10)	 M10
+Average gCell capacity  1.24	 on layer (11)	 M11
+Average gCell capacity  0.30	 on layer (12)	 AP
+Average number of tracks per gCell 12.71	 on layer (1)	 M1
+Average number of tracks per gCell 17.97	 on layer (2)	 M2
+Average number of tracks per gCell 16.34	 on layer (3)	 M3
+Average number of tracks per gCell 14.37	 on layer (4)	 M4
+Average number of tracks per gCell 14.30	 on layer (5)	 M5
+Average number of tracks per gCell 14.37	 on layer (6)	 M6
+Average number of tracks per gCell 14.30	 on layer (7)	 M7
+Average number of tracks per gCell 9.13	 on layer (8)	 M8
+Average number of tracks per gCell 9.09	 on layer (9)	 M9
+Average number of tracks per gCell 1.29	 on layer (10)	 M10
+Average number of tracks per gCell 1.27	 on layer (11)	 M11
+Average number of tracks per gCell 0.33	 on layer (12)	 AP
+Number of gCells = 58800
+Current Stage stats:
+[End of Build Congestion Map] Elapsed real time: 0:00:00 
+[End of Build Congestion Map] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Congestion Map] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Build Congestion Map] Total (MB): Used   67  Alloctr   69  Proc 7918 
+Number of partitions: 1 (1 x 1)
+Size of partitions: 70 gCells x 70 gCells
+Current Stage stats:
+[End of Add Nets Demand] Elapsed real time: 0:00:00 
+[End of Add Nets Demand] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Add Nets Demand] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Add Nets Demand] Total (MB): Used   67  Alloctr   69  Proc 7918 
+Number of user frozen nets = 0
+Total stats:
+[End of Build Data] Elapsed real time: 0:00:00 
+[End of Build Data] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of Build Data] Stage (MB): Used   13  Alloctr   14  Proc    0 
+[End of Build Data] Total (MB): Used   67  Alloctr   69  Proc 7918 
+Number of partitions: 1 (1 x 1)
+Size of partitions: 70 gCells x 70 gCells
+Current Stage stats:
+[End of Blocked Pin Detection] Elapsed real time: 0:00:01 
+[End of Blocked Pin Detection] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:01
+[End of Blocked Pin Detection] Stage (MB): Used  106  Alloctr  106  Proc    0 
+[End of Blocked Pin Detection] Total (MB): Used  173  Alloctr  175  Proc 7918 
+Information: Using 8 threads for routing. (ZRT-444)
+Information: Placement fast mode ON
+Information: Multiple gcell levels ON
+Information: Buffer distance is estimated to be ~300.0000um (260 gCells)
+
+Start GR phase 0
+Number of partitions: 1 (1 x 1)
+Size of partitions: 70 gCells x 70 gCells
+10% of nets complete Elapsed cpu time: 0:00:00 Elapsed real time: 0:00:00
+20% of nets complete Elapsed cpu time: 0:00:00 Elapsed real time: 0:00:00
+30% of nets complete Elapsed cpu time: 0:00:00 Elapsed real time: 0:00:00
+40% of nets complete Elapsed cpu time: 0:00:00 Elapsed real time: 0:00:00
+50% of nets complete Elapsed cpu time: 0:00:00 Elapsed real time: 0:00:00
+60% of nets complete Elapsed cpu time: 0:00:00 Elapsed real time: 0:00:00
+70% of nets complete Elapsed cpu time: 0:00:00 Elapsed real time: 0:00:00
+80% of nets complete Elapsed cpu time: 0:00:00 Elapsed real time: 0:00:00
+90% of nets complete Elapsed cpu time: 0:00:00 Elapsed real time: 0:00:00
+[rtAllBotParts] Elapsed real time: 0:00:01 
+[rtAllBotParts] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:01
+[rtTop] Elapsed real time: 0:00:00 
+[rtTop] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+Current Stage stats:
+[End of Initial Routing] Elapsed real time: 0:00:01 
+[End of Initial Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:01
+[End of Initial Routing] Stage (MB): Used    7  Alloctr    7  Proc    0 
+[End of Initial Routing] Total (MB): Used  181  Alloctr  183  Proc 7918 
+Initial. Routing result:
+Initial. Both Dirs: Dmd-Cap  =     0 Max = 0 GRCs =     0 (0.00%)
+Initial. H routing: Dmd-Cap  =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. V routing: Dmd-Cap  =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. Both Dirs: Overflow = 12567 Max = 8 GRCs = 10167 (26.22%)
+Initial. H routing: Overflow =  2836 Max = 7 (GRCs =  4) GRCs =  2855 (14.72%)
+Initial. V routing: Overflow =  9731 Max = 8 (GRCs =  6) GRCs =  7312 (37.71%)
+Initial. M1         Overflow =    16 Max = 1 (GRCs = 32) GRCs =    32 (0.17%)
+Initial. M2         Overflow =  4025 Max = 5 (GRCs =  4) GRCs =  3256 (16.79%)
+Initial. M3         Overflow =  2724 Max = 7 (GRCs =  4) GRCs =  2695 (13.90%)
+Initial. M4         Overflow =  5705 Max = 8 (GRCs =  6) GRCs =  4056 (20.92%)
+Initial. M5         Overflow =    96 Max = 3 (GRCs =  4) GRCs =   128 (0.66%)
+Initial. M6         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M7         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M8         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M9         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M10        Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. M11        Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+Initial. AP         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+
+Initial. Total Wire Length = 83662.85
+Initial. Layer M1 wire length = 692.12
+Initial. Layer M2 wire length = 9845.57
+Initial. Layer M3 wire length = 27122.63
+Initial. Layer M4 wire length = 21453.93
+Initial. Layer M5 wire length = 13581.04
+Initial. Layer M6 wire length = 10543.43
+Initial. Layer M7 wire length = 414.90
+Initial. Layer M8 wire length = 0.00
+Initial. Layer M9 wire length = 9.23
+Initial. Layer M10 wire length = 0.00
+Initial. Layer M11 wire length = 0.00
+Initial. Layer AP wire length = 0.00
+Initial. Total Number of Contacts = 91100
+Initial. Via VIA12_1cut_W1A count = 31185
+Initial. Via VIA23_1cut count = 33000
+Initial. Via VIA34_1cut count = 19690
+Initial. Via VIA45_1cut count = 4725
+Initial. Via VIA56_1cut count = 2426
+Initial. Via VIA67_1cut count = 70
+Initial. Via VIA78_1cut count = 2
+Initial. Via VIA89_1cut count = 2
+Initial. Via VIA910_1cut count = 0
+Initial. Via VIA1011_1cut count = 0
+Initial. Via VIA11AP count = 0
+Initial. completed.
+
+Start GR phase 1
+Number of partitions: 1 (1 x 1)
+Size of partitions: 70 gCells x 70 gCells
+10% of nets complete Elapsed cpu time: 0:00:01 Elapsed real time: 0:00:01
+20% of nets complete Elapsed cpu time: 0:00:01 Elapsed real time: 0:00:01
+30% of nets complete Elapsed cpu time: 0:00:01 Elapsed real time: 0:00:01
+40% of nets complete Elapsed cpu time: 0:00:01 Elapsed real time: 0:00:01
+50% of nets complete Elapsed cpu time: 0:00:01 Elapsed real time: 0:00:01
+60% of nets complete Elapsed cpu time: 0:00:01 Elapsed real time: 0:00:01
+70% of nets complete Elapsed cpu time: 0:00:01 Elapsed real time: 0:00:01
+80% of nets complete Elapsed cpu time: 0:00:01 Elapsed real time: 0:00:01
+90% of nets complete Elapsed cpu time: 0:00:01 Elapsed real time: 0:00:01
+[rtAllBotParts] Elapsed real time: 0:00:01 
+[rtAllBotParts] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:01
+[rtTop] Elapsed real time: 0:00:00 
+[rtTop] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+Number of partitions: 1 (1 x 1)
+Size of partitions: 70 gCells x 70 gCells
+[updNetsDmd] Elapsed real time: 0:00:00 
+[updNetsDmd] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+Current Stage stats:
+[End of Phase1 Routing] Elapsed real time: 0:00:01 
+[End of Phase1 Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:01 total=0:00:01
+[End of Phase1 Routing] Stage (MB): Used    0  Alloctr    0  Proc    0 
+[End of Phase1 Routing] Total (MB): Used  181  Alloctr  184  Proc 7918 
+phase1. Routing result:
+phase1. Both Dirs: Dmd-Cap  =     0 Max = 0 GRCs =     0 (0.00%)
+phase1. H routing: Dmd-Cap  =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+phase1. V routing: Dmd-Cap  =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+phase1. Both Dirs: Overflow =  9077 Max = 8 GRCs =  7565 (19.51%)
+phase1. H routing: Overflow =   937 Max = 6 (GRCs =  4) GRCs =  1083 (5.59%)
+phase1. V routing: Overflow =  8139 Max = 8 (GRCs =  2) GRCs =  6482 (33.43%)
+phase1. M1         Overflow =    12 Max = 1 (GRCs = 26) GRCs =    26 (0.13%)
+phase1. M2         Overflow =  5981 Max = 5 (GRCs = 36) GRCs =  4336 (22.36%)
+phase1. M3         Overflow =   900 Max = 6 (GRCs =  4) GRCs =  1017 (5.24%)
+phase1. M4         Overflow =  2153 Max = 8 (GRCs =  2) GRCs =  2136 (11.02%)
+phase1. M5         Overflow =    25 Max = 1 (GRCs = 40) GRCs =    40 (0.21%)
+phase1. M6         Overflow =     4 Max = 1 (GRCs = 10) GRCs =    10 (0.05%)
+phase1. M7         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+phase1. M8         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+phase1. M9         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+phase1. M10        Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+phase1. M11        Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+phase1. AP         Overflow =     0 Max = 0 (GRCs =  0) GRCs =     0 (0.00%)
+
+phase1. Total Wire Length = 86244.60
+phase1. Layer M1 wire length = 925.39
+phase1. Layer M2 wire length = 10946.88
+phase1. Layer M3 wire length = 25034.99
+phase1. Layer M4 wire length = 17065.27
+phase1. Layer M5 wire length = 15158.78
+phase1. Layer M6 wire length = 14688.42
+phase1. Layer M7 wire length = 2108.89
+phase1. Layer M8 wire length = 306.75
+phase1. Layer M9 wire length = 9.23
+phase1. Layer M10 wire length = 0.00
+phase1. Layer M11 wire length = 0.00
+phase1. Layer AP wire length = 0.00
+phase1. Total Number of Contacts = 92858
+phase1. Via VIA12_1cut_W1A count = 31277
+phase1. Via VIA23_1cut count = 32179
+phase1. Via VIA34_1cut count = 18157
+phase1. Via VIA45_1cut count = 6457
+phase1. Via VIA56_1cut count = 4240
+phase1. Via VIA67_1cut count = 490
+phase1. Via VIA78_1cut count = 56
+phase1. Via VIA89_1cut count = 2
+phase1. Via VIA910_1cut count = 0
+phase1. Via VIA1011_1cut count = 0
+phase1. Via VIA11AP count = 0
+phase1. completed.
+[End of Whole Chip Routing] Elapsed real time: 0:00:04 
+[End of Whole Chip Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:04 total=0:00:04
+[End of Whole Chip Routing] Stage (MB): Used  127  Alloctr  128  Proc    0 
+[End of Whole Chip Routing] Total (MB): Used  181  Alloctr  184  Proc 7918 
+
+Congestion utilization per direction:
+Average vertical track utilization   = 42.88 %
+Peak    vertical track utilization   = 105.56 %
+Average horizontal track utilization = 31.40 %
+Peak    horizontal track utilization = 80.77 %
+
+[End of Global Routing] Elapsed real time: 0:00:04 
+[End of Global Routing] Elapsed cpu  time: sys=0:00:00 usr=0:00:04 total=0:00:05
+[End of Global Routing] Stage (MB): Used  126  Alloctr  128  Proc    0 
+[End of Global Routing] Total (MB): Used  180  Alloctr  183  Proc 7918 
+Writing out congestion map...
+Updating congestion ...
+Updating congestion ...
+[End of dbOut] Elapsed real time: 0:00:00 
+[End of dbOut] Elapsed cpu  time: sys=0:00:00 usr=0:00:00 total=0:00:00
+[End of dbOut] Stage (MB): Used  -54  Alloctr  -56  Proc    0 
+[End of dbOut] Total (MB): Used   38  Alloctr   39  Proc 7918 
+Using per-layer congestion maps for congestion reduction.
+Information: 24.18% of design has horizontal routing density above target_routing_density of 0.81.
+Information: 29.42% of design has vertical routing density above target_routing_density of 0.81.
+Completed transferring placement data.
+Running placement using 8 thread(s)
+Information: Enhanced Auto Density Control is used. (PLACE-098)
+Information: Enhanced auto density configuration is 13179.
+Information: Automatic density control has selected the following settings: max_density 0.60, congestion_driven_max_util 0.89. (PLACE-027)
+Information: HFW control 'off' invoked.
+coarse place 100% done.
+Information: Reducing cell density for 34.6% of the movable cells to alleviate congestion. This changes the average cell density in non-congested areas from 0.713 to 0.764. (PLACE-030)
+Corner Scaling is off, multiplier is 1.000000
+Information: timingScenario func@cworst timingCorner cworst.  Using corner cworst for worst leakage corner. (OPT-078)
+Information: Using default layer M4 (Current) (OPT-079)
+new default layer same as orig default layer
+Information: Using default layer M4 (Inferior) (OPT-079)
+Information: Nominal = 0.0168671  Design MT = inf  Target = 0.0893142  MaxRC = 0.052645 Fast Target = 0.027969 (OPT-081)
+nplLib: default vr hor dist = 269
+nplLib: default vr ver dist = 269
+nplLib: default vr buf size = 1
+nplLib: default vr buf size = 1
+Placer using max_unbuffered_distance = 269.15
+
+Placement Options:
+Effort:                        medium_effort       
+Timing Driven:                 false               
+Buffering Aware Timing Driven: false               
+Seed locs:                     true                
+Incremental:                   true                
+Congestion:                    true                
+Congestion Effort:             medium              
+Fix Macros:                    true                
+Place Macros:                  false               
+Channel Size Macros:           false               
+
+
+Start transferring placement data.
+****** Net weight manager: report ******
+Weights included: Timing  
+Number of nets with non-default weights: 12698
+Timing factor = 1
+Non-default weight range: (0.570339, 1.71102)
+                             Min         Max         Avg       Stdev        Skew
+     Timing Weights     0.570339     1.71102           1    0.537991    0.472738
+      Final Weights     0.570339     1.71102           1    0.537991    0.472738
+Information: Automatic repeater spreading is enabled.
+Information: The net parasitics of block cpu are cleared. (TIM-123)
+Completed transferring placement data.
+Running placement using 8 thread(s)
+Information: Enhanced Auto Density Control is used. (PLACE-098)
+Information: Enhanced auto density configuration is 13179.
+Information: Automatic density control has selected the following settings: max_density 0.60, congestion_driven_max_util 0.89. (PLACE-027)
+Information: HFW control 'off' invoked.
+coarse place 50% done.
+coarse place 75% done.
+coarse place 100% done.
+Information: Coarse placer wire length estimate = 89986.1
+Information: Coarse placer active wire length estimate = 0
+Information: Coarse placer weighted wire length estimate = 75167.8
+Information: Extraction observers are detached as design net change threshold is reached.
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Information: Estimating clock gate latencies for scenario 'func@cworst'. (OPT-909)
+----------------------------------------------------------------
+Non-default App Option report
+All App Options have their default value.
+Information: Ending   rtl_opt / estimation / Congestion/Timing Driven Placement (FLW-8001)
+Information: Time: 2025-07-22 10:05:28 / Session:  00:04:11 / Command:  00:03:48 / CPU:  00:07:59 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation (FLW-8001)
+Information: Time: 2025-07-22 10:05:28 / Session:  00:04:11 / Command:  00:03:48 / CPU:  00:08:00 / Memory: 4488 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / estimation (FLW-8000)
+Information: Time: 2025-07-22 10:05:28 / Session:  00:04:11 / Command:  00:03:48 / CPU:  00:08:00 / Memory: 4488 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+flowStepUpsInPbo:: using optEnvMonitor()
+Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
+Information: The following app options are used in cellmap
+        place.legalize.enable_color_aware_placement : false
+        place.legalize.use_nll_query_cm : false
+        place.legalize.enable_advanced_legalizer : false
+        place.legalize.enable_prerouted_net_check : true
+        place.legalize.enable_advanced_prerouted_net_check : false
+        place.legalize.always_continue : true
+        place.legalize.limit_legality_checks : false
+        place.common.pnet_aware_density : 1.0000
+        place.common.pnet_aware_min_width : 0.0000
+        place.common.pnet_aware_layers : {}
+        place.common.use_placement_model : false
+        place.common.enable_advanced_placement_model : true
+        cts.placement.cell_spacing_rule_style : maximum
+Total 0.0812 seconds to build cellmap data
+INFO: compile_fusion is running in balanced flow mode
+Warning: Cannot find any default max transition constraint on the design. (OPT-070)
+INFO: Leakage Power Aware Optimization Enabled
+Information: The automatic clock gate timing flow is activated. Clock latencies set on clock gate cells will be automatically adjusted by an estimate for latency. (CGT-4005)
+INFO: disable CRPR-based timing. 
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Number of Site types in the design = 1
+Setting up Chip Core
+Chip Core shape: (0 0) (804600 800640)
+Number of VARs = 1
+Number of unique PDs = 1
+Number of Power Domains = 1
+Number of Voltage Areas = 1
+Number of supply Nets = 2
+Number of used supplies = 0
+Blocked VAs: 
+
+compile command begin                   CPU:   504 s (  0.14 hr )  ELAPSE:   253 s (  0.07 hr )  MEM-PEAK:  4488 MB
+Warning: Cannot find any default max transition constraint on the design. (OPT-070)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Info: update em.
+
+compile timing update complete          CPU:   511 s (  0.14 hr )  ELAPSE:   254 s (  0.07 hr )  MEM-PEAK:  4488 MB
+
+compile initial QoR
+___________________
+Scenario Mapping Table
+1: func@cworst
+
+Pathgroup Mapping Table
+1: **default**
+2: **async_default**
+3: **clock_gating_default**
+4: **in2reg_default**
+5: **reg2out_default**
+6: **in2out_default**
+7: CLK
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+PATHGROUP QOR 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Scene  PG      WNS        TNS    NSV      WHV        THV    NHV
+    1   1   0.0000     0.0000      0        -          -      -
+    1   2   0.0000     0.0000      0        -          -      -
+    1   3   0.0000     0.0000      0        -          -      -
+    1   4   0.0000     0.0000      0        -          -      -
+    1   5   0.0000     0.0000      0        -          -      -
+    1   6   0.0000     0.0000      0        -          -      -
+    1   7   8.0162   510.4453     64        -          -      -
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SCENARIO QOR 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Scene  PG      WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrnV   MaxTranC  MaxCapV    Leakage
+    1   *   8.0162   510.4452 510.4452     64        -          -      -        0     0.0000        0  23345.428
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DESIGN QOR 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Scene  PG      WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrnV   MaxTranC  MaxCapV    Leakage         Area    InstCnt     BufCnt     InvCnt
+    *   *   8.0162   510.4452 510.4452     64        -          -      -        0     0.0000        0  23345.428      4594.06      10514        115       1207
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+compile initial QoR Summary       WNS        TNS   R2RTNS    NSV      WHV        THV    NHV  MaxTrnV  MaxCapV    Leakage         Area    InstCnt
+compile initial QoR Summary    8.0162   510.4452 510.4452     64        -          -      -        0        0  23345.428      4594.06      10514
+Information: The netlist change observers are disabled for incremental extraction. (TIM-126)
+INFO: using 8 threads
+compile initialization complete         CPU:   568 s (  0.16 hr )  ELAPSE:   264 s (  0.07 hr )  MEM-PEAK:  4488 MB
+compile optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
+Warning: Cannot find any default max transition constraint on the design. (OPT-070)
+Information: The netlist change observers are enabled for incremental extraction. (TIM-127)
+
+Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
+Information: The following app options are used in cellmap
+        place.legalize.enable_color_aware_placement : false
+        place.legalize.use_nll_query_cm : false
+        place.legalize.enable_advanced_legalizer : false
+        place.legalize.enable_prerouted_net_check : false
+        place.legalize.enable_advanced_prerouted_net_check : false
+        place.legalize.always_continue : true
+        place.legalize.limit_legality_checks : false
+        place.common.pnet_aware_density : 1.0000
+        place.common.pnet_aware_min_width : 0.0000
+        place.common.pnet_aware_layers : {}
+        place.common.use_placement_model : false
+        place.common.enable_advanced_placement_model : true
+        cts.placement.cell_spacing_rule_style : maximum
+Total 0.0815 seconds to build cellmap data
+INFO: creating 47(r) x 47(c) GridCells YDim 1.728 XDim 1.728
+INFO: number of GridCells (cpu): 2209
+INFO: creating 47(r) x 47(c) GridCells YDim 1.728 XDim 1.728
+INFO: number of GridCells (cpu): 2209
+Total 0.1549 seconds to load 10514 cell instances into cellmap, 10514 cells are off site row
+Moveable cells: 10514; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
+Average cell width 0.6510, cell height 0.5860, cell area 0.4369 for total 10514 placed and application fixed cells
+Information: Starting rtl_opt / estimation / Optimization (1) (FLW-8000)
+Information: Time: 2025-07-22 10:05:42 / Session:  00:04:25 / Command:  00:04:02 / CPU:  00:09:07 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / Optimization (1) / Timing Optimization (FLW-8000)
+Information: Time: 2025-07-22 10:05:42 / Session:  00:04:25 / Command:  00:04:02 / CPU:  00:09:07 / Memory: 4488 MB (FLW-8100)
+Disable clock slack update for ideal clocks
+ Iter  1                                           563.09      563.09         -         -       4623.45    24649.43       10514              0.08      4488
+Warning: Restoring scoped app option 'ropt.rbuf_subtree_crit_range' to original value 'unset' (from current value '-1', which is different from the scoped value '-1.0'). (FLW-2892)
+Disable clock slack update for ideal clocks
+Corner Scaling is off, multiplier is 1.000000
+Information: Using default layer M4 (Current) (OPT-079)
+new default layer same as orig default layer
+Information: Using default layer M4 (Inferior) (OPT-079)
+ Iter  1                                             0.00        0.00         -         -       4712.41    54259.50       10514              0.08      4488
+Warning: Restoring scoped app option 'ropt.rbuf_subtree_crit_range' to original value 'unset' (from current value '-1', which is different from the scoped value '-1.0'). (FLW-2892)
+
+Information: Initializing classic cellmap without advanced rules enabled and without PDC enabled
+Information: The following app options are used in cellmap
+        place.legalize.enable_color_aware_placement : false
+        place.legalize.use_nll_query_cm : false
+        place.legalize.enable_advanced_legalizer : false
+        place.legalize.enable_prerouted_net_check : false
+        place.legalize.enable_advanced_prerouted_net_check : false
+        place.legalize.always_continue : true
+        place.legalize.limit_legality_checks : false
+        place.common.pnet_aware_density : 1.0000
+        place.common.pnet_aware_min_width : 0.0000
+        place.common.pnet_aware_layers : {}
+        place.common.use_placement_model : false
+        place.common.enable_advanced_placement_model : true
+        cts.placement.cell_spacing_rule_style : maximum
+Total 0.0839 seconds to build cellmap data
+INFO: creating 47(r) x 47(c) GridCells YDim 1.728 XDim 1.728
+INFO: number of GridCells (cpu): 2209
+INFO: creating 47(r) x 47(c) GridCells YDim 1.728 XDim 1.728
+INFO: number of GridCells (cpu): 2209
+Total 0.1565 seconds to load 10514 cell instances into cellmap, 9667 cells are off site row
+Moveable cells: 10514; Application fixed cells: 0; Macro cells: 0; User fixed cells: 0
+Average cell width 0.6681, cell height 0.5868, cell area 0.4482 for total 10514 placed and application fixed cells
+Disable clock slack update for ideal clocks
+Information: NO SCANCHAIN defined in SCANDEF. (DFT-011)
+Information: NO SCANCHAIN defined in SCANDEF. (DFT-011)
+		Total number of ignored cells which are multi-bit of highest width               : 176
+		Total number of ignored cells which do not have multi-bit equivalent             : 11
+		Total number of ignored cells which don't have compatible cells to bank with     : 3
+		Total number of ignored cells which are single in a sub group due to clock path  : 4
+		Total number of ignored cells because of timing constraints    : 2
+	Physical Banking Summary:
+	Total candidates in design:201
+	Total candidates ignored  :196
+	Total candidates banked   :5
+	Banking Ratio of this pass:2.49%
+	Banking ratio             :99.25% (Before banking 99.25%)
+	Use report_multibit for details
+Information: 54 out of 64 SQM-1061 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: 66 out of 76 SQM-1067 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Disable clock slack update for ideal clocks
+ Iter  1                                             0.00        0.00         -         -       4711.69    54254.22       10511              0.09      4488
+Warning: Restoring scoped app option 'ropt.rbuf_subtree_crit_range' to original value 'unset' (from current value '-1', which is different from the scoped value '-1.0'). (FLW-2892)
+Disable clock slack update for ideal clocks
+ Iter  1                                             0.00        0.00         -         -       4711.69    54254.22       10511              0.09      4488
+Warning: Restoring scoped app option 'ropt.rbuf_subtree_crit_range' to original value 'unset' (from current value '-1', which is different from the scoped value '-1.0'). (FLW-2892)
+ Iter  1                                             0.00        0.00         -         -       4711.69    54254.22       10511              0.09      4488
+Warning: Restoring scoped app option 'ropt.rbuf_subtree_crit_range' to original value 'unset' (from current value '-1', which is different from the scoped value '-1.0'). (FLW-2892)
+Disable clock slack update for ideal clocks
+ Iter  1                                             0.00        0.00         -         -       4711.69    54254.22       10511              0.09      4488
+Warning: Restoring scoped app option 'xform.commit_density_threshold' to original value 'unset' (from current value '1', which is different from the scoped value '1.0'). (FLW-2892)
+Compile-fusion optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
+Compile-fusion                                       0.32        0.32         -         1       4701.58    54200.12       10486              0.09      4488
+Information: Ending   rtl_opt / estimation / Optimization (1) / Timing Optimization (FLW-8001)
+Information: Time: 2025-07-22 10:06:29 / Session:  00:05:12 / Command:  00:04:49 / CPU:  00:11:17 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / Optimization (1) (FLW-8001)
+Information: Time: 2025-07-22 10:06:29 / Session:  00:05:12 / Command:  00:04:49 / CPU:  00:11:17 / Memory: 4488 MB (FLW-8100)
+Information: CTS will work on the following scenarios. (CTS-101)
+Information: CTS will work on all clocks in active scenarios, including 1 master clocks and 0 generated clocks. (CTS-107)
+Information: 'cworst' is identified as primary corner for initial clock tree building. (CTS-103)
+Information: CCD will use corner cworst for honoring max prepone/postpone limits
+Uskew Characterizer: corner: cworst, scalingFactor: 1.000
+Information: 'cworst' is identified as primary corner for initial clock tree building. (CTS-103)
+@ CG solver holdWeight = 1.250000
+@ CG solver setupWeight = 1.000000
+@ CG solver delayCostWeight = 5.000000
+@ CG solver zeroDirWeight = 5.000000
+@ CG solver wnsWeight = 1000.000000
+
+Summary of messages during CTS:
+===============================================================
+  Tag   Count  Type           Description
+---------------------------------------------------------------
+CTS-038    1  Warning  No clock routing rule is specified.
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Warning: No clock routing rules were specified. Use set_clock_routing_rules to specify routing rules for accurate clock latency estimation. (OPT-902)
+Information: Estimating clock gate latencies for scenario 'func@cworst'. (OPT-909)
+Disable clock slack update for ideal clocks
+ Iter  1                                             0.00        0.00         -         -       4701.58    54200.12       10486              0.09      4488
+Warning: Restoring scoped app option 'ropt.rbuf_subtree_crit_range' to original value 'unset' (from current value '-1', which is different from the scoped value '-1.0'). (FLW-2892)
+Disable clock slack update for ideal clocks
+ Iter  1                                             0.00        0.00         -         -       4701.58    54200.12       10486              0.09      4488
+Information: 22 out of 32 SQM-1061 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Information: 28 out of 38 SQM-1067 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:17) (MSG-3913)
+Warning: Cannot find any default max transition constraint on the design. (OPT-070)
+INFO: Leakage Power Aware Optimization Enabled
+Information: The automatic clock gate timing flow is activated. Clock latencies set on clock gate cells will be automatically adjusted by an estimate for latency. (CGT-4005)
+Information: CTS will work on the following scenarios. (CTS-101)
+Information: CTS will work on all clocks in active scenarios, including 1 master clocks and 0 generated clocks. (CTS-107)
+Information: 'cworst' is identified as primary corner for initial clock tree building. (CTS-103)
+Information: CCD will use corner cworst for honoring max prepone/postpone limits
+Information: Useful skew copied/scaled 0 balance points and 0 clock latencies. (CCD-103)
+
+Summary of messages during CTS:
+===============================================================
+  Tag   Count  Type           Description
+---------------------------------------------------------------
+ No error or warning message.
+
+Disable clock slack update for ideal clocks
+
+Disable clock slack update for ideal clocks
+Compile-fusion optimization Phase 0 Iter  1          0.00        0.00         -         -       4701.58    54200.12       10486              0.09      4488
+INFO: cellmap features:  adv-rules=(N), pdc=(N), clock-rules=(Y)
+
+compile optimization Phase 0 Iter  1          0.00        0.00         -         -       4701.16    54183.27       10486              0.09      4488
+INFO: New Levelizer turned on
+compile optimization Phase 0 Iter  2          0.00        0.00         -         -       4661.66    45650.32       10486              0.09      4488
+INFO: New Levelizer turned on
+Information: Starting rtl_opt / estimation / Timing and Congestion Driven Placement (FLW-8000)
+Information: Time: 2025-07-22 10:07:25 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / Timing and Congestion Driven Placement (FLW-8001)
+Information: Time: 2025-07-22 10:07:25 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / Optimization (2) (FLW-8000)
+Information: Time: 2025-07-22 10:07:25 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / Optimization (2) (FLW-8001)
+Information: Time: 2025-07-22 10:07:25 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / Scan Synthesis (FLW-8000)
+Information: Time: 2025-07-22 10:07:25 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / Scan Synthesis (FLW-8001)
+Information: Time: 2025-07-22 10:07:25 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / Incremental High Fanout Synthesis (FLW-8000)
+Information: Time: 2025-07-22 10:07:25 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Isolated 0 ports, skipped 0 ports
+Already Isolated 0 ports, Deleted 0 existing Isolation cells 
+INFO: total number of constant pins: 1704
+INFO: constant pins which are scan-pins: 1659
+INFO: constant pins that are not scan-pins: 45
+Information: Ending   rtl_opt / estimation / Incremental High Fanout Synthesis (FLW-8001)
+Information: Time: 2025-07-22 10:07:26 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Information: Starting rtl_opt / estimation / Timing Optimization (FLW-8000)
+Information: Time: 2025-07-22 10:07:26 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Information: Ending   rtl_opt / estimation / Timing Optimization (FLW-8001)
+Information: Time: 2025-07-22 10:07:26 / Session:  00:06:08 / Command:  00:05:45 / CPU:  00:15:57 / Memory: 4488 MB (FLW-8100)
+Information: Summary of UPF Cells (UPF-532)
+*******************************************************************************
+                            Summary of UPF Cells                               
+*******************************************************************************
+This is NOT a UPF design.
+UPF is NOT loaded.
+UPF is NOT committed.
+-------------------------------------------------------------------------------
+*******************************************************************************
+                        End of Summary of UPF Cells                            
+*******************************************************************************
+Information: The net parasitics of block cpu are cleared. (TIM-123)
+Information: Timer using 8 threads
+Warning: Cannot find any default max transition constraint on the design. (OPT-070)
+INFO: Leakage Power Aware Optimization Enabled
+Information: The automatic clock gate timing flow is activated. Clock latencies set on clock gate cells will be automatically adjusted by an estimate for latency. (CGT-4005)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+LLE:                                       disabled
+ML Acceleration:                           off
+Smart Arc Optimization:                    disabled
+************************************************************
+Information: CTS will work on the following scenarios. (CTS-101)
+Information: CTS will work on all clocks in active scenarios, including 1 master clocks and 0 generated clocks. (CTS-107)
+Information: 'cworst' is identified as primary corner for initial clock tree building. (CTS-103)
+Information: CCD will use corner cworst for honoring max prepone/postpone limits
+Information: Useful skew copied/scaled 0 balance points and 0 clock latencies. (CCD-103)
+
+Summary of messages during CTS:
+===============================================================
+  Tag   Count  Type           Description
+---------------------------------------------------------------
+ No error or warning message.
+
+
+
+INFO: Skipping FTB cleanup in end of npo flow.
+Enable dominated scenarios
+Co-efficient Ratio Summary:
+compile command statistics  CPU=484 sec (0.13 hr) ELAPSED=119 sec (0.03 hr) MEM-PEAK=4.383 GB
+Information: Ending   rtl_opt / estimation (FLW-8001)
+Information: Time: 2025-07-22 10:07:29 / Session:  00:06:12 / Command:  00:05:49 / CPU:  00:16:06 / Memory: 4488 MB (FLW-8100)
+Information: The net parasitics of block cpu are cleared. (TIM-123)
+INFO: End environment monitoring: recipes
+INFO: Restored 0 timer status, 9 app options, 0 tcl gvars, 0 env vars
+Information: >>>>>>> 18 unique error and warning message tags while observing fast: (MSG-3100)
+Information: #prnt #trgr #lmt    Tag  Level     Format (or last printed message)                                (MSG-3036)
+Information:    10  1064 10 SQM-1067  WARNING   Warning: Mapping to scan cell 'HDBLVT16_FSDPRBSBQO_ECO_1' in... (MSG-3032)
+Information:    10   896 10 SQM-1061  WARNING   Warning: Cannot infer functionality of libcell 'ts16ncfllogl... (MSG-3032)
+Information:     1     1  0 DFT-2193  WARNING   Warning: DFT IP not instantiated successfully (DFT-2193)        (MSG-3032)
+Information:     1     1  0 DFT-1107  WARNING   Warning: Skipping scan synthesis: no DFT setup has been dete... (MSG-3032)
+Information:     7     7  0 FLW-2892  WARNING   Warning: Restoring scoped app option 'ropt.rbuf_subtree_crit... (MSG-3032)
+Information:    14    14  0 ZRT-083   WARNING   Warning: Contact VIA67_1cut's upper layer enclosure does not... (MSG-3032)
+Information:    24    24  0 ZRT-026   WARNING   Warning: Layer AP default pitch 3.600 may be too small to ha... (MSG-3032)
+Information:    14    14  0 ZRT-120   WARNING   Warning: Contact VIA67_1cut's upper layer enclosure does not... (MSG-3032)
+Information:    12    12  0 DMM-115   WARNING   Warning: Auto deriving 'vertical' routing direction for laye... (MSG-3032)
+Information:     6     6 10 POW-116   WARNING   Warning: Net 'alu_inst/snps_DIVREM_75/tmp_net11088' is alrea... (MSG-3032)
+Information:    10    10  0 ZRT-720   WARNING   Warning: Port  VDD at {{52.785,-0.045} {53.235,0.045}} is ou... (MSG-3032)
+Information:     3     3  0 ZRT-763   WARNING   Warning: Cell alu_inst/snps_DIVREM_75/ctmi_5801 is placed ov... (MSG-3032)
+Information:    12    12  0 ZRT-727   WARNING   Warning: the routing tracks on DPT layer M3 are without any ... (MSG-3032)
+Information:     1     1  0 CTS-038   WARNING   Warning: No clock routing rule is specified. (CTS-038)          (MSG-3032)
+Information:    32    32  0 ZRT-800   WARNING   Warning: Invalid span threshold 0.0000 less than minWidth 0.... (MSG-3032)
+Information:     8     8  0 ZRT-091   WARNING   Warning: Unsupported tech file value:  M7:  xDefaultWidth = ... (MSG-3032)
+Information:     5     5  0 OPT-070   WARNING   Warning: Cannot find any default max transition constraint o... (MSG-3032)
+Information:    12    12  0 OPT-902   WARNING   Warning: No clock routing rules were specified. Use set_cloc... (MSG-3032)
+Information:   182  2122  3       18  <------   Total sum of messages (MSG-3038)
+Information: >>>>>>> Summary: 2122 error&warning MSGs observed during fast (MSG-3103)
+Info: FAST compile completed.
+Information: Ending   'rtl_opt' (FLW-8001)
+Information: Time: 2025-07-22 10:07:29 / Session:  00:06:12 / Command:  00:05:49 / CPU:  00:16:07 / Memory: 4488 MB (FLW-8100)
+1
+save_lib cpu_LIB
+Saving library 'cpu_LIB'
+1
+save_block cpu_top_block
+Error: Cannot find block 'cpu_top_block'. (DES-004)
+set_rtl_power_analysis_options -scenario func@cworst -design cpu -strip_path cpu_tb/cpu_inst -fsdb "../../cpu/novas.fsdb"  -output_dir TZ_OUTDIR
+1
+export_power_data
+Information: exporting data
+Information: Starting 'update_timing' (FLW-8000)
+Information: Time: 2025-07-22 10:07:30 / Session:  00:06:12 / Command:  00:00:00 / CPU:  00:00:00 / Memory: 4488 MB (FLW-8100)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Information: Design Average RC for design cpu  (NEX-011)
+Information: r = 11.366529 ohm/um, via_r = 22.101812 ohm/cut, c = 0.148924 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 10.032935 ohm/um, via_r = 22.445210 ohm/cut, c = 0.159631 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: The RC mode used is VR for design 'cpu'. (NEX-022)
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 12717, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 19, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+Information: Ending   'update_timing' (FLW-8001)
+Information: Time: 2025-07-22 10:07:33 / Session:  00:06:15 / Command:  00:00:02 / CPU:  00:00:14 / Memory: 4488 MB (FLW-8100)
+Information: Exporting essential name map file
+Warning: Option '-essential' for command 'saif_map' is deprecated. See the command's man page for alternatives. (CMD-110)
+Warning: '-essential' option should not be specified as it has been deprecated and is enabled by default. (POW-120)
+Information: The stitching and editing of coupling caps is turned OFF for design 'cpu_LIB:cpu.design'. (TIM-125)
+Information: Design Average RC for design cpu  (NEX-011)
+Information: r = 11.366529 ohm/um, via_r = 22.101812 ohm/cut, c = 0.148924 ff/um, cc = 0.000000 ff/um (X dir) (NEX-017)
+Information: r = 10.032935 ohm/um, via_r = 22.445210 ohm/cut, c = 0.159631 ff/um, cc = 0.000000 ff/um (Y dir) (NEX-017)
+Information: GPD output -mt with 8 threads (NEX-014)
+NEX: write_parasitics command finished
+Information: Explicit supply net connections to isolation and retention cells will be written out. Use mv.upf.save_upf_include_supply_exceptions_for_iso_retn to control this. (UPF-450)
+
+Warning: Multiply cell derates are skipped!
+
+Warning: Multiply net derates are skipped!
+Information: RTL Architect run completed
+Information: Gathering logical hierarchical data
+1
+report_power > "results/report_power.txt
+report_area > "results/report_area.txt
+Error: extra characters after close-quote
+      	Use error_info for more info. (CMD-013)
+Information: script '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/rtla.tcl'
+            	stopped at line 24 due to error. (CMD-081)
+Extended error info:
+extra characters after close-quote
+    while executing
+"report_power > "results/report_power.txt
+report_area > "r"
+    (file "/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/rtla.tcl" line 24)
+ -- End Extended Error Info
+rtl_shell> Maximum memory usage for this session: 4488.36 MB
+CPU usage for this session:   1008 seconds (  0.28 hours)
+Elapsed time for this session:    378 seconds (  0.11 hours)
+Thank you for using RTL Architect.

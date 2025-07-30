@@ -1,0 +1,681 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Thu Jul 24 21:50:40 2025
+****************************************
+Information: Timer using 'Estimated Delay Calculation'. (TIM-050)
+
+  Startpoint: mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0] (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: ex_mem_pipeline_reg_inst/alu_result_out_reg[23:16] (rising edge-triggered flip-flop clocked by CLK)
+  Mode: func
+  Corner: cworst
+  Scenario: func@cworst
+  Path Group: CLK
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock CLK (rise edge)                            0.00      0.00
+  clock network delay (ideal)                     -0.01     -0.01
+
+  mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/CK (HDBLVT16_FSDPQM2_D_4)
+                                                   0.00     -0.01 r
+  mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/Q0 (HDBLVT16_FSDPQM2_D_4)
+                                                   0.08      0.06 r
+  wb_mux/ctmi_9088/X (HDBLVT16_OR2_2)              0.02      0.08 r
+  wb_mux/ctmi_9089/X (HDBLVT16_INV_S_5)            0.04      0.12 f
+  wb_mux/ctmi_355/X (HDBLVT16_AO222_2)             0.05      0.17 f
+  forwarding_mux_2/ctmi_355/X (HDBLVT16_AO222_2)   0.05      0.21 f
+  alu_mux_2/ctmi_9285/X (HDBLVT16_OAI22_0P75)      0.02      0.23 r
+  alu_mux_2/ctmi_9286/X (HDBLVT16_INV_1)           0.02      0.25 f
+  alu_inst/ctmi_17379/X (HDBLVT16_INV_S_1)         0.01      0.26 r
+  alu_inst/ctmi_17378/X (HDBLVT16_NR2_1)           0.02      0.28 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4495/X (HDBSVT16_INV_S_2)
+                                                   0.02      0.29 r
+  alu_inst/snps_DIVREM_75/ctmi_5607/X (HDBLVT16_AN2_0P75)
+                                                   0.02      0.32 r
+  alu_inst/snps_DIVREM_75/ctmi_5606/X (HDBSVT16_AN3_MM_2)
+                                                   0.03      0.34 r
+  alu_inst/snps_DIVREM_75/ctmi_5605/X (HDBLVT16_AN2_MM_3)
+                                                   0.02      0.37 r
+  alu_inst/snps_DIVREM_75/ctmi_5604/X (HDBLVT16_AN3_2)
+                                                   0.03      0.40 r
+  alu_inst/snps_DIVREM_75/ctmi_5603/X (HDBLVT16_AN2_MM_3)
+                                                   0.02      0.42 r
+  alu_inst/snps_DIVREM_75/ctmi_5602/X (HDBLVT16_AN3_4)
+                                                   0.03      0.45 r
+  alu_inst/snps_DIVREM_75/ctmi_5601/X (HDBLVT16_AN2_6)
+                                                   0.02      0.47 r
+  alu_inst/snps_DIVREM_75/ctmi_5600/X (HDBLVT16_AN3_MM_4)
+                                                   0.03      0.50 r
+  alu_inst/snps_DIVREM_75/ctmi_5599/X (HDBLVT16_AN2_MM_3)
+                                                   0.02      0.52 r
+  alu_inst/snps_DIVREM_75/ctmi_5598/X (HDBLVT16_ND3_1)
+                                                   0.02      0.54 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4508/X (HDBLVT16_NR2_SKF_4)
+                                                   0.02      0.55 r
+  alu_inst/snps_DIVREM_75/ctmi_5597/X (HDBLVT16_ND3_1P5)
+                                                   0.02      0.57 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4506/X (HDBLVT16_NR2_T_0P875)
+                                                   0.02      0.59 r
+  alu_inst/snps_DIVREM_75/ctmi_5596/X (HDBLVT16_ND3_MM_2)
+                                                   0.02      0.61 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4504/X (HDBLVT16_NR2_SKR_1)
+                                                   0.02      0.62 r
+  alu_inst/snps_DIVREM_75/ctmi_5595/X (HDBLVT16_ND3_MM_0P75)
+                                                   0.02      0.64 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4502/X (HDBLVT16_NR2_SKR_2)
+                                                   0.02      0.65 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4500/X (HDBLVT16_OA211_2)
+                                                   0.04      0.69 r
+  alu_inst/snps_DIVREM_75/ctmi_5619/X (HDBLVT16_AO21B_1P5)
+                                                   0.02      0.71 r
+  alu_inst/snps_DIVREM_75/ctmi_5617/X (HDBLVT16_OAI21_MM_1)
+                                                   0.01      0.72 f
+  alu_inst/snps_DIVREM_75/ctmi_5616/X (HDBLVT16_ND3_0P75)
+                                                   0.01      0.74 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4615/X (HDBLVT16_NR2_0P5)
+                                                   0.01      0.75 f
+  alu_inst/snps_DIVREM_75/A5484/X (HDBSVT16_NR2_MM_1)
+                                                   0.02      0.76 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_29/ctmi_5302/X (HDBLVT16_OR2_U_0P75)
+                                                   0.02      0.78 r
+  alu_inst/snps_DIVREM_75/ctmi_5620/X (HDBSVT16_INV_1)
+                                                   0.01      0.79 f
+  alu_inst/snps_DIVREM_75/ctmi_5614/X (HDBLVT16_OAI21_0P75)
+                                                   0.01      0.80 r
+  alu_inst/snps_DIVREM_75/ctmi_5613/X (HDBLVT16_AN2_MM_1)
+                                                   0.02      0.82 r
+  alu_inst/snps_DIVREM_75/ctmi_5621/X (HDBLVT16_INV_S_1P5)
+                                                   0.01      0.84 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4692/X (HDBLVT16_OAI21_0P5)
+                                                   0.01      0.85 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4689/X (HDBLVT16_OAI21_0P75)
+                                                   0.02      0.87 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_28/ctmi_2147/X (HDBLVT16_AOI21_0P75)
+                                                   0.01      0.88 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_28/ctmi_2153/X (HDBLVT16_OAOAI2111_1)
+                                                   0.02      0.91 f
+  alu_inst/snps_DIVREM_75/ctmi_5612/X (HDBLVT16_AN2B_MM_4)
+                                                   0.02      0.92 f
+  alu_inst/snps_DIVREM_75/ctmi_5628/X (HDBLVT16_INV_S_1P5)
+                                                   0.01      0.94 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4694/X (HDBLVT16_NR2_0P5)
+                                                   0.01      0.95 f
+  alu_inst/snps_DIVREM_75/ctmi_5631/X (HDBLVT16_OA21B_0P75)
+                                                   0.02      0.97 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_27/ctmi_1205/X (HDBSVT16_AN2_MM_1)
+                                                   0.02      0.99 r
+  alu_inst/snps_DIVREM_75/ctmi_5634/X (HDBLVT16_AOI21_0P75)
+                                                   0.01      1.00 f
+  alu_inst/snps_DIVREM_75/ctmi_5636/X (HDBLVT16_INV_SKF_1)
+                                                   0.01      1.01 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_27/ctmi_1213/X (HDBLVT16_AOI31_1P5)
+                                                   0.01      1.02 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_27/ctmi_1212/X (HDBLVT16_OAI21_V1T_1)
+                                                   0.01      1.03 r
+  alu_inst/snps_DIVREM_75/ctmi_5610/X (HDBLVT16_AN3_MM_4)
+                                                   0.03      1.06 r
+  alu_inst/snps_DIVREM_75/ctmi_5640/X (HDBLVT16_INV_S_1P5)
+                                                   0.02      1.08 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4696/X (HDBSVT16_NR2_SKR_1)
+                                                   0.01      1.09 r
+  alu_inst/snps_DIVREM_75/ctmi_5645/X (HDBLVT16_OA21B_1)
+                                                   0.01      1.11 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4697/X (HDBLVT16_INV_1)
+                                                   0.01      1.12 r
+  alu_inst/snps_DIVREM_75/ctmi_5644/X (HDBSVT16_ND2_1)
+                                                   0.02      1.14 f
+  alu_inst/snps_DIVREM_75/ctmi_5647/X (HDBLVT16_AOI21_MM_1)
+                                                   0.01      1.15 r
+  alu_inst/snps_DIVREM_75/ctmi_5648/X (HDBSVT16_INV_1)
+                                                   0.01      1.16 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_26/ctmi_1234/X (HDBLVT16_AOI31_2)
+                                                   0.02      1.18 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_26/ctmi_1239/X (HDBLVT16_OAOAI2111_1)
+                                                   0.02      1.20 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4530/X (HDBLVT16_ND2_MM_2)
+                                                   0.02      1.22 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4531/X (HDBLVT16_INV_SKF_1)
+                                                   0.01      1.23 f
+  alu_inst/snps_DIVREM_75/ctmi_5651/X (HDBLVT16_OA21B_0P75)
+                                                   0.02      1.25 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_25/ctmi_1252/X (HDBLVT16_NR2_MM_0P75)
+                                                   0.02      1.27 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_25/ctmi_1260/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      1.30 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_25/ctmi_1269/X (HDBLVT16_AOAOI2111_2)
+                                                   0.02      1.32 r
+  alu_inst/snps_DIVREM_75/A5492/X (HDBLVT16_NR2_2)
+                                                   0.02      1.34 f
+  alu_inst/snps_DIVREM_75/A5493/X (HDBLVT16_INV_3)
+                                                   0.02      1.36 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4834/X (HDBSVT16_OAI21_T_0P5)
+                                                   0.01      1.37 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4831/X (HDBLVT16_OAI21_1)
+                                                   0.01      1.38 r
+  alu_inst/snps_DIVREM_75/ctmi_5663/X (HDBLVT16_AOI21_0P5)
+                                                   0.01      1.40 f
+  alu_inst/snps_DIVREM_75/ctmi_5664/X (HDBLVT16_INV_1)
+                                                   0.01      1.41 r
+  alu_inst/snps_DIVREM_75/ctmi_5662/X (HDBLVT16_AO31_2)
+                                                   0.04      1.45 r
+  alu_inst/snps_DIVREM_75/ctmi_5661/X (HDBLVT16_AO31_4)
+                                                   0.04      1.49 r
+  alu_inst/snps_DIVREM_75/ctmi_5660/X (HDBLVT16_ND3_T_3)
+                                                   0.04      1.52 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4535/X (HDBLVT16_INV_S_0P65)
+                                                   0.01      1.54 r
+  alu_inst/snps_DIVREM_75/ctmi_5693/X (HDBLVT16_OAI22_0P5)
+                                                   0.02      1.55 f
+  alu_inst/snps_DIVREM_75/ctmi_5692/X (HDBLVT16_AN2_0P5)
+                                                   0.02      1.57 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_23/ctmi_1337/X (HDBLVT16_OAOAI2111_4)
+                                                   0.03      1.61 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_23/ctmi_1361/X (HDBLVT16_AOAOI2111_4)
+                                                   0.03      1.63 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_23/ctmi_1367/X (HDBLVT16_OAI21_1P75)
+                                                   0.01      1.64 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4536/X (HDBLVT16_ND2_SKF_4)
+                                                   0.03      1.67 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4537/X (HDBLVT16_INV_S_1P5)
+                                                   0.02      1.69 r
+  alu_inst/snps_DIVREM_75/ctmi_5710/X (HDBLVT16_ND2_MM_0P5)
+                                                   0.01      1.70 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4890/X (HDBLVT16_OAI2BB2_2)
+                                                   0.03      1.73 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_22/ctmi_1373/X (HDBLVT16_AOI21_0P75)
+                                                   0.02      1.74 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_22/ctmi_1383/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      1.78 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_22/ctmi_1407/X (HDBLVT16_AOAOI2111_2)
+                                                   0.03      1.80 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_22/ctmi_1418/X (HDBLVT16_OAOAI2111_2)
+                                                   0.02      1.83 f
+  alu_inst/snps_DIVREM_75/ctmi_5709/X (HDBLVT16_AN2B_MM_4)
+                                                   0.03      1.85 f
+  alu_inst/snps_DIVREM_75/ctmi_5739/X (HDBLVT16_INV_1)
+                                                   0.01      1.87 r
+  alu_inst/snps_DIVREM_75/ctmi_5742/X (HDBLVT16_OAI22_MM_0P75)
+                                                   0.02      1.89 f
+  alu_inst/snps_DIVREM_75/ctmi_5741/X (HDBSVT16_AN2_0P75)
+                                                   0.02      1.91 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_21/ctmi_1434/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      1.94 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_21/ctmi_1459/X (HDBLVT16_AOAOI2111_4)
+                                                   0.03      1.97 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_21/ctmi_1477/X (HDBLVT16_OAOAI2111_4)
+                                                   0.02      1.99 r
+  alu_inst/snps_DIVREM_75/ctmi_5736/X (HDBLVT16_ND3_3)
+                                                   0.04      2.03 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4541/X (HDBLVT16_INV_S_1P5)
+                                                   0.02      2.05 r
+  alu_inst/snps_DIVREM_75/ctmi_5763/X (HDBSVT16_ND2_1)
+                                                   0.01      2.06 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4945/X (HDBLVT16_OAI2BB2_2)
+                                                   0.03      2.09 f
+  alu_inst/snps_DIVREM_75/ctmi_5762/X (HDBLVT16_AOI21_0P75)
+                                                   0.01      2.10 r
+  alu_inst/snps_DIVREM_75/ctmi_5764/X (HDBSVT16_INV_1)
+                                                   0.01      2.11 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_20/ctmi_1493/X (HDBLVT16_AOI31_1P5)
+                                                   0.02      2.13 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_20/ctmi_1495/X (HDBSVT16_INV_SKR_2)
+                                                   0.01      2.15 f
+  alu_inst/snps_DIVREM_75/ctmi_5761/X (HDBLVT16_AOI31_2)
+                                                   0.02      2.17 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_20/ctmi_1546/X (HDBLVT16_OAOAI2111_2)
+                                                   0.02      2.19 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4542/X (HDBLVT16_ND2_MM_4)
+                                                   0.02      2.21 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4543/X (HDBLVT16_INV_SKR_4)
+                                                   0.02      2.23 f
+  alu_inst/snps_DIVREM_75/ctmi_5809/X (HDBLVT16_ND2_0P5)
+                                                   0.01      2.24 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4971/X (HDBLVT16_OAI2BB2_2)
+                                                   0.03      2.26 r
+  alu_inst/snps_DIVREM_75/ctmi_5808/X (HDBSVT16_AOI21_0P75)
+                                                   0.01      2.28 f
+  alu_inst/snps_DIVREM_75/ctmi_5810/X (HDBSVT16_INV_1)
+                                                   0.01      2.29 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_19/ctmi_1565/X (HDBLVT16_AOI31_2)
+                                                   0.03      2.31 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_19/ctmi_1567/X (HDBSVT16_INV_SKR_2)
+                                                   0.01      2.33 r
+  alu_inst/snps_DIVREM_75/ctmi_5807/X (HDBLVT16_AOI31_4)
+                                                   0.03      2.36 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_19/ctmi_1627/X (HDBLVT16_OAOAI2111_2)
+                                                   0.02      2.38 r
+  alu_inst/snps_DIVREM_75/ctmi_5796/X (HDBLVT16_AN2B_MM_4)
+                                                   0.04      2.42 r
+  alu_inst/snps_DIVREM_75/ctmi_5843/X (HDBLVT16_INV_S_6)
+                                                   0.02      2.44 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4996/X (HDBLVT16_AO2BB2_0P5)
+                                                   0.02      2.46 r
+  alu_inst/snps_DIVREM_75/ctmi_5842/X (HDBLVT16_AOI21_0P75)
+                                                   0.01      2.47 f
+  alu_inst/snps_DIVREM_75/ctmi_5845/X (HDBSVT16_INV_1)
+                                                   0.01      2.48 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_18/ctmi_1643/X (HDBLVT16_AOI31_1)
+                                                   0.03      2.51 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_18/ctmi_1645/X (HDBLVT16_INV_1)
+                                                   0.01      2.52 r
+  alu_inst/snps_DIVREM_75/ctmi_5841/X (HDBLVT16_AOI31_1P5)
+                                                   0.03      2.55 f
+  alu_inst/snps_DIVREM_75/ctmi_5870/X (HDBLVT16_INV_1)
+                                                   0.02      2.56 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_18/ctmi_1713/X (HDBLVT16_AO31_2)
+                                                   0.04      2.60 r
+  alu_inst/snps_DIVREM_75/ctmi_5840/X (HDBLVT16_ND3_8)
+                                                   0.05      2.64 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4547/X (HDBLVT16_INV_S_7)
+                                                   0.02      2.66 r
+  alu_inst/snps_DIVREM_75/ctmi_5902/X (HDBLVT16_ND2_0P5)
+                                                   0.01      2.67 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5020/X (HDBLVT16_AO2BB2_0P5)
+                                                   0.03      2.70 f
+  alu_inst/snps_DIVREM_75/ctmi_5901/X (HDBLVT16_AOI21_0P75)
+                                                   0.01      2.71 r
+  alu_inst/snps_DIVREM_75/ctmi_5903/X (HDBSVT16_INV_1)
+                                                   0.01      2.72 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_17/ctmi_1732/X (HDBLVT16_AOI31_0P75)
+                                                   0.02      2.74 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_17/ctmi_1734/X (HDBLVT16_INV_1)
+                                                   0.01      2.75 f
+  alu_inst/snps_DIVREM_75/ctmi_5900/X (HDBLVT16_AOI31_1P5)
+                                                   0.02      2.78 r
+  alu_inst/snps_DIVREM_75/ctmi_5928/X (HDBLVT16_INV_S_2)
+                                                   0.01      2.79 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_17/ctmi_1811/X (HDBLVT16_AOAOI2111_4)
+                                                   0.02      2.81 r
+  alu_inst/snps_DIVREM_75/ctmi_5899/X (HDBLVT16_OR2B_8)
+                                                   0.02      2.84 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4549/X (HDBLVT16_INV_4)
+                                                   0.02      2.86 f
+  alu_inst/snps_DIVREM_75/ctmi_5955/X (HDBLVT16_ND2_0P5)
+                                                   0.01      2.87 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5043/X (HDBLVT16_OAI2BB2_0P75)
+                                                   0.03      2.89 r
+  alu_inst/snps_DIVREM_75/ctmi_5954/X (HDBLVT16_AOI21_0P75)
+                                                   0.01      2.91 f
+  alu_inst/snps_DIVREM_75/ctmi_5956/X (HDBSVT16_INV_1)
+                                                   0.01      2.92 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_16/ctmi_1830/X (HDBLVT16_AOI31_1P5)
+                                                   0.03      2.95 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_16/ctmi_1832/X (HDBLVT16_INV_1)
+                                                   0.01      2.96 r
+  alu_inst/snps_DIVREM_75/ctmi_5953/X (HDBLVT16_AOI31_2)
+                                                   0.03      2.99 f
+  alu_inst/snps_DIVREM_75/ctmi_5981/X (HDBLVT16_INV_S_1P5)
+                                                   0.01      3.01 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_16/ctmi_1916/X (HDBLVT16_AOAOI2111_2)
+                                                   0.02      3.03 f
+  alu_inst/snps_DIVREM_75/ctmi_5952/X (HDBLVT16_OR2B_MM_4)
+                                                   0.04      3.07 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4551/X (HDBLVT16_INV_S_6)
+                                                   0.02      3.09 r
+  alu_inst/snps_DIVREM_75/ctmi_6039/X (HDBSVT16_OAI22_0P875)
+                                                   0.02      3.11 f
+  alu_inst/snps_DIVREM_75/ctmi_6073/X (HDBSVT16_OR2_U_0P75)
+                                                   0.02      3.13 f
+  alu_inst/snps_DIVREM_75/ctmi_6072/X (HDBLVT16_OAI21_0P75)
+                                                   0.01      3.14 r
+  alu_inst/snps_DIVREM_75/ctmi_6074/X (HDBSVT16_INV_1)
+                                                   0.01      3.16 f
+  alu_inst/snps_DIVREM_75/ctmi_6071/X (HDBSVT16_OA221_2)
+                                                   0.03      3.19 f
+  alu_inst/snps_DIVREM_75/ctmi_6076/X (HDBLVT16_INV_1P25)
+                                                   0.01      3.20 r
+  alu_inst/snps_DIVREM_75/ctmi_6070/X (HDBSVT16_AOI21_MM_1)
+                                                   0.01      3.21 f
+  alu_inst/snps_DIVREM_75/ctmi_6020/X (HDBLVT16_OA31_2)
+                                                   0.02      3.23 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_15/ctmi_2019/X (HDBLVT16_OAI21_1P5)
+                                                   0.01      3.25 r
+  alu_inst/snps_DIVREM_75/ctmi_6019/X (HDBLVT16_ND3_4)
+                                                   0.05      3.29 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4553/X (HDBLVT16_INV_6)
+                                                   0.02      3.31 r
+  alu_inst/snps_DIVREM_75/ctmi_6113/X (HDBLVT16_OAI22_MM_0P75)
+                                                   0.02      3.33 f
+  alu_inst/snps_DIVREM_75/ctmi_6124/X (HDBSVT16_OR2_U_0P75)
+                                                   0.02      3.36 f
+  alu_inst/snps_DIVREM_75/ctmi_6123/X (HDBLVT16_OAI21_0P5)
+                                                   0.01      3.37 r
+  alu_inst/snps_DIVREM_75/ctmi_6125/X (HDBLVT16_INV_S_0P5)
+                                                   0.01      3.38 f
+  alu_inst/snps_DIVREM_75/ctmi_6122/X (HDBLVT16_OAI21_0P5)
+                                                   0.01      3.39 r
+  alu_inst/snps_DIVREM_75/ctmi_6127/X (HDBSVT16_INV_1)
+                                                   0.01      3.40 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_14/ctmi_2067/X (HDBLVT16_OAI31_2)
+                                                   0.01      3.42 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_14/ctmi_2071/X (HDBLVT16_INV_1)
+                                                   0.02      3.44 f
+  alu_inst/snps_DIVREM_75/ctmi_6078/X (HDBLVT16_OA31_VM2_1)
+                                                   0.03      3.47 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_14/ctmi_2133/X (HDBLVT16_OAOAI2111_4)
+                                                   0.02      3.49 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4554/X (HDBLVT16_ND2_MM_4)
+                                                   0.04      3.53 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4555/X (HDBLVT16_INV_4)
+                                                   0.02      3.55 r
+  alu_inst/snps_DIVREM_75/ctmi_6179/X (HDBLVT16_OAI22_0P5)
+                                                   0.02      3.57 f
+  alu_inst/snps_DIVREM_75/ctmi_6188/X (HDBLVT16_OR2_U_0P75)
+                                                   0.02      3.59 f
+  alu_inst/snps_DIVREM_75/ctmi_6187/X (HDBSVT16_OAI21_MM_1)
+                                                   0.01      3.61 r
+  alu_inst/snps_DIVREM_75/ctmi_6189/X (HDBSVT16_INV_1)
+                                                   0.01      3.62 f
+  alu_inst/snps_DIVREM_75/ctmi_6186/X (HDBSVT16_OAI21_MM_1)
+                                                   0.01      3.63 r
+  alu_inst/snps_DIVREM_75/ctmi_6191/X (HDBSVT16_INV_1)
+                                                   0.01      3.64 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_13/ctmi_1119/X (HDBLVT16_OAI31_2)
+                                                   0.01      3.65 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_13/ctmi_1123/X (HDBLVT16_INV_S_1P5)
+                                                   0.02      3.67 f
+  alu_inst/snps_DIVREM_75/ctmi_6148/X (HDBLVT16_OA31_2)
+                                                   0.03      3.70 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_13/ctmi_1190/X (HDBLVT16_OAOAI2111_4)
+                                                   0.02      3.72 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4556/X (HDBLVT16_ND2_5)
+                                                   0.04      3.76 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4557/X (HDBLVT16_INV_4)
+                                                   0.02      3.79 r
+  alu_inst/snps_DIVREM_75/ctmi_6245/X (HDBLVT16_OAI22_0P5)
+                                                   0.02      3.80 f
+  alu_inst/snps_DIVREM_75/ctmi_6254/X (HDBLVT16_OR2_U_0P75)
+                                                   0.02      3.83 f
+  alu_inst/snps_DIVREM_75/ctmi_6253/X (HDBLVT16_OAI21_0P75)
+                                                   0.01      3.84 r
+  alu_inst/snps_DIVREM_75/ctmi_6255/X (HDBSVT16_INV_1)
+                                                   0.01      3.85 f
+  alu_inst/snps_DIVREM_75/ctmi_6252/X (HDBSVT16_OAI21_0P75)
+                                                   0.01      3.86 r
+  alu_inst/snps_DIVREM_75/ctmi_6257/X (HDBSVT16_INV_1)
+                                                   0.01      3.87 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_12/ctmi_2192/X (HDBLVT16_OAI31_2)
+                                                   0.01      3.89 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_12/ctmi_2196/X (HDBSVT16_INV_SKF_2)
+                                                   0.02      3.91 f
+  alu_inst/snps_DIVREM_75/ctmi_6211/X (HDBLVT16_OA31_2)
+                                                   0.03      3.94 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_12/ctmi_2270/X (HDBLVT16_OAOAI2111_4)
+                                                   0.02      3.96 r
+  alu_inst/snps_DIVREM_75/ctmi_6203/X (HDBLVT16_ND3_3)
+                                                   0.02      3.98 f
+  alu_inst/snps_DIVREM_75/HFSINV_1174_9458/X (HDBLVT16_INV_S_3)
+                                                   0.02      4.00 r
+  alu_inst/snps_DIVREM_75/ctmi_6293/X (HDBSVT16_ND2_1)
+                                                   0.01      4.01 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5143/X (HDBLVT16_OAI2BB2_2)
+                                                   0.03      4.04 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_11/ctmi_2283/X (HDBLVT16_AOI21_MM_1)
+                                                   0.02      4.05 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_11/ctmi_2293/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      4.08 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_11/ctmi_2316/X (HDBLVT16_AOAOI2111_2)
+                                                   0.04      4.12 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_11/ctmi_2377/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      4.16 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_11/ctmi_2382/X (HDBLVT16_INV_1)
+                                                   0.01      4.17 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_11/ctmi_2406/X (HDBLVT16_OAOAI2111_1)
+                                                   0.02      4.19 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4560/X (HDBLVT16_ND2_1)
+                                                   0.01      4.20 r
+  alu_inst/snps_DIVREM_75/HFSINV_469_9467/X (HDBLVT16_INV_2)
+                                                   0.03      4.23 f
+  alu_inst/snps_DIVREM_75/ctmi_6347/X (HDBSVT16_ND2_1)
+                                                   0.01      4.24 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5160/X (HDBLVT16_OAI2BB2_1)
+                                                   0.03      4.26 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_10/ctmi_2422/X (HDBSVT16_AOI21_1)
+                                                   0.02      4.28 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_10/ctmi_2432/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      4.31 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_10/ctmi_2455/X (HDBLVT16_AOAOI2111_4)
+                                                   0.04      4.35 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_10/ctmi_2516/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      4.38 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_10/ctmi_2521/X (HDBLVT16_INV_S_1P5)
+                                                   0.02      4.40 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_10/ctmi_2553/X (HDBLVT16_OAOAI2111_1)
+                                                   0.02      4.42 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4562/X (HDBLVT16_ND2_MM_2)
+                                                   0.02      4.43 f
+  alu_inst/snps_DIVREM_75/HFSBUF_92_9470/X (HDBLVT16_BUF_5)
+                                                   0.03      4.46 f
+  alu_inst/snps_DIVREM_75/ctmi_6410/X (HDBLVT16_OAI22_0P5)
+                                                   0.02      4.48 r
+  alu_inst/snps_DIVREM_75/ctmi_6436/X (HDBLVT16_OR2_U_0P75)
+                                                   0.02      4.50 r
+  alu_inst/snps_DIVREM_75/ctmi_6435/X (HDBSVT16_OAI21_V1T_0P75)
+                                                   0.01      4.52 f
+  alu_inst/snps_DIVREM_75/ctmi_6437/X (HDBSVT16_INV_1)
+                                                   0.01      4.53 r
+  alu_inst/snps_DIVREM_75/ctmi_6434/X (HDBSVT16_OA221_2)
+                                                   0.03      4.56 r
+  alu_inst/snps_DIVREM_75/ctmi_6439/X (HDBLVT16_INV_1)
+                                                   0.01      4.58 f
+  alu_inst/snps_DIVREM_75/ctmi_6433/X (HDBSVT16_AOI21_0P75)
+                                                   0.01      4.59 r
+  alu_inst/snps_DIVREM_75/ctmi_6393/X (HDBLVT16_OA31_2)
+                                                   0.04      4.63 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_9/ctmi_2700/X (HDBLVT16_OAOAI2111_4)
+                                                   0.02      4.65 f
+  alu_inst/snps_DIVREM_75/ctmi_6383/X (HDBLVT16_ND3_MM_4)
+                                                   0.01      4.66 r
+  alu_inst/snps_DIVREM_75/HFSINV_801_9480/X (HDBLVT16_INV_S_3)
+                                                   0.03      4.69 f
+  alu_inst/snps_DIVREM_75/ctmi_6479/X (HDBLVT16_ND2_0P75)
+                                                   0.01      4.70 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5191/X (HDBLVT16_AO2BB2_0P5)
+                                                   0.03      4.72 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_8/ctmi_2714/X (HDBLVT16_AOI21_0P5)
+                                                   0.02      4.74 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_8/ctmi_2724/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      4.77 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_8/ctmi_2747/X (HDBLVT16_AOAOI2111_4)
+                                                   0.04      4.81 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_8/ctmi_2808/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      4.84 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_8/ctmi_2813/X (HDBLVT16_INV_1P25)
+                                                   0.02      4.86 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_8/ctmi_2861/X (HDBLVT16_OAOAI2111_1)
+                                                   0.02      4.88 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4566/X (HDBLVT16_ND2_MM_2)
+                                                   0.02      4.90 f
+  alu_inst/snps_DIVREM_75/HFSBUF_674_9487/X (HDBLVT16_BUF_SKF_4)
+                                                   0.03      4.93 f
+  alu_inst/snps_DIVREM_75/ctmi_6551/X (HDBLVT16_OAI22_0P75)
+                                                   0.02      4.95 r
+  alu_inst/snps_DIVREM_75/ctmi_6577/X (HDBSVT16_OR2_U_0P75)
+                                                   0.02      4.97 r
+  alu_inst/snps_DIVREM_75/ctmi_6576/X (HDBLVT16_OAI21_T_0P5)
+                                                   0.01      4.98 f
+  alu_inst/snps_DIVREM_75/ctmi_6578/X (HDBSVT16_INV_1)
+                                                   0.01      4.99 r
+  alu_inst/snps_DIVREM_75/ctmi_6575/X (HDBSVT16_OA221_2)
+                                                   0.03      5.03 r
+  alu_inst/snps_DIVREM_75/ctmi_6580/X (HDBLVT16_INV_S_0P5)
+                                                   0.01      5.04 f
+  alu_inst/snps_DIVREM_75/ctmi_6574/X (HDBLVT16_AOI21_0P75)
+                                                   0.01      5.05 r
+  alu_inst/snps_DIVREM_75/ctmi_6534/X (HDBLVT16_OA31_4)
+                                                   0.04      5.09 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_7/ctmi_3023/X (HDBLVT16_OAOAI2111_4)
+                                                   0.02      5.11 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4568/X (HDBLVT16_ND2_MM_2)
+                                                   0.01      5.13 r
+  alu_inst/snps_DIVREM_75/HFSINV_1506_9492/X (HDBLVT16_INV_S_1P5)
+                                                   0.03      5.15 f
+  alu_inst/snps_DIVREM_75/ctmi_6617/X (HDBSVT16_ND2_1)
+                                                   0.01      5.16 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5218/X (HDBLVT16_AO2BB2_1P5)
+                                                   0.03      5.19 r
+  alu_inst/snps_DIVREM_75/ctmi_6616/X (HDBLVT16_AOI21_1)
+                                                   0.01      5.20 f
+  alu_inst/snps_DIVREM_75/ctmi_6618/X (HDBSVT16_INV_1)
+                                                   0.01      5.21 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/ctmi_3049/X (HDBLVT16_AOI31_0P5)
+                                                   0.03      5.24 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/ctmi_3072/X (HDBLVT16_OAI31_0P75)
+                                                   0.03      5.27 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/ctmi_3076/X (HDBLVT16_INV_S_0P5)
+                                                   0.02      5.29 f
+  alu_inst/snps_DIVREM_75/ctmi_6593/X (HDBLVT16_OA31_2)
+                                                   0.04      5.32 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/ctmi_3198/X (HDBLVT16_OAI31_1)
+                                                   0.02      5.34 r
+  alu_inst/snps_DIVREM_75/ctmi_6592/X (HDBLVT16_ND3_1P25)
+                                                   0.02      5.36 f
+  alu_inst/snps_DIVREM_75/HFSBUF_2265_9499/X (HDBLVT16_BUF_DS_4)
+                                                   0.03      5.39 f
+  alu_inst/snps_DIVREM_75/ctmi_6718/X (HDBLVT16_OAI22_0P5)
+                                                   0.02      5.41 r
+  alu_inst/snps_DIVREM_75/ctmi_6717/X (HDBSVT16_AN2_0P5)
+                                                   0.02      5.43 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_5/ctmi_3224/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      5.46 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_5/ctmi_3247/X (HDBLVT16_AOAOI2111_4)
+                                                   0.04      5.50 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_5/ctmi_3308/X (HDBLVT16_OAOAI2111_4)
+                                                   0.04      5.55 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_5/ctmi_3383/X (HDBLVT16_INV_S_1P5)
+                                                   0.01      5.56 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_5/ctmi_3381/X (HDBLVT16_OAOAI2111_2)
+                                                   0.02      5.58 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4572/X (HDBLVT16_ND2_SKF_2)
+                                                   0.01      5.59 r
+  alu_inst/snps_DIVREM_75/HFSINV_1626_9503/X (HDBLVT16_INV_SKF_2)
+                                                   0.03      5.62 f
+  alu_inst/snps_DIVREM_75/ctmi_6769/X (HDBLVT16_ND2_0P5)
+                                                   0.01      5.63 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5241/X (HDBLVT16_OAI2BB2_0P75)
+                                                   0.03      5.65 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_4/ctmi_3399/X (HDBSVT16_AOI21_1)
+                                                   0.02      5.67 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_4/ctmi_3409/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      5.70 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_4/ctmi_3432/X (HDBLVT16_AOAOI2111_4)
+                                                   0.04      5.74 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_4/ctmi_3493/X (HDBLVT16_OAOAI2111_4)
+                                                   0.05      5.79 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_4/ctmi_3575/X (HDBLVT16_AO31_4)
+                                                   0.04      5.82 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4574/X (HDBLVT16_ND2_T_3)
+                                                   0.02      5.84 f
+  alu_inst/snps_DIVREM_75/HFSINV_986_9506/X (HDBLVT16_INV_SKF_4)
+                                                   0.02      5.86 r
+  alu_inst/snps_DIVREM_75/ctmi_6854/X (HDBSVT16_ND2_T_0P875)
+                                                   0.01      5.87 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5251/X (HDBSVT16_AO2BB2_1)
+                                                   0.03      5.90 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_3/ctmi_3594/X (HDBLVT16_AOI21_1)
+                                                   0.01      5.91 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_3/ctmi_3604/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      5.94 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_3/ctmi_3627/X (HDBSVT16_AOAOI2111_2)
+                                                   0.04      5.98 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_3/ctmi_3688/X (HDBLVT16_OAOAI2111_4)
+                                                   0.04      6.02 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_3/ctmi_3765/X (HDBSVT16_INV_SKF_2)
+                                                   0.02      6.04 r
+  alu_inst/snps_DIVREM_75/ctmi_6847/X (HDBLVT16_OAI31_1)
+                                                   0.01      6.05 f
+  alu_inst/snps_DIVREM_75/ctmi_6846/X (HDBLVT16_ND3_T_1P25)
+                                                   0.01      6.07 r
+  alu_inst/snps_DIVREM_75/HFSINV_1784_9515/X (HDBLVT16_INV_SKF_2)
+                                                   0.03      6.09 f
+  alu_inst/snps_DIVREM_75/ctmi_6956/X (HDBLVT16_ND2_SKR_2)
+                                                   0.01      6.10 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5260/X (HDBLVT16_AO2BB2_G_1)
+                                                   0.03      6.13 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_2/ctmi_3800/X (HDBSVT16_AOI21_MM_1)
+                                                   0.02      6.14 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_2/ctmi_3810/X (HDBLVT16_OAOAI2111_1)
+                                                   0.03      6.18 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_2/ctmi_3833/X (HDBLVT16_AOAOI2111_4)
+                                                   0.04      6.22 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_2/ctmi_3894/X (HDBLVT16_OAOAI2111_4)
+                                                   0.04      6.26 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_2/ctmi_3954/X (HDBLVT16_INV_1P5)
+                                                   0.02      6.28 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_2/ctmi_3996/X (HDBLVT16_OAOAI2111_2)
+                                                   0.02      6.30 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_4578/X (HDBLVT16_ND2_SKF_4)
+                                                   0.02      6.32 f
+  alu_inst/snps_DIVREM_75/HFSINV_429_9521/X (HDBLVT16_INV_S_2P5)
+                                                   0.02      6.34 r
+  alu_inst/snps_DIVREM_75/ctmi_7051/X (HDBLVT16_ND2_T_0P875)
+                                                   0.01      6.35 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5268/X (HDBSVT16_AO2BB2_1P5)
+                                                   0.03      6.37 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_1/ctmi_4015/X (HDBSVT16_AOI21_MM_1)
+                                                   0.01      6.39 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_1/ctmi_4025/X (HDBLVT16_OAOAI2111_2)
+                                                   0.03      6.42 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_1/ctmi_4048/X (HDBLVT16_AOAOI2111_2)
+                                                   0.04      6.46 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_1/ctmi_4109/X (HDBLVT16_OAOAI2111_4)
+                                                   0.04      6.50 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_1/ctmi_4168/X (HDBLVT16_INV_1P25)
+                                                   0.02      6.52 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_1/ctmi_4216/X (HDBLVT16_OAOAI2111_4)
+                                                   0.02      6.54 f
+  alu_inst/snps_DIVREM_75/ctmi_7023/X (HDBLVT16_ND2_1P5)
+                                                   0.01      6.55 r
+  alu_inst/snps_DIVREM_75/HFSBUF_299_9529/X (HDBSVT16_BUF_3)
+                                                   0.03      6.58 r
+  alu_inst/snps_DIVREM_75/ctmi_7140/X (HDBLVT16_AO2BB2_1P5)
+                                                   0.03      6.61 r
+  alu_inst/snps_DIVREM_75/ctmi_7139/X (HDBSVT16_AN2_0P75)
+                                                   0.02      6.63 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_0/ctmi_4349/X (HDBLVT16_OAI21_MM_1)
+                                                   0.02      6.65 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_0/ctmi_4361/X (HDBSVT16_AO221_2)
+                                                   0.04      6.69 f
+  alu_inst/snps_DIVREM_75/ctmi_7210/X (HDBSVT16_AOI21_MM_1)
+                                                   0.01      6.70 r
+  alu_inst/snps_DIVREM_75/ctmi_7221/X (HDBSVT16_INV_SKF_2)
+                                                   0.02      6.72 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_0/ctmi_4457/X (HDBSVT16_AO221_LA_0P5)
+                                                   0.04      6.75 f
+  alu_inst/snps_DIVREM_75/ctmi_7110/X (HDBLVT16_AO31_2)
+                                                   0.04      6.79 f
+  alu_inst/snps_DIVREM_75/HFSBUF_202_9545/X (HDBLVT16_BUF_MN_8)
+                                                   0.03      6.82 f
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5071/X (HDBLVT16_ND2_0P8)
+                                                   0.01      6.83 r
+  alu_inst/snps_DIVREM_75/u_div/ctmi_5070/X (HDBSVT16_OAI21_T_0P5)
+                                                   0.01      6.84 f
+  alu_inst/ctmi_17751/X (HDBLVT16_AOI22_0P5)       0.02      6.86 r
+  alu_inst/ctmi_17749/X (HDBLVT16_ND4_1P25)        0.02      6.88 f
+  ex_mem_pipeline_reg_inst/ctmi_308/X (HDBSVT16_AN2_0P75)
+                                                   0.02      6.90 f
+  ex_mem_pipeline_reg_inst/alu_result_out_reg[23:16]/D7 (HDBSVT16_FSDPQM8_DLPY2_1)
+                                                   0.00      6.90 f
+  data arrival time                                          6.90
+
+  clock CLK (rise edge)                           10.00     10.00
+  clock network delay (ideal)                      0.00     10.00
+  ex_mem_pipeline_reg_inst/alu_result_out_reg[23:16]/CK (HDBSVT16_FSDPQM8_DLPY2_1)
+                                                   0.00     10.00 r
+  library setup time                              -0.07      9.93
+  data required time                                         9.93
+  ------------------------------------------------------------------------
+  data required time                                         9.93
+  data arrival time                                         -6.90
+  ------------------------------------------------------------------------
+  slack (MET)                                                3.03
+
+
+1

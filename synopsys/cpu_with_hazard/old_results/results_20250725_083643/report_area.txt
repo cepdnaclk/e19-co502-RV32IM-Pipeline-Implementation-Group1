@@ -2,7 +2,7 @@
 Report : area
 Design : cpu
 Version: V-2023.12-SP5-3
-Date   : Fri Jul 25 08:43:11 2025
+Date   : Thu Jul 24 21:50:40 2025
 ****************************************
 
 Number of ports:                         2823

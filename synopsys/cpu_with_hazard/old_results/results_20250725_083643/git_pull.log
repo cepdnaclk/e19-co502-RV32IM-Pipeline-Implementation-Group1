@@ -1,0 +1,6 @@
+Updating f5b6da1..2213301
+Fast-forward
+ synopsys/cpu_with_hazard/rtla.tcl                  |   7 +-
+ synopsys/cpu_with_hazard/scripts/power_plots.ipynb | 146 +++++++++++++++++++++
+ 2 files changed, 149 insertions(+), 4 deletions(-)
+ create mode 100644 synopsys/cpu_with_hazard/scripts/power_plots.ipynb

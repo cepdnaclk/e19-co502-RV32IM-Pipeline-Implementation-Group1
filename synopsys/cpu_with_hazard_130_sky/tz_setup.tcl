@@ -50,10 +50,9 @@ set_clock_gating_options \
     -max_fanout 16 \
     -max_number_of_levels 2
 
-# Use latch-based clock gating with AND/OR logic
-set_clock_gate_style \
-    -sequential_cell latch \
-    -positive_edge_logic {and or}
+# Configure clock gate style for SKY130
+set_clock_gate_style -target { pos_edge_flip_flop } -test_point before
+ 
 
 puts "Clock gating configured for SKY130"
 

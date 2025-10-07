@@ -1,0 +1,62 @@
+****************************************
+Report : reference
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Tue Oct  7 23:49:17 2025
+****************************************
+
+Attributes
+    b - black-box (unknown)
+    h - hierarchical
+    n - noncombinational
+    u - contains unmapped logic
+    E - extracted timing model
+    Q - Quick timing model (QTM)
+    s - synthetic operator
+
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+--------------------------------------------------------------------------------
+sky130_fd_sc_hd__buf_2
+                   sky130_fd_sc_hd
+                                      5.00       3         15.01   
+sky130_fd_sc_hd__buf_4
+                   sky130_fd_sc_hd
+                                      7.51       2         15.01   
+sky130_fd_sc_hd__clkbuf_1
+                   sky130_fd_sc_hd
+                                      3.75       3         11.26   
+sky130_fd_sc_hd__conb_1
+                   sky130_fd_sc_hd
+                                      3.75      35        131.38   
+sky130_fd_sc_hd__macro_sparecell
+                   sky130_fd_sc_hd
+                                     75.07      60       4504.32   
+sky130_fd_sc_hd__or2_1
+                   sky130_fd_sc_hd
+                                      6.26       2         12.51   
+sky130_fd_sc_hd__or2_2
+                   sky130_fd_sc_hd
+                                      6.26       1          6.26   
+adder_32b_4                         364.10       1        364.10   h
+adder_32b_4_0                       364.10       1        364.10   h
+alu                              148681.35       1     148681.35   h
+branch_logic                        914.63       1        914.63   h
+control_unit                        315.30       1        315.30   h
+ex_mem_pipeline_reg                3948.79       1       3948.79   h
+hazard_unit                         300.29       1        300.29   h
+id_ex_pipeline_reg                 5387.67       1       5387.67   h
+if_id_pipeline_reg                 2170.83       1       2170.83   h
+mem_wb_pipeline_reg                3550.91       1       3550.91   h
+mux_32b_2to1                       1139.84       1       1139.84   h
+mux_32b_2to1_0                      490.47       1        490.47   h
+mux_32b_2to1_1                      436.67       1        436.67   h
+mux_32b_3to1                       1139.84       1       1139.84   h
+mux_32b_3to1_0                      535.51       1        535.51   h
+mux_32b_3to1_1                     1123.58       1       1123.58   h
+pc                                 1169.87       1       1169.87   h
+reg_files                         42808.56       1      42808.56   h
+sign_extender                       445.43       1        445.43   h
+--------------------------------------------------------------------------------
+Total 26 references                                    219983.48
+1

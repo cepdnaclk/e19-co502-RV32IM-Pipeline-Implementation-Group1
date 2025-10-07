@@ -5,94 +5,31 @@ Report : Averaged Power
 	-verbose
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Fri Jul 25 08:44:08 2025
+Date   : Tue Oct  7 23:50:13 2025
 ****************************************
 
 Library(s) Used:
 
-    ts16ncfllogl16hdh090f_ssgnp0p72v150c (File: /remote/arc/arc6000/libext/stdcell/16FFC_AUTO/ts16ncfllogl16hdh090a/latest/liberty_a1/logic_synth_lvf/ts16ncfllogl16hdh090f_ssgnp0p72v150c.db)
-    ts16ncfllogl16hdh090f_ffgnp0p88v150c (File: /remote/arc/arc6000/libext/stdcell/16FFC_AUTO/ts16ncfllogl16hdh090a/latest/liberty_a1/logic_synth_lvf/ts16ncfllogl16hdh090f_ffgnp0p88v150c.db)
-    ts16ncfllogl16hdl090f_ssgnp0p72v150c (File: /remote/arc/arc6000/libext/stdcell/16FFC_AUTO/ts16_ffc_lvt_gate_16nm_base/latest/liberty_a1/logic_synth_lvf/ts16ncfllogl16hdl090f_ssgnp0p72v150c.db)
-    ts16ncfllogl16hdl090f_ffgnp0p88v150c (File: /remote/arc/arc6000/libext/stdcell/16FFC_AUTO/ts16_ffc_lvt_gate_16nm_base/latest/liberty_a1/logic_synth_lvf/ts16ncfllogl16hdl090f_ffgnp0p88v150c.db)
-    ts16ncfslogl16hdh090f_ssgnp0p72v150c (File: /remote/arc/arc6000/libext/stdcell/16FFC_AUTO/ts16ncfslogl16hdh090a/latest/liberty_a1/logic_synth_lvf/ts16ncfslogl16hdh090f_ssgnp0p72v150c.db)
-    ts16ncfslogl16hdh090f_ffgnp0p88v150c (File: /remote/arc/arc6000/libext/stdcell/16FFC_AUTO/ts16ncfslogl16hdh090a/latest/liberty_a1/logic_synth_lvf/ts16ncfslogl16hdh090f_ffgnp0p88v150c.db)
-    ts16ncfslogl16hdl090f_ssgnp0p72v150c (File: /remote/arc/arc6000/libext/stdcell/16FFC_AUTO/ts16_ffc_svt_gate_16nm_base/latest/liberty_a1/logic_synth_lvf/ts16ncfslogl16hdl090f_ssgnp0p72v150c.db)
-    ts16ncfslogl16hdl090f_ffgnp0p88v150c (File: /remote/arc/arc6000/libext/stdcell/16FFC_AUTO/ts16_ffc_svt_gate_16nm_base/latest/liberty_a1/logic_synth_lvf/ts16ncfslogl16hdl090f_ffgnp0p88v150c.db)
+    sky130_fd_sc_hd__ff_100C_1v65 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ff_100C_1v65.db)
+    sky130_fd_sc_hd__ff_100C_1v95 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ff_100C_1v95.db)
+    sky130_fd_sc_hd__ff_n40C_1v56 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ff_n40C_1v56.db)
+    sky130_fd_sc_hd__ff_n40C_1v65 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ff_n40C_1v65.db)
+    sky130_fd_sc_hd__ff_n40C_1v76 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ff_n40C_1v76.db)
+    sky130_fd_sc_hd__ss_100C_1v40 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ss_100C_1v40.db)
+    sky130_fd_sc_hd__ss_100C_1v60 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ss_100C_1v60.db)
+    sky130_fd_sc_hd__ss_n40C_1v28 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ss_n40C_1v28.db)
+    sky130_fd_sc_hd__ss_n40C_1v35 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ss_n40C_1v35.db)
+    sky130_fd_sc_hd__ss_n40C_1v40 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ss_n40C_1v40.db)
+    sky130_fd_sc_hd__ss_n40C_1v44 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ss_n40C_1v44.db)
+    sky130_fd_sc_hd__ss_n40C_1v76 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__ss_n40C_1v76.db)
+    sky130_fd_sc_hd__tt_025C_1v80 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__tt_025C_1v80.db)
+    sky130_fd_sc_hd__tt_100C_1v80 (File: /remote/cae1107/libraries/google-skywater/ronaldv_workspace/skywater-pdk.latest_official/vendor/synopsys/results/lib/sky130_fd_sc_hd/db_nldm/sky130_fd_sc_hd__tt_100C_1v80.db)
 
 
-Operating Conditions: SSGNP0P72V150C   Library: ts16ncfllogl16hdh090f_ssgnp0p72v150c
-Wire Load Model Mode: enclosed
+Operating Conditions: ff_100C_1v65   Library: sky130_fd_sc_hd__ff_100C_1v65
+Wire Load Model Mode: top
 
-Cell               Design       Wire_model  Library       Selection_type
---------------------------------------------------------------------------------
-                   cpu          ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-alu_mux_1          mux_32b_2to1_1
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-alu_mux_2          mux_32b_2to1 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-ex_mem_pipeline_reg_inst
-                   ex_mem_pipeline_reg
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-sign_extender_inst sign_extender
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-alu_inst           alu          ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-alu_inst/mult_46   DW_mult_uns_J19_H8_D1
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-alu_inst/snps_DIVREM_75
-                   DW_div_uns_a_width32_b_width32_J46_P5_D2
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-alu_inst/RS_OP_200_17016_40986_J2/snps_MULT_190
-                   DW_mult_tc_J34_r34_H0_D1
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-control_unit_inst  control_unit ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-control_unit_inst/funct3_mux
-                   mux_3b_2to1  ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-pc_plus_4_ma       adder_32b_4  ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-forwarding_mux_1   mux_32b_3to1_0
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-wb_mux             mux_32b_3to1 ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-branch_logic_inst  branch_logic ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-forwarding_mux_2   mux_32b_3to1_1
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-pc_plus_4          adder_32b_4_0
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-pc_mux             mux_32b_2to1_0
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-id_ex_pipeline_reg_inst
-                   id_ex_pipeline_reg
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-hazard_unit_inst   hazard_unit  ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-mem_wb_pipeline_reg_inst
-                   mem_wb_pipeline_reg
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-if_id_pipeline_reg_inst
-                   if_id_pipeline_reg
-                                ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-pc_inst            pc           ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
-reg_files_inst     reg_files    ZeroWLM     ts16ncfllogl16hdh090f_ssgnp0p72v150c
-                                                          automatic-by-area
+<no wire load model is set>
 
 Power-specific unit information :
     Voltage Units = 1 V
@@ -106,34 +43,34 @@ Power-specific unit information :
                                       Int      Switch   Leak     Total
 Hierarchy                             Power    Power    Power    Power    %
 ----------------------------------------------------------------------------------
-cpu                                   7.73e-05 6.89e-05 3.64e-05 1.83e-04 100.0
-  alu_mux_1 (mux_32b_2to1_1)          3.15e-07 3.27e-06 3.17e-08 3.62e-06   2.0
-  alu_mux_2 (mux_32b_2to1)            7.37e-07 5.06e-06 1.91e-07 5.99e-06   3.3
-  ex_mem_pipeline_reg_inst (ex_mem_pipeline_reg)
-                                      1.31e-05 7.67e-06 5.66e-07 2.13e-05  11.7
-  sign_extender_inst (sign_extender)  7.21e-07 8.77e-07 4.88e-08 1.65e-06   0.9
-  alu_inst (alu)                      8.38e-06 1.29e-05 2.71e-05 4.85e-05  26.5
-    mult_46 (DW_mult_uns_J19_H8_D1)      0.000    0.000 1.33e-06 1.33e-06   0.7
-    snps_DIVREM_75 (DW_div_uns_a_width32_b_width32_J46_P5_D2)
-                                         0.000    0.000 2.27e-05 2.27e-05  12.4
-    RS_OP_200_17016_40986_J2/snps_MULT_190 (DW_mult_tc_J34_r34_H0_D1)
-                                         0.000    0.000 1.36e-06 1.36e-06   0.7
-  control_unit_inst (control_unit)    4.19e-07 7.03e-07 3.59e-08 1.16e-06   0.6
-    funct3_mux (mux_3b_2to1)          7.86e-08 1.31e-08 4.04e-09 9.57e-08   0.1
-  pc_plus_4_ma (adder_32b_4)          1.37e-07 2.00e-08 4.18e-08 1.99e-07   0.1
-  forwarding_mux_1 (mux_32b_3to1_0)   1.49e-07 4.31e-07 3.19e-08 6.13e-07   0.3
-  wb_mux (mux_32b_3to1)               3.86e-07 7.24e-07 3.80e-07 1.49e-06   0.8
-  branch_logic_inst (branch_logic)    8.89e-07 9.47e-07 1.26e-07 1.96e-06   1.1
-  forwarding_mux_2 (mux_32b_3to1_1)   1.05e-07 9.88e-08 3.95e-07 5.99e-07   0.3
-  pc_plus_4 (adder_32b_4_0)           2.04e-07 1.27e-07 4.19e-08 3.73e-07   0.2
-  pc_mux (mux_32b_2to1_0)             2.90e-07 3.40e-07 8.69e-08 7.18e-07   0.4
-  id_ex_pipeline_reg_inst (id_ex_pipeline_reg)
-                                      1.81e-05 1.21e-05 9.22e-07 3.10e-05  17.0
-  hazard_unit_inst (hazard_unit)      5.48e-07 3.86e-07 3.00e-08 9.63e-07   0.5
-  mem_wb_pipeline_reg_inst (mem_wb_pipeline_reg)
-                                      9.81e-06 6.74e-06 6.47e-07 1.72e-05   9.4
+cpu                                   2.51e-03 1.25e-03 1.39e-04 3.90e-03 100.0
+  sign_extender_inst (sign_extender)  7.29e-06 1.58e-05 1.97e-07 2.33e-05   0.6
+  pc_inst (pc)                        1.34e-04 5.56e-05 7.50e-07 1.90e-04   4.9
   if_id_pipeline_reg_inst (if_id_pipeline_reg)
-                                      8.24e-06 6.55e-06 2.81e-07 1.51e-05   8.3
-  pc_inst (pc)                        7.35e-06 9.01e-07 2.13e-07 8.47e-06   4.6
-  reg_files_inst (reg_files)          7.43e-06 9.03e-06 5.21e-06 2.17e-05  11.9
+                                      2.75e-04 1.05e-04 1.37e-06 3.81e-04   9.8
+  alu_mux_1 (mux_32b_2to1_1)          4.09e-06 2.39e-05 3.61e-07 2.84e-05   0.7
+  branch_logic_inst (branch_logic)    7.99e-06 9.25e-06 3.28e-07 1.76e-05   0.5
+  alu_mux_2 (mux_32b_2to1)            1.11e-05 4.74e-05 7.25e-07 5.92e-05   1.5
+  reg_files_inst (reg_files)          4.34e-04 3.09e-04 2.71e-05 7.70e-04  19.7
+  pc_mux (mux_32b_2to1_0)             1.03e-05 1.19e-05 3.74e-07 2.26e-05   0.6
+  pc_plus_4_ma (adder_32b_4)          5.24e-07 3.66e-07 3.39e-07 1.23e-06   0.0
+  wb_mux (mux_32b_3to1)               3.83e-05 7.42e-05 7.96e-07 1.13e-04   2.9
+  mem_wb_pipeline_reg_inst (mem_wb_pipeline_reg)
+                                      4.19e-04 1.09e-04 2.21e-06 5.30e-04  13.6
+  id_ex_pipeline_reg_inst (id_ex_pipeline_reg)
+                                      6.35e-04 2.02e-04 3.34e-06 8.41e-04  21.6
+  pc_plus_4 (adder_32b_4_0)           1.95e-06 2.00e-06 3.36e-07 4.29e-06   0.1
+  alu_inst (alu)                      6.69e-05 1.06e-04 9.67e-05 2.70e-04   6.9
+    mult_46 (DW_mult_uns_J67_P0_D1)      0.000    0.000 8.29e-06 8.29e-06   0.2
+    snps_DIVREM_75 (DW_div_uns_a_width32_b_width32_J2184_P5_D2)
+                                         0.000    0.000 7.53e-05 7.53e-05   1.9
+    RS_OP_200_17016_40986_J2/snps_MULT_190 (DW_mult_tc_J2191_P0_D1)
+                                         0.000    0.000 7.77e-06 7.77e-06   0.2
+  forwarding_mux_1 (mux_32b_3to1_0)   8.54e-07 3.55e-06 4.10e-07 4.81e-06   0.1
+  forwarding_mux_2 (mux_32b_3to1_1)   1.10e-06 1.31e-06 7.50e-07 3.17e-06   0.1
+  ex_mem_pipeline_reg_inst (ex_mem_pipeline_reg)
+                                      4.48e-04 1.37e-04 2.47e-06 5.87e-04  15.0
+  control_unit_inst (control_unit)    6.81e-06 1.51e-05 1.43e-07 2.20e-05   0.6
+    funct3_mux (mux_3b_2to1)          4.90e-07 6.55e-08 2.18e-08 5.78e-07   0.0
+  hazard_unit_inst (hazard_unit)      6.83e-06 5.69e-06 1.29e-07 1.27e-05   0.3
 1

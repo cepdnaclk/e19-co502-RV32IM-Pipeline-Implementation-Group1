@@ -1,0 +1,495 @@
+
+
+
+                               RTL Architect (TM)
+
+               Version V-2023.12-SP5-3 for linux64 - Dec 17, 2024
+                           Base build date 11/18/2024
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+#!/bin/tcsh -f
+# =============================================================================
+# RISC-V CPU RTL Analysis and Synthesis Script for SKY130
+# =============================================================================
+# Description: This script performs RTL analysis, synthesis, and power 
+#              analysis for the RISC-V CPU using SKY130 technology
+# Author: CO502 Group 1
+# Technology: SKY130 130nm Process
+# =============================================================================
+# -----------------------------------------------------------------------------
+# Configuration and Setup
+# -----------------------------------------------------------------------------
+puts "========== Starting RTL Analysis and Synthesis =========="
+========== Starting RTL Analysis and Synthesis ==========
+puts "Technology: SKY130 130nm"
+Technology: SKY130 130nm
+puts "Design: RISC-V CPU Pipeline"
+Design: RISC-V CPU Pipeline
+# Configure mismatch handling
+set_current_mismatch_config auto_fix 
+1
+set_attribute [get_mismatch_types missing_logical_reference] current_repair(auto_fix) create_blackbox
+Warning: Changing current repair(handler) for a mismatch type in between a flow is not recommended. (DMM-011)
+{missing_logical_reference}
+# Set host options for parallel processing
+set CORES 8
+8
+set_host_options -max_cores $CORES
+1
+puts "Using $CORES cores for parallel processing"
+Using 8 cores for parallel processing
+# Application options
+set_app_options -list {plan.macro.allow_unmapped_design true}
+plan.macro.allow_unmapped_design true
+# -----------------------------------------------------------------------------
+# Library Setup
+# -----------------------------------------------------------------------------
+puts "========== Setting up SKY130 Libraries =========="
+========== Setting up SKY130 Libraries ==========
+# Search paths for libraries and source files
+set search_path "* ./ ./INPUT//ndm ../../cpu ../libs/sky130_library/ndm"
+* ./ ./INPUT//ndm ../../cpu ../libs/sky130_library/ndm
+# Create design library with SKY130 reference libraries
+create_lib cpu_LIB \
+    -ref_libs "sky130_fd_sc_hd.ndm" \
+    -technology ../libs/sky130_fd_sc_hd/sky130_fd_sc_hd.tf
+Information: The command 'create_lib' cleared the undo history. (UNDO-016)
+Warning: sky130_fd_sc_hd.tf line 26, unsupported syntax 'fatWireViaKeepoutMode' in 'Technology' section. It will be ignored. (TECH-002)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 846) (TECH-026)
+Warning: Layer 'via4/met4' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 846) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 854) (TECH-026)
+Warning: Layer 'via4/met5' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 854) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 862) (TECH-026)
+Warning: Layer 'via3/met3' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 862) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 870) (TECH-026)
+Warning: Layer 'via3/met4' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 870) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 878) (TECH-026)
+Warning: Layer 'via2/met2' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 878) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 886) (TECH-026)
+Warning: Layer 'via2/met3' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 886) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 894) (TECH-026)
+Warning: Layer 'via/met1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 894) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 902) (TECH-026)
+Warning: Layer 'via/met2' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 902) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 910) (TECH-026)
+Warning: Layer 'mcon/li1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 910) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 918) (TECH-026)
+Warning: Layer 'mcon/met1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 918) (TECH-026)
+Warning: DesignRule is defined with non-consecutive layers 'via4' and 'met4'. (sky130_fd_sc_hd.tf line 851) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via4' and 'met5'. (sky130_fd_sc_hd.tf line 859) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via3' and 'met3'. (sky130_fd_sc_hd.tf line 867) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via3' and 'met4'. (sky130_fd_sc_hd.tf line 875) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via2' and 'met2'. (sky130_fd_sc_hd.tf line 883) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via2' and 'met3'. (sky130_fd_sc_hd.tf line 891) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via' and 'met1'. (sky130_fd_sc_hd.tf line 899) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via' and 'met2'. (sky130_fd_sc_hd.tf line 907) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'mcon' and 'li1'. (sky130_fd_sc_hd.tf line 915) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'mcon' and 'met1'. (sky130_fd_sc_hd.tf line 923) (TECH-034)
+Information: Loading technology file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/libs/sky130_fd_sc_hd/sky130_fd_sc_hd.tf' (FILE-007)
+{cpu_LIB}
+puts "SKY130 libraries loaded successfully"
+SKY130 libraries loaded successfully
+# -----------------------------------------------------------------------------
+# Design Analysis and Elaboration
+# -----------------------------------------------------------------------------
+puts "========== Analyzing and Elaborating Design =========="
+========== Analyzing and Elaborating Design ==========
+# Analyze RTL source files
+analyze -f sv -vcs "-f src.f"
+Information: By default, the HDL template library is 'WORK' (LBR-??).
+Running PRESTO HDLC
+Parsing vcs commands file -f src.f
+Compiling source file ../../cpu/cpu.v
+Opening include file ../../cpu/IF_stage/pc/pc.v
+Opening include file ../../cpu/utils/muxes/mux_32b_2to1.v
+Warning:  ../../cpu/IF_stage/pc/pc.v:15: delay controls are ignored for synthesis. (VER-176)
+Warning:  ../../cpu/IF_stage/pc/pc.v:15: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/IF_stage/pc/pc.v:15: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/utils/muxes/mux_32b_2to1.v:9: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/utils/adders/adder_32b_4.v
+Warning:  ../../cpu/utils/adders/adder_32b_4.v:8: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/pipeline_regs/if_id_pipeline_reg.v
+Opening include file ../../cpu/pipeline_regs/id_ex_pipeline_reg.v
+Warning:  ../../cpu/pipeline_regs/if_id_pipeline_reg.v:11: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/if_id_pipeline_reg.v:12: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/if_id_pipeline_reg.v:16: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/if_id_pipeline_reg.v:17: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Opening include file ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:23: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:24: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:25: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:26: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:27: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:28: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:29: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:30: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:31: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:32: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:33: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:34: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:35: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:36: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:37: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:40: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:41: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:42: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:43: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:44: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:45: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:46: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:47: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:48: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:49: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:50: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:51: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:52: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:53: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/id_ex_pipeline_reg.v:54: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Opening include file ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:20: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:21: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:22: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:23: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:24: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:25: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:26: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:27: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:31: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:32: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:33: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:34: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:35: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:36: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:37: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/ex_mem_pipeline_reg.v:38: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Opening include file ../../cpu/ID_stage/reg_files/reg_files.v
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:17: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:18: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:19: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:20: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:21: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:22: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:25: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:26: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:27: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:28: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:29: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/pipeline_regs/mem_wb_pipeline_reg.v:30: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:11: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:12: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/ID_stage/sign_extender/sign_extender.v
+Opening include file ../../cpu/./utils/encordings.v
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:16: delay controls are ignored for synthesis. (VER-176)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:17: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:18: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:19: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:20: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:21: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:22: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:23: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:24: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:25: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:26: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:27: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:28: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:29: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:30: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:31: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:32: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:33: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:34: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:35: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:36: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:37: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:38: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:39: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:40: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:41: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:42: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:43: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:44: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:45: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:46: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:47: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:48: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:51: delay controls are ignored for synthesis. (VER-176)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:51: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Warning:  ../../cpu/ID_stage/reg_files/reg_files.v:51: Nonblocking assignments and blocking delays in the same process; potential simulation or synthesis mismatch. (VER-140)
+Opening include file ../../cpu/ID_stage/control_unit/control_unit.v
+Opening include file ../../cpu/./utils/muxes/mux_3b_2to1.v
+Warning:  ../../cpu/./utils/muxes/mux_3b_2to1.v:9: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/./utils/encordings.v
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:31: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:35: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:40: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:43: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:46: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:47: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:50: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:51: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:54: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:55: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:64: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:74: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:77: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:85: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:88: delays for continuous assignment are ignored. (VER-173)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:89: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/ID_stage/hazard_unit/hazard_unit.v
+Opening include file ../../cpu/EX_stage/alu/alu.v
+Opening include file ../../cpu/./utils/encordings.v
+Opening include file ../../cpu/EX_stage/branch/branch_logic.v
+Opening include file ../../cpu/./utils/encordings.v
+Opening include file ../../cpu/utils/muxes/mux_32b_4to1.v
+Warning:  ../../cpu/EX_stage/branch/branch_logic.v:27: delay controls are ignored for synthesis. (VER-176)
+Warning:  ../../cpu/utils/muxes/mux_32b_4to1.v:15: delays for continuous assignment are ignored. (VER-173)
+Opening include file ../../cpu/utils/muxes/mux_32b_3to1.v
+Warning:  ../../cpu/utils/muxes/mux_32b_3to1.v:11: delays for continuous assignment are ignored. (VER-173)
+Presto compilation completed successfully.
+Elapsed = 00:00:00.25, CPU = 00:00:00.03
+1
+# Elaborate the design
+elaborate cpu
+Presto compilation completed successfully. (cpu)
+Information: Elaborating HDL template WORK:mux_32b_2to1 instantiated from 'cpu'. (ELAB-193)
+Presto compilation completed successfully. (mux_32b_2to1)
+Information: Elaborating HDL template WORK:pc instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine pc line 9 in file
+		'../../cpu/IF_stage/pc/pc.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     pc_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (pc)
+Information: Elaborating HDL template WORK:adder_32b_4 instantiated from 'cpu'. (ELAB-193)
+Presto compilation completed successfully. (adder_32b_4)
+Information: Elaborating HDL template WORK:if_id_pipeline_reg instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine if_id_pipeline_reg line 9 in file
+		'../../cpu/pipeline_regs/if_id_pipeline_reg.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    instr_out_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     pc_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (if_id_pipeline_reg)
+Information: Elaborating HDL template WORK:reg_files instantiated from 'cpu'. (ELAB-193)
+$display output: reg[0] = ?, reg[1] = ?, reg[2] = ?, reg[3] = ?, reg[4] = ?, reg[5] = ?, reg[6] = ?
+
+Inferred memory devices in process
+	in routine reg_files line 14 in file
+		'../../cpu/ID_stage/reg_files/reg_files.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       mem_reg       | Flip-flop | 1024  |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (reg_files)
+Information: Elaborating HDL template WORK:sign_extender instantiated from 'cpu'. (ELAB-193)
+
+Statistics for case statements in always block at line 26 in file
+	'../../cpu/ID_stage/sign_extender/sign_extender.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            27            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (sign_extender)
+Information: Elaborating HDL template WORK:control_unit instantiated from 'cpu'. (ELAB-193)
+Warning:  ../../cpu/ID_stage/control_unit/control_unit.v:66: Comparison against '?', 'x', or 'z' values is always false. It may cause simulation/synthesis mismatch. (ELAB-310)
+Presto compilation completed successfully. (control_unit)
+Information: Elaborating HDL template WORK:hazard_unit instantiated from 'cpu'. (ELAB-193)
+Presto compilation completed successfully. (hazard_unit)
+Information: Elaborating HDL template WORK:id_ex_pipeline_reg instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine id_ex_pipeline_reg line 21 in file
+		'../../cpu/pipeline_regs/id_ex_pipeline_reg.v'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+|   data2sel_out_reg    | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+| reg_write_en_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| data1_alu_sel_out_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| data2_alu_sel_out_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      pc_out_reg       | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  read_data1_out_reg   | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  read_data2_out_reg   | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      imm_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   dest_addr_out_reg   | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     aluop_out_reg     | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   mem_write_out_reg   | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  branch_jump_out_reg  | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   mem_read_out_reg    | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    wb_sel_out_reg     | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   data1sel_out_reg    | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+=================================================================================
+Presto compilation completed successfully. (id_ex_pipeline_reg)
+Information: Elaborating HDL template WORK:mux_32b_3to1 instantiated from 'cpu'. (ELAB-193)
+Presto compilation completed successfully. (mux_32b_3to1)
+Information: Elaborating HDL template WORK:alu instantiated from 'cpu'. (ELAB-193)
+Warning:  ../../cpu/EX_stage/alu/alu.v:33: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:35: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:41: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:42: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:44: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:53: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:55: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:87: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:89: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:94: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:95: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:96: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:109: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:110: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:111: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:118: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:119: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:120: signed to unsigned part selection occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:131: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:134: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:146: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:147: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:150: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../cpu/EX_stage/alu/alu.v:155: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 63 in file
+	'../../cpu/EX_stage/alu/alu.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            93            |     no/auto      |
+|           108            |     no/auto      |
+|           117            |    auto/auto     |
+|           127            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 164 in file
+	'../../cpu/EX_stage/alu/alu.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           165            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (alu)
+Information: Elaborating HDL template WORK:branch_logic instantiated from 'cpu'. (ELAB-193)
+
+Statistics for case statements in always block at line 26 in file
+	'../../cpu/EX_stage/branch/branch_logic.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            29            |    auto/auto     |
+===============================================
+Presto compilation completed successfully. (branch_logic)
+Information: Elaborating HDL template WORK:ex_mem_pipeline_reg instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine ex_mem_pipeline_reg line 18 in file
+		'../../cpu/pipeline_regs/ex_mem_pipeline_reg.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   wb_sel_out_reg    | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  reg_write_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  dest_addr_out_reg  | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     pc_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+| alu_result_out_reg  | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+| read_data2_out_reg  | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  mem_write_out_reg  | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  mem_read_out_reg   | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (ex_mem_pipeline_reg)
+Information: Elaborating HDL template WORK:mem_wb_pipeline_reg instantiated from 'cpu'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine mem_wb_pipeline_reg line 15 in file
+		'../../cpu/pipeline_regs/mem_wb_pipeline_reg.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   wb_sel_out_reg    | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  reg_write_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     pc_out_reg      | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  mem_data_out_reg   | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+| alu_result_out_reg  | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  dest_addr_out_reg  | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (mem_wb_pipeline_reg)
+Information: Elaborating HDL template WORK:mux_3b_2to1 instantiated from 'control_unit'. (ELAB-193)
+Presto compilation completed successfully. (mux_3b_2to1)
+Information: Design elaboration summary: (FLW-8550)
+Number of modules read: 16
+Top level ports:        171
+Total in all modules
+  Ports:                1849
+  Nets:                 7616
+  Instances:            2586
+Design summary end. (FLW-8551)
+Elapsed = 00:00:01.13, CPU = 00:00:00.56
+1
+set_top_module cpu
+Information: User units loaded from library 'sky130_fd_sc_hd' (LNK-040)
+Information: Added key list 'DesignWare' to design 'cpu'. (DWS-0216)
+Gensys attachment is created: presto_gensys.attach:cpu_LIB:cpu.design 
+Elapsed = 00:00:06.80, CPU = 00:00:05.36
+1
+puts "Design elaboration completed"
+Design elaboration completed
+# -----------------------------------------------------------------------------
+# Technology Setup and Constraints
+# -----------------------------------------------------------------------------
+puts "========== Loading Technology Setup =========="
+========== Loading Technology Setup ==========
+source tz_setup.tcl
+========== SKY130 Technology Setup ==========
+Configuring synthesis flow options...
+Loading SKY130 parasitic technology files...
+SKY130 parasitic models loaded
+Setting up clock gating options for SKY130...
+Warning: This option -max_number_of_levels will be ignored during clock gating insertion/optimizations. (CGT-3003)
+The following clock gating options are applied to: top-level (design)
+Minimum bitwidth: 3
+Maximum fanout: 16
+Error: unknown option '-positive_edge_logic' (CMD-010)
+Error: extra positional option 'integrated' (CMD-012)
+Information: script '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/tz_setup.tcl'
+            	stopped at line 54 due to error. (CMD-081)
+Extended error info:
+
+    while executing
+"set_clock_gate_style -positive_edge_logic integrated"
+    (file "/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/tz_setup.tcl" line 54)
+ -- End Extended Error Info
+Information: script '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/rtla.tcl'
+            	stopped at line 63 due to error. (CMD-081)
+Extended error info:
+
+    while executing
+"set_clock_gate_style -positive_edge_logic integrated"
+    (file "/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/tz_setup.tcl" line 54)
+    invoked from within
+"source tz_setup.tcl"
+    (file "/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/rtla.tcl" line 63)
+ -- End Extended Error Info
+rtl_shell> 

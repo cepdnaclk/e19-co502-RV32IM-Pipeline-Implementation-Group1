@@ -1,0 +1,52 @@
+****************************************
+Report : report_rtl_metrics
+      -view register
+Design : cpu
+Version: W-2024.09-SP2
+Date   : Tue May 13 08:24:36 2025
+****************************************
+
+-----------------------------------------------------------------------------------------------------------------------------
+Register                           Dynamic        Switching      Leakage        Total          Register       Root Clk       
+Name                               Power          Power          Power          Power          Gated          Name           
+                                                                                                                             
+-----------------------------------------------------------------------------------------------------------------------------
+id_ex_pipeline_reg_inst/pc_out[0:31],
+id_ex_pipeline_reg_inst/mem_write_out[0:2],
+id_ex_pipeline_reg_inst/read_data2_out[0:31],
+id_ex_pipeline_reg_inst/read_data1_out[0:31],
+id_ex_pipeline_reg_inst/imm_out[0:31],
+id_ex_pipeline_reg_inst/dest_addr_out[0:4],
+id_ex_pipeline_reg_inst/data1sel_out[0:1],
+id_ex_pipeline_reg_inst/data2sel_out[0:1],
+id_ex_pipeline_reg_inst/mem_read_out[0:3],
+id_ex_pipeline_reg_inst/wb_sel_out[0:1],
+id_ex_pipeline_reg_inst/branch_jump_out[0:3],
+id_ex_pipeline_reg_inst/aluop_out[0:4],
+id_ex_pipeline_reg_inst/data1_alu_sel_out,
+id_ex_pipeline_reg_inst/reg_write_en_out,
+id_ex_pipeline_reg_inst/data2_alu_sel_out
+                                   1.995e-05      3.377e-06      5.174e-07      2.047e-05      True           CLK            
+if_id_pipeline_reg_inst/pc_out[0:31],
+if_id_pipeline_reg_inst/instr_out[0:31]
+                                   1.418e-05      4.692e-06      2.152e-07      1.439e-05      True           CLK            
+ex_mem_pipeline_reg_inst/read_data2_out[0:31],
+ex_mem_pipeline_reg_inst/pc_out[0:31],
+ex_mem_pipeline_reg_inst/mem_write_out[0:2],
+ex_mem_pipeline_reg_inst/mem_read_out[0:3],
+ex_mem_pipeline_reg_inst/wb_sel_out[0:1],
+ex_mem_pipeline_reg_inst/dest_addr_out[0:4],
+ex_mem_pipeline_reg_inst/alu_result_out[0:31],
+ex_mem_pipeline_reg_inst/reg_write_out
+                                   1.328e-05      1.035e-06      3.575e-07      1.364e-05      True           CLK            
+mem_wb_pipeline_reg_inst/pc_out[0:31],
+mem_wb_pipeline_reg_inst/mem_data_out[0:31],
+mem_wb_pipeline_reg_inst/wb_sel_out[0:1],
+mem_wb_pipeline_reg_inst/dest_addr_out[0:4],
+mem_wb_pipeline_reg_inst/alu_result_out[0:31],
+mem_wb_pipeline_reg_inst/reg_write_out
+                                   1.251e-05      1.466e-06      3.573e-07      1.287e-05      True           CLK            
+reg_files_inst/mem[1:31][0:31]     4.759e-06      5.176e-08      3.078e-06      7.837e-06      True           CLK            
+pc_inst/pc_out[0:31]               6.375e-06      3.078e-07      1.23e-07       6.498e-06      True           CLK            
+-----------------------------------------------------------------------------------------------------------------------------
+1

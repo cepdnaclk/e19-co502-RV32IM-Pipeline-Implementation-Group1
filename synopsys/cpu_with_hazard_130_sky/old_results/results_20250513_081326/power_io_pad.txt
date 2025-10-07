@@ -1,0 +1,27 @@
+****************************************
+Report : Averaged Power
+	-groups io_pad
+Design : cpu
+Version: W-2024.09-SP2
+Date   : Tue May 13 00:55:58 2025
+****************************************
+
+
+
+  Attributes
+  ----------
+      i  -  Including register clock pin internal power
+      u  -  User defined power group
+
+                        Internal  Switching  Leakage    Total
+Power Group             Power     Power      Power      Power   (     %)  Attrs
+--------------------------------------------------------------------------------
+io_pad                     0.0000    0.0000    0.0000    0.0000 (  N/A )  
+
+  Net Switching Power  =    0.0000           
+  Cell Internal Power  =    0.0000           
+  Cell Leakage Power   =    0.0000           
+                         ---------
+Total Power            =    0.0000           
+
+1

@@ -18,6 +18,26 @@
  Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
             Inclusivity and Diversity" (Refer to article 000036315 at
                         https://solvnetplus.synopsys.com)
+#!/bin/tcsh -f
+# =============================================================================
+# Power Analysis and Metrics Reporting Script for SKY130
+# =============================================================================
+# Description: This script performs detailed power analysis and generates
+#              comprehensive power and RTL metrics reports for the RISC-V CPU
+# Author: CO502 Group 1  
+# Technology: SKY130 130nm Process
+# Prerequisites: Run after rtla.tcl synthesis completion
+# =============================================================================
+# -----------------------------------------------------------------------------
+# Power Analysis Configuration
+# -----------------------------------------------------------------------------
+puts "========== Starting Power Analysis and Metrics =========="
+========== Starting Power Analysis and Metrics ==========
+puts "Technology: SKY130 130nm"
+Technology: SKY130 130nm
+puts "Design: RISC-V CPU Pipeline"
+Design: RISC-V CPU Pipeline
+# Enable power analysis features
 set_app_var power_enable_rtl_analysis true
 Information: Checked out license 'PrimePower-RTL' (PT-019)
 true
@@ -27,205 +47,486 @@ set_app_var power_enable_multi_rtl_to_gate_mapping true
 true
 set_app_var power_enable_advanced_fsdb_reader true
 true
+# Configure parallel processing
 set_host_options -max_cores 8
 Information: The max_cores limit for the local (current) process has been modified by 4 to 8. (CMCR-103)
 1
-set search_path "*  ./ ./INPUT//ndm ../../cpu/"
-*  ./ ./INPUT//ndm ../../cpu/
-#power_rtl_report_register_use_cg_logic_clustering
+puts "Using 8 cores for power analysis"
+Using 8 cores for power analysis
+# Set search paths for SKY130 libraries
+set search_path "* ./ ./INPUT//ndm ../../cpu/ ../libs/sky130_library/ndm"
+* ./ ./INPUT//ndm ../../cpu/ ../libs/sky130_library/ndm
+# Enable clock gating logic clustering for registers
 set_app_var power_rtl_report_register_use_cg_logic_clustering true
 true
+# -----------------------------------------------------------------------------
+# Load Analysis Data
+# -----------------------------------------------------------------------------
+puts "========== Loading Analysis Data =========="
+========== Loading Analysis Data ==========
+# Create results directory if it doesn't exist
+file mkdir results
+# Compute metrics from previous synthesis run
 compute_metrics -reuse TZ_OUTDIR
 1
 
 Information : PT Additional Black-Box Check set to true
 
-setConf REF_LIBS [list   ts16ncfllogl16hdh090f.ndm   ts16ncfllogl16hdl090f.ndm   ts16ncfslogl16hdh090f.ndm   ts16ncfslogl16hdl090f.ndm ]
+setConf REF_LIBS [list   sky130_fd_sc_hd.ndm ]
 lappend ::search_path .
-lappend ::search_path /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ndm
+lappend ::search_path /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/libs/sky130_library/ndm
 set ::link_library *
 lappend ::link_library *
-lappend ::link_library ts16ncfllogl16hdh090f_ssgnp0p72v150c
-lappend ::link_library ts16ncfllogl16hdl090f_ssgnp0p72v150c
-lappend ::link_library ts16ncfslogl16hdh090f_ssgnp0p72v150c
-lappend ::link_library ts16ncfslogl16hdl090f_ssgnp0p72v150c
+lappend ::link_library sky130_fd_sc_hd__ff_100C_1v65
 # process_label : (none)
-# process : 0.999998
-# voltage : 0.7200
-# temperature : 150.0000
+# process : 1
+# voltage : 1.6500
+# temperature : 100.0000
 setConf MODE "func"
-setConf CORNER "cworst"
+setConf CORNER "nominal"
 1
-Reading CLIB file /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ndm/ts16ncfllogl16hdh090f.ndm
-Reading CLIB file /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ndm/ts16ncfllogl16hdl090f.ndm
-Reading CLIB file /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ndm/ts16ncfslogl16hdh090f.ndm
-Reading CLIB file /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/INPUT/ndm/ts16ncfslogl16hdl090f.ndm
-Information: read_ndm /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB:cpu.design
+Reading CLIB file /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/libs/sky130_library/ndm/sky130_fd_sc_hd.ndm
+Information: read_ndm /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB:cpu.design
 Information: current_design won't return any data before link (DES-071)
 Information: Loading NDM design 'cpu'. (PTNDM-003)
 Linking design cpu...
-Information: Removing 121 unneeded designs..... (LNK-034)
-Information: Module 'DW_div_uns_a_width32_b_width32_J2_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW_div_a_width32_b_width32_tc_mode0_rem_mode1_J2_D3_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D3_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D4_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D5_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D6_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D7_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D8_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D9_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D10_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D11_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D12_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D13_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D14_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D15_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D16_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D17_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D18_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D19_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D20_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D21_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D22_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D23_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D24_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D25_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D26_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D27_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D28_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D29_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D30_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D31_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D32_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J2_D3_D33_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW_div_uns_a_width32_b_width32_J14_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW_div_a_width32_b_width32_tc_mode0_rem_mode1_J14_D3_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D3_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D4_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D5_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D6_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D7_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D8_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D9_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D10_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D11_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D12_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D13_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D14_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D15_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D16_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D17_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D18_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D19_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D20_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D21_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D22_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D23_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D24_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D25_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D26_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D27_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D28_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D29_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D30_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D31_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D32_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J14_D3_D33_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW_div_uns_a_width32_b_width32_J19_H7_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D3_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D4_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D5_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D6_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D7_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D8_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D9_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D10_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D11_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D12_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D13_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D14_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D15_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D16_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D17_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D18_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D19_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D20_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D21_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D22_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D23_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D24_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D25_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D26_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D27_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D28_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D29_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D30_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D31_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D32_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: Module 'DW01_add_J19_H7_D3_D33_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard/cpu_LIB' is not used in the current design.  (LNK-039)
-Information: 765 (94.21%) library cells are unused in library ts16ncfllogl16hdh090f_ssgnp0p72v150c..... (LNK-045)
-Information: 812 (100.00%) library cells are unused in library ts16ncfllogl16hdh090f_ffgnp0p88v150c..... (LNK-045)
-Information: 1317 (91.02%) library cells are unused in library ts16ncfllogl16hdl090f_ssgnp0p72v150c..... (LNK-045)
-Information: 1447 (100.00%) library cells are unused in library ts16ncfllogl16hdl090f_ffgnp0p88v150c..... (LNK-045)
-Information: 761 (93.72%) library cells are unused in library ts16ncfslogl16hdh090f_ssgnp0p72v150c..... (LNK-045)
-Information: 812 (100.00%) library cells are unused in library ts16ncfslogl16hdh090f_ffgnp0p88v150c..... (LNK-045)
-Information: 1298 (89.70%) library cells are unused in library ts16ncfslogl16hdl090f_ssgnp0p72v150c..... (LNK-045)
-Information: 1447 (100.00%) library cells are unused in library ts16ncfslogl16hdl090f_ffgnp0p88v150c..... (LNK-045)
-Information: total 8659 library cells are unused (LNK-046)
+Information: Removing 183 unneeded designs..... (LNK-034)
+Information: Module 'DW_div_uns_a_width32_b_width32_J2_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW_div_a_width32_b_width32_tc_mode0_rem_mode1_J2_D3_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D3_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D4_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D5_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D6_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D7_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D8_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D9_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D10_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D11_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D12_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D13_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D14_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D15_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D16_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D17_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D18_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D19_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D20_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D21_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D22_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D23_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D24_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D25_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D26_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D27_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D28_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D29_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D30_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D31_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D32_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J2_D3_D33_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW_div_uns_a_width32_b_width32_J14_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW_div_a_width32_b_width32_tc_mode0_rem_mode1_J14_D3_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D3_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D4_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D5_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D6_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D7_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D8_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D9_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D10_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D11_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D12_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D13_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D14_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D15_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D16_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D17_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D18_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D19_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D20_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D21_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D22_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D23_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D24_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D25_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D26_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D27_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D28_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D29_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D30_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D31_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D32_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J14_D3_D33_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW_div_uns_a_width32_b_width32_J19_H7_D2' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D3_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D4_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D5_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D6_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D7_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D8_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D9_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D10_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D11_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D12_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D13_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D14_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D15_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D16_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D17_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D18_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D19_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D20_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D21_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D22_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D23_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D24_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D25_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D26_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D27_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D28_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D29_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D30_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D31_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D32_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: Module 'DW01_add_J19_H7_D3_D33_D1' in file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_with_hazard_130_sky/cpu_LIB' is not used in the current design.  (LNK-039)
+Information: 246 (57.48%) library cells are unused in library sky130_fd_sc_hd__ff_100C_1v65..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ff_100C_1v95..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ff_n40C_1v56..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ff_n40C_1v65..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ff_n40C_1v76..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ss_100C_1v40..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ss_100C_1v60..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ss_n40C_1v28..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ss_n40C_1v35..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ss_n40C_1v40..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ss_n40C_1v44..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__ss_n40C_1v76..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__tt_025C_1v80..... (LNK-045)
+Information: 428 (100.00%) library cells are unused in library sky130_fd_sc_hd__tt_100C_1v80..... (LNK-045)
+Information: total 5810 library cells are unused (LNK-046)
 Design 'cpu' was successfully linked.
-Information: There are 10732 leaf cells, ports, hiers and 15323 nets in the design (LNK-047)
+Information: There are 27217 leaf cells, ports, hiers and 38816 nets in the design (LNK-047)
 Information: read upf TZ_OUTDIR/cpu.upf
 Information: read constraints
-Warning: Negative clock latency specified: -0.0238228 (UITE-150)
-Warning: Negative clock latency specified: -0.069828 (UITE-150)
-Warning: Negative clock latency specified: -0.0492287 (UITE-150)
-Warning: Negative clock latency specified: -0.0488472 (UITE-150)
-Warning: Negative clock latency specified: -0.0485611 (UITE-150)
-Warning: Negative clock latency specified: -0.0490379 (UITE-150)
-Warning: Negative clock latency specified: -0.0462341 (UITE-150)
-Warning: Negative clock latency specified: -0.0495529 (UITE-150)
-Warning: Negative clock latency specified: -0.0505066 (UITE-150)
-Warning: Negative clock latency specified: -0.0496674 (UITE-150)
-Warning: Negative clock latency specified: -0.0463676 (UITE-150)
-Warning: Negative clock latency specified: -0.0474739 (UITE-150)
-Warning: Negative clock latency specified: -0.0474739 (UITE-150)
-Warning: Negative clock latency specified: -0.0468445 (UITE-150)
-Warning: Negative clock latency specified: -0.0465965 (UITE-150)
-Warning: Negative clock latency specified: -0.0467873 (UITE-150)
-Warning: Negative clock latency specified: -0.0502777 (UITE-150)
-Warning: Negative clock latency specified: -0.0490952 (UITE-150)
-Warning: Negative clock latency specified: -0.0485039 (UITE-150)
-Warning: Negative clock latency specified: -0.0453186 (UITE-150)
-Warning: Negative clock latency specified: -0.0462914 (UITE-150)
-Warning: Negative clock latency specified: -0.047493 (UITE-150)
-Warning: Negative clock latency specified: -0.0485992 (UITE-150)
-Warning: Negative clock latency specified: -0.0475883 (UITE-150)
-Warning: Negative clock latency specified: -0.0480652 (UITE-150)
-Warning: Negative clock latency specified: -0.0487518 (UITE-150)
-Warning: Negative clock latency specified: -0.0463867 (UITE-150)
-Warning: Negative clock latency specified: -0.0470924 (UITE-150)
-Warning: Negative clock latency specified: -0.0479126 (UITE-150)
-Warning: Negative clock latency specified: -0.0468826 (UITE-150)
-Warning: Negative clock latency specified: -0.0471497 (UITE-150)
-Warning: Negative clock latency specified: -0.0481033 (UITE-150)
-Warning: Negative clock latency specified: -0.0472069 (UITE-150)
-Warning: Negative clock latency specified: -0.0568008 (UITE-150)
-Warning: Negative clock latency specified: -0.013 (UITE-150)
-Warning: Negative clock latency specified: -0.013 (UITE-150)
-Warning: Negative clock latency specified: -0.013 (UITE-150)
-Warning: Negative clock latency specified: -0.013 (UITE-150)
-Warning: Negative clock latency specified: -0.013 (UITE-150)
-Warning: Negative clock latency specified: -0.013 (UITE-150)
-Warning: Negative clock latency specified: -0.013 (UITE-150)
-Warning: Negative clock latency specified: -0.013 (UITE-150)
-Warning: Negative clock latency specified: -0.0523949 (UITE-150)
-Warning: Negative clock latency specified: -0.0783539 (UITE-150)
-Warning: Negative clock latency specified: -0.0588608 (UITE-150)
-Warning: Negative clock latency specified: -0.0593376 (UITE-150)
-Warning: Negative clock latency specified: -0.0649071 (UITE-150)
-Warning: Negative clock latency specified: -0.0620079 (UITE-150)
-Warning: Negative clock latency specified: -0.0425339 (UITE-150)
-Warning: Negative clock latency specified: -0.065937 (UITE-150)
+Warning: Negative clock latency specified: -0.145988 (UITE-150)
+Warning: Negative clock latency specified: -0.154305 (UITE-150)
+Warning: Negative clock latency specified: -0.144348 (UITE-150)
+Warning: Negative clock latency specified: -0.153675 (UITE-150)
+Warning: Negative clock latency specified: -0.144825 (UITE-150)
+Warning: Negative clock latency specified: -0.154572 (UITE-150)
+Warning: Negative clock latency specified: -0.147839 (UITE-150)
+Warning: Negative clock latency specified: -0.153542 (UITE-150)
+Warning: Negative clock latency specified: -0.149136 (UITE-150)
+Warning: Negative clock latency specified: -0.147057 (UITE-150)
+Warning: Negative clock latency specified: -0.148926 (UITE-150)
+Warning: Negative clock latency specified: -0.146389 (UITE-150)
+Warning: Negative clock latency specified: -0.152493 (UITE-150)
+Warning: Negative clock latency specified: -0.151997 (UITE-150)
+Warning: Negative clock latency specified: -0.146523 (UITE-150)
+Warning: Negative clock latency specified: -0.148735 (UITE-150)
+Warning: Negative clock latency specified: -0.153275 (UITE-150)
+Warning: Negative clock latency specified: -0.159054 (UITE-150)
+Warning: Negative clock latency specified: -0.153656 (UITE-150)
+Warning: Negative clock latency specified: -0.146217 (UITE-150)
+Warning: Negative clock latency specified: -0.154629 (UITE-150)
+Warning: Negative clock latency specified: -0.152531 (UITE-150)
+Warning: Negative clock latency specified: -0.153484 (UITE-150)
+Warning: Negative clock latency specified: -0.152931 (UITE-150)
+Warning: Negative clock latency specified: -0.155182 (UITE-150)
+Warning: Negative clock latency specified: -0.153618 (UITE-150)
+Warning: Negative clock latency specified: -0.149956 (UITE-150)
+Warning: Negative clock latency specified: -0.149193 (UITE-150)
+Warning: Negative clock latency specified: -0.14761 (UITE-150)
+Warning: Negative clock latency specified: -0.141487 (UITE-150)
+Warning: Negative clock latency specified: -0.143127 (UITE-150)
+Warning: Negative clock latency specified: -0.145664 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.16 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.13464 (UITE-150)
+Warning: Negative clock latency specified: -0.2 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.137787 (UITE-150)
+Warning: Negative clock latency specified: -0.13382 (UITE-150)
+Warning: Negative clock latency specified: -0.140934 (UITE-150)
+Warning: Negative clock latency specified: -0.151405 (UITE-150)
+Warning: Negative clock latency specified: -0.148907 (UITE-150)
+Warning: Negative clock latency specified: -0.151424 (UITE-150)
+Warning: Negative clock latency specified: -0.152988 (UITE-150)
+Warning: Negative clock latency specified: -0.149612 (UITE-150)
+Warning: Negative clock latency specified: -0.148888 (UITE-150)
+Warning: Negative clock latency specified: -0.149097 (UITE-150)
+Warning: Negative clock latency specified: -0.161858 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.14616 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.158501 (UITE-150)
+Warning: Negative clock latency specified: -0.04 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.06 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.137787 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.12 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.08 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.22 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.02 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.24 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.14 (UITE-150)
+Warning: Negative clock latency specified: -0.149384 (UITE-150)
+Warning: Negative clock latency specified: -0.150814 (UITE-150)
+Warning: Negative clock latency specified: -0.153866 (UITE-150)
+Warning: Negative clock latency specified: -0.149689 (UITE-150)
+Warning: Negative clock latency specified: -0.343037 (UITE-150)
+Warning: Negative clock latency specified: -0.145111 (UITE-150)
+Warning: Negative clock latency specified: -0.147915 (UITE-150)
+Warning: Negative clock latency specified: -0.158253 (UITE-150)
+Warning: Negative clock latency specified: -0.144844 (UITE-150)
+Warning: Negative clock latency specified: -0.150833 (UITE-150)
+Warning: Negative clock latency specified: -0.151768 (UITE-150)
+Warning: Negative clock latency specified: -0.159874 (UITE-150)
+Warning: Negative clock latency specified: -0.148964 (UITE-150)
+Warning: Negative clock latency specified: -0.149059 (UITE-150)
+Warning: Negative clock latency specified: -0.147552 (UITE-150)
+Warning: Negative clock latency specified: -0.151901 (UITE-150)
+Warning: Negative clock latency specified: -0.16407 (UITE-150)
+Warning: Negative clock latency specified: -0.155907 (UITE-150)
+Warning: Negative clock latency specified: -0.152283 (UITE-150)
+Warning: Negative clock latency specified: -0.147839 (UITE-150)
+Warning: Negative clock latency specified: -0.14864 (UITE-150)
+Warning: Negative clock latency specified: -0.152416 (UITE-150)
+Warning: Negative clock latency specified: -0.201263 (UITE-150)
+Warning: Negative clock latency specified: -0.342102 (UITE-150)
+Warning: Negative clock latency specified: -0.14698 (UITE-150)
+Warning: Negative clock latency specified: -0.224133 (UITE-150)
+Warning: Negative clock latency specified: -0.291252 (UITE-150)
+Warning: Negative clock latency specified: -0.143394 (UITE-150)
+Warning: Negative clock latency specified: -0.136032 (UITE-150)
+Warning: Negative clock latency specified: -0.136414 (UITE-150)
+Warning: Negative clock latency specified: -0.330391 (UITE-150)
+Warning: Negative clock latency specified: -0.182304 (UITE-150)
+Warning: Negative clock latency specified: -0.152664 (UITE-150)
+Warning: Negative clock latency specified: -0.16077 (UITE-150)
+Warning: Negative clock latency specified: -0.145416 (UITE-150)
+Warning: Negative clock latency specified: -0.16077 (UITE-150)
+Warning: Negative clock latency specified: -0.172596 (UITE-150)
+Warning: Negative clock latency specified: -0.194454 (UITE-150)
+Warning: Negative clock latency specified: -0.256882 (UITE-150)
+Warning: Negative clock latency specified: -0.367928 (UITE-150)
+Warning: Negative clock latency specified: -0.273533 (UITE-150)
+Warning: Negative clock latency specified: -0.15152 (UITE-150)
+Warning: Negative clock latency specified: -0.208549 (UITE-150)
 Information: read parasitics
 Information: Log for 'read_parasitics command' will be generated in 'parasitics_command.log'. (PARA-107)
 Information: read_parasitics command is executed in background
@@ -236,21 +537,19 @@ Information: Reading file novas.fsdb to annotate toggle rates on the design...
 logDir = /tmp/
 Information: Enabling native fsdb reader. 
 Information: Reading fsdb file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/novas.fsdb'
-Information: Simulation Start Time : 0.000000 ns, Simulation End Time : 2012.000000 ns, Total Simulation Time : 2012.000000 ns
+Information: Simulation Start Time : 0.000000 ns, Simulation End Time : 3010.000000 ns, Total Simulation Time : 3010.000000 ns
 
 ======================================================================
 Summary:
-Total number of nets = 12747
-Number of annotated nets = 1528 (11.99%)
-Total number of leaf cells = 10486
-Number of fully annotated leaf cells = 0 (0.00%)
+Total number of nets = 31374
+Number of annotated nets = 1533 (4.89%)
+Total number of leaf cells = 26891
+Number of fully annotated leaf cells = 5 (0.02%)
 ======================================================================
 
-Information: Total number of synthesis invariant points = 1570 , annotated synthesis invariant points = 1528, annotation_ratio = 97.32%
-Information: Using automatic max wire load selection group 'ts16ncfllogl16hdh090f'. (ENV-003)
-Information: Using automatic min wire load selection group 'ts16ncfllogl16hdh090f'. (ENV-003)
-Information: Building multi voltage information for entire design. (MV-022)
+Information: Total number of synthesis invariant points = 1620 , annotated synthesis invariant points = 1528, annotation_ratio = 94.32%
 Warning: Some timing arcs have been disabled for breaking timing loops or because of constant propagation. Use the 'report_disable_timing' command to get the list of these disabled timing arcs. (PTE-003)
+Information: Building multi voltage information for entire design. (MV-022)
 Information: Running switching activity propagation with 8 threads!
 Information: Running averaged power analysis... (PWR-601)
 Information: Running power calculation with 8 threads. (PWR-602)
@@ -263,45 +562,136 @@ update_power
 1
 update_metrics
 1
-# Optional GUI launch
-# echo "========== STEP 3: Launch GUI (optional) =========="
-# start_gui
-echo "========== STEP 4: Report Power =========="
-========== STEP 4: Report Power ==========
-# Group power consumption
+puts "Analysis data loaded and updated"
+Analysis data loaded and updated
+# -----------------------------------------------------------------------------
+# Power Analysis by Component Groups
+# -----------------------------------------------------------------------------
+puts "========== Generating Power Reports by Component Groups =========="
+========== Generating Power Reports by Component Groups ==========
+# Generate power reports grouped by component type
 report_power -group register > "results/power_register.txt"
 report_power -group sequential > "results/power_sequential.txt"
 report_power -group combinational > "results/power_combinational.txt"
 report_power -group black_box > "results/power_black_box.txt"
 report_power -group io_pad > "results/power_io_pad.txt"
-report_power -hierarchy -levels 100 -verbose > "results/power_by_module.txt"
-report_power -hierarchy -levels 100 -verbose > "results/power_by_module_all.txt"
-report_power -hierarchy -levels 20 -verbose > "results/power_by_module_20.txt"
-report_power -hierarchy -levels 10 -verbose > "results/power_by_module_10.txt"
-report_power -hierarchy -levels 5 -verbose > "results/power_by_module_5.txt"
-report_power -hierarchy -levels 3 -verbose > "results/power_by_module_3.txt"
-report_power -hierarchy -levels 2 -verbose > "results/power_by_module_2.txt"
-echo "========== STEP 5: RTL Metrics =========="
-========== STEP 5: RTL Metrics ==========
+puts "Component group power reports generated"
+Component group power reports generated
+# -----------------------------------------------------------------------------
+# Hierarchical Power Analysis
+# -----------------------------------------------------------------------------
+puts "========== Generating Hierarchical Power Reports =========="
+========== Generating Hierarchical Power Reports ==========
+# Generate hierarchical power reports at different levels of detail
+set hierarchy_levels {2 3 5 10 20 100}
+2 3 5 10 20 100
+foreach level $hierarchy_levels {
+    report_power -hierarchy -levels $level -verbose > "results/power_by_module_${level}.txt"
+    puts "Generated hierarchical power report for $level levels"
+}
+Generated hierarchical power report for 2 levels
+Generated hierarchical power report for 3 levels
+Generated hierarchical power report for 5 levels
+Generated hierarchical power report for 10 levels
+Generated hierarchical power report for 20 levels
+Generated hierarchical power report for 100 levels
+# Generate comprehensive hierarchical report
+report_power -hierarchy -levels 100 -verbose > "results/power_by_module_complete.txt"
+puts "Hierarchical power reports generated"
+Hierarchical power reports generated
+# -----------------------------------------------------------------------------
+# RTL Metrics Analysis
+# -----------------------------------------------------------------------------
+puts "========== Generating RTL Metrics Reports =========="
+========== Generating RTL Metrics Reports ==========
+# List available RTL metrics
 report_rtl_metrics -list > "results/rtl_metrics_list.txt"
-report_rtl_metrics -view hier -hier_attributes {gated_registers icg_cells latch_cells reg_cells sequential_cells combinational_cells total_power} > "results/rtl_metrics_hier.txt"
-report_rtl_metrics -view register -reg_attributes {dynamic_power switching_power leakage_power total_power register_gated root_clk_name} > "results/rtl_metrics_register.txt"
-echo "========== STEP 6: Check RTL Power =========="
-========== STEP 6: Check RTL Power ==========
+# Generate hierarchical RTL metrics
+report_rtl_metrics -view hier     -hier_attributes {gated_registers icg_cells latch_cells reg_cells sequential_cells combinational_cells total_power}     > "results/rtl_metrics_hier.txt"
+# Generate register-level RTL metrics  
+report_rtl_metrics -view register     -reg_attributes {dynamic_power switching_power leakage_power total_power register_gated root_clk_name}     > "results/rtl_metrics_register.txt"
+puts "RTL metrics reports generated"
+RTL metrics reports generated
+# -----------------------------------------------------------------------------
+# Power Analysis Validation
+# -----------------------------------------------------------------------------
+puts "========== Validating Power Analysis =========="
+========== Validating Power Analysis ==========
+# Check RTL power analysis for issues
 check_rtl_power > "results/check_rtl_power.txt"
 
+# Generate summary report
+report_power -verbose > "results/power_summary_detailed.txt"
+puts "Power analysis validation completed"
+Power analysis validation completed
+# -----------------------------------------------------------------------------
+# Generate Summary Statistics
+# -----------------------------------------------------------------------------
+puts "========== Generating Summary Statistics =========="
+========== Generating Summary Statistics ==========
+# Create a summary file with key metrics
+set summary_file [open "results/power_analysis_summary.txt" w]
+file56
+puts $summary_file "# Power Analysis Summary for RISC-V CPU"
+puts $summary_file "# Technology: SKY130 130nm"
+puts $summary_file "# Generated: [clock format [clock seconds]]"
+puts $summary_file ""
+# Get basic power information
+set total_power [get_attribute [current_design] total_power]
+0.003903265056798273
+set dynamic_power [get_attribute [current_design] dynamic_power]  
+0.003764313297317501
+set leakage_power [get_attribute [current_design] leakage_power]
+0.0001389517815247056
+if {$total_power != ""} {
+    puts $summary_file "Total Power: $total_power"
+}
+if {$dynamic_power != ""} {
+    puts $summary_file "Dynamic Power: $dynamic_power"
+}
+if {$leakage_power != ""} {
+    puts $summary_file "Leakage Power: $leakage_power"
+}
+close $summary_file
+puts "Summary statistics generated"
+Summary statistics generated
+# -----------------------------------------------------------------------------
+# Completion Message
+# -----------------------------------------------------------------------------
+puts "========== Power Analysis Complete =========="
+========== Power Analysis Complete ==========
+puts "All reports generated in results/ directory:"
+All reports generated in results/ directory:
+puts "  - Component group power reports"
+  - Component group power reports
+puts "  - Hierarchical power reports (multiple levels)"
+  - Hierarchical power reports (multiple levels)
+puts "  - RTL metrics reports"
+  - RTL metrics reports
+puts "  - Power validation reports"
+  - Power validation reports
+puts "  - Summary statistics"
+  - Summary statistics
+puts "========== Analysis Session Complete =========="
+========== Analysis Session Complete ==========
 exit
+Information: Defining new variable 'leakage_power'. (CMD-041)
+Information: Defining new variable 'hierarchy_levels'. (CMD-041)
+Information: Defining new variable 'level'. (CMD-041)
+Information: Defining new variable 'summary_file'. (CMD-041)
+Information: Defining new variable 'total_power'. (CMD-041)
+Information: Defining new variable 'dynamic_power'. (CMD-041)
 Suppressed Messages Summary:
 Id          Severity      Occurrences   Suppressed
 -------------------------------------------------------------------------------
-PWR-019     Warning              2467         2467
+PWR-019     Warning              2482         2482
 Total 1 type of message is suppressed
 
 Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
 Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
-Maximum memory usage for this session: 4070.63 MB
-CPU usage for this session: 83 seconds 
-Elapsed time for this session: 56 seconds
-Diagnostics summary: 51 warnings, 118 informationals
+Maximum memory usage for this session: 3481.51 MB
+CPU usage for this session: 42 seconds 
+Elapsed time for this session: 29 seconds
+Diagnostics summary: 320 warnings, 128 informationals
 
 Thank you for using pwr_shell!

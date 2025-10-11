@@ -1,0 +1,448 @@
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Sat Oct 11 13:42:19 2025
+****************************************
+Information: Timer using 'Estimated Delay Calculation'. (TIM-050)
+
+  Startpoint: mem_wb_pipeline_reg_inst/wb_sel_out_reg[1] (rising edge-triggered flip-flop clocked by CLK)
+  Endpoint: ex_mem_pipeline_reg_inst/alu_result_out_reg[29] (rising edge-triggered flip-flop clocked by CLK)
+  Mode: func
+  Corner: nominal
+  Scenario: func@nominal
+  Path Group: CLK
+  Path Type: max
+
+  Point                                            Incr      Path  
+  ------------------------------------------------------------------------
+  clock CLK (rise edge)                            0.00      0.00
+  clock network delay (ideal)                     -0.22     -0.22
+
+  mem_wb_pipeline_reg_inst/wb_sel_out_reg[1]/CLK (sky130_fd_sc_hd__sdfxtp_4)
+                                                   0.00     -0.22 r
+  mem_wb_pipeline_reg_inst/wb_sel_out_reg[1]/Q (sky130_fd_sc_hd__sdfxtp_4)
+                                                   0.29      0.07 r
+  wb_mux/HFSBUF_835_89107/X (sky130_fd_sc_hd__buf_12)
+                                                   0.22      0.29 r
+  wb_mux/ctmTdsLR_3_90401/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.04      0.32 f
+  wb_mux/ctmTdsLR_1_93083/Y (sky130_fd_sc_hd__o211ai_2)
+                                                   0.07      0.39 r
+  wb_mux/ctmTdsLR_5_90403/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06      0.45 f
+  forwarding_mux_2/A87997/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.06      0.51 r
+  forwarding_mux_2/ctmTdsLR_3_91005/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.07      0.58 f
+  alu_mux_2/ctmTdsLR_1_90391/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06      0.64 r
+  alu_mux_2/ctmTdsLR_3_90393/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.08      0.71 f
+  alu_inst/HFSBUF_176_89378/X (sky130_fd_sc_hd__buf_12)
+                                                   0.17      0.88 f
+  alu_inst/A84850/Y (sky130_fd_sc_hd__nor2_2)      0.08      0.97 r
+  alu_inst/ctmTdsLR_1_90998/Y (sky130_fd_sc_hd__nand4_2)
+                                                   0.06      1.03 f
+  alu_inst/ctmTdsLR_1_94734/Y (sky130_fd_sc_hd__nor2_1)
+                                                   0.08      1.11 r
+  alu_inst/ctmTdsLR_2_94735/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.04      1.15 f
+  alu_inst/ctmTdsLR_3_94055/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06      1.21 r
+  alu_inst/snps_DIVREM_75/ZBUF_824_inst_89419/X (sky130_fd_sc_hd__buf_12)
+                                                   0.13      1.34 r
+  alu_inst/snps_DIVREM_75/HFSINV_3411_89379/Y (sky130_fd_sc_hd__inv_16)
+                                                   0.13      1.47 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_B3/ctmTdsLR_1_92486/Y (sky130_fd_sc_hd__clkinv_8)
+                                                   0.05      1.52 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_B3/ctmTdsLR_1_93333/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.04      1.56 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_B3/ctmTdsLR_1_90697/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06      1.62 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_B3/ctmTdsLR_3_90699/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.16      1.78 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_B3/ctmTdsLR_2_94726/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.05      1.83 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_B3/ctmTdsLR_6_94730/Y (sky130_fd_sc_hd__o21ai_2)
+                                                   0.07      1.90 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_B3/ctmTdsLR_2_98373/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.08      1.98 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_B3/ctmTdsLR_3_98374/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.04      2.02 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_B3/ctmTdsLR_5_98376/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.13      2.15 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_98705/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.05      2.19 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_98706/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.05      2.24 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_98055/Y (sky130_fd_sc_hd__nand4_4)
+                                                   0.06      2.30 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_5_97662/Y (sky130_fd_sc_hd__nor2_8)
+                                                   0.11      2.41 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_93753/Y (sky130_fd_sc_hd__nand3_4)
+                                                   0.06      2.47 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_5_91716/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.13      2.60 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_93318/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.05      2.65 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_93319/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.11      2.76 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_97653/Y (sky130_fd_sc_hd__o21ai_0)
+                                                   0.05      2.82 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_94045/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.05      2.86 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_94046/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.05      2.92 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_92069/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.11      3.03 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_4_91296/Y (sky130_fd_sc_hd__o211ai_2)
+                                                   0.07      3.11 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_95031/Y (sky130_fd_sc_hd__o211ai_2)
+                                                   0.07      3.17 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_92437/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.05      3.23 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_4_92438/Y (sky130_fd_sc_hd__inv_8)
+                                                   0.13      3.36 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_94498/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.04      3.40 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_94500/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06      3.46 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_93744/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.13      3.58 f
+  alu_inst/snps_DIVREM_75/A81960/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.07      3.65 r
+  alu_inst/snps_DIVREM_75/A84361/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04      3.70 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_93040/Y (sky130_fd_sc_hd__o22ai_2)
+                                                   0.12      3.81 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_94211/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.05      3.86 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_95171/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      3.92 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_93729/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.06      3.97 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_93727/X (sky130_fd_sc_hd__o21a_4)
+                                                   0.19      4.16 f
+  alu_inst/snps_DIVREM_75/ctmi_60768/Y (sky130_fd_sc_hd__a222oi_1)
+                                                   0.16      4.33 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_90642/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04      4.37 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_90643/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.06      4.43 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_90644/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.13      4.55 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_4/ctmTdsLR_1_93718/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      4.61 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_4/ctmTdsLR_2_93719/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.05      4.66 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_4/ctmTdsLR_1_93707/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.05      4.71 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_4/ctmTdsLR_3_93709/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.05      4.76 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_4/ctmTdsLR_1_95825/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      4.82 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_4/ctmTdsLR_1_90971/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04      4.86 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_4/ctmTdsLR_2_94405/Y (sky130_fd_sc_hd__nand3_1)
+                                                   0.06      4.93 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_4/ctmTdsLR_4_94407/Y (sky130_fd_sc_hd__nand3_2)
+                                                   0.06      4.99 f
+  alu_inst/snps_DIVREM_75/ZBUF_473_inst_89497/X (sky130_fd_sc_hd__buf_6)
+                                                   0.12      5.11 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_90954/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.06      5.17 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_97003/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.05      5.23 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_97004/Y (sky130_fd_sc_hd__nor2_8)
+                                                   0.21      5.43 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_91656/Y (sky130_fd_sc_hd__a22oi_1)
+                                                   0.05      5.48 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_92399/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      5.54 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_94193/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.04      5.58 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_4_94194/Y (sky130_fd_sc_hd__nand3_2)
+                                                   0.06      5.64 r
+  alu_inst/snps_DIVREM_75/ZBUF_1315_inst_89762/X (sky130_fd_sc_hd__buf_12)
+                                                   0.15      5.79 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_2/A88098/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.05      5.84 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_2/A82650/X (sky130_fd_sc_hd__o21a_2)
+                                                   0.17      6.01 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_2/ctmTdsLR_3_90926/X (sky130_fd_sc_hd__o21a_1)
+                                                   0.15      6.16 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_2/ctmTdsLR_1_90924/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.06      6.21 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_2/ctmTdsLR_2_91645/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.04      6.26 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_2/ctmTdsLR_1_90601/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.12      6.38 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_90911/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.04      6.41 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_94283/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      6.47 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_95366/Y (sky130_fd_sc_hd__nand3_2)
+                                                   0.07      6.54 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_90910/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.10      6.65 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_92388/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.04      6.69 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_92390/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06      6.74 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_4_92391/Y (sky130_fd_sc_hd__inv_8)
+                                                   0.09      6.84 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_94390/Y (sky130_fd_sc_hd__a22oi_1)
+                                                   0.08      6.92 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_97573/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04      6.96 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_97574/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.05      7.01 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_97575/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.12      7.13 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_6/ctmi_71698/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.13      7.26 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_6/ctmTdsLR_2_98667/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.05      7.30 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_6/ctmTdsLR_2_98033/Y (sky130_fd_sc_hd__a21boi_1)
+                                                   0.11      7.41 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_6/ctmTdsLR_1_98032/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.08      7.49 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_6/A88537/Y (sky130_fd_sc_hd__o21ai_2)
+                                                   0.04      7.53 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_6/ctmTdsLR_3_92982/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.06      7.58 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_6/ctmTdsLR_4_92983/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.06      7.65 f
+  alu_inst/snps_DIVREM_75/ZBUF_32_inst_89739/X (sky130_fd_sc_hd__buf_6)
+                                                   0.10      7.75 f
+  alu_inst/snps_DIVREM_75/A87844/Y (sky130_fd_sc_hd__o21ai_2)
+                                                   0.15      7.90 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_97706/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.04      7.94 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_97794/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06      8.00 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_97795/Y (sky130_fd_sc_hd__inv_8)
+                                                   0.10      8.09 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_95685/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      8.15 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_96909/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04      8.20 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_96910/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.05      8.24 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_97935/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04      8.29 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_97936/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.05      8.34 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_5_97939/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.14      8.48 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/ctmi_68982/Y (sky130_fd_sc_hd__o21ai_2)
+                                                   0.15      8.63 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/A80699/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.04      8.67 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/A80700/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.12      8.80 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/ctmTdsLR_1_97105/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.04      8.83 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/ctmTdsLR_2_97106/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06      8.89 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/ctmTdsLR_2_93914/Y (sky130_fd_sc_hd__nand3_2)
+                                                   0.06      8.95 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/ctmTdsLR_3_92966/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.07      9.02 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/ctmTdsLR_1_92343/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.04      9.06 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/ctmTdsLR_3_92345/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06      9.12 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4/ctmTdsLR_4_92346/Y (sky130_fd_sc_hd__inv_12)
+                                                   0.10      9.22 f
+  alu_inst/snps_DIVREM_75/A88342/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.10      9.32 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_93659/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.04      9.36 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_93661/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.07      9.43 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_4_93662/Y (sky130_fd_sc_hd__inv_12)
+                                                   0.11      9.54 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_97087/Y (sky130_fd_sc_hd__a22oi_1)
+                                                   0.11      9.65 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_93898/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04      9.70 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_93899/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.05      9.74 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_93900/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.14      9.88 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_4/A82668/Y (sky130_fd_sc_hd__o21ai_2)
+                                                   0.15     10.03 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_4/A84046/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.04     10.08 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_4/ctmTdsLR_1_90479/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.05     10.12 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_4/ctmTdsLR_3_90481/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.04     10.17 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_4/ctmTdsLR_4_90482/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.10     10.27 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_4/ctmTdsLR_3_90818/Y (sky130_fd_sc_hd__o21ai_2)
+                                                   0.05     10.33 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_4/ctmTdsLR_1_95783/Y (sky130_fd_sc_hd__nand3_2)
+                                                   0.06     10.39 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_4/ctmTdsLR_2_95963/Y (sky130_fd_sc_hd__nand3_2)
+                                                   0.07     10.46 f
+  alu_inst/snps_DIVREM_75/ZBUF_576_inst_89588/X (sky130_fd_sc_hd__buf_6)
+                                                   0.12     10.58 f
+  alu_inst/snps_DIVREM_75/A88426/Y (sky130_fd_sc_hd__nor2_4)
+                                                   0.15     10.74 r
+  alu_inst/snps_DIVREM_75/ZBUF_263_inst_89649/X (sky130_fd_sc_hd__buf_6)
+                                                   0.11     10.85 r
+  alu_inst/snps_DIVREM_75/A87551/Y (sky130_fd_sc_hd__a211oi_1)
+                                                   0.06     10.91 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_98513/Y (sky130_fd_sc_hd__o31ai_1)
+                                                   0.18     11.09 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_98514/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04     11.13 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_93402/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.14     11.27 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4/ctmi_77831/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.05     11.32 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4/ctmTdsLR_1_90791/X (sky130_fd_sc_hd__o21a_2)
+                                                   0.15     11.47 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4/ctmTdsLR_3_90793/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.10     11.57 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4/ctmTdsLR_1_90458/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.06     11.62 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4/ctmTdsLR_1_94359/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.07     11.69 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4/ctmTdsLR_1_97549/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.05     11.74 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4/ctmTdsLR_1_94452/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06     11.79 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4/ctmTdsLR_1_90784/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.05     11.84 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4/ctmTdsLR_3_90786/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.14     11.98 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_93394/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.04     12.02 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_94447/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06     12.08 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_96602/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.04     12.12 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_96603/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06     12.17 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_4_96604/Y (sky130_fd_sc_hd__inv_8)
+                                                   0.13     12.30 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_97992/Y (sky130_fd_sc_hd__a22oi_2)
+                                                   0.08     12.39 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_97375/Y (sky130_fd_sc_hd__nand3_1)
+                                                   0.06     12.45 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_97843/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.05     12.49 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_97697/Y (sky130_fd_sc_hd__nand3_2)
+                                                   0.09     12.58 f
+  alu_inst/snps_DIVREM_75/ZBUF_990_inst_89543/X (sky130_fd_sc_hd__buf_6)
+                                                   0.12     12.70 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/A86940/Y (sky130_fd_sc_hd__nor2_1)
+                                                   0.14     12.84 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/A86941/Y (sky130_fd_sc_hd__nor2_1)
+                                                   0.04     12.88 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/A86946/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06     12.94 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/ctmTdsLR_3_98477/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.04     12.98 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/ctmTdsLR_2_98476/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06     13.04 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/ctmTdsLR_1_98475/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04     13.08 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/ZBUF_782_inst_89795/X (sky130_fd_sc_hd__buf_6)
+                                                   0.12     13.20 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/ctmTdsLR_1_98473/Y (sky130_fd_sc_hd__nand3_1)
+                                                   0.06     13.26 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6/A88268/Y (sky130_fd_sc_hd__nand3_2)
+                                                   0.09     13.36 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_94438/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.06     13.42 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_97839/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04     13.46 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_98620/Y (sky130_fd_sc_hd__a2bb2oi_2)
+                                                   0.11     13.57 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_6_94937/X (sky130_fd_sc_hd__o21a_4)
+                                                   0.10     13.67 f
+  alu_inst/snps_DIVREM_75/ZBUF_1109_inst_89605/X (sky130_fd_sc_hd__buf_12)
+                                                   0.14     13.81 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_90428/Y (sky130_fd_sc_hd__nor2_8)
+                                                   0.16     13.96 r
+  alu_inst/snps_DIVREM_75/ZBUF_157_inst_89721/X (sky130_fd_sc_hd__buf_6)
+                                                   0.11     14.08 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_97742/Y (sky130_fd_sc_hd__a22oi_2)
+                                                   0.06     14.14 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_3_97744/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.06     14.19 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_89931/Y (sky130_fd_sc_hd__inv_4)
+                                                   0.05     14.24 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_5_89934/Y (sky130_fd_sc_hd__nand2_8)
+                                                   0.15     14.39 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2/ctmTdsLR_2_92798/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.04     14.43 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2/ctmTdsLR_3_92799/Y (sky130_fd_sc_hd__nor2_2)
+                                                   0.12     14.55 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2/ctmTdsLR_1_92552/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.04     14.60 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2/ctmTdsLR_2_93359/Y (sky130_fd_sc_hd__nand2_2)
+                                                   0.06     14.65 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2/ctmTdsLR_3_92554/Y (sky130_fd_sc_hd__inv_4)
+                                                   0.07     14.72 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2/A85730/Y (sky130_fd_sc_hd__o21ai_2)
+                                                   0.11     14.83 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2/ZBUF_366_inst_89776/X (sky130_fd_sc_hd__buf_6)
+                                                   0.13     14.96 r
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2/ctmTdsLR_1_94080/Y (sky130_fd_sc_hd__a21oi_4)
+                                                   0.05     15.01 f
+  alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2/A80468/Y (sky130_fd_sc_hd__o21ai_4)
+                                                   0.18     15.19 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_93987/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.05     15.24 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_90421/Y (sky130_fd_sc_hd__o211ai_2)
+                                                   0.18     15.42 r
+  alu_inst/snps_DIVREM_75/ctmTdsLR_2_93562/Y (sky130_fd_sc_hd__inv_1)
+                                                   0.04     15.46 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_93561/X (sky130_fd_sc_hd__and2_4)
+                                                   0.15     15.61 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_96431/X (sky130_fd_sc_hd__a22o_1)
+                                                   0.12     15.73 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_1_98287/X (sky130_fd_sc_hd__a21o_1)
+                                                   0.10     15.83 f
+  alu_inst/snps_DIVREM_75/ctmTdsLR_4_96434/Y (sky130_fd_sc_hd__a21oi_1)
+                                                   0.07     15.90 r
+  alu_inst/snps_DIVREM_75/ctmi_61496/Y (sky130_fd_sc_hd__nand4_1)
+                                                   0.06     15.96 f
+  alu_inst/snps_DIVREM_75/ZBUF_6_inst_89631/X (sky130_fd_sc_hd__buf_6)
+                                                   0.08     16.04 f
+  alu_inst/ctmTdsLR_1_94547/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.06     16.10 r
+  alu_inst/ctmTdsLR_4_94550/Y (sky130_fd_sc_hd__nand2_4)
+                                                   0.05     16.15 f
+  ex_mem_pipeline_reg_inst/ctmTdsLR_2_98568/Y (sky130_fd_sc_hd__nand2_1)
+                                                   0.06     16.21 r
+  ex_mem_pipeline_reg_inst/ctmTdsLR_3_98569/Y (sky130_fd_sc_hd__inv_2)
+                                                   0.04     16.24 f
+  ex_mem_pipeline_reg_inst/alu_result_out_reg[29]/D (sky130_fd_sc_hd__sdfxtp_2)
+                                                   0.00     16.24 f
+  data arrival time                                         16.24
+
+  clock CLK (rise edge)                           10.00     10.00
+  clock network delay (ideal)                     -0.04      9.96
+  ex_mem_pipeline_reg_inst/alu_result_out_reg[29]/CLK (sky130_fd_sc_hd__sdfxtp_2)
+                                                   0.00      9.96 r
+  library setup time                              -0.17      9.79
+  data required time                                         9.79
+  ------------------------------------------------------------------------
+  data required time                                         9.79
+  data arrival time                                        -16.24
+  ------------------------------------------------------------------------
+  slack (VIOLATED)                                          -6.46
+
+
+1

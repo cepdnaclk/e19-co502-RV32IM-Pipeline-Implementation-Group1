@@ -1,0 +1,85 @@
+pc_mux mux_32b_2to1
+pc_inst pc
+pc_plus_4 adder_32b_4
+if_id_pipeline_reg_inst if_id_pipeline_reg
+reg_files_inst reg_files
+sign_extender_inst sign_extender
+control_unit_inst control_unit
+control_unit_inst/funct3_mux mux_3b_2to1
+hazard_unit_inst hazard_unit
+id_ex_pipeline_reg_inst id_ex_pipeline_reg
+forwarding_mux_1 mux_32b_3to1
+forwarding_mux_2 mux_32b_3to1
+alu_mux_1 mux_32b_2to1
+alu_mux_2 mux_32b_2to1
+alu_inst alu
+alu_inst/snps_DIVREM_75 
+alu_inst/mult_46 
+branch_logic_inst branch_logic
+ex_mem_pipeline_reg_inst ex_mem_pipeline_reg
+pc_plus_4_ma adder_32b_4
+alu_inst/RS_OP_200_17016_40986_J2/snps_MULT_190 
+mem_wb_pipeline_reg_inst mem_wb_pipeline_reg
+wb_mux mux_32b_3to1
+alu_inst/snps_DIVREM_75/u_div/u_add_B3 
+alu_inst/snps_DIVREM_75/u_div/u_add_B5 
+alu_inst/snps_DIVREM_75/u_div/u_add_B6 
+alu_inst/snps_DIVREM_75/u_div/u_add_B7 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_8_5 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_8_7 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_1 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_2 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_3 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_4 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_5 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_6 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_7_7 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_1 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_2 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_3 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_4 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_5 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_6 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_6_7 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_1 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_2 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_3 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_4 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_5 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_6 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_7 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_1 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_2 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_3 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_4 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_5 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_6 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_4_7 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_1 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_2 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_3 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_4 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_5 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_6 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_3_7 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_1 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_2 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_3 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_4 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_5 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_6 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_2_7 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_1 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_2 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_3 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_4 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_5 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_6 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_1_7 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_1 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_2 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_3 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_4 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_5 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_6 
+alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_0_7 

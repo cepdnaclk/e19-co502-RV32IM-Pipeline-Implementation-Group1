@@ -1,0 +1,28 @@
+set_app_options -name hdlin.gensys.enable_info -value true
+set_app_options -list {hdlin.extract_rtl_constructs_xinfo true hdlin.gensys.enable_phase2 true hdlin.ff_assign_xinfo true hdlin.ff_assign_xinfo_bit_level true hdlin.rtla.allow_mixed_blocking_and_nonblocking false}
+set_app_options -list {hdlin.extract_rtl_constructs_xinfo true hdlin.gensys.enable_phase2 true hdlin.ff_assign_xinfo true hdlin.ff_assign_xinfo_bit_level true hdlin.rtla.allow_mixed_blocking_and_nonblocking false}
+set_app_options -list {hdlin.extract_rtl_constructs_xinfo true hdlin.gensys.enable_phase2 true hdlin.ff_assign_xinfo true hdlin.ff_assign_xinfo_bit_level true hdlin.rtla.allow_mixed_blocking_and_nonblocking false}
+set_app_options -list {hdlin.extract_rtl_constructs_xinfo true hdlin.gensys.enable_phase2 true hdlin.ff_assign_xinfo true hdlin.ff_assign_xinfo_bit_level true hdlin.rtla.allow_mixed_blocking_and_nonblocking false}
+set search_path [list * ./ ../../cpu/ /tech/sky130/libs/sky130_library/ndm ] 
+analyze -f sv -vcs " -f src.f"  
+C/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_sky130_fd_sc_hd
+/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu.v
+pc
+mux_32b_2to1
+adder_32b_4
+if_id_pipeline_reg
+id_ex_pipeline_reg
+ex_mem_pipeline_reg
+mem_wb_pipeline_reg
+reg_files
+sign_extender
+mux_3b_2to1
+control_unit
+hazard_unit
+alu
+branch_logic
+mux_32b_4to1
+mux_32b_3to1
+cpu
+elaborate cpu
+set_top_module cpu

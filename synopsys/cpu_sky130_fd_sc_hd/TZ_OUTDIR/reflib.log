@@ -86,3 +86,25 @@ Scenario: func@nominal
 # voltage : 1.6500
 # temperature : 100.0000
 
+LIB_NAME : sky130_fd_sc_hd
+  0 : sky130_fd_sc_hd__ff_100C_1v65 ( nominal P:1 V:1.65 T:100 )
+  1 : sky130_fd_sc_hd__ff_100C_1v95 ( nominal P:1 V:1.95 T:100 )
+  2 : sky130_fd_sc_hd__ff_n40C_1v56 ( nominal P:1 V:1.56 T:-40 )
+  3 : sky130_fd_sc_hd__ff_n40C_1v65 ( nominal P:1 V:1.65 T:-40 )
+  4 : sky130_fd_sc_hd__ff_n40C_1v76 ( nominal P:1 V:1.76 T:-40 )
+  5 : sky130_fd_sc_hd__ss_100C_1v40 ( nominal P:1 V:1.4 T:100 )
+  6 : sky130_fd_sc_hd__ss_100C_1v60 ( nominal P:1 V:1.6 T:100 )
+  7 : sky130_fd_sc_hd__ss_n40C_1v28 ( nominal P:1 V:1.28 T:-40 )
+  8 : sky130_fd_sc_hd__ss_n40C_1v35 ( nominal P:1 V:1.35 T:-40 )
+  9 : sky130_fd_sc_hd__ss_n40C_1v40 ( nominal P:1 V:1.4 T:-40 )
+  10 : sky130_fd_sc_hd__ss_n40C_1v44 ( nominal P:1 V:1.44 T:-40 )
+  11 : sky130_fd_sc_hd__ss_n40C_1v76 ( nominal P:1 V:1.76 T:-40 )
+  12 : sky130_fd_sc_hd__tt_025C_1v80 ( nominal P:1 V:1.8 T:25 )
+  13 : sky130_fd_sc_hd__tt_100C_1v80 ( nominal P:1 V:1.8 T:100 )
+
+Scenario: func@nominal
+# process_label : (none)
+# process : 1
+# voltage : 1.6500
+# temperature : 100.0000
+

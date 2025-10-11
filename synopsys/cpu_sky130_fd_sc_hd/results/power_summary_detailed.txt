@@ -3,7 +3,7 @@ Report : Averaged Power
 	-verbose
 Design : cpu
 Version: W-2024.09-SP2
-Date   : Sat Oct 11 11:26:33 2025
+Date   : Sat Oct 11 13:27:51 2025
 ****************************************
 
 Library(s) Used:

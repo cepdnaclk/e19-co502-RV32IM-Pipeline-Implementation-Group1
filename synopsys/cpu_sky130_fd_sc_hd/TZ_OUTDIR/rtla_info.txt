@@ -1,1 +1,0 @@
-compile.clockgate.clock_gate_name_prefix clock_gate_

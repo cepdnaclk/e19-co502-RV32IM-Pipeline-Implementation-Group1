@@ -17,3 +17,74 @@
 **/ucli.key
 
 **/*.vcd
+
+
+**/*pth
+
+**/*.vcd
+**/*.vvp
+**/*.out
+# **/*.gtkw
+
+# Ignore any directory named csrc anywhere
+**/csrc/
+
+# Ignore any file named novas.fsdb anywhere
+**/novas.fsdb
+# Ignore all FSDB-related waveform files
+*.fsdb.*
+
+
+# Ignore any file named novas_dump.log anywhere
+**/novas_dump.log
+
+# Ignore any file named simv anywhere
+**/simv
+
+# Ignore any directory named simv.daidir anywhere
+**/simv.daidir/
+
+# Ignore any file named ucli.key anywhere
+**/ucli.key
+
+**/data/
+**/__pycache__/
+**/*.pyc
+
+**/INPUT
+**/output.txt
+**/TZ_OUTDIR
+**/RTLA_WORKSPACE
+**/HDL_LIBRARIES
+**/neuron_LIB
+**/LIB
+**/cltrls
+
+# Ignore libs directories but allow the SKY130 libs
+**/libs
+# !synopsys/primepower/tech_sky130/libs/
+# !synopsys/primepower/tech_sky130/libs/**
+
+*.svf
+
+**/check_name_mapping.txt
+
+**/pwr_shell_command.log
+
+**/data_mem.mem
+**/spike_mem.mem
+**/*.mem
+
+**/neuron_mapping.txt
+**/test_values.txt
+
+combined.v
+
+**/*.bsf
+**/db
+
+**/inference_data
+
+**/simulation.log
+
+.venv/

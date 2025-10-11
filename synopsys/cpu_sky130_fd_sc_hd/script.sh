@@ -9,20 +9,26 @@ trap 'cleanup_on_error' ERR
 
 # Prepare directories
 TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
-RESULTS_DIR="results"
+RESULTS_BASE_DIR="results"
 TEMP_RESULTS_DIR="temp_results_$TIMESTAMP"
-OLD_RESULTS_DIR="old_results"
+FAILED_DIR="failed"
 
 # Function to cleanup on error
 cleanup_on_error() {
-    echo "========== ERROR OCCURRED - CLEANING UP =========="
+    echo "========== ERROR OCCURRED - SAVING TO FAILED FOLDER =========="
     echo "Execution failed at $(date)"
     
-    # Remove temporary directory completely - don't save failed results
+    # Remove any previous failed results (keep only latest failure)
+    if [ -d "$FAILED_DIR" ]; then
+        echo "Removing previous failed results"
+        rm -rf "$FAILED_DIR"
+    fi
+    
+    # Save current attempt to failed directory
     if [ -d "$TEMP_RESULTS_DIR" ]; then
-        echo "Removing temporary results directory: $TEMP_RESULTS_DIR"
-        rm -rf "$TEMP_RESULTS_DIR"
-        echo "Temporary results cleaned up"
+        echo "Saving failed attempt to: $FAILED_DIR"
+        mv "$TEMP_RESULTS_DIR" "$FAILED_DIR"
+        echo "Failed results saved in $FAILED_DIR for debugging"
     fi
     
     # Clean up any partial library files
@@ -31,8 +37,7 @@ cleanup_on_error() {
         rm -rf "cpu_LIB"
     fi
     
-    echo "Original results directory preserved (no changes made to existing results)"
-    echo "========== CLEANUP COMPLETE - NO FILES SAVED =========="
+    echo "========== CLEANUP COMPLETE - FAILED RESULTS SAVED IN $FAILED_DIR =========="
     exit 1
 }
 
@@ -100,24 +105,20 @@ else
     echo "Warning: restore_new.tcl not found, skipping power analysis"
 fi
 
-# Step 5: Archive old results and move new ones (only if execution was successful)
-echo "========== STEP 5: Finalizing Results =========="
+# Step 5: Save successful results (only if execution was successful)
+echo "========== STEP 5: Saving Successful Results =========="
 
-# Archive old results if they exist
-if [ -d "$RESULTS_DIR" ]; then
-    echo "Archiving old results..."
-    mkdir -p "$OLD_RESULTS_DIR"
-    mv "$RESULTS_DIR" "$OLD_RESULTS_DIR/results_$TIMESTAMP"
-    echo "Old results moved to $OLD_RESULTS_DIR/results_$TIMESTAMP"
-fi
+# Create results base directory if it doesn't exist
+mkdir -p "$RESULTS_BASE_DIR"
 
-# Move temporary results to permanent results directory
-mv "$TEMP_RESULTS_DIR" "$RESULTS_DIR"
-echo "New results moved from temporary directory to $RESULTS_DIR"
+# Move temporary results to timestamped subdirectory in results
+FINAL_RESULTS_DIR="$RESULTS_BASE_DIR/$TIMESTAMP"
+mv "$TEMP_RESULTS_DIR" "$FINAL_RESULTS_DIR"
+echo "Successful results saved to: $FINAL_RESULTS_DIR"
 
-# Clean up any temporary files that might remain
-echo "Cleaning up temporary files..."
-rm -rf temp_results_*
+# Clean up any old temporary files
+echo "Cleaning up old temporary files..."
+rm -rf temp_results_* 2>/dev/null || true
 echo "Temporary files cleaned up"
 
 # Step 6: Git Commit and Push (allow git operations to fail without stopping script)
@@ -136,13 +137,13 @@ else
     echo "Warning: Commit failed (possibly no changes to commit)"
 fi
 
-if git pull --rebase --autostash origin main | tee "$RESULTS_DIR/git_pull_before_push.log"; then
+if git pull --rebase --autostash origin main | tee "$FINAL_RESULTS_DIR/git_pull_before_push.log"; then
     echo "Git pull completed"
 else
     echo "Warning: Git pull failed"
 fi
 
-if git push | tee "$RESULTS_DIR/git_push.log"; then
+if git push | tee "$FINAL_RESULTS_DIR/git_push.log"; then
     echo "Changes pushed to remote repository"
 else
     echo "Warning: Git push failed"
@@ -152,14 +153,11 @@ set -e  # Re-enable exit on error
 
 echo "========== All Steps Completed Successfully =========="
 echo "Execution completed at $(date)"
-echo "Results and logs are saved in the '$RESULTS_DIR' folder."
-if [ -d "$OLD_RESULTS_DIR/results_$TIMESTAMP" ]; then
-    echo "Previous results archived in '$OLD_RESULTS_DIR/results_$TIMESTAMP'"
-fi
+echo "Results and logs are saved in: $FINAL_RESULTS_DIR"
 
 # Final cleanup - remove any remaining temporary files or directories
 echo "Performing final cleanup..."
-rm -rf temp_results_* failed_results 2>/dev/null || true
+rm -rf temp_results_* 2>/dev/null || true
 echo "Final cleanup completed"
 
 echo "========== SYNTHESIS AND ANALYSIS COMPLETE =========="

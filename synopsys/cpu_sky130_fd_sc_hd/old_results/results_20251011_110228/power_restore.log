@@ -42,12 +42,6 @@ set RESULT_DIR   "results"
 results
 set OUTPUT_DIR   "TZ_OUTDIR"   ;# must match rtla.tcl's -output_dir
 TZ_OUTDIR
-# Prefer a temporary results directory at runtime; allow ENV override
-set TEMP_RESULTS_DIR $RESULT_DIR
-results
-if {[info exists ::env(TEMP_RESULTS_DIR)]} {
-    set TEMP_RESULTS_DIR $::env(TEMP_RESULTS_DIR)
-}
 # Hierarchical levels for reporting
 set HIERARCHY_LEVELS {2 3 5 10 20 100}
 2 3 5 10 20 100
@@ -87,8 +81,8 @@ true
 # -----------------------------------------------------------------------------
 puts "========== Loading Analysis Data =========="
 ========== Loading Analysis Data ==========
-# Create temp results directory if it doesn't exist
-file mkdir $TEMP_RESULTS_DIR
+# Create results directory if it doesn't exist
+file mkdir $RESULT_DIR
 # Compute metrics from previous synthesis run
 compute_metrics -reuse $OUTPUT_DIR
 1
@@ -593,11 +587,11 @@ Analysis data loaded and updated
 puts "========== Generating Power Reports by Component Groups =========="
 ========== Generating Power Reports by Component Groups ==========
 # Generate power reports grouped by component type
-report_power -group register > "$TEMP_RESULTS_DIR/power_register.txt"
-report_power -group sequential > "$TEMP_RESULTS_DIR/power_sequential.txt"
-report_power -group combinational > "$TEMP_RESULTS_DIR/power_combinational.txt"
-report_power -group black_box > "$TEMP_RESULTS_DIR/power_black_box.txt"
-report_power -group io_pad > "$TEMP_RESULTS_DIR/power_io_pad.txt"
+report_power -group register > "$RESULT_DIR/power_register.txt"
+report_power -group sequential > "$RESULT_DIR/power_sequential.txt"
+report_power -group combinational > "$RESULT_DIR/power_combinational.txt"
+report_power -group black_box > "$RESULT_DIR/power_black_box.txt"
+report_power -group io_pad > "$RESULT_DIR/power_io_pad.txt"
 puts "Component group power reports generated"
 Component group power reports generated
 # -----------------------------------------------------------------------------
@@ -607,7 +601,7 @@ puts "========== Generating Hierarchical Power Reports =========="
 ========== Generating Hierarchical Power Reports ==========
 # Generate hierarchical power reports at different levels of detail
 foreach level $HIERARCHY_LEVELS {
-    report_power -hierarchy -levels $level -verbose > "$TEMP_RESULTS_DIR/power_by_module_${level}.txt"
+    report_power -hierarchy -levels $level -verbose > "$RESULT_DIR/power_by_module_${level}.txt"
     puts "Generated hierarchical power report for $level levels"
 }
 Generated hierarchical power report for 2 levels
@@ -617,7 +611,7 @@ Generated hierarchical power report for 10 levels
 Generated hierarchical power report for 20 levels
 Generated hierarchical power report for 100 levels
 # Generate comprehensive hierarchical report
-report_power -hierarchy -levels 100 -verbose > "$TEMP_RESULTS_DIR/power_by_module_complete.txt"
+report_power -hierarchy -levels 100 -verbose > "$RESULT_DIR/power_by_module_complete.txt"
 puts "Hierarchical power reports generated"
 Hierarchical power reports generated
 # -----------------------------------------------------------------------------
@@ -626,11 +620,11 @@ Hierarchical power reports generated
 puts "========== Generating RTL Metrics Reports =========="
 ========== Generating RTL Metrics Reports ==========
 # List available RTL metrics
-report_rtl_metrics -list > "$TEMP_RESULTS_DIR/rtl_metrics_list.txt"
+report_rtl_metrics -list > "$RESULT_DIR/rtl_metrics_list.txt"
 # Generate hierarchical RTL metrics
-report_rtl_metrics -view hier     -hier_attributes {gated_registers icg_cells latch_cells reg_cells sequential_cells combinational_cells total_power}     > "$TEMP_RESULTS_DIR/rtl_metrics_hier.txt"
+report_rtl_metrics -view hier     -hier_attributes {gated_registers icg_cells latch_cells reg_cells sequential_cells combinational_cells total_power}     > "$RESULT_DIR/rtl_metrics_hier.txt"
 # Generate register-level RTL metrics  
-report_rtl_metrics -view register     -reg_attributes {dynamic_power switching_power leakage_power total_power register_gated root_clk_name}     > "$TEMP_RESULTS_DIR/rtl_metrics_register.txt"
+report_rtl_metrics -view register     -reg_attributes {dynamic_power switching_power leakage_power total_power register_gated root_clk_name}     > "$RESULT_DIR/rtl_metrics_register.txt"
 puts "RTL metrics reports generated"
 RTL metrics reports generated
 # -----------------------------------------------------------------------------
@@ -639,10 +633,10 @@ RTL metrics reports generated
 puts "========== Validating Power Analysis =========="
 ========== Validating Power Analysis ==========
 # Check RTL power analysis for issues
-check_rtl_power > "$TEMP_RESULTS_DIR/check_rtl_power.txt"
+check_rtl_power > "$RESULT_DIR/check_rtl_power.txt"
 
 # Generate summary report
-report_power -verbose > "$TEMP_RESULTS_DIR/power_summary_detailed.txt"
+report_power -verbose > "$RESULT_DIR/power_summary_detailed.txt"
 puts "Power analysis validation completed"
 Power analysis validation completed
 # -----------------------------------------------------------------------------
@@ -651,7 +645,7 @@ Power analysis validation completed
 puts "========== Generating Summary Statistics =========="
 ========== Generating Summary Statistics ==========
 # Create a summary file with key metrics
-set summary_file [open "$TEMP_RESULTS_DIR/power_analysis_summary.txt" w]
+set summary_file [open "$RESULT_DIR/power_analysis_summary.txt" w]
 file56
 puts $summary_file "# Power Analysis Summary for RISC-V CPU"
 puts $summary_file "# Technology: SKY130 130nm"
@@ -681,7 +675,7 @@ Summary statistics generated
 # -----------------------------------------------------------------------------
 puts "========== Power Analysis Complete =========="
 ========== Power Analysis Complete ==========
-puts "All reports generated in $TEMP_RESULTS_DIR/ directory:"
+puts "All reports generated in results/ directory:"
 All reports generated in results/ directory:
 puts "  - Component group power reports"
   - Component group power reports
@@ -705,7 +699,6 @@ Information: Defining new variable 'level'. (CMD-041)
 Information: Defining new variable 'HIERARCHY_LEVELS'. (CMD-041)
 Information: Defining new variable 'summary_file'. (CMD-041)
 Information: Defining new variable 'DESIGN_NAME'. (CMD-041)
-Information: Defining new variable 'TEMP_RESULTS_DIR'. (CMD-041)
 Information: Defining new variable 'total_power'. (CMD-041)
 Information: Defining new variable 'dynamic_power'. (CMD-041)
 Suppressed Messages Summary:
@@ -716,9 +709,9 @@ Total 1 type of message is suppressed
 
 Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
 Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
-Maximum memory usage for this session: 3465.04 MB
-CPU usage for this session: 81 seconds 
-Elapsed time for this session: 21 seconds
-Diagnostics summary: 320 warnings, 134 informationals
+Maximum memory usage for this session: 3464.99 MB
+CPU usage for this session: 333 seconds 
+Elapsed time for this session: 62 seconds
+Diagnostics summary: 320 warnings, 133 informationals
 
 Thank you for using pwr_shell!

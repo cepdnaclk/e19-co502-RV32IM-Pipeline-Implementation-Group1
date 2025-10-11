@@ -1,2 +1,0 @@
-Info: There is no power metric data computed.  Use compute_metrics -power to compute.
-0

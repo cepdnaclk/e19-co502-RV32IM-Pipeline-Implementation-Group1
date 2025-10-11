@@ -9,24 +9,8 @@
 # Prerequisites: Run after rtla.tcl synthesis completion
 # =============================================================================
 
-# -----------------------------------------------------------------------------
-# Variables (edit these for your environment)
-# -----------------------------------------------------------------------------
-set CORES 8
-set DESIGN_NAME "cpu"
-
-# Paths
-set SEARCH_PATHS "* ./  ../../cpu/ /tech/sky130/libs/sky130_library/ndm"
-set RESULT_DIR   "results"
-set OUTPUT_DIR   "TZ_OUTDIR"   ;# must match rtla.tcl's -output_dir
-# Prefer a temporary results directory at runtime; allow ENV override
-set TEMP_RESULTS_DIR $RESULT_DIR
-if {[info exists ::env(TEMP_RESULTS_DIR)]} {
-    set TEMP_RESULTS_DIR $::env(TEMP_RESULTS_DIR)
-}
-
-# Hierarchical levels for reporting
-set HIERARCHY_LEVELS {2 3 5 10 20 100}
+# Load shared configuration
+source config.tcl
 
 # -----------------------------------------------------------------------------
 # Power Analysis Configuration

@@ -8,41 +8,8 @@
 # Technology: SKY130 130nm Process
 # =============================================================================
 
-# -----------------------------------------------------------------------------
-# Variables (edit these for your environment)
-# -----------------------------------------------------------------------------
-# Cores for parallel processing
-set CORES 8
-
-# Design names and top
-set DESIGN_NAME "cpu"
-set TOP_MODULE  "cpu"
-
-# Library configuration
-set LIB_NAME   "cpu_LIB"
-set REF_LIBS   "sky130_fd_sc_hd.ndm"            ;# one or more NDMs (space-separated)
-set TECH_TF    "/tech/sky130/libs/sky130_fd_sc_hd/sky130_fd_sc_hd.tf"
-
-# Search paths for libraries and source files
-set SEARCH_PATHS "* ./ ../../cpu /tech/sky130/libs/sky130_library/ndm"
-
-# Filelist for analyze
-set FILELIST "src.f"
-
-# Scenario/mode/corner names (must match tz_setup.tcl)
-set SCENARIO_NAME "func@nominal"
-
-# Power analysis inputs and output locations
-set FSDB_FILE  "../../cpu/novas.fsdb"
-set STRIP_PATH "cpu_tb/cpu_inst"
-set OUTPUT_DIR "TZ_OUTDIR"                       ;# reused by restore_new.tcl
-set RESULT_DIR "results"
-
-# Temporary results directory for run-time outputs (can be overridden via ENV)
-set TEMP_RESULTS_DIR $RESULT_DIR
-if {[info exists ::env(TEMP_RESULTS_DIR)]} {
-    set TEMP_RESULTS_DIR $::env(TEMP_RESULTS_DIR)
-}
+# Load shared configuration
+source config.tcl
 
 # -----------------------------------------------------------------------------
 # Configuration and Setup

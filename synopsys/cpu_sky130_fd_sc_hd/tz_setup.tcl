@@ -8,28 +8,10 @@
 # Technology: SKY130 130nm Process
 # =============================================================================
 
+# Load shared configuration
+source config.tcl
+
 puts "========== SKY130 Technology Setup =========="
-
-# -----------------------------------------------------------------------------
-# Variables (edit these for your environment)
-# -----------------------------------------------------------------------------
-# Parasitic technology file(s)
-set TLU_NOMINAL "/tech/sky130/libs/sky130_library/skywater130.nominal.tluplus"
-set TLU_NAME    "nominal"
-
-# Clock gating preferences
-set CG_MAX_FANOUT 16
-set CG_MAX_LEVELS 2
-set CG_TARGET     { pos_edge_flip_flop }
-set CG_TEST_POINT before
-
-# Scenario configuration
-set MODE_NAME     "func"
-set CORNER_NAME   "nominal"
-set SCENARIO_NAME "func@nominal"
-
-# Constraints
-set SDC_FILE "./sdc/clocks.sdc"
 
 # -----------------------------------------------------------------------------
 # Synthesis Flow Options

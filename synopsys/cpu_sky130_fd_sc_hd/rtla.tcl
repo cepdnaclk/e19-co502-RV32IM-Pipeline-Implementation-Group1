@@ -199,23 +199,24 @@ if {[catch {
 }
 
 # -----------------------------------------------------------------------------
-# Power Analysis Setup (Simplified for RTL)
+# Power Analysis Setup (align with working script)
 # -----------------------------------------------------------------------------
 puts "========== Setting up Power Analysis =========="
 
-# Only proceed with power analysis if FSDB exists and design compiled successfully
+# Proceed with power analysis only if FSDB is available
 if {[file exists $FSDB_PATH]} {
-    puts "Setting up RTL power analysis with FSDB: $FSDB_PATH"
-    
+    puts "Configuring RTL power analysis (func@nominal) with FSDB: $FSDB_PATH"
+
     if {[catch {
         set_rtl_power_analysis_options \
+            -scenario func@nominal \
             -design cpu \
             -strip_path cpu_tb/cpu_inst \
             -fsdb "${FSDB_PATH}" \
-            -output_dir "results"
-            
+            -output_dir TZ_OUTDIR
+
         export_power_data
-        puts "Power analysis data exported successfully"
+        puts "Power analysis data exported to TZ_OUTDIR"
     } err]} {
         puts "WARNING: Power analysis setup failed: $err"
         puts "Continuing without power analysis"
@@ -244,31 +245,31 @@ puts $summary_file ""
 close $summary_file
 
 # Generate basic reports with error handling
-if {[catch {report_timing > "results/timing_report.txt"} err]} {
+if {[catch {report_timing > "results/report_timing.txt"} err]} {
     puts "WARNING: Timing report failed: $err"
 }
 
-if {[catch {report_area > "results/area_report.txt"} err]} {
+if {[catch {report_area > "results/report_area.txt"} err]} {
     puts "WARNING: Area report failed: $err"
 }
 
-if {[catch {report_qor > "results/qor_report.txt"} err]} {
+if {[catch {report_qor > "results/report_qor.txt"} err]} {
     puts "WARNING: QoR report failed: $err"
 }
 
 # Try to generate power reports only if analysis was successful
 if {[file exists $FSDB_PATH]} {
-    if {[catch {report_power > "results/power_report.txt"} err]} {
+    if {[catch {report_power > "results/report_power.txt"} err]} {
         puts "WARNING: Power report failed: $err"
     }
 }
 
 # Generate hierarchy report
-if {[catch {report_reference > "results/reference_report.txt"} err]} {
+if {[catch {report_reference > "results/report_reference.txt"} err]} {
     puts "WARNING: Reference report failed: $err"
 }
 
-if {[catch {report_hierarchy > "results/hierarchy_report.txt"} err]} {
+if {[catch {report_hierarchy > "results/report_hierarchy.txt"} err]} {
     puts "WARNING: Hierarchy report failed: $err"
 }
 

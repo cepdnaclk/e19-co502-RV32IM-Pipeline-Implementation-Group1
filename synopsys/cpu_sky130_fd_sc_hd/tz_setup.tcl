@@ -71,67 +71,33 @@ set_app_options -as_user_default -list {compile.flow.autoungroup false}
 set_app_options -as_user_default -list {compile.flow.boundary_optimization false}
 
 # -----------------------------------------------------------------------------
-# Multi-Corner Operating Scenarios Setup
+# Operating Scenario Setup (single nominal scenario)
 # -----------------------------------------------------------------------------
-puts "Creating multi-corner operating scenarios..."
+puts "Creating operating scenario..."
 
 # Create functional mode
 create_mode func
 
-# Create corners with explicit PVT values for SKY130
-# Based on SKY130 PDK specifications
-
-# Nominal corner (typical conditions: 1.8V, 25°C)
+# Create nominal corner (typical conditions)
 create_corner nominal
 puts "Created nominal corner (1.8V, 25°C)"
 
-# Worst case corner (slow, high temp, low voltage: 1.62V, 85°C)
-create_corner worst_case  
-puts "Created worst_case corner (1.62V, 85°C)"
-
-# Set operating conditions if supported (alternative method)
-# Note: Actual PVT values are typically defined in the library files
-if {[catch {
-    # Try to set operating conditions if command is available
-    set_operating_conditions -corner nominal -voltage 1.8 -temperature 25
-    set_operating_conditions -corner worst_case -voltage 1.62 -temperature 85
-} err]} {
-    puts "INFO: Operating conditions set via library files (not command line)"
-}
-
-# Create scenarios combining mode and corners
+# Create scenario combining mode and corner
 create_scenario -mode func -corner nominal -name func@nominal
-create_scenario -mode func -corner worst_case -name func@worst_case
 
-# Set parasitic parameters for nominal scenario (1.8V, 25°C)
+# Set parasitic parameters for nominal scenario
 set_parasitic_parameters \
     -corner nominal \
     -late_spec nominal \
     -early_spec nominal
 
-# Set parasitic parameters for worst case scenario (1.62V, 85°C)
-set_parasitic_parameters \
-    -corner worst_case \
-    -late_spec worst_case \
-    -early_spec worst_case
-
-# Set operating conditions for corners (PVT values documented in comments)
-# Nominal: 1.8V, 25°C (typical SKY130 conditions)
-# Worst case: 1.62V, 85°C (worst power/timing conditions)
-puts "PVT Conditions:"
-puts "  - nominal: 1.8V, 25°C (typical)"
-puts "  - worst_case: 1.62V, 85°C (worst power/timing)"
-
-# Disable hold time analysis for scenarios
+# Disable hold time analysis for this scenario
 set_scenario_status func@nominal -hold false
-set_scenario_status func@worst_case -hold false
 
-# Set current scenario to nominal
+# Set current scenario
 current_scenario func@nominal
 
-puts "Operating scenarios created:"
-puts "  - func@nominal: 1.8V, 25°C (typical)"
-puts "  - func@worst_case: 1.62V, 85°C (worst power/timing)"
+puts "Operating scenario created: func@nominal (1.8V, 25°C)"
 
 # -----------------------------------------------------------------------------
 # Load Design Constraints

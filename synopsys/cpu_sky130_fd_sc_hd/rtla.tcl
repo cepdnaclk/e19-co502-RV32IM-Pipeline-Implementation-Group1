@@ -99,8 +99,8 @@ rtl_opt
 puts "RTL optimization completed"
 
 # Save the optimized design
-save_lib $LIB_NAME
-save_block ${DESIGN_NAME}_top_block
+save_block
+save_lib
 puts "Design saved successfully"
 
 # -----------------------------------------------------------------------------

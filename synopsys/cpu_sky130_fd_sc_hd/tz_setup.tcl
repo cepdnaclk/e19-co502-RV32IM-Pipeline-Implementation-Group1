@@ -4,13 +4,32 @@
 # =============================================================================
 # Description: Technology-specific setup for synthesis and optimization
 #              targeting SKY130 130nm process technology
+# Author: CO502 Group 1
 # Technology: SKY130 130nm Process
 # =============================================================================
 
-# Define paths as variables
-set LIBS_SKY130_PATH "/tech/sky130/libs/sky130_library"
-
 puts "========== SKY130 Technology Setup =========="
+
+# -----------------------------------------------------------------------------
+# Variables (edit these for your environment)
+# -----------------------------------------------------------------------------
+# Parasitic technology file(s)
+set TLU_NOMINAL "/tech/sky130/libs/sky130_library/skywater130.nominal.tluplus"
+set TLU_NAME    "nominal"
+
+# Clock gating preferences
+set CG_MAX_FANOUT 16
+set CG_MAX_LEVELS 2
+set CG_TARGET     { pos_edge_flip_flop }
+set CG_TEST_POINT before
+
+# Scenario configuration
+set MODE_NAME     "func"
+set CORNER_NAME   "nominal"
+set SCENARIO_NAME "func@nominal"
+
+# Constraints
+set SDC_FILE "./sdc/clocks.sdc"
 
 # -----------------------------------------------------------------------------
 # Synthesis Flow Options
@@ -37,8 +56,8 @@ puts "Loading SKY130 parasitic technology files..."
 
 # Load parasitic extraction data for SKY130
 read_parasitic_tech \
-    -tlup ${LIBS_SKY130_PATH}/skywater130.nominal.tluplus \
-    -name nominal
+    -tlup $TLU_NOMINAL \
+    -name $TLU_NAME
 
 puts "SKY130 parasitic models loaded"
 
@@ -49,11 +68,11 @@ puts "Setting up clock gating options for SKY130..."
 
 # Clock gating options optimized for SKY130 130nm process
 set_clock_gating_options \
-    -max_fanout 16 \
-    -max_number_of_levels 2
+    -max_fanout $CG_MAX_FANOUT \
+    -max_number_of_levels $CG_MAX_LEVELS
 
 # Configure clock gate style for SKY130
-set_clock_gate_style -target { pos_edge_flip_flop } -test_point before
+set_clock_gate_style -target $CG_TARGET -test_point $CG_TEST_POINT
  
 
 puts "Clock gating configured for SKY130"
@@ -71,33 +90,32 @@ set_app_options -as_user_default -list {compile.flow.autoungroup false}
 set_app_options -as_user_default -list {compile.flow.boundary_optimization false}
 
 # -----------------------------------------------------------------------------
-# Operating Scenario Setup (single nominal scenario)
+# Operating Scenarios Setup
 # -----------------------------------------------------------------------------
-puts "Creating operating scenario..."
+puts "Creating operating scenarios..."
 
 # Create functional mode
-create_mode func
+create_mode $MODE_NAME
 
-# Create nominal corner (typical conditions)
-create_corner nominal
-puts "Created nominal corner (1.8V, 25°C)"
+# Create nominal corner for SKY130 (typical conditions)
+create_corner $CORNER_NAME
 
 # Create scenario combining mode and corner
-create_scenario -mode func -corner nominal -name func@nominal
+create_scenario -mode $MODE_NAME -corner $CORNER_NAME -name $SCENARIO_NAME
 
-# Set parasitic parameters for nominal scenario
+# Set parasitic parameters for the scenario
 set_parasitic_parameters \
-    -corner nominal \
-    -late_spec nominal \
-    -early_spec nominal
+    -corner $CORNER_NAME \
+    -late_spec $TLU_NAME \
+    -early_spec $TLU_NAME
 
 # Disable hold time analysis for this scenario
-set_scenario_status func@nominal -hold false
+set_scenario_status $SCENARIO_NAME -hold false
 
 # Set current scenario
-current_scenario func@nominal
+current_scenario $SCENARIO_NAME
 
-puts "Operating scenario created: func@nominal (1.8V, 25°C)"
+puts "Operating scenario $SCENARIO_NAME created and set as current"
 
 # -----------------------------------------------------------------------------
 # Load Design Constraints
@@ -105,11 +123,11 @@ puts "Operating scenario created: func@nominal (1.8V, 25°C)"
 puts "Loading design constraints..."
 
 # Source clock constraints
-if {[file exists "./sdc/clocks.sdc"]} {
-    source ./sdc/clocks.sdc
-    puts "Clock constraints loaded from ./sdc/clocks.sdc"
+if {[file exists $SDC_FILE]} {
+    source $SDC_FILE
+    puts "Clock constraints loaded from $SDC_FILE"
 } else {
-    puts "Warning: Clock constraints file ./sdc/clocks.sdc not found"
+    puts "Warning: Clock constraints file $SDC_FILE not found"
 }
 
 # -----------------------------------------------------------------------------

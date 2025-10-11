@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Check if description argument is provided
+if [ $# -eq 0 ]; then
+    echo "ERROR: Description argument is required!"
+    echo "Usage: $0 \"Description of this synthesis run\""
+    echo "Example: $0 \"Testing new pipeline with hazard detection\""
+    exit 1
+fi
+
+# Get the description from command line argument
+RUN_DESCRIPTION="$1"
+
 # Define paths as variables
 RTL_CPU_PATH="../../cpu"
 
@@ -46,9 +57,66 @@ mkdir -p "$TEMP_RESULTS_DIR"
 
 # Export TEMP_RESULTS_DIR as environment variable for TCL scripts to use
 export TEMP_RESULTS_DIR
-echo "========== Using temporary results directory: $TEMP_RESULTS_DIR =========="
-echo "========== Environment variable TEMP_RESULTS_DIR exported for TCL scripts =========="
-echo "========== Execution started at $(date) =========="
+
+# Create run metadata file
+create_run_metadata() {
+    local metadata_file="$TEMP_RESULTS_DIR/run_metadata.txt"
+    
+    cat > "$metadata_file" << EOF
+# RISC-V CPU Synthesis and Power Analysis Run Metadata
+# =====================================================
+
+Run Description: $RUN_DESCRIPTION
+Timestamp: $TIMESTAMP
+Date: $(date)
+User: $(whoami)
+Host: $(hostname)
+Working Directory: $(pwd)
+Git Branch: $(git branch --show-current 2>/dev/null || echo "Unknown")
+Git Commit: $(git rev-parse --short HEAD 2>/dev/null || echo "Unknown")
+Git Status: $(git status --porcelain 2>/dev/null | wc -l) modified files
+
+# Environment Information
+# -----------------------
+Shell: $SHELL
+PATH: $PATH
+RTL_CPU_PATH: $RTL_CPU_PATH
+TEMP_RESULTS_DIR: $TEMP_RESULTS_DIR
+
+# Tool Versions
+# -------------
+VCS Version: $(vcs -ID 2>/dev/null | head -1 || echo "VCS not found")
+Synopsys Tools: $(which rtl_shell 2>/dev/null || echo "rtl_shell not found")
+
+# Directory Structure
+# -------------------
+CPU Directory Exists: $([ -d "$RTL_CPU_PATH" ] && echo "Yes" || echo "No")
+Config File Exists: $([ -f "config.tcl" ] && echo "Yes" || echo "No")
+RTLA Script Exists: $([ -f "rtla.tcl" ] && echo "Yes" || echo "No")
+Restore Script Exists: $([ -f "restore_new.tcl" ] && echo "Yes" || echo "No")
+
+# Execution Plan
+# --------------
+1. Git Pull
+2. VCS Compile and Simulation
+3. RTL Synthesis (rtl_shell)
+4. Power Analysis (pwr_shell)
+5. Results archiving and Git commit
+
+EOF
+    
+    echo "Run metadata created: $metadata_file"
+}
+
+echo "========== RISC-V CPU Synthesis and Power Analysis =========="
+echo "Description: $RUN_DESCRIPTION"
+echo "Using temporary results directory: $TEMP_RESULTS_DIR"
+echo "Environment variable TEMP_RESULTS_DIR exported for TCL scripts"
+echo "Execution started at $(date)"
+
+# Create the run metadata file
+create_run_metadata
+echo "========== Run metadata file created =========="
 
 # Step 0: Git Pull
 echo "========== STEP 0: Git Pull =========="
@@ -135,7 +203,7 @@ else
     echo "Warning: Failed to stage some files"
 fi
 
-if git commit -m "Auto commit: cpu synthesis and power analysis results - $TIMESTAMP"; then
+if git commit -m "Auto commit: $RUN_DESCRIPTION - $TIMESTAMP"; then
     echo "Commit created successfully"
 else
     echo "Warning: Commit failed (possibly no changes to commit)"

@@ -73,9 +73,9 @@ set RESULT_DIR   "results"
 set OUTPUT_DIR   "TZ_OUTDIR"                     ;# reused by restore_new.tcl
 
 # Temporary results directory for run-time outputs (can be overridden via ENV)
-# set TEMP_RESULTS_DIR $RESULT_DIR
+set TEMP_RESULTS_DIR $RESULT_DIR
 if {[info exists ::env(TEMP_RESULTS_DIR)]} {
-    set RESULT_DIR $::env(TEMP_RESULTS_DIR)
+    set TEMP_RESULTS_DIR $::env(TEMP_RESULTS_DIR)
     puts "Using environment TEMP_RESULTS_DIR: $TEMP_RESULTS_DIR"
 } else {
     puts "Using default TEMP_RESULTS_DIR: $TEMP_RESULTS_DIR"

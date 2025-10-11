@@ -43,7 +43,11 @@ cleanup_on_error() {
 
 # Create temporary results directory for this run  
 mkdir -p "$TEMP_RESULTS_DIR"
+
+# Export TEMP_RESULTS_DIR as environment variable for TCL scripts to use
+export TEMP_RESULTS_DIR
 echo "========== Using temporary results directory: $TEMP_RESULTS_DIR =========="
+echo "========== Environment variable TEMP_RESULTS_DIR exported for TCL scripts =========="
 echo "========== Execution started at $(date) =========="
 
 # Step 0: Git Pull

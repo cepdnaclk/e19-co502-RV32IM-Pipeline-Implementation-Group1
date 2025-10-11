@@ -57,6 +57,7 @@
 **/RTLA_WORKSPACE
 **/HDL_LIBRARIES
 **/neuron_LIB
+**/cpu_LIB
 **/LIB
 **/cltrls
 

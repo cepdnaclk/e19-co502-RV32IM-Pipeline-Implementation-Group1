@@ -1,4 +1,6 @@
- 
+
+
+
                                RTL Architect (TM)
 
                Version V-2023.12-SP5-3 for linux64 - Dec 17, 2024
@@ -19,7 +21,7 @@
  Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
             Inclusivity and Diversity" (Refer to article 000036315 at
                         https://solvnetplus.synopsys.com)
-
+ 
 #!/bin/tcsh -f
 # =============================================================================
 # RISC-V CPU RTL Analysis and Synthesis Script for SKY130
@@ -276,8 +278,8 @@ Presto compilation completed successfully. (mux_32b_2to1)
 Information: Elaborating HDL template WORK:pc instantiated from 'cpu'. (ELAB-193)
 
 Inferred memory devices in process
-        in routine pc line 9 in file
-                '../../cpu//IF_stage/pc/pc.v'.
+	in routine pc line 9 in file
+		'../../cpu//IF_stage/pc/pc.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -289,8 +291,8 @@ Presto compilation completed successfully. (adder_32b_4)
 Information: Elaborating HDL template WORK:if_id_pipeline_reg instantiated from 'cpu'. (ELAB-193)
 
 Inferred memory devices in process
-        in routine if_id_pipeline_reg line 9 in file
-                '../../cpu//pipeline_regs/if_id_pipeline_reg.v'.
+	in routine if_id_pipeline_reg line 9 in file
+		'../../cpu//pipeline_regs/if_id_pipeline_reg.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -302,8 +304,8 @@ Information: Elaborating HDL template WORK:reg_files instantiated from 'cpu'. (E
 $display output: reg[0] = ?, reg[1] = ?, reg[2] = ?, reg[3] = ?, reg[4] = ?, reg[5] = ?, reg[6] = ?
 
 Inferred memory devices in process
-        in routine reg_files line 14 in file
-                '../../cpu//ID_stage/reg_files/reg_files.v'.
+	in routine reg_files line 14 in file
+		'../../cpu//ID_stage/reg_files/reg_files.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -313,7 +315,7 @@ Presto compilation completed successfully. (reg_files)
 Information: Elaborating HDL template WORK:sign_extender instantiated from 'cpu'. (ELAB-193)
 
 Statistics for case statements in always block at line 26 in file
-        '../../cpu//ID_stage/sign_extender/sign_extender.v'
+	'../../cpu//ID_stage/sign_extender/sign_extender.v'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -328,8 +330,8 @@ Presto compilation completed successfully. (hazard_unit)
 Information: Elaborating HDL template WORK:id_ex_pipeline_reg instantiated from 'cpu'. (ELAB-193)
 
 Inferred memory devices in process
-        in routine id_ex_pipeline_reg line 21 in file
-                '../../cpu//pipeline_regs/id_ex_pipeline_reg.v'.
+	in routine id_ex_pipeline_reg line 21 in file
+		'../../cpu//pipeline_regs/id_ex_pipeline_reg.v'.
 =================================================================================
 |     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 =================================================================================
@@ -379,7 +381,7 @@ Warning:  ../../cpu//EX_stage/alu/alu.v:150: signed to unsigned assignment occur
 Warning:  ../../cpu//EX_stage/alu/alu.v:155: signed to unsigned assignment occurs. (VER-318)
 
 Statistics for case statements in always block at line 63 in file
-        '../../cpu//EX_stage/alu/alu.v'
+	'../../cpu//EX_stage/alu/alu.v'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -390,7 +392,7 @@ Statistics for case statements in always block at line 63 in file
 ===============================================
 
 Statistics for case statements in always block at line 164 in file
-        '../../cpu//EX_stage/alu/alu.v'
+	'../../cpu//EX_stage/alu/alu.v'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -400,7 +402,7 @@ Presto compilation completed successfully. (alu)
 Information: Elaborating HDL template WORK:branch_logic instantiated from 'cpu'. (ELAB-193)
 
 Statistics for case statements in always block at line 26 in file
-        '../../cpu//EX_stage/branch/branch_logic.v'
+	'../../cpu//EX_stage/branch/branch_logic.v'
 ===============================================
 |           Line           |  full/ parallel  |
 ===============================================
@@ -410,8 +412,8 @@ Presto compilation completed successfully. (branch_logic)
 Information: Elaborating HDL template WORK:ex_mem_pipeline_reg instantiated from 'cpu'. (ELAB-193)
 
 Inferred memory devices in process
-        in routine ex_mem_pipeline_reg line 18 in file
-                '../../cpu//pipeline_regs/ex_mem_pipeline_reg.v'.
+	in routine ex_mem_pipeline_reg line 18 in file
+		'../../cpu//pipeline_regs/ex_mem_pipeline_reg.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -428,8 +430,8 @@ Presto compilation completed successfully. (ex_mem_pipeline_reg)
 Information: Elaborating HDL template WORK:mem_wb_pipeline_reg instantiated from 'cpu'. (ELAB-193)
 
 Inferred memory devices in process
-        in routine mem_wb_pipeline_reg line 15 in file
-                '../../cpu//pipeline_regs/mem_wb_pipeline_reg.v'.
+	in routine mem_wb_pipeline_reg line 15 in file
+		'../../cpu//pipeline_regs/mem_wb_pipeline_reg.v'.
 ===============================================================================
 |    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
 ===============================================================================
@@ -594,12 +596,12 @@ Information: 15 out of 16 SQM-1074 messages were not printed due to limit 1  (MS
 Information: Ending   rtl_opt / conditioning / High-Level Optimization and Technology Mapping (2) (FLW-8001)
 Information: Time: 2025-10-11 13:52:24 / Session:  00:00:45 / Command:  00:00:29 / CPU:  00:01:14 / Memory: 1054 MB (FLW-8100)
 Information: RTL multibit banking summary. (SQM-2008)
-        Total candidates in design:1461
-        Total candidates ignored:  1456
-        Total candidates banked:   0
-        Banking Ratio of this pass:0.00%
-        Banking ratio             :0.00% (Before banking 0.00%)
-        Use report_multibit for details.
+	Total candidates in design:1461
+	Total candidates ignored:  1456
+	Total candidates banked:   0
+	Banking Ratio of this pass:0.00%
+	Banking ratio             :0.00% (Before banking 0.00%)
+	Use report_multibit for details.
 Information: Starting rtl_opt / conditioning / DFT Core Wrapper Analysis (FLW-8000)
 Information: Time: 2025-10-11 13:52:24 / Session:  00:00:45 / Command:  00:00:29 / CPU:  00:01:14 / Memory: 1054 MB (FLW-8100)
 Information: Ending   rtl_opt / conditioning / DFT Core Wrapper Analysis (FLW-8001)
@@ -1234,12 +1236,12 @@ Start Global Route ...
 [Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
 [Init] Total (MB): Used   45  Alloctr   46  Proc 6630 
 Printing options for 'route.common.*'
-common.clock_topology                                   :        normal              
-common.single_connection_to_pins                        :        off                 
+common.clock_topology                                   :	 normal              
+common.single_connection_to_pins                        :	 off                 
 
 Printing options for 'route.global.*'
-global.crosstalk_driven                                 :        false               
-global.deterministic                                    :        on                  
+global.crosstalk_driven                                 :	 false               
+global.deterministic                                    :	 on                  
 
 Begin global routing.
 Constructing data structure ...
@@ -1267,32 +1269,32 @@ Current Stage stats:
 [End of Build All Nets] Total (MB): Used   50  Alloctr   51  Proc 6630 
 Net length statistics: 
 Net Count(Ignore Fully Rted) 340, Total Half Perimeter Wire Length (HPWL) 101420 microns
-HPWL   0 ~   50 microns: Net Count      111     Total HPWL          423 microns
-HPWL  50 ~  100 microns: Net Count       19     Total HPWL         1413 microns
-HPWL 100 ~  200 microns: Net Count        6     Total HPWL          709 microns
-HPWL 200 ~  300 microns: Net Count       29     Total HPWL         7973 microns
-HPWL 300 ~  400 microns: Net Count        5     Total HPWL         1557 microns
-HPWL 400 ~  500 microns: Net Count        0     Total HPWL            0 microns
-HPWL 500 ~  600 microns: Net Count      170     Total HPWL        89345 microns
-HPWL 600 ~  700 microns: Net Count        0     Total HPWL            0 microns
-HPWL 700 ~  800 microns: Net Count        0     Total HPWL            0 microns
-HPWL 800 ~  900 microns: Net Count        0     Total HPWL            0 microns
-HPWL 900 ~ 1000 microns: Net Count        0     Total HPWL            0 microns
-HPWL     > 1000 microns: Net Count        0     Total HPWL            0 microns
+HPWL   0 ~   50 microns: Net Count      111	Total HPWL          423 microns
+HPWL  50 ~  100 microns: Net Count       19	Total HPWL         1413 microns
+HPWL 100 ~  200 microns: Net Count        6	Total HPWL          709 microns
+HPWL 200 ~  300 microns: Net Count       29	Total HPWL         7973 microns
+HPWL 300 ~  400 microns: Net Count        5	Total HPWL         1557 microns
+HPWL 400 ~  500 microns: Net Count        0	Total HPWL            0 microns
+HPWL 500 ~  600 microns: Net Count      170	Total HPWL        89345 microns
+HPWL 600 ~  700 microns: Net Count        0	Total HPWL            0 microns
+HPWL 700 ~  800 microns: Net Count        0	Total HPWL            0 microns
+HPWL 800 ~  900 microns: Net Count        0	Total HPWL            0 microns
+HPWL 900 ~ 1000 microns: Net Count        0	Total HPWL            0 microns
+HPWL     > 1000 microns: Net Count        0	Total HPWL            0 microns
 Number of partitions: 1 (1 x 1)
 Size of partitions: 26 gCells x 26 gCells
-Average gCell capacity  44.31    on layer (1)    li1
-Average gCell capacity  59.92    on layer (2)    met1
-Average gCell capacity  44.31    on layer (3)    met2
-Average gCell capacity  29.92    on layer (4)    met3
-Average gCell capacity  22.12    on layer (5)    met4
-Average gCell capacity  5.92     on layer (6)    met5
-Average number of tracks per gCell 44.38         on layer (1)    li1
-Average number of tracks per gCell 60.00         on layer (2)    met1
-Average number of tracks per gCell 44.38         on layer (3)    met2
-Average number of tracks per gCell 30.00         on layer (4)    met3
-Average number of tracks per gCell 22.19         on layer (5)    met4
-Average number of tracks per gCell 6.00  on layer (6)    met5
+Average gCell capacity  44.31	 on layer (1)	 li1
+Average gCell capacity  59.92	 on layer (2)	 met1
+Average gCell capacity  44.31	 on layer (3)	 met2
+Average gCell capacity  29.92	 on layer (4)	 met3
+Average gCell capacity  22.12	 on layer (5)	 met4
+Average gCell capacity  5.92	 on layer (6)	 met5
+Average number of tracks per gCell 44.38	 on layer (1)	 li1
+Average number of tracks per gCell 60.00	 on layer (2)	 met1
+Average number of tracks per gCell 44.38	 on layer (3)	 met2
+Average number of tracks per gCell 30.00	 on layer (4)	 met3
+Average number of tracks per gCell 22.19	 on layer (5)	 met4
+Average number of tracks per gCell 6.00	 on layer (6)	 met5
 Number of gCells = 4056
 Current Stage stats:
 [End of Build Congestion Map] Elapsed real time: 0:00:00 
@@ -1572,13 +1574,13 @@ Start Global Route ...
 [Init] Stage (MB): Used    0  Alloctr    0  Proc    0 
 [Init] Total (MB): Used    7  Alloctr    7  Proc 6730 
 Printing options for 'route.common.*'
-common.clock_topology                                   :        normal              
-common.single_connection_to_pins                        :        off                 
+common.clock_topology                                   :	 normal              
+common.single_connection_to_pins                        :	 off                 
 
 Printing options for 'route.global.*'
-global.crosstalk_driven                                 :        false               
-global.deterministic                                    :        on                  
-global.timing_driven                                    :        false               
+global.crosstalk_driven                                 :	 false               
+global.deterministic                                    :	 on                  
+global.timing_driven                                    :	 false               
 
 Begin global routing.
 Cell Min-Routing-Layer = li1
@@ -1688,32 +1690,32 @@ Current Stage stats:
 [End of Build All Nets] Total (MB): Used   72  Alloctr   74  Proc 6698 
 Net length statistics: 
 Net Count(Ignore Fully Rted) 24859, Total Half Perimeter Wire Length (HPWL) 735604 microns
-HPWL   0 ~   50 microns: Net Count    21442     Total HPWL       295684 microns
-HPWL  50 ~  100 microns: Net Count     1799     Total HPWL       126735 microns
-HPWL 100 ~  200 microns: Net Count     1076     Total HPWL       146049 microns
-HPWL 200 ~  300 microns: Net Count      293     Total HPWL        70547 microns
-HPWL 300 ~  400 microns: Net Count      152     Total HPWL        52135 microns
-HPWL 400 ~  500 microns: Net Count       85     Total HPWL        38281 microns
-HPWL 500 ~  600 microns: Net Count       12     Total HPWL         6174 microns
-HPWL 600 ~  700 microns: Net Count        0     Total HPWL            0 microns
-HPWL 700 ~  800 microns: Net Count        0     Total HPWL            0 microns
-HPWL 800 ~  900 microns: Net Count        0     Total HPWL            0 microns
-HPWL 900 ~ 1000 microns: Net Count        0     Total HPWL            0 microns
-HPWL     > 1000 microns: Net Count        0     Total HPWL            0 microns
+HPWL   0 ~   50 microns: Net Count    21442	Total HPWL       295684 microns
+HPWL  50 ~  100 microns: Net Count     1799	Total HPWL       126735 microns
+HPWL 100 ~  200 microns: Net Count     1076	Total HPWL       146049 microns
+HPWL 200 ~  300 microns: Net Count      293	Total HPWL        70547 microns
+HPWL 300 ~  400 microns: Net Count      152	Total HPWL        52135 microns
+HPWL 400 ~  500 microns: Net Count       85	Total HPWL        38281 microns
+HPWL 500 ~  600 microns: Net Count       12	Total HPWL         6174 microns
+HPWL 600 ~  700 microns: Net Count        0	Total HPWL            0 microns
+HPWL 700 ~  800 microns: Net Count        0	Total HPWL            0 microns
+HPWL 800 ~  900 microns: Net Count        0	Total HPWL            0 microns
+HPWL 900 ~ 1000 microns: Net Count        0	Total HPWL            0 microns
+HPWL     > 1000 microns: Net Count        0	Total HPWL            0 microns
 Number of partitions: 1 (1 x 1)
 Size of partitions: 97 gCells x 97 gCells
-Average gCell capacity  1.01     on layer (1)    li1
-Average gCell capacity  0.27     on layer (2)    met1
-Average gCell capacity  11.74    on layer (3)    met2
-Average gCell capacity  7.93     on layer (4)    met3
-Average gCell capacity  5.85     on layer (5)    met4
-Average gCell capacity  1.57     on layer (6)    met5
-Average number of tracks per gCell 11.77         on layer (1)    li1
-Average number of tracks per gCell 15.92         on layer (2)    met1
-Average number of tracks per gCell 11.77         on layer (3)    met2
-Average number of tracks per gCell 7.96  on layer (4)    met3
-Average number of tracks per gCell 5.89  on layer (5)    met4
-Average number of tracks per gCell 1.60  on layer (6)    met5
+Average gCell capacity  1.01	 on layer (1)	 li1
+Average gCell capacity  0.27	 on layer (2)	 met1
+Average gCell capacity  11.74	 on layer (3)	 met2
+Average gCell capacity  7.93	 on layer (4)	 met3
+Average gCell capacity  5.85	 on layer (5)	 met4
+Average gCell capacity  1.57	 on layer (6)	 met5
+Average number of tracks per gCell 11.77	 on layer (1)	 li1
+Average number of tracks per gCell 15.92	 on layer (2)	 met1
+Average number of tracks per gCell 11.77	 on layer (3)	 met2
+Average number of tracks per gCell 7.96	 on layer (4)	 met3
+Average number of tracks per gCell 5.89	 on layer (5)	 met4
+Average number of tracks per gCell 1.60	 on layer (6)	 met5
 Number of gCells = 56454
 Current Stage stats:
 [End of Build Congestion Map] Elapsed real time: 0:00:00 
@@ -2101,14 +2103,14 @@ Moveable cells: 24528; Application fixed cells: 0; Macro cells: 0; User fixed ce
 Average cell width 3.0651, cell height 2.7200, cell area 8.3372 for total 24528 placed and application fixed cells
 Disable clock slack update for ideal clocks
 Information: NO SCANCHAIN defined in SCANDEF. (DFT-011)
-                Total number of ignored cells which do not have multi-bit equivalent             : 1461
-        Physical Banking Summary:
-        Total candidates in design:1461
-        Total candidates ignored  :1461
-        Total candidates banked   :0
-        Banking Ratio of this pass:0.00%
-        Banking ratio             :0.00% (Before banking 0.00%)
-        Use report_multibit for details
+		Total number of ignored cells which do not have multi-bit equivalent             : 1461
+	Physical Banking Summary:
+	Total candidates in design:1461
+	Total candidates ignored  :1461
+	Total candidates banked   :0
+	Banking Ratio of this pass:0.00%
+	Banking ratio             :0.00% (Before banking 0.00%)
+	Use report_multibit for details
 Disable clock slack update for ideal clocks
  Iter  1                                          1052.10     1052.10         -         -     204493.62   133114.97       24528              0.10      3268
 Warning: Restoring scoped app option 'ropt.rbuf_subtree_crit_range' to original value 'unset' (from current value '-1', which is different from the scoped value '-1.0'). (FLW-2892)
@@ -2363,4 +2365,3 @@ Maximum memory usage for this session: 3268.26 MB
 CPU usage for this session:   1547 seconds (  0.43 hours)
 Elapsed time for this session:    466 seconds (  0.13 hours)
 Thank you for using RTL Architect.
-

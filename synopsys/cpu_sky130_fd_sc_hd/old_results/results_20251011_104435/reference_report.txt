@@ -1,0 +1,44 @@
+****************************************
+Report : reference
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Sat Oct 11 10:01:10 2025
+****************************************
+
+Attributes
+    b - black-box (unknown)
+    h - hierarchical
+    n - noncombinational
+    u - contains unmapped logic
+    E - extracted timing model
+    Q - Quick timing model (QTM)
+    s - synthetic operator
+
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+--------------------------------------------------------------------------------
+sky130_fd_sc_hd__or2_0
+                   sky130_fd_sc_hd
+                                      6.26       3         18.77   
+adder_32b_4                         362.85       1        362.85   h
+adder_32b_4_0                       362.85       1        362.85   h
+alu                               58509.87       1      58509.87   h
+branch_logic                        995.96       1        995.96   h
+control_unit                        296.53       1        296.53   h
+ex_mem_pipeline_reg                3637.24       1       3637.24   h
+hazard_unit                         299.04       1        299.04   h
+id_ex_pipeline_reg                 5166.20       1       5166.20   h
+if_id_pipeline_reg                 2108.27       1       2108.27   h
+mem_wb_pipeline_reg                3409.52       1       3409.52   h
+mux_32b_2to1                        284.02       1        284.02   h
+mux_32b_2to1_0                      284.02       1        284.02   h
+mux_32b_2to1_1                      284.02       1        284.02   h
+mux_32b_3to1                        450.43       1        450.43   h
+mux_32b_3to1_0                      450.43       1        450.43   h
+mux_32b_3to1_1                      450.43       1        450.43   h
+pc                                 1067.27       1       1067.27   h
+reg_files                         41599.90       1      41599.90   h
+sign_extender                       421.65       1        421.65   h
+--------------------------------------------------------------------------------
+Total 20 references                                    120459.28
+1

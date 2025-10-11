@@ -1,0 +1,6 @@
+# SKY130 CPU Synthesis Summary
+# Generated: Sat Oct 11 10:36:01 +0530 2025
+# Technology: SKY130 130nm (sky130_fd_sc_hd)
+# Tool: PrimeTime RTL
+# FSDB: ../../cpu/novas.fsdb
+

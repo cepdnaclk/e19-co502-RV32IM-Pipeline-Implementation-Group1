@@ -1,0 +1,196 @@
+****************************************
+Report : hierarchy
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Sat Oct 11 10:01:10 2025
+****************************************
+
+cpu_LIB:cpu.design
+  DW01_add_J14_D3_D10_D1
+  DW01_add_J14_D3_D11_D1
+  DW01_add_J14_D3_D12_D1
+  DW01_add_J14_D3_D13_D1
+  DW01_add_J14_D3_D14_D1
+  DW01_add_J14_D3_D15_D1
+  DW01_add_J14_D3_D16_D1
+  DW01_add_J14_D3_D17_D1
+  DW01_add_J14_D3_D18_D1
+  DW01_add_J14_D3_D19_D1
+  DW01_add_J14_D3_D20_D1
+  DW01_add_J14_D3_D21_D1
+  DW01_add_J14_D3_D22_D1
+  DW01_add_J14_D3_D23_D1
+  DW01_add_J14_D3_D24_D1
+  DW01_add_J14_D3_D25_D1
+  DW01_add_J14_D3_D26_D1
+  DW01_add_J14_D3_D27_D1
+  DW01_add_J14_D3_D28_D1
+  DW01_add_J14_D3_D29_D1
+  DW01_add_J14_D3_D30_D1
+  DW01_add_J14_D3_D31_D1
+  DW01_add_J14_D3_D32_D1
+  DW01_add_J14_D3_D33_D1
+  DW01_add_J14_D3_D3_D1
+  DW01_add_J14_D3_D4_D1
+  DW01_add_J14_D3_D5_D1
+  DW01_add_J14_D3_D6_D1
+  DW01_add_J14_D3_D7_D1
+  DW01_add_J14_D3_D8_D1
+  DW01_add_J14_D3_D9_D1
+  DW01_add_J2_D3_D10_D1
+  DW01_add_J2_D3_D11_D1
+  DW01_add_J2_D3_D12_D1
+  DW01_add_J2_D3_D13_D1
+  DW01_add_J2_D3_D14_D1
+  DW01_add_J2_D3_D15_D1
+  DW01_add_J2_D3_D16_D1
+  DW01_add_J2_D3_D17_D1
+  DW01_add_J2_D3_D18_D1
+  DW01_add_J2_D3_D19_D1
+  DW01_add_J2_D3_D20_D1
+  DW01_add_J2_D3_D21_D1
+  DW01_add_J2_D3_D22_D1
+  DW01_add_J2_D3_D23_D1
+  DW01_add_J2_D3_D24_D1
+  DW01_add_J2_D3_D25_D1
+  DW01_add_J2_D3_D26_D1
+  DW01_add_J2_D3_D27_D1
+  DW01_add_J2_D3_D28_D1
+  DW01_add_J2_D3_D29_D1
+  DW01_add_J2_D3_D30_D1
+  DW01_add_J2_D3_D31_D1
+  DW01_add_J2_D3_D32_D1
+  DW01_add_J2_D3_D33_D1
+  DW01_add_J2_D3_D3_D1
+  DW01_add_J2_D3_D4_D1
+  DW01_add_J2_D3_D5_D1
+  DW01_add_J2_D3_D6_D1
+  DW01_add_J2_D3_D7_D1
+  DW01_add_J2_D3_D8_D1
+  DW01_add_J2_D3_D9_D1
+  adder_32b_4
+     DW01_add_J32_H0_D1
+  adder_32b_4_0
+     DW01_add_J32_H0_D1_0
+        sky130_fd_sc_hd__ha_1                sky130_fd_sc_hd
+        sky130_fd_sc_hd__xor2_1              sky130_fd_sc_hd
+  alu
+     DW01_add_J19_H0_D1
+        sky130_fd_sc_hd__fa_1                sky130_fd_sc_hd
+     DW01_ash_J19_H2_D1
+        sky130_fd_sc_hd__a2bb2oi_1           sky130_fd_sc_hd
+        sky130_fd_sc_hd__a32oi_1             sky130_fd_sc_hd
+        sky130_fd_sc_hd__o22a_1              sky130_fd_sc_hd
+     DW01_cmp2_J19_H5_D1
+        sky130_fd_sc_hd__o221a_1             sky130_fd_sc_hd
+        sky130_fd_sc_hd__o2bb2ai_1           sky130_fd_sc_hd
+     DW01_cmp2_J19_H6_D1
+     DW01_sub_J19_H1_D1
+     DW_div_uns_a_width32_b_width32_J19_H7_D2
+        DW01_add_J19_H7_D3_D10_D1
+        DW01_add_J19_H7_D3_D11_D1
+        DW01_add_J19_H7_D3_D12_D1
+        DW01_add_J19_H7_D3_D13_D1
+        DW01_add_J19_H7_D3_D14_D1
+        DW01_add_J19_H7_D3_D15_D1
+        DW01_add_J19_H7_D3_D16_D1
+        DW01_add_J19_H7_D3_D17_D1
+        DW01_add_J19_H7_D3_D18_D1
+        DW01_add_J19_H7_D3_D19_D1
+        DW01_add_J19_H7_D3_D20_D1
+        DW01_add_J19_H7_D3_D21_D1
+        DW01_add_J19_H7_D3_D22_D1
+        DW01_add_J19_H7_D3_D23_D1
+        DW01_add_J19_H7_D3_D24_D1
+        DW01_add_J19_H7_D3_D25_D1
+        DW01_add_J19_H7_D3_D26_D1
+        DW01_add_J19_H7_D3_D27_D1
+        DW01_add_J19_H7_D3_D28_D1
+        DW01_add_J19_H7_D3_D29_D1
+        DW01_add_J19_H7_D3_D30_D1
+        DW01_add_J19_H7_D3_D31_D1
+        DW01_add_J19_H7_D3_D32_D1
+        DW01_add_J19_H7_D3_D33_D1
+        DW01_add_J19_H7_D3_D3_D1
+        DW01_add_J19_H7_D3_D4_D1
+        DW01_add_J19_H7_D3_D5_D1
+        DW01_add_J19_H7_D3_D6_D1
+        DW01_add_J19_H7_D3_D7_D1
+        DW01_add_J19_H7_D3_D8_D1
+        DW01_add_J19_H7_D3_D9_D1
+        sky130_fd_sc_hd__a21boi_0            sky130_fd_sc_hd
+        sky130_fd_sc_hd__o2111a_1            sky130_fd_sc_hd
+     DW_mult_uns_J19_H8_D1
+     DW_rash_J19_H3_D1
+     DW_rash_J19_H4_D1
+        sky130_fd_sc_hd__o21a_1              sky130_fd_sc_hd
+     RS_OP_200_17016_40986_J2
+        DW_mult_tc_J34_r34_H0_D1
+           sky130_fd_sc_hd__a31o_1           sky130_fd_sc_hd
+           sky130_fd_sc_hd__a31oi_1          sky130_fd_sc_hd
+           sky130_fd_sc_hd__and3_1           sky130_fd_sc_hd
+           sky130_fd_sc_hd__o32a_1           sky130_fd_sc_hd
+     sky130_fd_sc_hd__o211a_1                sky130_fd_sc_hd
+  branch_logic
+     DW01_cmp6_J27_H0_D1
+        sky130_fd_sc_hd__maj3_1              sky130_fd_sc_hd
+     DW01_cmp6_J27_H1_D1
+        sky130_fd_sc_hd__a2111oi_0           sky130_fd_sc_hd
+        sky130_fd_sc_hd__nor4bb_1            sky130_fd_sc_hd
+        sky130_fd_sc_hd__or3b_1              sky130_fd_sc_hd
+     sky130_fd_sc_hd__o21bai_1               sky130_fd_sc_hd
+  control_unit
+     mux_3b_2to1
+        sky130_fd_sc_hd__mux2_1              sky130_fd_sc_hd
+     sky130_fd_sc_hd__a311oi_1               sky130_fd_sc_hd
+     sky130_fd_sc_hd__a32o_1                 sky130_fd_sc_hd
+     sky130_fd_sc_hd__nand4b_1               sky130_fd_sc_hd
+     sky130_fd_sc_hd__nor3_1                 sky130_fd_sc_hd
+     sky130_fd_sc_hd__nor4_1                 sky130_fd_sc_hd
+     sky130_fd_sc_hd__o22ai_1                sky130_fd_sc_hd
+     sky130_fd_sc_hd__o31ai_1                sky130_fd_sc_hd
+     sky130_fd_sc_hd__or2_0                  sky130_fd_sc_hd
+  ex_mem_pipeline_reg
+  hazard_unit
+     DW01_cmp6_J30_H0_D1
+     DW01_cmp6_J30_H1_D1
+        sky130_fd_sc_hd__xnor2_1             sky130_fd_sc_hd
+     DW01_cmp6_J30_H2_D1
+     DW01_cmp6_J30_H3_D1
+     sky130_fd_sc_hd__and4_1                 sky130_fd_sc_hd
+     sky130_fd_sc_hd__nor2b_1                sky130_fd_sc_hd
+  id_ex_pipeline_reg
+  if_id_pipeline_reg
+  mem_wb_pipeline_reg
+  mux_32b_2to1
+  mux_32b_2to1_0
+     sky130_fd_sc_hd__a22o_1                 sky130_fd_sc_hd
+     sky130_fd_sc_hd__clkinv_1               sky130_fd_sc_hd
+  mux_32b_2to1_1
+  mux_32b_3to1
+  mux_32b_3to1_0
+  mux_32b_3to1_1
+  pc
+     sky130_fd_sc_hd__and2_0                 sky130_fd_sc_hd
+     sky130_fd_sc_hd__nand2_1                sky130_fd_sc_hd
+     sky130_fd_sc_hd__sdfxtp_1               sky130_fd_sc_hd
+     sky130_fd_sc_hd__sdlclkp_1              sky130_fd_sc_hd
+  reg_files
+     sky130_fd_sc_hd__a222oi_1               sky130_fd_sc_hd
+     sky130_fd_sc_hd__a22oi_1                sky130_fd_sc_hd
+     sky130_fd_sc_hd__nand3_1                sky130_fd_sc_hd
+     sky130_fd_sc_hd__nand4_1                sky130_fd_sc_hd
+     sky130_fd_sc_hd__nor2_1                 sky130_fd_sc_hd
+     sky130_fd_sc_hd__o21ai_0                sky130_fd_sc_hd
+     sky130_fd_sc_hd__or4_1                  sky130_fd_sc_hd
+     sky130_fd_sc_hd__sdfrtn_1               sky130_fd_sc_hd
+  sign_extender
+     sky130_fd_sc_hd__a21bo_1                sky130_fd_sc_hd
+     sky130_fd_sc_hd__a21oi_1                sky130_fd_sc_hd
+     sky130_fd_sc_hd__a221o_1                sky130_fd_sc_hd
+     sky130_fd_sc_hd__a221oi_1               sky130_fd_sc_hd
+     sky130_fd_sc_hd__nand2b_1               sky130_fd_sc_hd
+     sky130_fd_sc_hd__o221ai_1               sky130_fd_sc_hd
+     sky130_fd_sc_hd__or3_1                  sky130_fd_sc_hd
+
+1

@@ -38,6 +38,12 @@ set STRIP_PATH "cpu_tb/cpu_inst"
 set OUTPUT_DIR "TZ_OUTDIR"                       ;# reused by restore_new.tcl
 set RESULT_DIR "results"
 
+# Temporary results directory for run-time outputs (can be overridden via ENV)
+set TEMP_RESULTS_DIR $RESULT_DIR
+if {[info exists ::env(TEMP_RESULTS_DIR)]} {
+    set TEMP_RESULTS_DIR $::env(TEMP_RESULTS_DIR)
+}
+
 # -----------------------------------------------------------------------------
 # Configuration and Setup
 # -----------------------------------------------------------------------------
@@ -108,8 +114,8 @@ puts "Design saved successfully"
 # -----------------------------------------------------------------------------
 puts "========== Setting up Power Analysis =========="
 
-# Create results directory if it doesn't exist
-file mkdir $RESULT_DIR
+# Create temp results directory if it doesn't exist
+file mkdir $TEMP_RESULTS_DIR
 
 # Configure RTL power analysis (corrected scenario name)
 set_rtl_power_analysis_options \
@@ -127,16 +133,16 @@ puts "Power analysis data exported"
 # -----------------------------------------------------------------------------
 puts "========== Generating Reports =========="
 
-report_power > "$RESULT_DIR/report_power.txt"
-report_area > "$RESULT_DIR/report_area.txt" 
-report_timing > "$RESULT_DIR/report_timing.txt"
-report_qor > "$RESULT_DIR/report_qor.txt"
+report_power > "$TEMP_RESULTS_DIR/report_power.txt"
+report_area > "$TEMP_RESULTS_DIR/report_area.txt" 
+report_timing > "$TEMP_RESULTS_DIR/report_timing.txt"
+report_qor > "$TEMP_RESULTS_DIR/report_qor.txt"
 
 # Additional useful reports for SKY130
-report_reference > "$RESULT_DIR/report_reference.txt"
-report_hierarchy > "$RESULT_DIR/report_hierarchy.txt"
+report_reference > "$TEMP_RESULTS_DIR/report_reference.txt"
+report_hierarchy > "$TEMP_RESULTS_DIR/report_hierarchy.txt"
 
-puts "All reports generated in $RESULT_DIR/ directory"
+puts "All reports generated in $TEMP_RESULTS_DIR/ directory"
 puts "========== RTL Analysis and Synthesis Complete =========="
 
 exit

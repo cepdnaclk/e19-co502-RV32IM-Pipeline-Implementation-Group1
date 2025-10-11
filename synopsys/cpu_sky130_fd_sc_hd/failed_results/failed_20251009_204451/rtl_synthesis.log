@@ -1,0 +1,83 @@
+
+
+
+                               RTL Architect (TM)
+
+               Version V-2023.12-SP5-3 for linux64 - Dec 17, 2024
+                           Base build date 11/18/2024
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+set_current_mismatch_config auto_fix 
+1
+set_attribute [get_mismatch_types missing_logical_reference] current_repair(auto_fix) create_blackbox
+Warning: Changing current repair(handler) for a mismatch type in between a flow is not recommended. (DMM-011)
+{missing_logical_reference}
+set_app_options -list { plan.macro.allow_unmapped_design true}
+plan.macro.allow_unmapped_design true
+set CORES 8
+8
+set_host_options -max_cores $CORES
+1
+set search_path "* ./ ../INPUT//ndm ../../../../rtl/blackbox"
+* ./ ../INPUT//ndm ../../../../rtl/blackbox
+create_lib neuron_LIB -ref_libs "sky130_fd_sc_hd.ndm" -technology ../libs/sky130_fd_sc_hd/sky130_fd_sc_hd.tf
+Information: The command 'create_lib' cleared the undo history. (UNDO-016)
+Warning: sky130_fd_sc_hd.tf line 26, unsupported syntax 'fatWireViaKeepoutMode' in 'Technology' section. It will be ignored. (TECH-002)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 846) (TECH-026)
+Warning: Layer 'via4/met4' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 846) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 854) (TECH-026)
+Warning: Layer 'via4/met5' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 854) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 862) (TECH-026)
+Warning: Layer 'via3/met3' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 862) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 870) (TECH-026)
+Warning: Layer 'via3/met4' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 870) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 878) (TECH-026)
+Warning: Layer 'via2/met2' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 878) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 886) (TECH-026)
+Warning: Layer 'via2/met3' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 886) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 894) (TECH-026)
+Warning: Layer 'via/met1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 894) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 902) (TECH-026)
+Warning: Layer 'via/met2' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 902) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 910) (TECH-026)
+Warning: Layer 'mcon/li1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 910) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 918) (TECH-026)
+Warning: Layer 'mcon/met1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 918) (TECH-026)
+Warning: DesignRule is defined with non-consecutive layers 'via4' and 'met4'. (sky130_fd_sc_hd.tf line 851) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via4' and 'met5'. (sky130_fd_sc_hd.tf line 859) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via3' and 'met3'. (sky130_fd_sc_hd.tf line 867) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via3' and 'met4'. (sky130_fd_sc_hd.tf line 875) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via2' and 'met2'. (sky130_fd_sc_hd.tf line 883) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via2' and 'met3'. (sky130_fd_sc_hd.tf line 891) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via' and 'met1'. (sky130_fd_sc_hd.tf line 899) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via' and 'met2'. (sky130_fd_sc_hd.tf line 907) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'mcon' and 'li1'. (sky130_fd_sc_hd.tf line 915) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'mcon' and 'met1'. (sky130_fd_sc_hd.tf line 923) (TECH-034)
+Information: Loading technology file '/storage/e19129/projects/neuromorphic/neuromorphic-accelerator/synopsys/primepower/tech_sky130/libs/sky130_fd_sc_hd/sky130_fd_sc_hd.tf' (FILE-007)
+Error: Reference library path 'sky130_fd_sc_hd.ndm' is not a valid library (LIB-027)
+Error: problem in create_lib
+      	Use error_info for more info. (CMD-013)
+Information: script '/storage/e19129/projects/neuromorphic/neuromorphic-accelerator/synopsys/primepower/tech_sky130/blackbox_sky130_fd_sc_hd/rtla.tcl'
+            	stopped at line 10 due to error. (CMD-081)
+Extended error info:
+problem in create_lib
+    while executing
+"create_lib neuron_LIB -ref_libs "sky130_fd_sc_hd.ndm" -technology ../libs/sky130_fd_sc_hd/sky130_fd_sc_hd.tf"
+    (file "/storage/e19129/projects/neuromorphic/neuromorphic-accelerator/synopsys/primepower/tech_sky130/blackbox_sky130_fd_sc_hd/rtla.tcl" line 10)
+ -- End Extended Error Info
+rtl_shell> 

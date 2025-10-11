@@ -1,0 +1,1468 @@
+
+
+
+                               RTL Architect (TM)
+
+               Version V-2023.12-SP5-3 for linux64 - Dec 17, 2024
+                           Base build date 11/18/2024
+
+                    Copyright (c) 1988 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+ 
+set_current_mismatch_config auto_fix 
+1
+set_attribute [get_mismatch_types missing_logical_reference] current_repair(auto_fix) create_blackbox
+Warning: Changing current repair(handler) for a mismatch type in between a flow is not recommended. (DMM-011)
+{missing_logical_reference}
+set_app_options -list { plan.macro.allow_unmapped_design true}
+plan.macro.allow_unmapped_design true
+set CORES 8
+8
+set_host_options -max_cores $CORES
+1
+set search_path "* ./ ../libs/sky130_library/ndm ../../../../rtl/blackbox"
+* ./ ../libs/sky130_library/ndm ../../../../rtl/blackbox
+create_lib neuron_LIB -ref_libs "../libs/sky130_library/ndm/sky130_fd_sc_hd.ndm" -technology ../libs/sky130_fd_sc_hd/sky130_fd_sc_hd.tf
+Information: The command 'create_lib' cleared the undo history. (UNDO-016)
+Warning: sky130_fd_sc_hd.tf line 26, unsupported syntax 'fatWireViaKeepoutMode' in 'Technology' section. It will be ignored. (TECH-002)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 846) (TECH-026)
+Warning: Layer 'via4/met4' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 846) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 854) (TECH-026)
+Warning: Layer 'via4/met5' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 854) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 862) (TECH-026)
+Warning: Layer 'via3/met3' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 862) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 870) (TECH-026)
+Warning: Layer 'via3/met4' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 870) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 878) (TECH-026)
+Warning: Layer 'via2/met2' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 878) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 886) (TECH-026)
+Warning: Layer 'via2/met3' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 886) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 894) (TECH-026)
+Warning: Layer 'via/met1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 894) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 902) (TECH-026)
+Warning: Layer 'via/met2' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 902) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 910) (TECH-026)
+Warning: Layer 'mcon/li1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 910) (TECH-026)
+Warning: Section DesignRule '' is missing the attribute 'stackable'. (sky130_fd_sc_hd.tf line 918) (TECH-026)
+Warning: Layer 'mcon/met1' is missing the attribute 'maxStackLevel'. (sky130_fd_sc_hd.tf line 918) (TECH-026)
+Warning: DesignRule is defined with non-consecutive layers 'via4' and 'met4'. (sky130_fd_sc_hd.tf line 851) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via4' and 'met5'. (sky130_fd_sc_hd.tf line 859) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via3' and 'met3'. (sky130_fd_sc_hd.tf line 867) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via3' and 'met4'. (sky130_fd_sc_hd.tf line 875) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via2' and 'met2'. (sky130_fd_sc_hd.tf line 883) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via2' and 'met3'. (sky130_fd_sc_hd.tf line 891) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via' and 'met1'. (sky130_fd_sc_hd.tf line 899) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'via' and 'met2'. (sky130_fd_sc_hd.tf line 907) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'mcon' and 'li1'. (sky130_fd_sc_hd.tf line 915) (TECH-034)
+Warning: DesignRule is defined with non-consecutive layers 'mcon' and 'met1'. (sky130_fd_sc_hd.tf line 923) (TECH-034)
+Information: Loading technology file '/storage/e19129/projects/neuromorphic/neuromorphic-accelerator/synopsys/primepower/tech_sky130/libs/sky130_fd_sc_hd/sky130_fd_sc_hd.tf' (FILE-007)
+{neuron_LIB}
+analyze -f sv -vcs "-f src.f "
+Information: By default, the HDL template library is 'WORK' (LBR-??).
+Running PRESTO HDLC
+Parsing vcs commands file -f src.f 
+Compiling source file ../../../../rtl/blackbox/blackbox.v
+Opening include file ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/utils/encording.v
+Opening include file ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/decay/potential_decay.v
+Opening include file ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/adder/potential_adder.v
+Opening include file ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/accumulator/accumulator.v
+Opening include file ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/neuron/controller.v
+Opening include file ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/neuron/neuron.v
+Opening include file ../../../../rtl/blackbox/../neuron_cluster/neuron_layer/neuron_layer.v
+Opening include file ../../../../rtl/blackbox/../neuron_cluster/incoming_forwarder/incoming_forwarder.v
+Opening include file ../../../../rtl/blackbox/../neuron_cluster/cluster_controller/cluster_controller.v
+Opening include file ../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v
+Opening include file ../../../../rtl/blackbox/../FIFO/fifo.v
+Opening include file ../../../../rtl/blackbox/../neuron_cluster/neuron_cluster.v
+Opening include file ../../../../rtl/blackbox/../spike_network/spike_forwarder/spike_forwarder.v
+Warning:  ../../../../rtl/blackbox/../spike_network/spike_forwarder/spike_forwarder.v:89: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  ../../../../rtl/blackbox/../spike_network/spike_forwarder/spike_forwarder.v:178: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Opening include file ../../../../rtl/blackbox/../spike_network/spike_forwarder_controller/spike_forwarder_controller_4.v
+Opening include file ../../../../rtl/blackbox/../spike_network/spike_forwarder_controller/spike_forwarder_controller_8.v
+Opening include file ../../../../rtl/blackbox/../spike_network/spike_forwarder_4.v
+Opening include file ../../../../rtl/blackbox/../spike_network/spike_forwarder_8.v
+Opening include file ../../../../rtl/blackbox/../initialization_router/init_router.v
+Opening include file ../../../../rtl/blackbox/../initialization_router/self_data_mng.v
+Opening include file ../../../../rtl/blackbox/../weight_resolver/weight_resolver.v
+Opening include file ../../../../rtl/blackbox/../weight_resolver/weight_memory.v
+Opening include file ../../../../rtl/blackbox/../neuron_accelerator/neuron_accelerator.v
+Opening include file ../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v
+Warning:  ../../../../rtl/blackbox/blackbox.v:216: Parameter keyword used in local parameter declaration. (VER-329)
+Presto compilation completed successfully.
+Elapsed = 00:00:00.13, CPU = 00:00:00.06
+1
+elaborate blackbox
+Presto compilation completed successfully. (blackbox)
+Information: Elaborating HDL template WORK:accelerator_controller instantiated from 'blackbox' with the parameters {DATA_WIDTH=64,FLIT_SIZE=8,SPIKE_SIZE=11,FUNCT=7'h01}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v:517: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v:567: signed to unsigned conversion occurs. (VER-318)
+
+Statistics for case statements in always block at line 130 in file
+	'../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           133            |    auto/auto     |
+|           149            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 171 in file
+	'../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           180            |    auto/auto     |
+|           212            |    auto/auto     |
+|           238            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 351 in file
+	'../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           360            |     no/auto      |
+|           390            |     no/auto      |
+|           415            |    auto/auto     |
+|           440            |    auto/auto     |
+|           468            |    auto/auto     |
+|           534            |     no/auto      |
+|           555            |     no/auto      |
+===============================================
+
+Statistics for case statements in always block at line 589 in file
+	'../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           594            |     no/auto      |
+===============================================
+  state register: state
+
+Inferred memory devices in process
+	in routine accelerator_controller_64_8_11_01 line 130 in file
+		'../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v'.
+===============================================================================
+|      Register Name      | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| selected_init_data_reg  | Latch |   8   |  Y  | Y  | N  | N  | -  | -  | -  |
+| selected_spike_data_reg | Latch |  11   |  Y  | Y  | N  | N  | -  | -  | -  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine accelerator_controller_64_8_11_01 line 171 in file
+		'../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v'.
+================================================================================
+|      Register Name       | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| init_packet_done_reg_reg | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
+|        ready_reg         | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
+|      next_state_reg      | Latch |   3   |  Y  | Y  | N  | N  | -  | -  | -  |
+|    next_sub_state_reg    | Latch |   3   |  Y  | Y  | N  | N  | -  | -  | -  |
+================================================================================
+
+Inferred memory devices in process
+	in routine accelerator_controller_64_8_11_01 line 351 in file
+		'../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v'.
+=======================================================================================
+|        Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=======================================================================================
+|      wait_for_data_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|          state_reg          | Flip-flop |   3   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|        sub_state_reg        | Flip-flop |   3   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      network_mode_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       data_buffer_reg       | Flip-flop |  120  |  Y  | Y  | N  | N  | N  | N  | N  |
+|    valid_flit_count_reg     | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    init_spike_select_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        send_done_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        data_done_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   init_load_data_send_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| init_ready_data_receive_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      data_out_reg_reg       | Flip-flop |  64   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   data_out_spike_reg_reg    | Flip-flop |  63   |  Y  | Y  | N  | N  | N  | N  | N  |
+|       flit_count_reg        | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  actual_data_out_count_reg  | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     init_data_send_reg      | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   main_fifo_rd_en_out_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    write_read_select_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      recieve_done_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        read_done_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        time_step_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      rst_potential_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    spike_output_full_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+=======================================================================================
+
+Inferred memory devices in process
+	in routine accelerator_controller_64_8_11_01 line 589 in file
+		'../../../../rtl/blackbox/../accelerator_controller/accelerator_controller.v'.
+=======================================================================================
+|        Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=======================================================================================
+|   main_fifo_wr_en_in_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      end_of_spikes_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      end_of_input_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    spike_input_count_reg    | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+| spike_input_packet_done_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    main_fifo_din_in_reg     | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+=======================================================================================
+Presto compilation completed successfully. (accelerator_controller_64_8_11_01)
+Information: Elaborating HDL template WORK:neuron_accelerator instantiated from 'blackbox' with the parameters {packet_width=11,main_fifo_depth=32,forwarder_8_fifo_depth=16,forwarder_4_fifo_depth=8,number_of_clusters=64,neurons_per_cluster=32,incoming_weight_table_rows=1024,max_weight_table_rows=2048,cluster_group_count=2,flit_size=8}. (ELAB-193)
+Presto compilation completed successfully. (neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2)
+Information: Elaborating HDL template WORK:fifo instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {WIDTH=11,DEPTH=32}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../FIFO/fifo.v:44: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../FIFO/fifo.v:52: signed to unsigned conversion occurs. (VER-318)
+
+Statistics for case statements in always block at line 32 in file
+	'../../../../rtl/blackbox/../FIFO/fifo.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            56            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine fifo_WIDTH11_DEPTH32 line 32 in file
+		'../../../../rtl/blackbox/../FIFO/fifo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       mem_reg       | Flip-flop |  352  |  Y  | Y  | N  | N  | N  | N  | N  |
+|     wr_ptr_reg      | Flip-flop |   5   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|     rd_ptr_reg      | Flip-flop |   5   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      count_reg      | Flip-flop |   6   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      dout_reg       | Flip-flop |  11   |  Y  | Y  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (fifo_WIDTH11_DEPTH32)
+Information: Elaborating HDL template WORK:spike_forwarder_8 instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {data_width=11,fifo_depth=16,main_fifo_depth=32}. (ELAB-193)
+Presto compilation completed successfully. (spike_forwarder_8_data_width11_fifo_depth16_main_fifo_depth32)
+Information: Elaborating HDL template WORK:init_router instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {PORTS=8,FLIT_SIZE=8,ROUTER_ID=8'ha0,ROUTER_TYPE=1,LOWER_LEVEL_ROUTERS=4}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:73: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 79 in file
+	'../../../../rtl/blackbox/../initialization_router/init_router.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            80            |    auto/auto     |
+|           124            |     no/auto      |
+===============================================
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:200: Statement unreachable (Branch condition impossible to meet). (VER-61)
+
+Statistics for case statements in always block at line 155 in file
+	'../../../../rtl/blackbox/../initialization_router/init_router.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           162            |     no/auto      |
+===============================================
+  state register: state
+  state register: pre_state
+
+Inferred memory devices in process
+	in routine init_router_8_8_a0_1_4 line 70 in file
+		'../../../../rtl/blackbox/../initialization_router/init_router.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|   input_port_reg    | Latch |   3   |  Y  | Y  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine init_router_8_8_a0_1_4 line 79 in file
+		'../../../../rtl/blackbox/../initialization_router/init_router.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|   next_state_reg    | Latch |   3   |  Y  | Y  | N  | N  | -  | -  | -  |
+|    from_top_reg     | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine init_router_8_8_a0_1_4 line 155 in file
+		'../../../../rtl/blackbox/../initialization_router/init_router.v'.
+===================================================================================
+|      Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================
+|      send_done_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        state_reg        | Flip-flop |   3   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      pre_state_reg      | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    data_out_done_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   packet_counter_reg    | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    routing_done_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  ready_data_top_in_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  load_data_top_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    data_top_out_reg     | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+| ready_data_lower_in_reg | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+| load_data_lower_out_reg | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      load_data_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   data_lower_out_reg    | Flip-flop |  64   |  Y  | Y  | N  | N  | N  | N  | N  |
+|        data_reg         | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    current_flit_reg     | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     header_flit_reg     | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     port_select_reg     | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     this_router_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     count_done_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===================================================================================
+Presto compilation completed successfully. (init_router_8_8_a0_1_4)
+Information: Elaborating HDL template WORK:init_router instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {PORTS=4,FLIT_SIZE=8,ROUTER_ID=@28206b3a32373220743a20693a2028206b3a32373320743a20693a2028206b3a31373820743a31333a22696e74254e624d764f26262220693a20693a20292028206b3a31373820743a31333a22696e74254e624d764f26262220693a20693a34202920292028206b3a31383220743a32383a226172726179283025372530256c6f6769632925677430396e2a692220693a20683a383a3830202920292000@,ROUTER_TYPE=0,LOWER_LEVEL_ROUTERS=4}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:4: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:73: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 79 in file
+	'../../../../rtl/blackbox/../initialization_router/init_router.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            80            |    auto/auto     |
+|           124            |     no/auto      |
+===============================================
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:202: Statement unreachable (Prior branch conditions are always met). (VER-61)
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:271: Statement unreachable (Branch condition impossible to meet). (VER-61)
+
+Statistics for case statements in always block at line 155 in file
+	'../../../../rtl/blackbox/../initialization_router/init_router.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           162            |     no/auto      |
+===============================================
+  state register: state
+  state register: pre_state
+
+Inferred memory devices in process
+	in routine init_router_4_8_00000080_0_4 line 70 in file
+		'../../../../rtl/blackbox/../initialization_router/init_router.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|   input_port_reg    | Latch |   2   |  Y  | Y  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine init_router_4_8_00000080_0_4 line 79 in file
+		'../../../../rtl/blackbox/../initialization_router/init_router.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|   next_state_reg    | Latch |   3   |  Y  | Y  | N  | N  | -  | -  | -  |
+|    from_top_reg     | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine init_router_4_8_00000080_0_4 line 155 in file
+		'../../../../rtl/blackbox/../initialization_router/init_router.v'.
+===================================================================================
+|      Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================
+|      send_done_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        state_reg        | Flip-flop |   3   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      pre_state_reg      | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    data_out_done_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   packet_counter_reg    | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    routing_done_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  ready_data_top_in_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  load_data_top_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    data_top_out_reg     | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+| ready_data_lower_in_reg | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+| load_data_lower_out_reg | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      load_data_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   data_lower_out_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|        data_reg         | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    current_flit_reg     | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     header_flit_reg     | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     port_select_reg     | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     this_router_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     count_done_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===================================================================================
+Presto compilation completed successfully. (init_router_4_8_00000080_0_4)
+Information: Elaborating HDL template WORK:spike_forwarder_4 instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {data_width=11,fifo_depth=8,main_fifo_depth=16}. (ELAB-193)
+Presto compilation completed successfully. (spike_forwarder_4_data_width11_fifo_depth8_main_fifo_depth16)
+Information: Elaborating HDL template WORK:self_data_mng instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2'. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../initialization_router/self_data_mng.v:41: signed to unsigned assignment occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../initialization_router/self_data_mng.v:42: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 17 in file
+	'../../../../rtl/blackbox/../initialization_router/self_data_mng.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            28            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine self_data_mng line 17 in file
+		'../../../../rtl/blackbox/../initialization_router/self_data_mng.v'.
+=======================================================================================
+|        Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=======================================================================================
+| load_data_out_resolver_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|          state_reg          | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|          count_reg          | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|         counter_reg         | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      port_selected_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   data_out_forwarder_reg    | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    data_out_resolver_reg    | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+| load_data_out_forwarder_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+=======================================================================================
+Presto compilation completed successfully. (self_data_mng)
+Information: Elaborating HDL template WORK:weight_resolver instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {max_weight_rows=2048,buffer_depth=8,neurons_per_cluster=32}. (ELAB-193)
+
+Statistics for case statements in always block at line 112 in file
+	'../../../../rtl/blackbox/../weight_resolver/weight_resolver.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           122            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine weight_resolver_max_weight_rows2048_buffer_depth8_neurons_per_cluster32 line 112 in file
+		'../../../../rtl/blackbox/../weight_resolver/weight_resolver.v'.
+=====================================================================================
+|       Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=====================================================================================
+|   weight_addr_init_reg    | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     weight_in_mem_reg     | Flip-flop | 1024  |  Y  | Y  | N  | N  | N  | N  | N  |
+| store_selected_buffer_reg | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|         state_reg         | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    load_weight_mem_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  weight_flit_counter_reg  | Flip-flop |  20   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   weight_flit_count_reg   | Flip-flop |  20   |  Y  | Y  | N  | N  | N  | N  | N  |
+=====================================================================================
+Presto compilation completed successfully. (weight_resolver_max_weight_rows2048_buffer_depth8_neurons_per_cluster32)
+Information: Elaborating HDL template WORK:neuron_cluster instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {packet_width=11,cluster_id=8'h00,number_of_clusters=64,neurons_per_cluster=32,incoming_weight_table_rows=1024,max_weight_table_rows=2048}. (ELAB-193)
+Presto compilation completed successfully. (neuron_cluster_11_00_64_32_1024_2048)
+Information: Elaborating HDL template WORK:neuron_cluster instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {packet_width=11,cluster_id=8'h01,number_of_clusters=64,neurons_per_cluster=32,incoming_weight_table_rows=1024,max_weight_table_rows=2048}. (ELAB-193)
+Presto compilation completed successfully. (neuron_cluster_11_01_64_32_1024_2048)
+Information: Elaborating HDL template WORK:neuron_cluster instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {packet_width=11,cluster_id=8'h02,number_of_clusters=64,neurons_per_cluster=32,incoming_weight_table_rows=1024,max_weight_table_rows=2048}. (ELAB-193)
+Presto compilation completed successfully. (neuron_cluster_11_02_64_32_1024_2048)
+Information: Elaborating HDL template WORK:neuron_cluster instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {packet_width=11,cluster_id=8'h03,number_of_clusters=64,neurons_per_cluster=32,incoming_weight_table_rows=1024,max_weight_table_rows=2048}. (ELAB-193)
+Presto compilation completed successfully. (neuron_cluster_11_03_64_32_1024_2048)
+Information: Elaborating HDL template WORK:init_router instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {PORTS=4,FLIT_SIZE=8,ROUTER_ID=@28206b3a32373220743a20693a2028206b3a32373320743a20693a2028206b3a31373820743a31333a22696e74254e624d764f26262220693a20693a3120292028206b3a31373820743a31333a22696e74254e624d764f26262220693a20693a34202920292028206b3a31383220743a32383a226172726179283025372530256c6f6769632925677430396e2a692220693a20683a383a3830202920292000@,ROUTER_TYPE=0,LOWER_LEVEL_ROUTERS=4}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:4: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:73: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 79 in file
+	'../../../../rtl/blackbox/../initialization_router/init_router.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            80            |    auto/auto     |
+|           124            |     no/auto      |
+===============================================
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:202: Statement unreachable (Prior branch conditions are always met). (VER-61)
+Warning:  ../../../../rtl/blackbox/../initialization_router/init_router.v:271: Statement unreachable (Branch condition impossible to meet). (VER-61)
+
+Statistics for case statements in always block at line 155 in file
+	'../../../../rtl/blackbox/../initialization_router/init_router.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           162            |     no/auto      |
+===============================================
+  state register: state
+  state register: pre_state
+
+Inferred memory devices in process
+	in routine init_router_4_8_00000084_0_4 line 70 in file
+		'../../../../rtl/blackbox/../initialization_router/init_router.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|   input_port_reg    | Latch |   2   |  Y  | Y  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine init_router_4_8_00000084_0_4 line 79 in file
+		'../../../../rtl/blackbox/../initialization_router/init_router.v'.
+===========================================================================
+|    Register Name    | Type  | Width | Bus | MB | AR | AS | SR | SS | ST |
+===========================================================================
+|   next_state_reg    | Latch |   3   |  Y  | Y  | N  | N  | -  | -  | -  |
+|    from_top_reg     | Latch |   1   |  N  | N  | N  | N  | -  | -  | -  |
+===========================================================================
+
+Inferred memory devices in process
+	in routine init_router_4_8_00000084_0_4 line 155 in file
+		'../../../../rtl/blackbox/../initialization_router/init_router.v'.
+===================================================================================
+|      Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================
+|      send_done_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        state_reg        | Flip-flop |   3   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      pre_state_reg      | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    data_out_done_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   packet_counter_reg    | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    routing_done_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  ready_data_top_in_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  load_data_top_out_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    data_top_out_reg     | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+| ready_data_lower_in_reg | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+| load_data_lower_out_reg | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      load_data_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   data_lower_out_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|        data_reg         | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    current_flit_reg     | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     header_flit_reg     | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     port_select_reg     | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     this_router_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     count_done_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===================================================================================
+Presto compilation completed successfully. (init_router_4_8_00000084_0_4)
+Information: Elaborating HDL template WORK:neuron_cluster instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {packet_width=11,cluster_id=8'h04,number_of_clusters=64,neurons_per_cluster=32,incoming_weight_table_rows=1024,max_weight_table_rows=2048}. (ELAB-193)
+Presto compilation completed successfully. (neuron_cluster_11_04_64_32_1024_2048)
+Information: Elaborating HDL template WORK:neuron_cluster instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {packet_width=11,cluster_id=8'h05,number_of_clusters=64,neurons_per_cluster=32,incoming_weight_table_rows=1024,max_weight_table_rows=2048}. (ELAB-193)
+Presto compilation completed successfully. (neuron_cluster_11_05_64_32_1024_2048)
+Information: Elaborating HDL template WORK:neuron_cluster instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {packet_width=11,cluster_id=8'h06,number_of_clusters=64,neurons_per_cluster=32,incoming_weight_table_rows=1024,max_weight_table_rows=2048}. (ELAB-193)
+Presto compilation completed successfully. (neuron_cluster_11_06_64_32_1024_2048)
+Information: Elaborating HDL template WORK:neuron_cluster instantiated from 'neuron_accelerator_packet_width11_main_fifo_depth32_forwarder_8_fifo_depth16_forwarder_4_fifo_depth8_number_of_clusters64_neurons_per_cluster32_incoming_weight_table_rows1024_max_weight_table_rows2048_flit_size8_cluster_group_count2' with the parameters {packet_width=11,cluster_id=8'h07,number_of_clusters=64,neurons_per_cluster=32,incoming_weight_table_rows=1024,max_weight_table_rows=2048}. (ELAB-193)
+Presto compilation completed successfully. (neuron_cluster_11_07_64_32_1024_2048)
+Information: Elaborating HDL template WORK:spike_forwarder instantiated from 'spike_forwarder_8_data_width11_fifo_depth16_main_fifo_depth32' with the parameters {num_ports=8,data_width=11,fifo_depth=16,main_fifo_depth=32}. (ELAB-193)
+
+Inferred memory devices in process
+	in routine spike_forwarder_num_ports8_data_width11_fifo_depth16_main_fifo_depth32 line 197 in file
+		'../../../../rtl/blackbox/../spike_network/spike_forwarder/spike_forwarder.v'.
+===================================================================================
+|      Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================
+| main_fifo_wr_en_in_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   main_in_data_in_reg   | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  fifo_in_data_out_reg   | Flip-flop |  88   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   fifo_wr_en_out_reg    | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+| store_selected_port_reg | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   forwarded_port_reg    | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+| inflight_count_reg_reg  | Flip-flop |  18   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   forwarding_map_reg    | Flip-flop |  81   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   inflight_count_reg    | Flip-flop |  18   |  Y  | Y  | N  | N  | N  | N  | N  |
+===================================================================================
+Presto compilation completed successfully. (spike_forwarder_num_ports8_data_width11_fifo_depth16_main_fifo_depth32)
+Information: Elaborating HDL template WORK:spike_forwarder_controller_8 instantiated from 'spike_forwarder_8_data_width11_fifo_depth16_main_fifo_depth32'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine spike_forwarder_controller_8 line 12 in file
+		'../../../../rtl/blackbox/../spike_network/spike_forwarder_controller/spike_forwarder_controller_8.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| forwarding_row_reg  | Flip-flop |   9   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      state_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    load_row_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    row_index_reg    | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (spike_forwarder_controller_8)
+Information: Elaborating HDL template WORK:spike_forwarder instantiated from 'spike_forwarder_4_data_width11_fifo_depth8_main_fifo_depth16' with the parameters {num_ports=4,data_width=11,fifo_depth=8,main_fifo_depth=16}. (ELAB-193)
+
+Inferred memory devices in process
+	in routine spike_forwarder_num_ports4_data_width11_fifo_depth8_main_fifo_depth16 line 197 in file
+		'../../../../rtl/blackbox/../spike_network/spike_forwarder/spike_forwarder.v'.
+===================================================================================
+|      Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===================================================================================
+| main_fifo_wr_en_in_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   main_in_data_in_reg   | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  fifo_in_data_out_reg   | Flip-flop |  44   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   fifo_wr_en_out_reg    | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+| store_selected_port_reg | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   forwarded_port_reg    | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+| inflight_count_reg_reg  | Flip-flop |  10   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   forwarding_map_reg    | Flip-flop |  25   |  Y  | Y  | N  | N  | N  | N  | N  |
+|   inflight_count_reg    | Flip-flop |  10   |  Y  | Y  | N  | N  | N  | N  | N  |
+===================================================================================
+Presto compilation completed successfully. (spike_forwarder_num_ports4_data_width11_fifo_depth8_main_fifo_depth16)
+Information: Elaborating HDL template WORK:spike_forwarder_controller_4 instantiated from 'spike_forwarder_4_data_width11_fifo_depth8_main_fifo_depth16'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine spike_forwarder_controller_4 line 11 in file
+		'../../../../rtl/blackbox/../spike_network/spike_forwarder_controller/spike_forwarder_controller_4.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| forwarding_row_reg  | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    load_row_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    row_index_reg    | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (spike_forwarder_controller_4)
+Information: Elaborating HDL template WORK:weight_memory instantiated from 'weight_resolver_max_weight_rows2048_buffer_depth8_neurons_per_cluster32' with the parameters {max_weight_rows=2048}. (ELAB-193)
+
+Inferred memory devices in process
+	in routine weight_memory_max_weight_rows2048 line 23 in file
+		'../../../../rtl/blackbox/../weight_resolver/weight_memory.v'.
+=================================================================================
+|    Register Name    |   Type    |  Width  | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+|   weight_mem_reg    | Flip-flop | 2097152 |  Y  | Y  | Y  | N  | N  | N  | N  |
+=================================================================================
+Presto compilation completed successfully. (weight_memory_max_weight_rows2048)
+Module: weight_memory_max_weight_rows2048, Elapsed Time: 00:09:04, CPU Time: 00:08:48, Total Mem: 26.89 GB, Mem: 26.43 GB, Time: Thu Oct  9 22:29:00 2025
+Information: Elaborating HDL template WORK:fifo instantiated from 'weight_resolver_max_weight_rows2048_buffer_depth8_neurons_per_cluster32' with the parameters {WIDTH=11,DEPTH=8}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../FIFO/fifo.v:44: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../FIFO/fifo.v:52: signed to unsigned conversion occurs. (VER-318)
+
+Statistics for case statements in always block at line 32 in file
+	'../../../../rtl/blackbox/../FIFO/fifo.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            56            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine fifo_WIDTH11_DEPTH8 line 32 in file
+		'../../../../rtl/blackbox/../FIFO/fifo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       mem_reg       | Flip-flop |  88   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     wr_ptr_reg      | Flip-flop |   3   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|     rd_ptr_reg      | Flip-flop |   3   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      count_reg      | Flip-flop |   4   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      dout_reg       | Flip-flop |  11   |  Y  | Y  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (fifo_WIDTH11_DEPTH8)
+Information: Elaborating HDL template WORK:cluster_controller instantiated from 'neuron_cluster_11_00_64_32_1024_2048' with the parameters {number_of_clusters=64,neurons_per_cluster=32,max_weight_table_rows=2048}. (ELAB-193)
+
+Statistics for case statements in always block at line 42 in file
+	'../../../../rtl/blackbox/../neuron_cluster/cluster_controller/cluster_controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            57            |    auto/auto     |
+|            60            |    auto/auto     |
+|            88            |    auto/auto     |
+|           102            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine cluster_controller_number_of_clusters64_neurons_per_cluster32_max_weight_table_rows2048 line 42 in file
+		'../../../../rtl/blackbox/../neuron_cluster/cluster_controller/cluster_controller.v'.
+========================================================================================
+|        Register Name         |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+========================================================================================
+|        neuron_id_reg         | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+|        cluster_en_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       neuron_data_reg        | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     neuron_load_data_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      if_cluster_id_reg       | Flip-flop |   6   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  if_load_cluster_index_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| if_base_weight_addr_init_reg | Flip-flop |  16   |  Y  | Y  | N  | N  | N  | N  | N  |
+|     if_load_addr_in_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|        flit_count_reg        | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|       flit_counter_reg       | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|        work_mode_reg         | Flip-flop |   8   |  Y  | Y  | N  | N  | N  | N  | N  |
+|          state_reg           | Flip-flop |   4   |  Y  | Y  | N  | N  | N  | N  | N  |
+========================================================================================
+Presto compilation completed successfully. (cluster_controller_number_of_clusters64_neurons_per_cluster32_max_weight_table_rows2048)
+Information: Elaborating HDL template WORK:neuron_layer instantiated from 'neuron_cluster_11_00_64_32_1024_2048' with the parameters {neuron_bank_size=32}. (ELAB-193)
+
+Inferred memory devices in process
+	in routine neuron_layer_neuron_bank_size32 line 90 in file
+		'../../../../rtl/blackbox/../neuron_cluster/neuron_layer/neuron_layer.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+|   prev_spikes_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  prev_time_step_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| prev_neuron_done_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+| neuron_done_reg_reg  | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    spikes_out_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|  enable_neuron_reg   | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (neuron_layer_neuron_bank_size32)
+Information: Elaborating HDL template WORK:incoming_forwarder instantiated from 'neuron_cluster_11_00_64_32_1024_2048' with the parameters {incoming_weight_table_rows=1024,max_weight_table_rows=2048,weight_address_buffer_depth=8}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_cluster/incoming_forwarder/incoming_forwarder.v:51: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine incoming_forwarder_incoming_weight_table_rows1024_max_weight_table_rows2048_weight_address_buffer_depth8 line 58 in file
+		'../../../../rtl/blackbox/../neuron_cluster/incoming_forwarder/incoming_forwarder.v'.
+====================================================================================
+|      Register Name       |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+====================================================================================
+|   cluster_id_table_reg   | Flip-flop |  224  |  Y  | Y  | N  | N  | N  | N  | N  |
+|   weight_addr_out_reg    | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+| address_buffer_wr_en_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    wait_for_data_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      row_index_reg       | Flip-flop |   5   |  Y  | Y  | N  | N  | N  | N  | N  |
+| base_weight_addr_reg_reg | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+====================================================================================
+Presto compilation completed successfully. (incoming_forwarder_incoming_weight_table_rows1024_max_weight_table_rows2048_weight_address_buffer_depth8)
+Information: Elaborating HDL template WORK:outgoing_enc instantiated from 'neuron_cluster_11_00_64_32_1024_2048' with the parameters {neurons_can_handle=32,packet_width=11,cluster_id=8'h00}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v:46: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine outgoing_enc_32_11_00 line 50 in file
+		'../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| prev_spikes_done_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| sent_spikes_prev_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      packet_reg      | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    enc_state_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      wr_en_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   sent_spikes_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (outgoing_enc_32_11_00)
+Information: Elaborating HDL template WORK:outgoing_enc instantiated from 'neuron_cluster_11_01_64_32_1024_2048' with the parameters {neurons_can_handle=32,packet_width=11,cluster_id=8'h01}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v:46: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine outgoing_enc_32_11_01 line 50 in file
+		'../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| prev_spikes_done_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| sent_spikes_prev_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      packet_reg      | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    enc_state_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      wr_en_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   sent_spikes_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (outgoing_enc_32_11_01)
+Information: Elaborating HDL template WORK:outgoing_enc instantiated from 'neuron_cluster_11_02_64_32_1024_2048' with the parameters {neurons_can_handle=32,packet_width=11,cluster_id=8'h02}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v:46: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine outgoing_enc_32_11_02 line 50 in file
+		'../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| prev_spikes_done_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| sent_spikes_prev_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      packet_reg      | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    enc_state_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      wr_en_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   sent_spikes_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (outgoing_enc_32_11_02)
+Information: Elaborating HDL template WORK:outgoing_enc instantiated from 'neuron_cluster_11_03_64_32_1024_2048' with the parameters {neurons_can_handle=32,packet_width=11,cluster_id=8'h03}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v:46: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine outgoing_enc_32_11_03 line 50 in file
+		'../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| prev_spikes_done_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| sent_spikes_prev_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      packet_reg      | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    enc_state_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      wr_en_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   sent_spikes_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (outgoing_enc_32_11_03)
+Information: Elaborating HDL template WORK:outgoing_enc instantiated from 'neuron_cluster_11_04_64_32_1024_2048' with the parameters {neurons_can_handle=32,packet_width=11,cluster_id=8'h04}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v:46: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine outgoing_enc_32_11_04 line 50 in file
+		'../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| prev_spikes_done_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| sent_spikes_prev_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      packet_reg      | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    enc_state_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      wr_en_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   sent_spikes_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (outgoing_enc_32_11_04)
+Information: Elaborating HDL template WORK:outgoing_enc instantiated from 'neuron_cluster_11_05_64_32_1024_2048' with the parameters {neurons_can_handle=32,packet_width=11,cluster_id=8'h05}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v:46: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine outgoing_enc_32_11_05 line 50 in file
+		'../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| prev_spikes_done_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| sent_spikes_prev_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      packet_reg      | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    enc_state_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      wr_en_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   sent_spikes_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (outgoing_enc_32_11_05)
+Information: Elaborating HDL template WORK:outgoing_enc instantiated from 'neuron_cluster_11_06_64_32_1024_2048' with the parameters {neurons_can_handle=32,packet_width=11,cluster_id=8'h06}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v:46: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine outgoing_enc_32_11_06 line 50 in file
+		'../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| prev_spikes_done_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| sent_spikes_prev_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      packet_reg      | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    enc_state_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      wr_en_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   sent_spikes_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (outgoing_enc_32_11_06)
+Information: Elaborating HDL template WORK:outgoing_enc instantiated from 'neuron_cluster_11_07_64_32_1024_2048' with the parameters {neurons_can_handle=32,packet_width=11,cluster_id=8'h07}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v:46: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine outgoing_enc_32_11_07 line 50 in file
+		'../../../../rtl/blackbox/../neuron_cluster/outgoing_enc/outgoing_enc.v'.
+================================================================================
+|    Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+================================================================================
+| prev_spikes_done_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| sent_spikes_prev_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      packet_reg      | Flip-flop |  11   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    enc_state_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      wr_en_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   sent_spikes_reg    | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+================================================================================
+Presto compilation completed successfully. (outgoing_enc_32_11_07)
+Information: Elaborating HDL template WORK:fifo instantiated from 'spike_forwarder_num_ports8_data_width11_fifo_depth16_main_fifo_depth32' with the parameters {WIDTH=11,DEPTH=16}. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../FIFO/fifo.v:44: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../FIFO/fifo.v:52: signed to unsigned conversion occurs. (VER-318)
+
+Statistics for case statements in always block at line 32 in file
+	'../../../../rtl/blackbox/../FIFO/fifo.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            56            |    auto/auto     |
+===============================================
+
+Inferred memory devices in process
+	in routine fifo_WIDTH11_DEPTH16 line 32 in file
+		'../../../../rtl/blackbox/../FIFO/fifo.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       mem_reg       | Flip-flop |  176  |  Y  | Y  | N  | N  | N  | N  | N  |
+|     wr_ptr_reg      | Flip-flop |   4   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|     rd_ptr_reg      | Flip-flop |   4   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      count_reg      | Flip-flop |   5   |  Y  | Y  | Y  | N  | N  | N  | N  |
+|      dout_reg       | Flip-flop |  11   |  Y  | Y  | Y  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (fifo_WIDTH11_DEPTH16)
+Information: Elaborating HDL template WORK:neuron instantiated from 'neuron_layer_neuron_bank_size32'. (ELAB-193)
+Presto compilation completed successfully. (neuron)
+Information: Elaborating HDL template WORK:controller per configuration 'neuron'. (ELAB-193)
+
+Statistics for case statements in always block at line 34 in file
+	'../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/neuron/controller.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|            47            |    auto/auto     |
+|            82            |    auto/auto     |
+===============================================
+  state register: controller_status
+
+Inferred memory devices in process
+	in routine controller line 34 in file
+		'../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/neuron/controller.v'.
+=================================================================================
+|     Register Name     |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+=================================================================================
+|   buffer_status_reg   | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|       load_reg        | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       value_reg       | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    decay_mode_reg     | Flip-flop |   3   |  Y  | Y  | N  | N  | N  | N  | N  |
+| controller_status_reg | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    reset_mode_reg     | Flip-flop |   2   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      buffer_reg       | Flip-flop |  24   |  Y  | Y  | N  | N  | N  | N  | N  |
+|    adder_load_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+=================================================================================
+Presto compilation completed successfully. (controller)
+Information: Elaborating HDL template WORK:accumulator per configuration 'neuron'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine accumulator line 15 in file
+		'../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/accumulator/accumulator.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| accumulated_reg_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine accumulator line 28 in file
+		'../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/accumulator/accumulator.v'.
+==================================================================================
+|     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================
+| prev_time_step_val_reg | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|  accumulated_out_reg   | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+==================================================================================
+Presto compilation completed successfully. (accumulator)
+Information: Elaborating HDL template WORK:potential_decay per configuration 'neuron'. (ELAB-193)
+
+Inferred memory devices in process
+	in routine potential_decay line 17 in file
+		'../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/decay/potential_decay.v'.
+======================================================================================
+|       Register Name        |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+======================================================================================
+|     prev_time_step_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| output_potential_decay_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+======================================================================================
+
+Inferred memory devices in process
+	in routine potential_decay line 38 in file
+		'../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/decay/potential_decay.v'.
+==================================================================================
+|     Register Name      |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+==================================================================================
+| membrane_potential_reg | Flip-flop |  31   |  Y  | Y  | N  | N  | N  | N  | N  |
+==================================================================================
+Presto compilation completed successfully. (potential_decay)
+Information: Elaborating HDL template WORK:potential_adder per configuration 'neuron'. (ELAB-193)
+Warning:  ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/adder/potential_adder.v:29: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/adder/potential_adder.v:33: unsigned to signed assignment occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/adder/potential_adder.v:34: signed to unsigned conversion occurs. (VER-318)
+Warning:  ../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/adder/potential_adder.v:53: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine potential_adder line 25 in file
+		'../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/adder/potential_adder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   v_threshold_reg   | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine potential_adder line 41 in file
+		'../../../../rtl/blackbox/../neuron_integer/neuron_int_lif/adder/potential_adder.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+| prev_time_step_reg  | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   adder_state_reg   | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+| final_potential_reg | Flip-flop |  32   |  Y  | Y  | N  | N  | N  | N  | N  |
+|      spike_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      done_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully. (potential_adder)
+Information: Design elaboration summary: (FLW-8550)
+Number of modules read: 42
+Top level ports:        1275
+Total in all modules
+  Ports:                19897
+  Nets:                 2175031
+  Instances:            2118162
+Design summary end. (FLW-8551)
+Elapsed = 00:11:04.16, CPU = 00:10:47.93
+1
+set_top_module blackbox
+Information: User units loaded from library 'sky130_fd_sc_hd' (LNK-040)
+Information: Added key list 'DesignWare' to design 'blackbox'. (DWS-0216)
+Gensys attachment is created: presto_gensys.attach:neuron_LIB:blackbox.design 
+Elapsed = 00:05:32.73, CPU = 00:05:31.11
+1
+source tz_setup.tcl
+Warning: This option -max_number_of_levels will be ignored during clock gating insertion/optimizations. (CGT-3003)
+The following clock gating options are applied to: top-level (design)
+Minimum bitwidth: 3
+Maximum fanout: 8
+The following clock gating style is applied to: top-level (design)
+Target: pos_edge_flip_flop 
+Test control position: before
+Observation output: false
+Created scenario func@cworst for mode func and corner cworst
+All analysis types are activated.
+Scenario func@cworst (mode func corner cworst) is active for setup/leakage_power/dynamic_power/max_transition/max_capacitance/min_capacitance analysis.
+****************************************
+Report : scenario
+Design : blackbox
+Version: V-2023.12-SP5-3
+Date   : Thu Oct  9 22:36:31 2025
+****************************************
+
+                                                                     Leakage  Dynamic                              Cell  Signal
+Name            Mode            Corner          Active  Setup  Hold  Power    Power    Max_tran  Max_cap  Min_cap  EM    EM
+----------------------------------------------------------------------------------------------------------------------------------
+func@cworst *   func            cworst          true    true   false true     true     true      true     true     false false
+
+1
+rtl_opt
+Warning: app_option compile.flow.constant_and_unloaded_propagation_with_no_boundary_opt will be set as false during the rtl_opt. (RTLA-800)
+Warning: Ignoring -as_user_default option since application option <opt.mux.rtla_use_xref_signatures> is global scoped. (NDMUI-1004)
+Information: Starting 'rtl_opt' (FLW-8000)
+Information: Time: 2025-10-09 22:37:33 / Session:  00:17:52 / Command:  00:00:00 / CPU:  00:00:00 / Memory: 25641 MB (FLW-8100)
+Information: Timer using 8 threads
+INFO: compile_fusion is running in balanced flow mode.
+INFO: EIO v2 is enabled
+INFO: Cost Function Configuration 0.5/0.5/0.5/0.5
+Information: Structural Congestion Optimization technology (Early SCO) has been enabled. (SCO-0001)
+****************************************
+Report : report_tbcs
+Version: V-2023.12-SP5-3
+Date   : Thu Oct  9 22:38:32 2025
+****************************************
+INFO: Start environment monitoring: recipes
+Warning: Corner cworst:  0 process number, 1 process label, 0 voltage, and 0 temperature mismatches. (PVT-030)
+Warning: 272949 cells affected for early, 272949 for late. (PVT-031)
+Warning: 0 port driving_cells affected for early, 0 for late. (PVT-034)
+INFO: compile_fusion is running in balanced flow mode.
+INFO: EIO v2 is enabled
+INFO: Cost Function Configuration 0.5/0.5/0.5/0.5
+Information: The automatic clock gate timing flow is activated. Clock latencies set on clock gate cells will be automatically adjusted by an estimate for latency. (CGT-4005)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / conditioning (FLW-8000)
+Information: Time: 2025-10-09 22:51:32 / Session:  00:31:51 / Command:  00:13:59 / CPU:  00:16:40 / Memory: 37025 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / conditioning / Load Design (FLW-8000)
+Information: Time: 2025-10-09 22:51:49 / Session:  00:32:07 / Command:  00:14:15 / CPU:  00:16:56 / Memory: 37025 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Load Design (FLW-8001)
+Information: Time: 2025-10-09 22:53:22 / Session:  00:33:41 / Command:  00:15:49 / CPU:  00:18:29 / Memory: 37025 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / MV Cell Insertion (FLW-8000)
+Information: Time: 2025-10-09 22:53:22 / Session:  00:33:41 / Command:  00:15:49 / CPU:  00:18:29 / Memory: 37025 MB (FLW-8100)
+MV related app options set by user:
+Information: Ending   rtl_opt / conditioning / MV Cell Insertion (FLW-8001)
+Information: Time: 2025-10-09 22:53:22 / Session:  00:33:41 / Command:  00:15:49 / CPU:  00:18:29 / Memory: 37025 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Constant and Equal Register Detection (FLW-8000)
+Information: Time: 2025-10-09 22:53:23 / Session:  00:33:42 / Command:  00:15:49 / CPU:  00:18:30 / Memory: 37025 MB (FLW-8100)
+Information: The register accc/next_sub_state_reg[2] is removed as constant '0'. (SQM-4100)
+Information: The register accc/sub_state_reg[2] is removed as constant '0'. (SQM-4100)
+Information: The register accc/data_out_spike_reg_reg[8] is removed as constant '0'. (SQM-4100)
+Information: The register accc/data_out_spike_reg_reg[7] is removed as constant '0'. (SQM-4100)
+Information: The register accc/data_out_spike_reg_reg[6] is removed as constant '0'. (SQM-4100)
+Information: The register accc/data_out_spike_reg_reg[5] is removed as constant '0'. (SQM-4100)
+Information: The register accc/data_out_spike_reg_reg[4] is removed as constant '0'. (SQM-4100)
+Information: The register uut/gen_spike_forwarder_4[0].weight_resolver_inst/weight_flit_count_reg[19] is removed as constant '0'. (SQM-4100)
+Information: The register uut/gen_spike_forwarder_4[1].weight_resolver_inst/weight_flit_count_reg[19] is removed as constant '0'. (SQM-4100)
+Information: The register uut/gen_spike_forwarder_4[0].weight_resolver_inst/weight_flit_count_reg[18] is removed as constant '0'. (SQM-4100)
+Information: The register uut/gen_spike_forwarder_4[1].gen_neuron_cluster[3].neuron_cluster_inst/outgoing_enc/packet_reg[6] is removed because it is merged to register uut/gen_spike_forwarder_4[1].gen_neuron_cluster[3].neuron_cluster_inst/outgoing_enc/packet_reg[7]. (SQM-4102)
+Information: The register uut/gen_spike_forwarder_4[1].gen_neuron_cluster[3].neuron_cluster_inst/outgoing_enc/packet_reg[5] is removed because it is merged to register uut/gen_spike_forwarder_4[1].gen_neuron_cluster[3].neuron_cluster_inst/outgoing_enc/packet_reg[7]. (SQM-4102)
+Information: The register uut/spike_forwarder/spike_forwarder_inst/forwarded_port_reg[3] is removed because it is merged to register uut/spike_forwarder/spike_forwarder_inst/forwarded_port_reg[4]. (SQM-4102)
+Information: The register uut/gen_spike_forwarder_4[0].gen_neuron_cluster[3].neuron_cluster_inst/outgoing_enc/packet_reg[5] is removed because it is merged to register uut/gen_spike_forwarder_4[0].gen_neuron_cluster[3].neuron_cluster_inst/outgoing_enc/packet_reg[6]. (SQM-4102)
+Information: The register uut/gen_spike_forwarder_4[0].spike_forwarder_4_inst/spike_forwarder_inst/forwarded_port_reg[2] is removed because it is merged to register uut/gen_spike_forwarder_4[0].spike_forwarder_4_inst/spike_forwarder_inst/forwarded_port_reg[3]. (SQM-4102)
+Information: The register uut/gen_spike_forwarder_4[1].spike_forwarder_4_inst/spike_forwarder_inst/forwarded_port_reg[2] is removed because it is merged to register uut/gen_spike_forwarder_4[1].spike_forwarder_4_inst/spike_forwarder_inst/forwarded_port_reg[3]. (SQM-4102)
+Information: The register uut/gen_spike_forwarder_4[1].gen_neuron_cluster[2].neuron_cluster_inst/outgoing_enc/packet_reg[6] is removed because it is merged to register uut/gen_spike_forwarder_4[1].gen_neuron_cluster[2].neuron_cluster_inst/outgoing_enc/packet_reg[7]. (SQM-4102)
+Information: The register accc/actual_data_out_count_reg[1] is removed because it is merged to register accc/data_out_spike_reg_reg[2]. (SQM-4102)
+Information: The register accc/actual_data_out_count_reg[2] is removed because it is merged to register accc/data_out_spike_reg_reg[3]. (SQM-4102)
+Information: The register uut/spike_forwarder/spike_forwarder_inst/store_selected_port_reg[3] is removed because it is merged to register uut/spike_forwarder/spike_forwarder_inst/store_selected_port_reg[4]. (SQM-4102)
+Information: 339 registers were removed as constant. Use report_transformed_registers for a list. (SQM-3100)
+Information: 1686 registers were found constant but could not be removed due to restrictions. (SQM-3103)
+Information: Register Bits Before Sharing = 4276008, After Sharing = 4275994, Savings = 14 (SQM-2000)
+Information: 14 registers were merged. Use report_transformed_registers for a list. (SQM-4106)
+Information: 329 out of 339 SQM-4100 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:18) (MSG-3913)
+Information: 4 out of 14 SQM-4102 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:18) (MSG-3913)
+Information: Ending   rtl_opt / conditioning / Constant and Equal Register Detection (FLW-8001)
+Information: Time: 2025-10-09 23:07:59 / Session:  00:48:18 / Command:  00:30:26 / CPU:  00:52:44 / Memory: 42992 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Register Merging (FLW-8000)
+Information: Time: 2025-10-09 23:07:59 / Session:  00:48:18 / Command:  00:30:26 / CPU:  00:52:44 / Memory: 42992 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Register Merging (FLW-8001)
+Information: Time: 2025-10-09 23:07:59 / Session:  00:48:18 / Command:  00:30:26 / CPU:  00:52:44 / Memory: 42992 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / Constant Propagation and Register Optimization (FLW-8000)
+Information: Time: 2025-10-09 23:07:59 / Session:  00:48:18 / Command:  00:30:26 / CPU:  00:52:44 / Memory: 42992 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Constant Propagation and Register Optimization (FLW-8001)
+Information: Time: 2025-10-09 23:10:06 / Session:  00:50:25 / Command:  00:32:32 / CPU:  01:00:05 / Memory: 42992 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / High-Level Optimization and Technology Mapping (1) (FLW-8000)
+Information: Time: 2025-10-09 23:15:18 / Session:  00:55:37 / Command:  00:37:45 / CPU:  01:05:14 / Memory: 42992 MB (FLW-8100)
+Still running [1] (Session: 1.10 hr / Command: 0.80 hr / Memory: 42991.80 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 136 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [2] (Session: 1.26 hr / Command: 0.97 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 27%, Ram Free: 0 GB, Swap Free: 120 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [3] (Session: 1.43 hr / Command: 1.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 120 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [4] (Session: 1.60 hr / Command: 1.30 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 120 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [5] (Session: 1.76 hr / Command: 1.47 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 30%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [6] (Session: 1.93 hr / Command: 1.63 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [7] (Session: 2.10 hr / Command: 1.80 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [8] (Session: 2.26 hr / Command: 1.97 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [9] (Session: 2.43 hr / Command: 2.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [10] (Session: 2.60 hr / Command: 2.30 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [11] (Session: 2.76 hr / Command: 2.47 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [12] (Session: 2.93 hr / Command: 2.63 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [13] (Session: 3.10 hr / Command: 2.80 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [14] (Session: 3.26 hr / Command: 2.97 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 27%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [15] (Session: 3.43 hr / Command: 3.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Information: Identified 1 crossbars in module 'weight_resolver_max_weight_rows2048_buffer_depth8_neurons_per_cluster32'. 0 out of 0 potentially congested crossbars amongst these are candidates for mux tree implementation. (MUX-6091)
+Information: Identified 3 crossbars in module 'spike_forwarder_num_ports8_data_width11_fifo_depth16_main_fifo_depth32'. 0 out of 0 potentially congested crossbars amongst these are candidates for mux tree implementation. (MUX-6091)
+Information: Identified 1 crossbars in module 'neuron_layer_neuron_bank_size32'. 0 out of 0 potentially congested crossbars amongst these are candidates for mux tree implementation. (MUX-6091)
+Information: Identified 3 crossbars in module 'spike_forwarder_num_ports4_data_width11_fifo_depth8_main_fifo_depth16'. 0 out of 0 potentially congested crossbars amongst these are candidates for mux tree implementation. (MUX-6091)
+Information: Identified 1 crossbars in module 'cluster_controller_number_of_clusters64_neurons_per_cluster32_max_weight_table_rows2048'. 0 out of 0 potentially congested crossbars amongst these are candidates for mux tree implementation. (MUX-6091)
+Information: Identified 1 crossbars in module 'controller'. 0 out of 0 potentially congested crossbars amongst these are candidates for mux tree implementation. (MUX-6091)
+Information: Identified 1 crossbars in module 'self_data_mng'. 0 out of 0 potentially congested crossbars amongst these are candidates for mux tree implementation. (MUX-6091)
+Still running [16] (Session: 3.74 hr / Command: 3.44 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [17] (Session: 3.91 hr / Command: 3.61 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Information: Timer using 8 threads
+Information: Ending   rtl_opt / conditioning / High-Level Optimization and Technology Mapping (1) (FLW-8001)
+Information: Time: 2025-10-10 02:24:50 / Session:  04:05:08 / Command:  03:47:16 / CPU:  04:01:09 / Memory: 59702 MB (FLW-8100)
+Information: Starting rtl_opt / conditioning / High-Level Optimization and Technology Mapping (2) (FLW-8000)
+Information: Time: 2025-10-10 02:24:50 / Session:  04:05:08 / Command:  03:47:16 / CPU:  04:01:09 / Memory: 59702 MB (FLW-8100)
+Still running [18] (Session: 4.26 hr / Command: 3.96 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [19] (Session: 4.42 hr / Command: 4.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [20] (Session: 4.59 hr / Command: 4.29 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [21] (Session: 4.76 hr / Command: 4.46 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [22] (Session: 4.92 hr / Command: 4.63 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [23] (Session: 5.09 hr / Command: 4.79 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [24] (Session: 5.26 hr / Command: 4.96 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [25] (Session: 5.42 hr / Command: 5.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [26] (Session: 5.59 hr / Command: 5.29 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [27] (Session: 5.76 hr / Command: 5.46 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [28] (Session: 5.92 hr / Command: 5.63 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [29] (Session: 6.09 hr / Command: 5.79 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [30] (Session: 6.26 hr / Command: 5.96 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [31] (Session: 6.42 hr / Command: 6.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [32] (Session: 6.59 hr / Command: 6.29 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [33] (Session: 6.76 hr / Command: 6.46 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [34] (Session: 6.92 hr / Command: 6.63 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [35] (Session: 7.09 hr / Command: 6.79 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [36] (Session: 7.26 hr / Command: 6.96 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [37] (Session: 7.42 hr / Command: 7.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [38] (Session: 7.59 hr / Command: 7.29 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [39] (Session: 7.76 hr / Command: 7.46 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [40] (Session: 7.92 hr / Command: 7.63 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [41] (Session: 8.09 hr / Command: 7.79 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [42] (Session: 8.26 hr / Command: 7.96 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [43] (Session: 8.42 hr / Command: 8.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [44] (Session: 8.59 hr / Command: 8.29 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [45] (Session: 8.76 hr / Command: 8.46 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [46] (Session: 8.92 hr / Command: 8.63 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [47] (Session: 9.09 hr / Command: 8.79 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [48] (Session: 9.26 hr / Command: 8.96 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [49] (Session: 9.42 hr / Command: 9.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [50] (Session: 9.59 hr / Command: 9.29 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [51] (Session: 9.76 hr / Command: 9.46 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [52] (Session: 9.92 hr / Command: 9.63 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [53] (Session: 10.09 hr / Command: 9.79 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [54] (Session: 10.26 hr / Command: 9.96 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [55] (Session: 10.42 hr / Command: 10.13 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [56] (Session: 10.59 hr / Command: 10.29 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [57] (Session: 10.76 hr / Command: 10.46 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [58] (Session: 10.92 hr / Command: 10.63 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [59] (Session: 11.09 hr / Command: 10.79 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [60] (Session: 11.26 hr / Command: 10.96 hr / Memory: 59701.59 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [61] (Session: 11.42 hr / Command: 11.13 hr / Memory: 61227.09 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 119 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [62] (Session: 11.59 hr / Command: 11.29 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 122%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [63] (Session: 11.76 hr / Command: 11.46 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 122%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [64] (Session: 11.92 hr / Command: 11.63 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [65] (Session: 12.09 hr / Command: 11.79 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 27%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [66] (Session: 12.26 hr / Command: 11.96 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [67] (Session: 12.42 hr / Command: 12.13 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [68] (Session: 12.59 hr / Command: 12.29 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [69] (Session: 12.76 hr / Command: 12.46 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [70] (Session: 12.92 hr / Command: 12.63 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [71] (Session: 13.09 hr / Command: 12.79 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [72] (Session: 13.26 hr / Command: 12.96 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [73] (Session: 13.42 hr / Command: 13.13 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [74] (Session: 13.59 hr / Command: 13.29 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [75] (Session: 13.76 hr / Command: 13.46 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [76] (Session: 13.92 hr / Command: 13.63 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [77] (Session: 14.09 hr / Command: 13.79 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [78] (Session: 14.26 hr / Command: 13.96 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [79] (Session: 14.42 hr / Command: 14.13 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 106 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [80] (Session: 14.59 hr / Command: 14.29 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 105 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [81] (Session: 14.76 hr / Command: 14.46 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 0 GB, Swap Free: 105 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [82] (Session: 14.92 hr / Command: 14.63 hr / Memory: 75493.48 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 105 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [83] (Session: 15.09 hr / Command: 14.79 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 27%, Ram Free: 0 GB, Swap Free: 104 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [84] (Session: 15.26 hr / Command: 14.96 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 101 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Still running [85] (Session: 15.42 hr / Command: 15.13 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 100 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 5 GB (MSG-3995)
+Information: Added key list 'DesignWare' to design 'blackbox'. (DWS-0216)
+Warning: For sequential element 'selected_init_data_reg[7]' of module 'accelerator_controller_64_8_11_01' : No latches available in library with requested scan type. Instance 'accc/selected_init_data_reg[7]' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtn_1' (SQM-1019)
+Warning: For sequential element 'selected_init_data_reg[6]' of module 'accelerator_controller_64_8_11_01' : No latches available in library with requested scan type. Instance 'accc/selected_init_data_reg[6]' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtn_1' (SQM-1019)
+Warning: For sequential element 'selected_init_data_reg[5]' of module 'accelerator_controller_64_8_11_01' : No latches available in library with requested scan type. Instance 'accc/selected_init_data_reg[5]' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtn_1' (SQM-1019)
+Warning: No cell bus will be mapped to multibit because there is no multibit cells in the cell libraries. (SQM-1040)
+Information: Shift register Inferencing is enabled so only head flop will be replaced with scan cell and not all registers in shift register chains are scan replaced. (SQM-1074)
+Warning: For sequential element 'input_port_reg[2]' of module 'init_router_8_8_a0_1_4' : No latches available in library with requested scan type. Instance 'uut/init_router_upper/input_port_reg[2]' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtn_1' (SQM-1019)
+Warning: For sequential element 'input_port_reg[1]' of module 'init_router_8_8_a0_1_4' : No latches available in library with requested scan type. Instance 'uut/init_router_upper/input_port_reg[1]' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtn_1' (SQM-1019)
+Warning: For sequential element 'input_port_reg[0]' of module 'init_router_8_8_a0_1_4' : No latches available in library with requested scan type. Instance 'uut/init_router_upper/input_port_reg[0]' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtn_1' (SQM-1019)
+Warning: For sequential element 'next_state_reg[2]' of module 'init_router_8_8_a0_1_4' : No latches available in library with requested scan type. Instance 'uut/init_router_upper/next_state_reg[2]' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtn_1' (SQM-1019)
+Warning: For sequential element 'next_state_reg[1]' of module 'init_router_8_8_a0_1_4' : No latches available in library with requested scan type. Instance 'uut/init_router_upper/next_state_reg[1]' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtn_1' (SQM-1019)
+Warning: For sequential element 'next_state_reg[0]' of module 'init_router_8_8_a0_1_4' : No latches available in library with requested scan type. Instance 'uut/init_router_upper/next_state_reg[0]' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtn_1' (SQM-1019)
+Warning: For sequential element 'from_top_reg' of module 'init_router_8_8_a0_1_4' : No latches available in library with requested scan type. Instance 'uut/init_router_upper/from_top_reg' is mapped to non-scan latch 'sky130_fd_sc_hd/sky130_fd_sc_hd__dlxtp_1' (SQM-1019)
+Information: 8 register's output was inverted. Use report_transformed_registers for a list. (SQM-2014)
+Still running [86] (Session: 15.72 hr / Command: 15.43 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 30%, Ram Free: 0 GB, Swap Free: 100 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [87] (Session: 15.89 hr / Command: 15.59 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 99 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [88] (Session: 16.06 hr / Command: 15.76 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 99 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [89] (Session: 16.22 hr / Command: 15.93 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 27%, Ram Free: 0 GB, Swap Free: 99 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [90] (Session: 16.39 hr / Command: 16.09 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 99 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [91] (Session: 16.56 hr / Command: 16.26 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 32%, Ram Free: 0 GB, Swap Free: 97 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [92] (Session: 16.72 hr / Command: 16.43 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 54%, Ram Free: 0 GB, Swap Free: 96 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [93] (Session: 16.89 hr / Command: 16.59 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 89%, Ram Free: 0 GB, Swap Free: 95 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [94] (Session: 17.06 hr / Command: 16.76 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 38%, Ram Free: 1 GB, Swap Free: 95 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [95] (Session: 17.22 hr / Command: 16.93 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 28%, Ram Free: 1 GB, Swap Free: 96 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [96] (Session: 17.39 hr / Command: 17.09 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 38%, Ram Free: 1 GB, Swap Free: 96 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [97] (Session: 17.56 hr / Command: 17.26 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 37%, Ram Free: 1 GB, Swap Free: 96 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [98] (Session: 17.72 hr / Command: 17.43 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 44%, Ram Free: 0 GB, Swap Free: 96 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [99] (Session: 17.89 hr / Command: 17.59 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 1 GB, Swap Free: 96 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [100] (Session: 18.06 hr / Command: 17.76 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 1 GB, Swap Free: 96 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [101] (Session: 18.22 hr / Command: 17.93 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 1 GB, Swap Free: 96 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [102] (Session: 18.39 hr / Command: 18.09 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 31%, Ram Free: 1 GB, Swap Free: 97 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [103] (Session: 18.56 hr / Command: 18.26 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 55%, Ram Free: 0 GB, Swap Free: 94 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [104] (Session: 18.72 hr / Command: 18.43 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 64%, Ram Free: 0 GB, Swap Free: 94 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [105] (Session: 18.89 hr / Command: 18.59 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 32%, Ram Free: 3 GB, Swap Free: 94 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [106] (Session: 19.06 hr / Command: 18.76 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 3 GB, Swap Free: 94 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [107] (Session: 19.22 hr / Command: 18.93 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 3 GB, Swap Free: 94 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [108] (Session: 19.39 hr / Command: 19.09 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 2 GB, Swap Free: 95 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [109] (Session: 19.56 hr / Command: 19.26 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 2 GB, Swap Free: 95 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [110] (Session: 19.72 hr / Command: 19.43 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 2 GB, Swap Free: 95 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [111] (Session: 19.89 hr / Command: 19.59 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 26%, Ram Free: 1 GB, Swap Free: 97 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Information: 35 out of 45 SQM-1019 messages were not printed due to limit 10 (after 'rtl_opt' at rtla.tcl:18) (MSG-3913)
+Information: 41 out of 42 SQM-1040 messages were not printed due to limit 1 (after 'rtl_opt' at rtla.tcl:18) (MSG-3913)
+Information: 41 out of 42 SQM-1074 messages were not printed due to limit 1 (after 'rtl_opt' at rtla.tcl:18) (MSG-3913)
+Information: 5 out of 6 SQM-2014 messages were not printed due to limit 1 (after 'rtl_opt' at rtla.tcl:18) (MSG-3913)
+Information: Ending   rtl_opt / conditioning / High-Level Optimization and Technology Mapping (2) (FLW-8001)
+Information: Time: 2025-10-10 18:17:30 / Session:  19:57:49 / Command:  19:39:56 / CPU:  19:40:30 / Memory: 81735 MB (FLW-8100)
+Information: RTL multibit banking summary. (SQM-2008)
+	Total candidates in design:4275994
+	Total candidates ignored:  4273804
+	Total candidates banked:   0
+	Banking Ratio of this pass:0.00%
+	Banking ratio             :0.00% (Before banking 0.00%)
+	Use report_multibit for details.
+Information: Starting rtl_opt / conditioning / DFT Core Wrapper Analysis (FLW-8000)
+Information: Time: 2025-10-10 18:17:42 / Session:  19:58:00 / Command:  19:40:08 / CPU:  19:40:40 / Memory: 81735 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / DFT Core Wrapper Analysis (FLW-8001)
+Information: Time: 2025-10-10 18:17:42 / Session:  19:58:00 / Command:  19:40:08 / CPU:  19:40:40 / Memory: 81735 MB (FLW-8100)
+Still running [112] (Session: 20.14 hr / Command: 19.84 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 98 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Still running [113] (Session: 20.31 hr / Command: 20.01 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 25%, Ram Free: 0 GB, Swap Free: 98 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Information: Starting rtl_opt / conditioning / Logic Simplification (2) (FLW-8000)
+Information: Time: 2025-10-10 18:47:32 / Session:  20:27:51 / Command:  20:09:59 / CPU:  19:43:21 / Memory: 81735 MB (FLW-8100)
+Information: 1686 registers were found constant but could not be removed due to restrictions. (SQM-3103)
+Information: Register Bits Before Sharing = 4275994, After Sharing = 4275994, Savings = 0 (SQM-2000)
+Information: Starting rtl_opt / conditioning / Logic Simplification (2) / Constant Propagation and Register Optimization (FLW-8000)
+Information: Time: 2025-10-10 19:02:43 / Session:  20:43:02 / Command:  20:25:10 / CPU:  20:21:45 / Memory: 81735 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Logic Simplification (2) / Constant Propagation and Register Optimization (FLW-8001)
+Information: Time: 2025-10-10 19:05:19 / Session:  20:45:38 / Command:  20:27:46 / CPU:  20:31:24 / Memory: 81735 MB (FLW-8100)
+Information: Ending   rtl_opt / conditioning / Logic Simplification (2) (FLW-8001)
+Information: Time: 2025-10-10 19:05:19 / Session:  20:45:38 / Command:  20:27:46 / CPU:  20:31:24 / Memory: 81735 MB (FLW-8100)
+Information: Result of rtl_opt / conditioning / Clock Gate Insertion (FLW-8500)
+--------------------------------------------------------------------------------
+|                             Clock Gating Options                             |
+--------------------------------------------------------------------------------
+|         Objects         |    Minimum Bitwidth     |      Maximum Fanout      |
+--------------------------+-------------------------+---------------------------
+|   top-level (design)    |          3 (d)          |      Unlimited (d)       |
+--------------------------------------------------------------------------------
+
+Number of Pre-Existing Clock Gates with dont touch attribute: 0
+Number of ICG library cells with CTS purpose: 3
+---------------------------------------------------------------------------------------------
+                          Tool Gated Register Summary                                        
+---------------------------------------------------------------------------------------------
+Clock Gating Type                   | Number of   | Register Count | Equivalent | % of Gated 
+                                    | Clock Gates |                | Bitwidth   | Bits       
+---------------------------------------------------------------------------------------------
+Regular Clock Gating                |        8538 |          4273091 |      4273091 |    99.93%
+---------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                 Regular Clock Gating Ungated Register Summary                  
+--------------------------------------------------------------------------------
+ Ungated Reason                                            | Count | Bitwidth   
+--------------------------------------------------------------------------------
+ Enable is Constant One.                                   |  1775 |     1775
+ Minimum Bitwidth Not Met.                                 |  1083 |     1083
+ Not Processed.                                            |    45 |       45
+--------------------------------------------------------------------------------
+Compile-fusion optimization summary            SETUP-COST    R2R-COST HOLD-COST LDRC-COST          AREA     LEAKAGE     INSTCNT            ELAPSE       MEM
+Compile-fusion                                          -           -         -         -  154557360.00           -     7288857             20.83     81734
+Information: Ending   rtl_opt / conditioning (FLW-8001)
+Information: Time: 2025-10-10 19:09:34 / Session:  20:49:53 / Command:  20:32:00 / CPU:  20:35:05 / Memory: 81735 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / conditioning (FLW-8000)
+Information: Time: 2025-10-10 19:09:34 / Session:  20:49:53 / Command:  20:32:00 / CPU:  20:35:05 / Memory: 81735 MB (FLW-8100)
+----------------------------------------------------------------------------------------------------------
+Information: Starting rtl_opt / conditioning / Load Design (FLW-8000)
+Information: Time: 2025-10-10 19:09:41 / Session:  20:50:00 / Command:  20:32:07 / CPU:  20:35:12 / Memory: 81735 MB (FLW-8100)
+Warning: Auto deriving 'horizontal' routing direction for layer 'li1'. (DMM-115)
+Warning: Auto deriving 'vertical' routing direction for layer 'met1'. (DMM-115)
+Warning: Auto deriving 'horizontal' routing direction for layer 'met2'. (DMM-115)
+Warning: Auto deriving 'vertical' routing direction for layer 'met3'. (DMM-115)
+Warning: Auto deriving 'horizontal' routing direction for layer 'met4'. (DMM-115)
+Warning: Auto deriving 'vertical' routing direction for layer 'met5'. (DMM-115)
+Information: Initializing core and die (AFP-1001)
+Information: Initializing rows (AFP-1003)
+Information: Initializing tracks (AFP-1004)
+Information: Generated core area = 220753632.000000 (AFP-2021)
+Information: Generated core boundary = { {0 0} {0 14856.6} {14858.9 14856.6} {14858.9 0} } (AFP-2022)
+Information: Change threshold for extractor is reset. (FLW-1300)
+Warning: Corner cworst:  0 process number, 1 process label, 0 voltage, and 0 temperature mismatches. (PVT-030)
+Warning: 7288857 cells affected for early, 7288857 for late. (PVT-031)
+Warning: 0 port driving_cells affected for early, 0 for late. (PVT-034)
+Warning: no valid parasitic for cworst corner(LATE) (NEX-018)
+Warning: no valid parasitic for cworst corner(EARLY) (NEX-018)
+Warning: no valid parasitic for (all corners) corner((both specs)) (NEX-018)
+Information: The stitching and editing of coupling caps is turned OFF for design 'neuron_LIB:blackbox.design'. (TIM-125)
+Warning: The extractor can not be initialized for block 'blackbox'. (TIM-103)
+Warning: The extractor can not be initialized for design 'blackbox'. Zero interconnect delay is used in timing analysis. (TIM-102)
+Warning: Batch extraction is skipped for block "blackbox"
+Still running [114] (Session: 21.18 hr / Command: 20.88 hr / Memory: 81734.79 MB) (MSG-3999)
+Information: CPU Load: 62%, Ram Free: 0 GB, Swap Free: 99 GB, Work Disk Free: 1018 GB, Tmp Disk Free: 4 GB (MSG-3995)
+Error: No valid parasitics for LATE corner cworst. Please make sure the net parasitics are setup properly for the design. Related command: set_parasitics_parameters (SCN-1001)
+Error: No valid parasitics for EARLY corner cworst. Please make sure the net parasitics are setup properly for the design. Related command: set_parasitics_parameters (SCN-1001)
+Warning: Flow step returns Error: fc/logic_opto/mcmmStart (FLW-2543)
+Error: Flow status set to Error by step: fc/logic_opto/mcmmStart (FLW-1762)
+Warning: Incomplete rtl_opt / conditioning / Load Design (FLW-8004)
+Information: Ending   rtl_opt / conditioning (FLW-8001)
+Information: Time: 2025-10-10 19:31:58 / Session:  21:12:17 / Command:  20:54:24 / CPU:  21:03:33 / Memory: 81735 MB (FLW-8100)
+INFO: End environment monitoring: recipes
+INFO: Restored 0 timer status, 9 app options, 0 tcl gvars, 0 env vars
+Information: >>>>>>> 6 unique error and warning message tags while observing fast: (MSG-3100)
+Information: #prnt #trgr #lmt    Tag  Level     Format (or last printed message)                                (MSG-3036)
+Information:     1     1  0 FLW-2543  WARNING   Warning: Flow step returns Error: fc/logic_opto/mcmmStart (F... (MSG-3032)
+Information:     1     1  1 SQM-1040  WARNING   No cell bus will be mapped to multibit because there is no m... (MSG-3032)
+Information:     1     1  0 FLW-8004  WARNING   Warning: Incomplete rtl_opt / conditioning / Load Design (FL... (MSG-3032)
+Information:     6     6  0 DMM-115   WARNING   Warning: Auto deriving 'vertical' routing direction for laye... (MSG-3032)
+Information:     2     2  0 SCN-1001  ERROR     Error: No valid parasitics for EARLY corner cworst. Please m... (MSG-3032)
+Information:     1     1  0 FLW-1762  ERROR     Error: Flow status set to Error by step: fc/logic_opto/mcmmS... (MSG-3032)
+Information:    12    12  1        6  <------   Total sum of messages (MSG-3038)
+Information: >>>>>>> Summary: 12 error&warning MSGs observed during fast (MSG-3103)
+Error: FAST compile failed.
+Information: Ending   'rtl_opt' (FLW-8001)
+Information: Time: 2025-10-10 19:32:32 / Session:  21:12:51 / Command:  20:54:58 / CPU:  21:03:34 / Memory: 81735 MB (FLW-8100)
+set_rtl_power_analysis_options -scenario func@cworst -design blackbox -strip_path blackbox_tb/uut -fsdb "../../../../rtl/blackbox/novas.fsdb"  -output_dir TZ_OUTDIR
+1
+save_block
+Information: Saving block 'neuron_LIB:blackbox.design'
+1
+save_lib
+Saving library 'neuron_LIB'
+1
+export_power_data
+Information: exporting data
+Error: Issue detected during rtl_opt see logfile for details. Aborting export_data.
+      	Use error_info for more info. (CMD-013)
+Information: script '/storage/e19129/projects/neuromorphic/neuromorphic-accelerator/synopsys/primepower/tech_sky130/blackbox_sky130_fd_sc_hd/rtla.tcl'
+            	stopped at line 25 due to error. (CMD-081)
+Extended error info:
+Issue detected during rtl_opt see logfile for details. Aborting export_data.
+    invoked from within
+"::pprtl_common::_return "Issue detected during rtl_opt see logfile for details. Aborting export_data." -msg_type hard_error"
+    (procedure "export_data" line 28)
+    invoked from within
+"::export_data $output_dir"
+    (procedure "export_power_data" line 10)
+    invoked from within
+"export_power_data"
+    (file "/storage/e19129/projects/neuromorphic/neuromorphic-accelerator/synopsys/primepower/tech_sky130/blackbox_sky130_fd_sc_hd/rtla.tcl" line 25)
+ -- End Extended Error Info
+rtl_shell> 

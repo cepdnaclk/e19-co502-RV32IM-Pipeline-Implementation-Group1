@@ -1,0 +1,73 @@
+Warning: Detected pins or ports without physical pin shapes. The first few such pins or ports are: INST_IF[27], INST_IF[19], INST_IF[11], INST_IF[3], DMEM_DATA_READ_MA[27]. (DPPA-325)
+Warning: Detected pins or ports without physical pin shapes. The first few such pins or ports are: INST_IF[26], INST_IF[18], INST_IF[10], INST_IF[2], DMEM_DATA_READ_MA[26]. (DPPA-325)
+Warning: Detected pins or ports without physical pin shapes. The first few such pins or ports are: INST_IF[24], INST_IF[16], INST_IF[8], INST_IF[0], DMEM_DATA_READ_MA[24]. (DPPA-325)
+Warning: Detected pins or ports without physical pin shapes. The first few such pins or ports are: INST_IF[31], INST_IF[23], INST_IF[15], INST_IF[7], DMEM_DATA_READ_MA[31]. (DPPA-325)
+Warning: Detected pins or ports without physical pin shapes. The first few such pins or ports are: INST_IF[25], INST_IF[17], INST_IF[9], INST_IF[1], DMEM_DATA_READ_MA[25]. (DPPA-325)
+Warning: Detected pins or ports without physical pin shapes. The first few such pins or ports are: INST_IF[29], INST_IF[21], INST_IF[13], INST_IF[5], DMEM_DATA_READ_MA[29]. (DPPA-325)
+Warning: Detected pins or ports without physical pin shapes. The first few such pins or ports are: INST_IF[30], INST_IF[22], INST_IF[14], INST_IF[6], DMEM_DATA_READ_MA[30]. (DPPA-325)
+Warning: Detected pins or ports without physical pin shapes. The first few such pins or ports are: INST_IF[28], INST_IF[20], INST_IF[12], INST_IF[4], DMEM_DATA_READ_MA[28]. (DPPA-325)
+****************************************
+Report : qor
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Sat Oct 11 10:01:10 2025
+****************************************
+Information: Timer using 'Estimated Delay Calculation'. (TIM-050)
+
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:             70
+Hierarchical Port Count:           5214
+Leaf Cell Count:                   9938
+Buf/Inv Cell Count:                 725
+Buf Cell Count:                       0
+Inv Cell Count:                     725
+Combinational Cell Count:          8441
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:             1497
+   Integrated Clock-Gating Cell Count:                     36
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       1461
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:            76430.80
+Noncombinational Area:         44028.48
+Buf/Inv Area:                   2721.36
+Total Buffer Area:                 0.00
+Total Inverter Area:            2721.36
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                   32599.90
+Net YLength:                    2922.24
+----------------------------------------
+Cell Area (netlist):                         120459.28
+Cell Area (netlist and physical only):       120459.28
+Net Length:                    35522.14
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:             11459
+Nets with Violations:                27
+Max Trans Violations:                 0
+Max Cap Violations:                  27
+----------------------------------------
+
+1

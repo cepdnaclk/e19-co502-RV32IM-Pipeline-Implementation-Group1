@@ -1,0 +1,5 @@
+gpd: /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_sky130_fd_sc_hd/TZ_OUTDIR/TZ_OUTDIR/cpu.gpd 
+
+nominal for scenarios: 
+	 scenario: func@nominal, corner type: late/early
+

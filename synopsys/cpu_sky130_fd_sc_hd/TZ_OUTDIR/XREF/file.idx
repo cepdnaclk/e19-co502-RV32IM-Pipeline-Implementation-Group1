@@ -1,0 +1,17 @@
+7 
+9 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/ex_mem_pipeline_reg.v
+6 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/sign_extender/sign_extender.v
+2 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_2to1.v
+8 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files.v
+14 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/id_ex_pipeline_reg.v
+13 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/hazard_unit/hazard_unit.v
+0 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu.v
+1 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v
+4 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/if_id_pipeline_reg.v
+11 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/adders/adder_32b_4.v
+5 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_3b_2to1.v
+16 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/mem_wb_pipeline_reg.v
+3 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/pc/pc.v
+10 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/control_unit/control_unit.v
+15 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_3to1.v
+12 /storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/branch/branch_logic.v

@@ -1,7 +1,0 @@
-# Power Analysis Summary for RISC-V CPU
-# Technology: SKY130 130nm
-# Generated: Tue Oct 07 23:50:14 +0530 2025
-
-Total Power: 0.003903265056798273
-Dynamic Power: 0.003764313297317501
-Leakage Power: 0.0001389517815247056

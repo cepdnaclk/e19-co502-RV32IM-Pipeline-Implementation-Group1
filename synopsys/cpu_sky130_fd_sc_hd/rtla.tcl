@@ -109,6 +109,20 @@ report_qor > "$TEMP_RESULTS_DIR/report_qor.txt"
 report_reference > "$TEMP_RESULTS_DIR/report_reference.txt"
 report_hierarchy > "$TEMP_RESULTS_DIR/report_hierarchy.txt"
 
+update_timing
+report_timing -max_paths 1 -delay_type max > "$TEMP_RESULTS_DIR/report_timing_max.txt"
+set slack [get_attribute [get_timing_paths -max_paths 1 -sort_by slack] slack]
+set period [get_attribute [get_clocks clk] period]
+set Tmin [expr {$period - $slack}]
+set Fmax [expr {1.0 / $Tmin}]
+set freq_MHz [expr {$Fmax * 1e-6}]
+set timing_summary_file [open "$TEMP_RESULTS_DIR/timing_summary.txt" w]
+puts $timing_summary_file "Minimum period = $Tmin ns"
+puts $timing_summary_file "Maximum frequency = $freq_MHz MHz"
+close $timing_summary_file
+puts "Minimum period = $Tmin ns"
+puts "Maximum frequency = $freq_MHz MHz"
+
 puts "All reports generated in $TEMP_RESULTS_DIR/ directory"
 puts "========== RTL Analysis and Synthesis Complete =========="
 

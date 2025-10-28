@@ -1,6 +1,0 @@
-Updating 0aff7c0..9984baf
-Fast-forward
- .gitignore                        | 17 +++++++++++++++++
- synopsys/cpu_with_hazard/rtla.tcl |  5 +++++
- 2 files changed, 22 insertions(+)
- create mode 100644 .gitignore

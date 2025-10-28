@@ -1,5 +1,0 @@
-Updating 94a3256..c947179
-Fast-forward
- cpu/EX_stage/alu/alu.v        |  210 +++++--
- cpu/EX_stage/alu/alu_tb.v.out | 1308 ++++++++++++++++++++++++++---------------
- 2 files changed, 1011 insertions(+), 507 deletions(-)

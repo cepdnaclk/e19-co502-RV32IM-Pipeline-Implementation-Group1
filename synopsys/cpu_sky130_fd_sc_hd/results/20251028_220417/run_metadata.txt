@@ -1,0 +1,40 @@
+# RISC-V CPU Synthesis and Power Analysis Run Metadata
+# =====================================================
+
+Run Description: test run
+Timestamp: 20251028_220417
+Date: Tue Oct 28 22:04:17 +0530 2025
+User: e19129
+Host: localhost.localdomain
+Working Directory: /home/e19129/storage/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/synopsys/cpu_sky130_fd_sc_hd
+Git Branch: main
+Git Commit: 9079f27
+Git Status: 21 modified files
+
+# Environment Information
+# -----------------------
+Shell: /bin/bash
+PATH: /home/e19129/storage/orca:/home/e19129/miniforge3/bin:/storage/synopsys/prime/W-2024.09-SP2/bin:/storage/synopsys/verdi/W-2024.09-SP1/bin:/storage/synopsys/vc_static/W-2024.09-SP1-1/linux64/vcst/bin:/storage/synopsys/vc_static/W-2024.09-SP1-1/bin:/storage/synopsys/vcs/W-2024.09-SP1/bin:/storage/synopsys/rtla/rtla/V-2023.12-SP5-3/bin:/storage/synopsys/prime/W-2024.09-SP2/bin:/storage/synopsys/pprtl/W-2024.09-SP2/bin:/storage/synopsys/rtla/rtla/V-2023.12-SP5-3//bin:/storage/synopsys/syn/V-2023.12-SP5-3/bin:/storage/synopsys/lc/V-2023.12-SP5-3/bin:/storage/synopsys/pp_rtl/prime/W-2024.09-SP2/bin:/home/e19129/storage/orca:/home/e19129/miniforge3/bin:/storage/synopsys/prime/W-2024.09-SP2/bin:/storage/synopsys/verdi/W-2024.09-SP1/bin:/storage/synopsys/vc_static/W-2024.09-SP1-1/linux64/vcst/bin:/storage/synopsys/vc_static/W-2024.09-SP1-1/bin:/storage/synopsys/vcs/W-2024.09-SP1/bin:/storage/synopsys/rtla/rtla/V-2023.12-SP5-3/bin:/storage/synopsys/prime/W-2024.09-SP2/bin:/storage/synopsys/pprtl/W-2024.09-SP2/bin:/storage/synopsys/rtla/rtla/V-2023.12-SP5-3//bin:/storage/synopsys/syn/V-2023.12-SP5-3/bin:/storage/synopsys/lc/V-2023.12-SP5-3/bin:/storage/synopsys/pp_rtl/prime/W-2024.09-SP2/bin:/usr/share/Modules/bin:/home/e19129/.local/bin:/home/e19129/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+RTL_CPU_PATH: ../../cpu
+TEMP_RESULTS_DIR: temp_results_20251028_220417
+
+# Tool Versions
+# -------------
+VCS Version: vcs script version : W-2024.09
+Synopsys Tools: /storage/synopsys/rtla/rtla/V-2023.12-SP5-3/bin/rtl_shell
+
+# Directory Structure
+# -------------------
+CPU Directory Exists: Yes
+Config File Exists: Yes
+RTLA Script Exists: Yes
+Restore Script Exists: Yes
+
+# Execution Plan
+# --------------
+1. Git Pull
+2. VCS Compile and Simulation
+3. RTL Synthesis (rtl_shell)
+4. Power Analysis (pwr_shell)
+5. Results archiving and Git commit
+

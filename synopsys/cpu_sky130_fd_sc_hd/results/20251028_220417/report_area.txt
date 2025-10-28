@@ -1,0 +1,23 @@
+****************************************
+Report : area
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Tue Oct 28 22:12:26 2025
+****************************************
+
+Number of ports:                         9525
+Number of nets:                         38150
+Number of cells:                        26898
+Number of combinational cells:          25345
+Number of sequential cells:              1553
+Number of macros/black boxes:               0
+Number of buf/inv:                       3759
+Number of references:                     184
+
+Combinational area:                 175862.42
+Buf/Inv area:                        19523.72
+Noncombinational area:               45234.63
+Macro/Black Box area:                    0.00
+
+Total cell area:                    221097.05
+1

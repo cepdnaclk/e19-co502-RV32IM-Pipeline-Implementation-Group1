@@ -1,0 +1,19 @@
+****************************************
+Report : clock_skew
+Design : cpu
+Mode   : func
+Version: V-2023.12-SP5-3
+Date   : Tue Oct 28 22:02:14 2025
+****************************************
+
+              Min Rise  Min Fall  Max Rise  Max Fall     Hold          Setup        Related
+Object          Delay     Delay     Delay     Delay   Uncertainty   Uncertainty      Clock          Scenario      Origin
+-----------------------------------------------------------------------------------------------------------------------------
+CLK                 -         -         -         -          0.50          0.50         --          func@nominal    user
+
+               Min Rise    Min Fall    Max Rise    Max Fall 
+Object        Transition  Transition  Transition  Transition  Scenario
+----------------------------------------------------------------------
+CLK                 0.20        0.20        0.20        0.20  func@nominal
+
+1

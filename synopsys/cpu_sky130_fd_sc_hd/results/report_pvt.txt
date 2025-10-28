@@ -1,0 +1,36 @@
+****************************************
+Report : pvt
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Tue Oct 28 22:02:15 2025
+****************************************
+
+--------------------------------------------------------------------------------
+Warning: Corner nominal:  0 process number, 1 process label, 0 voltage, and 0 temperature mismatches. (PVT-030)
+Warning: 26898 cells affected for early, 26898 for late. (PVT-031)
+Warning: 66 port driving_cells affected for early, 66 for late. (PVT-034)
+--------------------------------------------------------------------------------
+
+Warning: Mismatched process label in corner nominal. (PVT-023)
+Library has 14 panes
+Entry 70:
+  Lib: sky130_fd_sc_hd
+  Pane: 0
+* Process Label:  specified: (none)        effective: nominal     
+  Process Number: specified: 1             effective: 1           
+  Rail 0 (default) Voltage: specified: --            dynamic: --            effective: 1.65          static: 1.65        
+  Rail 1 (KAPWR) Voltage: specified: --            dynamic: --            effective: 1.65          static: 1.65        
+  Rail 2 (LOWLVPWR) Voltage: specified: --            dynamic: --            effective: 1.65          static: 1.65        
+  Rail 3 (VPWR) Voltage: specified: 1.65          dynamic: --            effective: 1.65          static: 1.65        
+  Rail 4 (VPWRIN) Voltage: specified: --            dynamic: --            effective: 1.65          static: 1.65        
+  Rail 5 (VPB) Voltage: specified: --            dynamic: --            effective: 1.65          static: 1.65        
+  Rail 6 (VNB) Voltage: specified: --            dynamic: --            effective: 0.00          static: 0.00        
+  Rail 7 (VGND) Voltage: specified: --            dynamic: --            effective: 0.00          static: 0.00        
+  Temperature:    specified: 100.00        effective: 100.00      
+  Primary rail: 3  Secondary rail: --  N-bias rail: 6  P-bias rail: 5
+  early cell refs: 26898    port refs: 0     driving_cell refs: 66    lib refs: 0   
+  late  cell refs: 26898    port refs: 0     driving_cell refs: 66    lib refs: 0   
+
+
+
+1

@@ -1,0 +1,186 @@
+****************************************
+Report : constraint
+        -all_violators
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Tue Oct 28 22:12:26 2025
+****************************************
+
+   late_timing
+   -----------
+
+Information: Timer using 'Estimated Delay Calculation'. (TIM-050)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+ex_mem_pipeline_reg_inst/alu_result_out_reg[26]/D (sky130_fd_sc_hd__sdfxtp_2)
+                                  16.17 r         9.34           0.00    -6.83   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[25]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.17 r         9.34           0.00    -6.83   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[18]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.08 f         9.28           0.00    -6.80   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[9]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.05 f         9.28           0.00    -6.77   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[27]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.12 r         9.36           0.00    -6.77   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[29]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.12 r         9.36           0.00    -6.76   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[19]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.10 r         9.34           0.00    -6.76   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[13]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.10 r         9.34           0.00    -6.76   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[21]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.04 f         9.28           0.00    -6.76   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[22]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.11 r         9.36           0.00    -6.75   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[24]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.09 r         9.34           0.00    -6.75   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[30]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.09 r         9.36           0.00    -6.73   CLK      func@nominal
+pc_inst/pc_out_reg[18]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.28 f         9.57           0.00    -6.72   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[17]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.00 f         9.28           0.00    -6.71   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[23]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.34           0.00    -6.69   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[14]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.34           0.00    -6.69   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[12]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.34           0.00    -6.69   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[0]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.34           0.00    -6.69   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[6]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.34           0.00    -6.69   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[15]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.34           0.00    -6.69   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[7]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.34           0.00    -6.69   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[28]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  15.99 f         9.30           0.00    -6.69   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[16]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.34           0.00    -6.69   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[5]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.04 r         9.36           0.00    -6.68   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[3]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.04 r         9.36           0.00    -6.68   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[20]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.02 r         9.34           0.00    -6.68   CLK      func@nominal
+pc_inst/pc_out_reg[31]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.24 f         9.57           0.00    -6.68   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[31]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.11 r         9.44           0.00    -6.67   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[2]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.36           0.00    -6.67   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[4]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.36           0.00    -6.67   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[11]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.36           0.00    -6.67   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[8]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.36           0.00    -6.67   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[10]/D (sky130_fd_sc_hd__sdfxtp_4)
+                                  16.03 r         9.36           0.00    -6.67   CLK      func@nominal
+ex_mem_pipeline_reg_inst/alu_result_out_reg[1]/D (sky130_fd_sc_hd__sdfxtp_2)
+                                  16.03 r         9.36           0.00    -6.67   CLK      func@nominal
+pc_inst/pc_out_reg[22]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.21 f         9.57           0.00    -6.65   CLK      func@nominal
+pc_inst/pc_out_reg[26]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.27 r         9.63           0.00    -6.64   CLK      func@nominal
+pc_inst/pc_out_reg[25]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.26 r         9.63           0.00    -6.64   CLK      func@nominal
+pc_inst/pc_out_reg[19]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.20 f         9.57           0.00    -6.64   CLK      func@nominal
+pc_inst/pc_out_reg[9]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.20 f         9.57           0.00    -6.63   CLK      func@nominal
+pc_inst/pc_out_reg[28]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.20 f         9.57           0.00    -6.63   CLK      func@nominal
+pc_inst/pc_out_reg[13]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.16 f         9.57           0.00    -6.60   CLK      func@nominal
+pc_inst/pc_out_reg[4]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.16 f         9.57           0.00    -6.60   CLK      func@nominal
+pc_inst/pc_out_reg[14]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.16 f         9.57           0.00    -6.60   CLK      func@nominal
+pc_inst/pc_out_reg[2]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.16 f         9.57           0.00    -6.60   CLK      func@nominal
+pc_inst/pc_out_reg[12]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.16 f         9.57           0.00    -6.60   CLK      func@nominal
+pc_inst/pc_out_reg[15]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.16 f         9.57           0.00    -6.59   CLK      func@nominal
+pc_inst/pc_out_reg[27]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.22 r         9.63           0.00    -6.59   CLK      func@nominal
+pc_inst/pc_out_reg[21]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.22 r         9.63           0.00    -6.59   CLK      func@nominal
+pc_inst/pc_out_reg[29]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.21 r         9.63           0.00    -6.59   CLK      func@nominal
+pc_inst/pc_out_reg[24]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.21 r         9.63           0.00    -6.58   CLK      func@nominal
+pc_inst/pc_out_reg[17]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.15 f         9.57           0.00    -6.58   CLK      func@nominal
+pc_inst/pc_out_reg[30]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.13 f         9.57           0.00    -6.56   CLK      func@nominal
+pc_inst/pc_out_reg[5]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.10 f         9.57           0.00    -6.54   CLK      func@nominal
+pc_inst/pc_out_reg[0]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.10 f         9.57           0.00    -6.54   CLK      func@nominal
+pc_inst/pc_out_reg[1]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.10 f         9.57           0.00    -6.54   CLK      func@nominal
+pc_inst/pc_out_reg[7]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.10 f         9.57           0.00    -6.54   CLK      func@nominal
+pc_inst/pc_out_reg[8]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.10 f         9.57           0.00    -6.54   CLK      func@nominal
+pc_inst/pc_out_reg[6]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.10 f         9.57           0.00    -6.54   CLK      func@nominal
+pc_inst/pc_out_reg[11]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.10 f         9.57           0.00    -6.54   CLK      func@nominal
+pc_inst/pc_out_reg[10]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.10 f         9.57           0.00    -6.54   CLK      func@nominal
+pc_inst/pc_out_reg[16]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.10 f         9.57           0.00    -6.54   CLK      func@nominal
+pc_inst/pc_out_reg[23]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.16 r         9.63           0.00    -6.53   CLK      func@nominal
+pc_inst/pc_out_reg[20]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.09 f         9.57           0.00    -6.53   CLK      func@nominal
+pc_inst/pc_out_reg[3]/D (sky130_fd_sc_hd__sdfxtp_1)
+                                  16.09 f         9.57           0.00    -6.52   CLK      func@nominal
+
+   early_timing
+   -----------
+
+Warning: Scenario func@nominal is not configured for hold analysis: skipping. (UIC-058)
+Warning: None of the specified scenarios are active for hold analysis. (UIC-057)
+Information: Timer using 'Estimated Delay Calculation'. (TIM-050)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths.
+
+   Mode: func Corner: nominal
+   Scenario: func@nominal
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 0
+
+   Mode: func Corner: nominal
+   Scenario: func@nominal
+   max_capacitance                                                             
+                             Required        Actual                            
+   Net                      Capacitance    Capacitance       Slack  Violation  
+  ---------------------------------------------------------------------------
+   alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_2/ctmn_185487
+                                0.06           0.07          -0.00  (VIOLATED) 
+     PIN : alu_inst/snps_DIVREM_75/u_div/u_add_PartRem_5_2/ctmi_71706/Y
+                                0.06           0.07          -0.00  (VIOLATED) 
+
+   PC_MUX_SEL_EX                0.14           0.14          -0.00  (VIOLATED) 
+     PIN : branch_logic_inst/ctmi_79095/Y
+                                0.14           0.14          -0.00  (VIOLATED) 
+
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 2
+
+
+
+  Mode: func
+  Corner: nominal
+  Scenario: func@nominal
+
+  ---------------------------------------------------------------------------
+   Number of min_pulse_width violation(s): 0
+   Total number of violation(s): 2
+1

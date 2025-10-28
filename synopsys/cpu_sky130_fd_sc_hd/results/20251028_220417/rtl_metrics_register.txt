@@ -1,0 +1,82 @@
+****************************************
+Report : report_rtl_metrics
+      -view register
+Design : cpu
+Version: W-2024.09-SP2
+Date   : Tue Oct 28 22:13:00 2025
+****************************************
+
+-----------------------------------------------------------------------------------------------------------------------------
+Register                           Dynamic        Switching      Leakage        Total          Register       Root Clk       
+Name                               Power          Power          Power          Power          Gated          Name           
+                                                                                                                             
+-----------------------------------------------------------------------------------------------------------------------------
+id_ex_pipeline_reg_inst/pc_out[0:31],
+id_ex_pipeline_reg_inst/mem_write_out[0:2],
+id_ex_pipeline_reg_inst/read_data2_out[0:31],
+id_ex_pipeline_reg_inst/read_data1_out[0:31],
+id_ex_pipeline_reg_inst/imm_out[0:31],
+id_ex_pipeline_reg_inst/dest_addr_out[0:4],
+id_ex_pipeline_reg_inst/mem_read_out[0:3],
+id_ex_pipeline_reg_inst/data2sel_out[0:1],
+id_ex_pipeline_reg_inst/data1sel_out[0:1],
+id_ex_pipeline_reg_inst/wb_sel_out[0:1],
+id_ex_pipeline_reg_inst/branch_jump_out[0:3],
+id_ex_pipeline_reg_inst/aluop_out[0:4],
+id_ex_pipeline_reg_inst/reg_write_en_out,
+id_ex_pipeline_reg_inst/data2_alu_sel_out,
+id_ex_pipeline_reg_inst/data1_alu_sel_out
+                                   0.0006071      3.12e-05       2.518e-06      0.0006096      True           CLK            
+ex_mem_pipeline_reg_inst/wb_sel_out[0:1],
+ex_mem_pipeline_reg_inst/read_data2_out[0:31],
+ex_mem_pipeline_reg_inst/pc_out[0:31],
+ex_mem_pipeline_reg_inst/mem_write_out[0:2],
+ex_mem_pipeline_reg_inst/mem_read_out[0:3],
+ex_mem_pipeline_reg_inst/dest_addr_out[0:4],
+ex_mem_pipeline_reg_inst/alu_result_out[0:31],
+ex_mem_pipeline_reg_inst/reg_write_out
+                                   0.0004534      4.654e-05      1.842e-06      0.0004552      True           CLK            
+mem_wb_pipeline_reg_inst/wb_sel_out[0:1],
+mem_wb_pipeline_reg_inst/pc_out[0:31],
+mem_wb_pipeline_reg_inst/mem_data_out[0:31],
+mem_wb_pipeline_reg_inst/dest_addr_out[0:4],
+mem_wb_pipeline_reg_inst/alu_result_out[0:31],
+mem_wb_pipeline_reg_inst/reg_write_out
+                                   0.0003842      5.967e-06      1.639e-06      0.0003859      True           CLK            
+if_id_pipeline_reg_inst/pc_out[0:31],
+if_id_pipeline_reg_inst/instr_out[0:31]
+                                   0.0002873      4.11e-05       1.027e-06      0.0002883      True           CLK            
+pc_inst/pc_out[0:31]               0.0001636      4.525e-05      5.055e-07      0.0001641      True           CLK            
+reg_files_inst/mem[1][0:31]        6.872e-06      8.148e-08      7.042e-07      7.576e-06      True           CLK            
+reg_files_inst/mem[2][0:31]        5.832e-06      6.084e-08      7.076e-07      6.539e-06      True           CLK            
+reg_files_inst/mem[4][0:31]        4.645e-06      0              7.11e-07       5.356e-06      True           CLK            
+reg_files_inst/mem[8][0:31]        3.24e-06       0              7.11e-07       3.951e-06      True           CLK            
+reg_files_inst/mem[3][0:31]        2.962e-06      6.168e-08      7.024e-07      3.665e-06      True           CLK            
+reg_files_inst/mem[5][0:31]        2.835e-06      3.895e-08      7.054e-07      3.541e-06      True           CLK            
+reg_files_inst/mem[12][0:31]       2.758e-06      0              7.11e-07       3.469e-06      True           CLK            
+reg_files_inst/mem[26][0:31]       2.723e-06      0              7.11e-07       3.434e-06      True           CLK            
+reg_files_inst/mem[15][0:31]       2.723e-06      0              7.11e-07       3.434e-06      True           CLK            
+reg_files_inst/mem[24][0:31]       2.722e-06      0              7.11e-07       3.433e-06      True           CLK            
+reg_files_inst/mem[31][0:31]       2.722e-06      0              7.11e-07       3.433e-06      True           CLK            
+reg_files_inst/mem[18][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[28][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[27][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[25][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[20][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[23][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[19][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[17][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[16][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[22][0:31]       2.721e-06      0              7.11e-07       3.432e-06      True           CLK            
+reg_files_inst/mem[6][0:31]        2.685e-06      1.153e-08      7.033e-07      3.388e-06      True           CLK            
+reg_files_inst/mem[7][0:31]        2.672e-06      6.649e-08      7.103e-07      3.382e-06      True           CLK            
+reg_files_inst/mem[9][0:31]        2.608e-06      0              7.11e-07       3.319e-06      True           CLK            
+reg_files_inst/mem[10][0:31]       2.586e-06      0              7.11e-07       3.297e-06      True           CLK            
+reg_files_inst/mem[21][0:31]       2.56e-06       0              7.11e-07       3.271e-06      True           CLK            
+reg_files_inst/mem[11][0:31]       2.531e-06      0              7.11e-07       3.243e-06      True           CLK            
+reg_files_inst/mem[13][0:31]       2.526e-06      0              7.11e-07       3.237e-06      True           CLK            
+reg_files_inst/mem[14][0:31]       2.482e-06      0              7.11e-07       3.193e-06      True           CLK            
+reg_files_inst/mem[29][0:31]       2.48e-06       0              7.11e-07       3.191e-06      True           CLK            
+reg_files_inst/mem[30][0:31]       2.479e-06      0              7.11e-07       3.19e-06       True           CLK            
+-----------------------------------------------------------------------------------------------------------------------------
+1

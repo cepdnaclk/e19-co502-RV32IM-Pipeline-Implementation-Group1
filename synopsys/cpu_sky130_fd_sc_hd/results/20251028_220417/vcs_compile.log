@@ -1,0 +1,79 @@
+                         Chronologic VCS (TM)
+       Version W-2024.09-SP1_Full64 -- Tue Oct 28 22:04:22 2025
+
+                    Copyright (c) 1991 - 2024 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+
+Parsing design file 'cpu_tb.v'
+Parsing included file 'cpu.v'.
+Parsing included file 'IF_stage/pc/pc.v'.
+Back to file 'cpu.v'.
+Parsing included file 'utils/muxes/mux_32b_2to1.v'.
+Back to file 'cpu.v'.
+Parsing included file 'utils/adders/adder_32b_4.v'.
+Back to file 'cpu.v'.
+Parsing included file 'pipeline_regs/if_id_pipeline_reg.v'.
+Back to file 'cpu.v'.
+Parsing included file 'pipeline_regs/id_ex_pipeline_reg.v'.
+Back to file 'cpu.v'.
+Parsing included file 'pipeline_regs/ex_mem_pipeline_reg.v'.
+Back to file 'cpu.v'.
+Parsing included file 'pipeline_regs/mem_wb_pipeline_reg.v'.
+Back to file 'cpu.v'.
+Parsing included file 'ID_stage/reg_files/reg_files.v'.
+Back to file 'cpu.v'.
+Parsing included file 'ID_stage/sign_extender/sign_extender.v'.
+Parsing included file './utils/encordings.v'.
+Back to file 'ID_stage/sign_extender/sign_extender.v'.
+Back to file 'cpu.v'.
+Parsing included file 'ID_stage/control_unit/control_unit.v'.
+Parsing included file './utils/muxes/mux_3b_2to1.v'.
+Back to file 'ID_stage/control_unit/control_unit.v'.
+Parsing included file './utils/encordings.v'.
+Back to file 'ID_stage/control_unit/control_unit.v'.
+Back to file 'cpu.v'.
+Parsing included file 'ID_stage/hazard_unit/hazard_unit.v'.
+Back to file 'cpu.v'.
+Parsing included file 'EX_stage/alu/alu.v'.
+Parsing included file './utils/encordings.v'.
+Back to file 'EX_stage/alu/alu.v'.
+Back to file 'cpu.v'.
+Parsing included file 'EX_stage/branch/branch_logic.v'.
+Parsing included file './utils/encordings.v'.
+Back to file 'EX_stage/branch/branch_logic.v'.
+Back to file 'cpu.v'.
+Parsing included file 'utils/muxes/mux_32b_4to1.v'.
+Back to file 'cpu.v'.
+Parsing included file 'utils/muxes/mux_32b_3to1.v'.
+Back to file 'cpu.v'.
+Back to file 'cpu_tb.v'.
+Parsing included file './IF_stage/imem/imem.v'.
+Back to file 'cpu_tb.v'.
+Parsing included file './MA_stage/dmem/dmem.v'.
+Back to file 'cpu_tb.v'.
+Top Level Modules:
+       mux_32b_4to1
+       cpu_tb
+TimeScale is 1 ns / 100 ps
+Starting vcs inline pass...
+2 modules and 0 UDP read.
+	However, due to incremental compilation, no re-compilation is necessary.
+rm -f _cuarc*.so _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x ../simv ]; then chmod a-x ../simv; fi
+g++  -o ../simv      -rdynamic  -Wl,-rpath='$ORIGIN'/simv.daidir -Wl,-rpath=./simv.daidir -Wl,-rpath=/storage/synopsys/vcs/W-2024.09-SP1/linux64/lib -L/storage/synopsys/vcs/W-2024.09-SP1/linux64/lib  -Wl,-rpath-link=./  /usr/lib64/libnuma.so.1   objs/amcQw_d.o   _1398946_archive_1.so _prev_archive_1.so   SIM_l.o      rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o            -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile -luclinative /storage/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcs_tls.o   -Wl,-whole-archive  -lvcsucli    -Wl,-no-whole-archive        _vcs_pli_stub_.o   /storage/synopsys/vcs/W-2024.09-SP1/linux64/lib/vcs_save_restore_new.o /storage/synopsys/verdi/W-2024.09-SP1/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm -lpthread -ldl 
+../simv up to date
+CPU time: .367 seconds to compile + .230 seconds to elab + .199 seconds to link
+Verdi KDB elaboration done and the database successfully generated

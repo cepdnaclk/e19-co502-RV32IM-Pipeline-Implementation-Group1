@@ -1,0 +1,32 @@
+****************************************
+Report : report_rtl_metrics
+      -view hier
+Design : cpu
+Version: W-2024.09-SP2
+Date   : Tue Oct 28 22:13:00 2025
+****************************************
+
+
+gated_registers   icg_cells   latch_cells   reg_cells   sequential_cells   combinational_cells   total_power   cell_name
+---------------   ---------   -----------   ---------   ----------------   -------------------   -----------   -----------------------------------
+  1461                92           0          1461        1553              25291                3.72e-03      cpu
+   158                10           0           158         168                164                8.45e-04      cpu/id_ex_pipeline_reg_inst
+   111                 7           0           111         118                117                6.14e-04      cpu/ex_mem_pipeline_reg_inst
+   992                62           0           992        1054               1557                5.43e-04      cpu/reg_files_inst
+   104                 7           0           104         111                110                5.42e-04      cpu/mem_wb_pipeline_reg_inst
+    64                 4           0            64          68                 68                3.89e-04      cpu/if_id_pipeline_reg_inst
+     0                 0           0             0           0              22105                2.69e-04      cpu/alu_inst
+    32                 2           0            32          34                 64                2.10e-04      cpu/pc_inst
+     0                 0           0             0           0                165                8.32e-05      cpu/wb_mux
+     0                 0           0             0           0                112                5.91e-05      cpu/alu_mux_2
+     0                 0           0             0           0                 56                2.83e-05      cpu/alu_mux_1
+     0                 0           0             0           0                133                2.74e-05      cpu/branch_logic_inst
+     0                 0           0             0           0                 57                2.36e-05      cpu/control_unit_inst
+     0                 0           0             0           0                 74                2.36e-05      cpu/sign_extender_inst
+     0                 0           0             0           0                 70                2.27e-05      cpu/pc_mux
+     0                 0           0             0           0                 44                1.28e-05      cpu/hazard_unit_inst
+     0                 0           0             0           0                 30                5.01e-06      cpu/pc_plus_4
+     0                 0           0             0           0                 70                5.00e-06      cpu/forwarding_mux_1
+     0                 0           0             0           0                152                4.78e-06      cpu/forwarding_mux_2
+     0                 0           0             0           0                 30                1.11e-06      cpu/pc_plus_4_ma
+1

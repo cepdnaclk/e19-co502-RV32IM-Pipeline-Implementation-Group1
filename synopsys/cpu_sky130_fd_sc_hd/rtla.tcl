@@ -303,14 +303,14 @@ if {[llength $critical_paths] > 0} {
 }
 
 # Get area and power information
-set total_area [get_attribute [current_design] area]
-puts $summary_file "DESIGN METRICS:"
-puts $summary_file "  Total Area:            [format "%.2f" $total_area] um²"
+# set total_area [get_attribute [current_design] area]
+# puts $summary_file "DESIGN METRICS:"
+# puts $summary_file "  Total Area:            [format "%.2f" $total_area] um²"
 
 # Try to get power information if available
-if {[catch {get_attribute [current_design] total_power} total_power] == 0} {
-    puts $summary_file "  Total Power:           [format "%.4f" $total_power] mW"
-}
+# if {[catch {get_attribute [current_design] total_power} total_power] == 0} {
+#     puts $summary_file "  Total Power:           [format "%.4f" $total_power] mW"
+# }
 
 puts $summary_file ""
 puts $summary_file "PROCESS CORNER:"
@@ -334,7 +334,7 @@ puts $csv_file "Maximum_Frequency,$Fmax_formatted,MHz"
 puts $csv_file "Recommended_Frequency,$Fmax_margin_formatted,MHz"
 puts $csv_file "Worst_Slack,$slack,ns"
 puts $csv_file "Current_Period,$current_period,ns"
-puts $csv_file "Total_Area,$total_area,um2"
+# puts $csv_file "Total_Area,$total_area,um2"
 close $csv_file
 
 puts "All reports generated in $TEMP_RESULTS_DIR/ directory"

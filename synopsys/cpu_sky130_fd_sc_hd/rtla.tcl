@@ -204,8 +204,9 @@ set MARGIN_PERCENT 2.0
 set Tmin_with_margin [expr {$Tmin * (1.0 + $MARGIN_PERCENT/100.0)}]
 
 # Calculate frequencies (convert from ns to Hz, then to MHz)
-set Fmax [expr {1000.0 / $Tmin}]  # MHz (1/ns = 1000 MHz)
-set Fmax_with_margin [expr {1000.0 / $Tmin_with_margin}]  # MHz
+# Fmax in MHz: 1/ns = 1000 MHz
+set Fmax [expr {1000.0 / $Tmin}]
+set Fmax_with_margin [expr {1000.0 / $Tmin_with_margin}]
 
 # Format results
 set Fmax_formatted [format "%.2f" $Fmax]

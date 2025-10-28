@@ -64,6 +64,37 @@ puts "Design elaboration completed"
 puts "========== Loading Technology Setup =========="
 source tz_setup.tcl
 
+# Force timing update after loading constraints
+update_timing
+
+# Verify clock constraints were loaded
+puts "========== Verifying Clock Constraints =========="
+set all_clocks [get_clocks -quiet *]
+if {[llength $all_clocks] == 0} {
+    puts "ERROR: No clocks found after loading constraints!"
+    puts "Checking for clock ports in design..."
+    set clk_ports [get_ports -quiet *CLK*]
+    if {[llength $clk_ports] > 0} {
+        puts "Found clock port(s): [get_object_name $clk_ports]"
+        puts "Attempting to create clock manually..."
+        # Try to create clock on CLK port with default period
+        create_clock -name CLK -period 10.0 [get_ports CLK]
+        set all_clocks [get_clocks -quiet *]
+    }
+    if {[llength $all_clocks] == 0} {
+        puts "FATAL: Unable to create or find clocks. Exiting."
+        exit 1
+    }
+}
+
+puts "Clocks found in design:"
+foreach clk $all_clocks {
+    set clk_name [get_object_name $clk]
+    set clk_period [get_attribute $clk period]
+    puts "  - $clk_name (period: $clk_period ns)"
+}
+puts "=============================================="
+
 # -----------------------------------------------------------------------------
 # RTL Optimization
 # -----------------------------------------------------------------------------
@@ -103,11 +134,26 @@ puts "========== Characterizing Maximum Operating Frequency =========="
 # Update timing for accurate analysis
 update_timing
 
-# Get current clock period
-set current_clk [get_clocks clk]
-if {[llength $current_clk] == 0} {
-    puts "ERROR: No clock named 'clk' found in design"
+# Find all clocks in the design
+set all_clocks [get_clocks *]
+if {[llength $all_clocks] == 0} {
+    puts "ERROR: No clocks found in design. Please check your constraints."
+    puts "Available ports: [get_object_name [get_ports *clk*]]"
     exit 1
+}
+
+# Get the first clock (or find specific clock pattern)
+set current_clk [lindex $all_clocks 0]
+set clock_name [get_object_name $current_clk]
+puts "Found clock: $clock_name"
+
+# If there are multiple clocks, list them
+if {[llength $all_clocks] > 1} {
+    puts "Multiple clocks found in design:"
+    foreach clk $all_clocks {
+        puts "  - [get_object_name $clk]"
+    }
+    puts "Using first clock: $clock_name for analysis"
 }
 
 set current_period [get_attribute $current_clk period]
@@ -127,6 +173,12 @@ if {[llength $critical_paths] == 0} {
 puts "Current WNS (Worst Negative Slack): $slack ns"
 
 # Calculate minimum period and maximum frequency
+# Validate that we have the necessary data
+if {$current_period == "" || $current_period == 0} {
+    puts "ERROR: Invalid clock period retrieved"
+    exit 1
+}
+
 # Tmin = Current_Period - Slack (if slack is negative, this adds the violation)
 # If slack is positive, Tmin = Data_Arrival_Time (critical path delay)
 if {$slack >= 0} {
@@ -137,6 +189,14 @@ if {$slack >= 0} {
     # Timing violated - need to increase period
     set Tmin [expr {$current_period - $slack}]
     set timing_status "VIOLATED"
+}
+
+# Sanity check on calculated values
+if {$Tmin <= 0} {
+    puts "ERROR: Invalid critical path delay calculated: $Tmin ns"
+    puts "Current period: $current_period ns"
+    puts "Slack: $slack ns"
+    exit 1
 }
 
 # Add safety margin (typically 2-5% for publication)

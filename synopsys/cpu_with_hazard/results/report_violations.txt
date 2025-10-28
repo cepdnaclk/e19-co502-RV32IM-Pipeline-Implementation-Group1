@@ -1,0 +1,55 @@
+****************************************
+Report : constraint
+        -all_violators
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Tue Oct 28 22:28:21 2025
+****************************************
+
+   late_timing
+   -----------
+
+Information: Timer using 'Estimated Delay Calculation'. (TIM-050)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths.
+
+   early_timing
+   -----------
+
+Warning: Scenario func@cworst is not configured for hold analysis: skipping. (UIC-058)
+Warning: None of the specified scenarios are active for hold analysis. (UIC-057)
+Information: Timer using 'Estimated Delay Calculation'. (TIM-050)
+Endpoint                         Path Delay     Path Required       CRP    Slack Group    Scenario
+----------------------------------------------------------------------------------------------------------
+No paths.
+
+   Mode: func Corner: cworst
+   Scenario: func@cworst
+  ---------------------------------------------------------------------------
+   Number of max_transition violation(s): 0
+
+   Mode: func Corner: cworst
+   Scenario: func@cworst
+   max_capacitance                                                             
+                             Required        Actual                            
+   Net                      Capacitance    Capacitance       Slack  Violation  
+  ---------------------------------------------------------------------------
+   FORWARDING_DATA1_SEL_EX[1]
+                                0.02           0.03          -0.00  (VIOLATED) 
+     PIN : id_ex_pipeline_reg_inst/data1sel_out_reg[1]_data1sel_out_reg[0]_mem_write_out_reg[2]_mem_write_out_reg[1]_aluop_out_reg[4]_aluop_out_reg[3]_aluop_out_reg[2]_aluop_out_reg[1]/Q0
+                                0.02           0.03          -0.00  (VIOLATED) 
+
+  ---------------------------------------------------------------------------
+   Number of max_capacitance violation(s): 1
+
+
+
+  Mode: func
+  Corner: cworst
+  Scenario: func@cworst
+
+  ---------------------------------------------------------------------------
+   Number of min_pulse_width violation(s): 0
+   Total number of violation(s): 1
+1

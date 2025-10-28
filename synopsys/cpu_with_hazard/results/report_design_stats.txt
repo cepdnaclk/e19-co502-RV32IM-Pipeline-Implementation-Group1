@@ -1,0 +1,75 @@
+****************************************
+Report : design
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Tue Oct 28 22:28:21 2025
+****************************************
+
+Total number of std cells in library : 4254
+Total number of dont_use lib cells   : 346
+Total number of dont_touch lib cells : 44
+Total number of buffers              : 300
+Total number of inverters            : 126
+Total number of flip-flops           : 1228
+Total number of latches              : 116
+Total number of ICGs                 : 126
+
+Cell Instance Type  Count         Area
+--------------------------------------
+TOTAL LEAF CELLS    10530     4590.173
+unit                10530     4590.173
+Standard cells      10530     4590.173
+unit                10530     4590.173
+Hard macro cells        0        0.000
+unit                10530     4590.173
+Soft macro cells        0        0.000
+unit                10530     4590.173
+Always on cells         0        0.000
+unit                10530     4590.173
+Physical only           0        0.000
+unit                10530     4590.173
+Fixed cells             0        0.000
+unit                10530     4590.173
+Moveable cells      10530     4590.173
+unit                10530     4590.173
+Placed cells        10530     4590.173
+unit                10530     4590.173
+Sequential            240     1362.874
+unit                10530     4590.173
+Buffer/inverter      1297      165.992
+unit                10530     4590.173
+ICG cells              42       30.482
+unit                10530     4590.173
+
+Logic Hierarchies                    : 23
+Design Masters count                 : 377
+Total Flat nets count                : 12754
+Total FloatingNets count             : 37
+Total no of Ports                    : 171
+Number of Master Clocks in design    : 1
+Number of Generated Clocks in design : 0
+Number of Path Groups in design      : 7 (1 of them Non Default)
+Number of Scan Chains in design      : 0
+List of Modes                        : func
+List of Corners                      : cworst
+List of Scenarios                    : func@cworst
+
+Core Area                            : 6441.949
+Chip Area                            : 6441.949
+Total Site Row Area                  : 6441.949
+Number of Blockages                  : 0
+Total area of Blockages              : 0.000
+Number of Power Domains              : 1
+Number of Voltage Areas              : 1
+Number of Group Bounds               : 0
+Number of Exclusive MoveBounds       : 0
+Number of Hard or Soft MoveBounds    : 0
+Number of Multibit Registers         : 187
+Number of Multibit LS/ISO Cells      : 0
+Number of Top Level RP Groups        : 0
+Number of Tech Layers                : 56 (44 of them have unknown routing dir.)
+
+Total wire length                    : 0.00 micron
+Total number of wires                : 0
+Total number of contacts             : 0
+1

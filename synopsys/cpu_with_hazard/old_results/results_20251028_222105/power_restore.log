@@ -236,7 +236,7 @@ Information: Reading file novas.fsdb to annotate toggle rates on the design...
 logDir = /tmp/
 Information: Enabling native fsdb reader. 
 Information: Reading fsdb file '/storage/e19129/projects/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/novas.fsdb'
-Information: Simulation Start Time : 0.000000 ns, Simulation End Time : 3010.000000 ns, Total Simulation Time : 3010.000000 ns
+Information: Simulation Start Time : 0.000000 ns, Simulation End Time : 2012.000000 ns, Total Simulation Time : 2012.000000 ns
 
 ======================================================================
 Summary:
@@ -299,9 +299,9 @@ Total 1 type of message is suppressed
 
 Timing updates: 1 (1 implicit, 0 explicit) (0 incremental, 1 full, 0 logical)
 Noise updates: 0 (0 implicit, 0 explicit) (0 incremental, 0 full)
-Maximum memory usage for this session: 4085.70 MB
-CPU usage for this session: 123 seconds 
-Elapsed time for this session: 67 seconds
+Maximum memory usage for this session: 4070.63 MB
+CPU usage for this session: 83 seconds 
+Elapsed time for this session: 56 seconds
 Diagnostics summary: 51 warnings, 118 informationals
 
 Thank you for using pwr_shell!

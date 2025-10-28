@@ -1,0 +1,38 @@
+================================================================================
+RISC-V CPU - Performance Characterization
+================================================================================
+
+DESIGN INFORMATION:
+  Design Name:           cpu
+  Top Module:            cpu
+  Technology:            TSMC 16nm
+  Analysis Date:         2025-10-28 22:28:21
+
+TIMING ANALYSIS:
+  Current Clock Period:  10.000000 ns
+  Timing Status:         MET
+  Worst Slack (WNS):     3.026431 ns
+
+MAXIMUM FREQUENCY CHARACTERIZATION:
+  Critical Path Delay:   6.8996 ns
+  Maximum Frequency:     144.94 MHz
+
+RECOMMENDED OPERATING POINT (2.0% margin):
+  Clock Period:          7.0375 ns
+  Operating Frequency:   142.09 MHz
+
+CRITICAL PATH:
+  Startpoint:            mem_wb_pipeline_reg_inst/wb_sel_out_reg[1:0]/CK
+  Endpoint:              ex_mem_pipeline_reg_inst/alu_result_out_reg[23:16]/D7
+
+
+PROCESS CORNER:
+  Scenario:              func@cworst
+  Corner:                Cmax (Worst Case)
+
+================================================================================
+For detailed timing analysis, see:
+  - report_timing_critical_path.txt (Critical path breakdown)
+  - report_timing_top10_paths.txt (Top 10 critical paths)
+  - report_timing_detailed.txt (Full timing details with nets)
+================================================================================

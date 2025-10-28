@@ -1,0 +1,45 @@
+****************************************
+Report : reference
+Design : cpu
+Version: V-2023.12-SP5-3
+Date   : Tue Oct 28 22:28:21 2025
+****************************************
+
+Attributes
+    b - black-box (unknown)
+    h - hierarchical
+    n - noncombinational
+    u - contains unmapped logic
+    E - extracted timing model
+    Q - Quick timing model (QTM)
+    s - synthetic operator
+
+
+Reference          Library       Unit Area   Count    Total Area   Attributes
+--------------------------------------------------------------------------------
+HDBSVT16_OR2_0P5   ts16ncfslogl16hdl090f
+                                      0.21       3          0.62   
+HDBSVT16_TIE0_1    ts16ncfslogl16hdl090f
+                                      0.21      44          9.12   
+adder_32b_4                          13.48       1         13.48   h
+adder_32b_4_0                        13.48       1         13.48   h
+alu                                2550.79       1       2550.79   h
+branch_logic                         31.93       1         31.93   h
+control_unit                         11.51       1         11.51   h
+ex_mem_pipeline_reg                 128.15       1        128.15   h
+hazard_unit                          11.04       1         11.04   h
+id_ex_pipeline_reg                  180.87       1        180.87   h
+if_id_pipeline_reg                   72.52       1         72.52   h
+mem_wb_pipeline_reg                 118.66       1        118.66   h
+mux_32b_2to1                         13.69       1         13.69   h
+mux_32b_2to1_0                       12.08       1         12.08   h
+mux_32b_2to1_1                       12.29       1         12.29   h
+mux_32b_3to1                         18.40       1         18.40   h
+mux_32b_3to1_0                       15.55       1         15.55   h
+mux_32b_3to1_1                       17.52       1         17.52   h
+pc                                   38.47       1         38.47   h
+reg_files                          1304.04       1       1304.04   h
+sign_extender                        15.97       1         15.97   h
+--------------------------------------------------------------------------------
+Total 21 references                                      4590.17
+1

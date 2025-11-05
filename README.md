@@ -4,7 +4,7 @@ A complete 5-stage pipelined RISC-V processor implementation supporting the RV32
 
 ## Overview
 
-This project implements a pipelined RISC-V processor with hazard detection and forwarding units, designed for the CO502 Advanced Computer Architecture course. The design has been verified through simulation and synthesized using Synopsys tools targeting various process technologies including open-source PDKs.
+This project implements a pipelined RISC-V processor with hazard detection and forwarding units, designed for the CO502 Advanced Computer Architecture course. The design has been verified through simulation and synthesized using Synopsys tools targeting various process technologies including open-source PDKs (SKY130, 16nm FinFET).
 
 ## Features
 
@@ -213,7 +213,7 @@ python assembler.py <input.s> <output.mem>
 
 ## Performance Metrics
 
-Synthesis results from post-synthesis analysis:
+Synthesis results from post-synthesis analysis using 16nm FinFET:
 
 ### Timing Performance
 

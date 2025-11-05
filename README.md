@@ -69,7 +69,8 @@ This project implements a pipelined RISC-V processor with hazard detection and f
 
 **For FPGA:**
 
-- Intel Quartus Prime (for Altera/Intel FPGA targets)
+- Intel Quartus Prime (for Altera DE-115 development board)
+- Xilinx Vivado (for Xilinx Vertex-7 FPGA)
 
 ### Running Simulations
 
@@ -137,6 +138,91 @@ The script will:
 - `report_qor.txt` - Quality of results summary
 - `timing_summary.txt` - Clock frequency and period metrics
 - Power analysis reports (hierarchical and component-based)
+
+### Running on FPGA
+
+The design supports implementation on multiple FPGA platforms:
+
+#### Altera/Intel DE-115 Development Board
+
+1. Navigate to the FPGA project directory:
+
+```bash
+cd fpga/basic_cpu    # or fpga/hazard_cpu for full hazard detection
+```
+
+2. Open the project in Quartus Prime:
+
+```bash
+quartus TopLevel.qpf
+```
+
+3. Compile the design:
+
+   - Click **Processing** → **Start Compilation**
+   - Or use command line: `quartus_sh --flow compile TopLevel`
+
+4. Program the FPGA:
+
+   - Connect the DE-115 board via USB Blaster
+   - Click **Tools** → **Programmer**
+   - Select the `.sof` file from `output_files/`
+   - Click **Start** to program
+
+5. Debug with SignalTap II Logic Analyzer:
+   - Open **Tools** → **SignalTap II Logic Analyzer**
+   - Add signals to monitor (e.g., PC, instruction, register values)
+   - Run the design and capture signals in real-time
+   - Analyze waveforms for debugging
+
+**Board Configuration:**
+
+- **Device**: Cyclone IV E (EP4CE115F29C7)
+- **Clock**: 50 MHz input from on-board oscillator
+- **I/O**: Configured for switches, LEDs, and 7-segment displays
+
+#### Xilinx Vertex-7 FPGA
+
+1. Navigate to the Vivado project directory:
+
+```bash
+cd fpga/RISC_CPU
+```
+
+2. Open the project in Vivado:
+
+```bash
+vivado RISC_CPU.xpr
+```
+
+3. Synthesize and implement the design:
+
+   - Click **Run Synthesis** in the Flow Navigator
+   - After synthesis, click **Run Implementation**
+   - Click **Generate Bitstream**
+
+4. Program the FPGA:
+
+   - Connect the Vertex-7 board
+   - Click **Open Hardware Manager**
+   - Click **Open Target** → **Auto Connect**
+   - Right-click on the device → **Program Device**
+   - Select the `.bit` file and click **Program**
+
+5. Debug with Integrated Logic Analyzer (ILA):
+   - Insert ILA cores during design:
+     - Right-click signal in design → **Debug**
+     - Mark signals for debugging
+     - Re-synthesize and implement
+   - In Hardware Manager, add ILA dashboard
+   - Set trigger conditions and capture signals
+   - Analyze waveforms in real-time
+
+**Available Implementations:**
+
+- `basic_cpu/` - Basic 5-stage pipeline without hazard handling
+- `hazard_cpu/` - Full pipeline with hazard detection and forwarding
+- `RISC_CPU/` - Vivado project for Xilinx FPGAs
 
 ## Configuration
 

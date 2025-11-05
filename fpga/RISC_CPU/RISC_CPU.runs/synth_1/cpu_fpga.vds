@@ -1,0 +1,947 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sat Jul 12 01:52:54 2025
+# Process ID         : 2493449
+# Current directory  : /home/katta/fyp/RISC_CPU/RISC_CPU.runs/synth_1
+# Command line       : vivado -log cpu_fpga.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cpu_fpga.tcl
+# Log file           : /home/katta/fyp/RISC_CPU/RISC_CPU.runs/synth_1/cpu_fpga.vds
+# Journal file       : /home/katta/fyp/RISC_CPU/RISC_CPU.runs/synth_1/vivado.jou
+# Running On         : kyumaru
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.2 LTS
+# Processor Detail   : Intel(R) Xeon(R) CPU E5-1630 v3 @ 3.70GHz
+# CPU Frequency      : 3788.260 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 33567 MB
+# Swap memory        : 146028 MB
+# Total Virtual      : 179595 MB
+# Available Virtual  : 161219 MB
+#-----------------------------------------------------------
+source cpu_fpga.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental /home/katta/fyp/RISC_CPU/RISC_CPU.srcs/utils_1/imports/synth_1/cpu_fpga.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from /home/katta/fyp/RISC_CPU/RISC_CPU.srcs/utils_1/imports/synth_1/cpu_fpga.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top cpu_fpga -part xc7vx690tffg1761-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7vx690t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7vx690t'
+INFO: [Device 21-403] Loading part xc7vx690tffg1761-2
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 2493534
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 2137.516 ; gain = 421.945 ; free physical = 520 ; free virtual = 152464
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-10920] keyword 'unsigned' is not allowed here in this mode of Verilog [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:47]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_3b_2to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/control_unit/./utils/muxes/mux_3b_2to1.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'mux_3b_2to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/control_unit/../../ID_stage/control_unit/../../utils/muxes/mux_3b_2to1.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_3b_2to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/muxes/mux_3b_2to1.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'mux_3b_2to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/control_unit/./utils/muxes/mux_3b_2to1.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'control_unit' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../ID_stage/control_unit/control_unit.v:92]
+INFO: [Synth 8-9937] previous definition of design element 'control_unit' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../ID_stage/control_unit/control_unit.v:92]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'pc' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/test_stage/../pc/pc.v:19]
+INFO: [Synth 8-9937] previous definition of design element 'pc' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/test_stage/../pc/pc.v:19]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_32b_2to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/test_stage/../../utils/muxes/mux_32b_2to1.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'mux_32b_2to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/test_stage/../../utils/muxes/mux_32b_2to1.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'adder_32b_4' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/test_stage/../../utils/adders/adder_32b_4.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'adder_32b_4' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/test_stage/../../utils/adders/adder_32b_4.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'if_id_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/test_stage/../../pipeline_regs/if_id_pipeline_reg.v:21]
+INFO: [Synth 8-9937] previous definition of design element 'if_id_pipeline_reg' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/test_stage/../../pipeline_regs/if_id_pipeline_reg.v:21]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'id_ex_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/id_ex_pipeline_reg.v:59]
+INFO: [Synth 8-9937] previous definition of design element 'id_ex_pipeline_reg' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/id_ex_pipeline_reg.v:59]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'ex_mem_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/ex_mem_pipeline_reg.v:43]
+INFO: [Synth 8-9937] previous definition of design element 'ex_mem_pipeline_reg' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/ex_mem_pipeline_reg.v:43]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mem_wb_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/mem_wb_pipeline_reg.v:34]
+INFO: [Synth 8-9937] previous definition of design element 'mem_wb_pipeline_reg' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/mem_wb_pipeline_reg.v:34]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'reg_files' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files.v:57]
+INFO: [Synth 8-9937] previous definition of design element 'reg_files' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files.v:57]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'sign_extender' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/sign_extender/sign_extender.v:63]
+INFO: [Synth 8-9937] previous definition of design element 'sign_extender' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/sign_extender/sign_extender.v:63]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_3b_2to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/muxes/mux_3b_2to1.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'mux_3b_2to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/muxes/mux_3b_2to1.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'control_unit' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../ID_stage/control_unit/control_unit.v:92]
+INFO: [Synth 8-9937] previous definition of design element 'control_unit' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../ID_stage/control_unit/control_unit.v:92]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'hazard_unit' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/hazard_unit/hazard_unit.v:72]
+INFO: [Synth 8-9937] previous definition of design element 'hazard_unit' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/hazard_unit/hazard_unit.v:72]
+WARNING: [Synth 8-10920] keyword 'unsigned' is not allowed here in this mode of Verilog [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:47]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'alu' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:188]
+INFO: [Synth 8-9937] previous definition of design element 'alu' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:188]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'branch_logic' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/branch/branch_logic.v:49]
+INFO: [Synth 8-9937] previous definition of design element 'branch_logic' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/branch/branch_logic.v:49]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_32b_4to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_4to1.v:17]
+INFO: [Synth 8-9937] previous definition of design element 'mux_32b_4to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_4to1.v:17]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_32b_3to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_3to1.v:12]
+INFO: [Synth 8-9937] previous definition of design element 'mux_32b_3to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_3to1.v:12]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'pc' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../pc/pc.v:19]
+INFO: [Synth 8-9937] previous definition of design element 'pc' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../pc/pc.v:19]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'if_id_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../pipeline_regs/if_id_pipeline_reg.v:21]
+INFO: [Synth 8-9937] previous definition of design element 'if_id_pipeline_reg' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../pipeline_regs/if_id_pipeline_reg.v:21]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_32b_2to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/muxes/mux_32b_2to1.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'mux_32b_2to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/muxes/mux_32b_2to1.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'adder_32b_4' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/adders/adder_32b_4.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'adder_32b_4' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/adders/adder_32b_4.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'imem' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../imem/imem.v:47]
+INFO: [Synth 8-9937] previous definition of design element 'imem' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../imem/imem.v:47]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'pc' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../pc/pc.v:19]
+INFO: [Synth 8-9937] previous definition of design element 'pc' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../pc/pc.v:19]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_32b_2to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/muxes/mux_32b_2to1.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'mux_32b_2to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/muxes/mux_32b_2to1.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'adder_32b_4' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/adders/adder_32b_4.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'adder_32b_4' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/adders/adder_32b_4.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'if_id_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../pipeline_regs/if_id_pipeline_reg.v:21]
+INFO: [Synth 8-9937] previous definition of design element 'if_id_pipeline_reg' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../pipeline_regs/if_id_pipeline_reg.v:21]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'id_ex_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/id_ex_pipeline_reg.v:59]
+INFO: [Synth 8-9937] previous definition of design element 'id_ex_pipeline_reg' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/id_ex_pipeline_reg.v:59]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'ex_mem_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/ex_mem_pipeline_reg.v:43]
+INFO: [Synth 8-9937] previous definition of design element 'ex_mem_pipeline_reg' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/ex_mem_pipeline_reg.v:43]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mem_wb_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/mem_wb_pipeline_reg.v:34]
+INFO: [Synth 8-9937] previous definition of design element 'mem_wb_pipeline_reg' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/mem_wb_pipeline_reg.v:34]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'reg_files' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files.v:57]
+INFO: [Synth 8-9937] previous definition of design element 'reg_files' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files.v:57]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'sign_extender' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/sign_extender/sign_extender.v:63]
+INFO: [Synth 8-9937] previous definition of design element 'sign_extender' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/sign_extender/sign_extender.v:63]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_3b_2to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/muxes/mux_3b_2to1.v:10]
+INFO: [Synth 8-9937] previous definition of design element 'mux_3b_2to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../utils/muxes/mux_3b_2to1.v:10]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'control_unit' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../ID_stage/control_unit/control_unit.v:92]
+INFO: [Synth 8-9937] previous definition of design element 'control_unit' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../../ID_stage/control_unit/control_unit.v:92]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'hazard_unit' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/hazard_unit/hazard_unit.v:72]
+INFO: [Synth 8-9937] previous definition of design element 'hazard_unit' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/hazard_unit/hazard_unit.v:72]
+WARNING: [Synth 8-10920] keyword 'unsigned' is not allowed here in this mode of Verilog [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:47]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'alu' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:188]
+INFO: [Synth 8-9937] previous definition of design element 'alu' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:188]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'branch_logic' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/branch/branch_logic.v:49]
+INFO: [Synth 8-9937] previous definition of design element 'branch_logic' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/branch/branch_logic.v:49]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_32b_4to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_4to1.v:17]
+INFO: [Synth 8-9937] previous definition of design element 'mux_32b_4to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_4to1.v:17]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'mux_32b_3to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_3to1.v:12]
+INFO: [Synth 8-9937] previous definition of design element 'mux_32b_3to1' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_3to1.v:12]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'cpu' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_v2.v:432]
+INFO: [Synth 8-9937] previous definition of design element 'cpu' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu.v:338]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'imem' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../imem/imem.v:47]
+INFO: [Synth 8-9937] previous definition of design element 'imem' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/../imem/imem.v:47]
+CRITICAL WARNING: [Synth 8-9873] overwriting previous definition of module 'dmem' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/./MA_stage/dmem/dmem.v:85]
+INFO: [Synth 8-9937] previous definition of design element 'dmem' is here [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/./MA_stage/dmem/dmem.v:85]
+WARNING: [Synth 8-6901] identifier 'PC' is used before its declaration [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_fpga.v:37]
+WARNING: [Synth 8-6901] identifier 'INST' is used before its declaration [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_fpga.v:38]
+INFO: [Synth 8-6157] synthesizing module 'cpu_fpga' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_fpga.v:8]
+INFO: [Synth 8-6157] synthesizing module 'cpu' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_v2.v:20]
+INFO: [Synth 8-6157] synthesizing module 'mux_32b_2to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_2to1.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'mux_32b_2to1' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_2to1.v:3]
+INFO: [Synth 8-6157] synthesizing module 'pc' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/pc/pc.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'pc' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/pc/pc.v:3]
+INFO: [Synth 8-6157] synthesizing module 'adder_32b_4' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/adders/adder_32b_4.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'adder_32b_4' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/adders/adder_32b_4.v:3]
+INFO: [Synth 8-6157] synthesizing module 'if_id_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/if_id_pipeline_reg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'if_id_pipeline_reg' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/if_id_pipeline_reg.v:3]
+INFO: [Synth 8-6157] synthesizing module 'reg_files' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files.v:3]
+INFO: [Synth 8-251] reg[0] = x, reg[1] = x, reg[2] = x, reg[3] = x, reg[4] = x, reg[5] = x, reg[6] = x [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files.v:54]
+INFO: [Synth 8-6155] done synthesizing module 'reg_files' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files.v:3]
+INFO: [Synth 8-6157] synthesizing module 'sign_extender' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/sign_extender/sign_extender.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'sign_extender' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/sign_extender/sign_extender.v:9]
+INFO: [Synth 8-6157] synthesizing module 'control_unit' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/control_unit/control_unit.v:11]
+INFO: [Synth 8-6157] synthesizing module 'mux_3b_2to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_3b_2to1.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'mux_3b_2to1' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_3b_2to1.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/control_unit/control_unit.v:11]
+INFO: [Synth 8-6157] synthesizing module 'hazard_unit' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/hazard_unit/hazard_unit.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'hazard_unit' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/hazard_unit/hazard_unit.v:3]
+INFO: [Synth 8-6157] synthesizing module 'id_ex_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/id_ex_pipeline_reg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'id_ex_pipeline_reg' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/id_ex_pipeline_reg.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mux_32b_3to1' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_3to1.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'mux_32b_3to1' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_3to1.v:2]
+INFO: [Synth 8-6157] synthesizing module 'alu' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:9]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:93]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:108]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:117]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:127]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:9]
+INFO: [Synth 8-6157] synthesizing module 'branch_logic' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/branch/branch_logic.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'branch_logic' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/branch/branch_logic.v:9]
+INFO: [Synth 8-6157] synthesizing module 'ex_mem_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/ex_mem_pipeline_reg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'ex_mem_pipeline_reg' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/ex_mem_pipeline_reg.v:3]
+INFO: [Synth 8-6157] synthesizing module 'mem_wb_pipeline_reg' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/mem_wb_pipeline_reg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'mem_wb_pipeline_reg' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/mem_wb_pipeline_reg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'cpu' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_v2.v:20]
+INFO: [Synth 8-6157] synthesizing module 'imem' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/imem.v:11]
+INFO: [Synth 8-3876] $readmem data file '../imem/memfile.mem' is read successfully [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/imem.v:19]
+INFO: [Synth 8-6155] done synthesizing module 'imem' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/imem.v:11]
+INFO: [Synth 8-6157] synthesizing module 'dmem' [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/MA_stage/dmem/dmem.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'dmem' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/MA_stage/dmem/dmem.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'cpu_fpga' (0#1) [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_fpga.v:8]
+WARNING: [Synth 8-3848] Net BUSYWAIT_OUT in module/entity cpu does not have driver. [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_v2.v:31]
+WARNING: [Synth 8-6014] Unused sequential element readaccess_reg was removed.  [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/MA_stage/dmem/dmem.v:28]
+WARNING: [Synth 8-6014] Unused sequential element writeaccess_reg was removed.  [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/MA_stage/dmem/dmem.v:29]
+WARNING: [Synth 8-3848] Net BUSYWAIT_INT in module/entity cpu_fpga does not have driver. [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_fpga.v:44]
+WARNING: [Synth 8-7129] Port pc[1] in module imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port pc[0] in module imem is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inst[6] in module sign_extender is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inst[5] in module sign_extender is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inst[4] in module sign_extender is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inst[3] in module sign_extender is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inst[2] in module sign_extender is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inst[1] in module sign_extender is either unconnected or has no load
+WARNING: [Synth 8-7129] Port inst[0] in module sign_extender is either unconnected or has no load
+WARNING: [Synth 8-7129] Port BUSYWAIT_OUT in module cpu is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2352.453 ; gain = 636.883 ; free physical = 526 ; free virtual = 152260
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2352.453 ; gain = 636.883 ; free physical = 520 ; free virtual = 152259
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 2352.453 ; gain = 636.883 ; free physical = 520 ; free virtual = 152259
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.15 . Memory (MB): peak = 2352.453 ; gain = 0.000 ; free physical = 510 ; free virtual = 152262
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc]
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[6]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:43]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:43]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[3]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:44]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:44]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[0]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:45]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:45]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[1]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:46]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:46]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[2]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:47]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:47]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[4]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:48]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:48]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[5]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:49]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:49]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[7]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:50]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:50]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[8]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:51]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:51]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[9]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:52]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:52]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[10]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:53]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:53]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[16]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:54]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:54]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[17]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:55]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:55]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[14]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:56]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:56]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[20]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:57]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:57]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[21]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:58]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:58]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[18]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:59]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:59]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[24]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:60]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:60]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[25]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:61]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:61]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[22]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:62]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:62]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[23]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:63]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:63]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[19]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:64]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[15]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[11]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:66]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:66]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[12]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:67]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:67]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[13]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:68]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:68]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[26]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:69]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:69]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[27]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[28]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[29]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:72]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:72]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[30]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:73]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:73]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/ALU_OUT_EX[31]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:74]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:74]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][6]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:75]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:75]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][2]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:76]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:76]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][0]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:77]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:77]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][1]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:78]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:78]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][3]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:79]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:79]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][4]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:80]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:80]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][5]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:81]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:81]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][11]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:82]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][12]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:83]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:83]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][7]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:84]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:84]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][8]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:85]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:85]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][15]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][16]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][13]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][19]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][20]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][17]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][18]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][14]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][9]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][10]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][26]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:96]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:96]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][22]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:97]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:97]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][21]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:98]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][23]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][24]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][25]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][31]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][27]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][28]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][29]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/instr_out_reg[31][30]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:106]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:106]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[13]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[5]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:108]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:108]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[0]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:109]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:109]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[1]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:110]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:110]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[2]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[3]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[4]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:113]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[6]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:114]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:114]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[7]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[14]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[15]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:117]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:117]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[12]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:118]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:118]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[18]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:119]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:119]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[19]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:120]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:120]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[16]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:121]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:121]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[22]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:122]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:122]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[23]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:123]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:123]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[20]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:124]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:124]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[26]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:125]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:125]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[27]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:126]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:126]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[24]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:127]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:127]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[30]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:128]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:128]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[31]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:129]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:129]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[28]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:130]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:130]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[29]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:131]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:131]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[25]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:132]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:132]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[21]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:133]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:133]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[17]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:134]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:134]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[8]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:135]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:135]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[9]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:136]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:136]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[10]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:137]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:137]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/pc_out[11]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:138]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:138]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/reg_files_inst/D[9]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:139]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:139]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/reg_files_inst/D[4]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:140]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:140]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/reg_files_inst/D[0]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:141]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:141]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'cpu_inst/reg_files_inst/D[1]'. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:142]
+INFO: [Common 17-14] Message 'Vivado 12-507' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:142]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc:142]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/cpu_fpga_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/cpu_fpga_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2497.203 ; gain = 0.000 ; free physical = 587 ; free virtual = 152293
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2497.203 ; gain = 0.000 ; free physical = 587 ; free virtual = 152294
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2497.203 ; gain = 781.633 ; free physical = 517 ; free virtual = 152302
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7vx690tffg1761-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2505.207 ; gain = 789.637 ; free physical = 517 ; free virtual = 152303
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property MARK_DEBUG = false for cpu_inst/sign_extender_inst/imm_ext[14]. (constraint file  /home/katta/fyp/RISC_CPU/RISC_CPU.srcs/constrs_1/new/cpuXDC.xdc, line 395).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 2505.207 ; gain = 789.637 ; free physical = 517 ; free virtual = 152304
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Preparing Guide Design
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Doing Graph Differ : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 2505.207 ; gain = 789.637 ; free physical = 494 ; free virtual = 152297
+---------------------------------------------------------------------------------
+dmem__GB3dmem__GB2dmem__GB1---------------------------------------------------------------------------------
+Finished Preparing Guide Design : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 2505.207 ; gain = 789.637 ; free physical = 486 ; free virtual = 152300
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2505.207 ; gain = 789.637 ; free physical = 626 ; free virtual = 152316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Mimic Skeleton from Reference
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Mimic Skeleton from Reference : Time (s): cpu = 00:00:22 ; elapsed = 00:00:22 . Memory (MB): peak = 2505.207 ; gain = 789.637 ; free physical = 618 ; free virtual = 152318
+---------------------------------------------------------------------------------
+
+
+Incremental Synthesis Report Summary:
+
+1. Incremental synthesis run: yes
+
+   Stitch points used : changed
+
+
+2. Change Summary
+
+Report Incremental Modules: 
++------+----------------+------------+----------+----------+
+|      |Changed Modules |Replication |Instances |Changed % |
++------+----------------+------------+----------+----------+
+|1     |imem            |           1|         2|    0.0019|
++------+----------------+------------+----------+----------+
+
+
+   Full Design Size (number of cells) : 105000
+   Resynthesis Design Size (number of cells) : 62463
+   Resynth % : 59.4886,  Reuse % : 40.5114
+
+3. Reference Checkpoint Information
+
++----------------------------------------------------------------------------------------------+
+| DCP Location:  | /home/katta/fyp/RISC_CPU/RISC_CPU.srcs/utils_1/imports/synth_1/cpu_fpga.dcp |
++----------------------------------------------------------------------------------------------+
+
+
++--------------------------------+------------------------------+
+|         DCP Information        |             Value            |
++--------------------------------+------------------------------+
+| Vivado Version                 |                    v2024.2 |
+| DCP State                      |                              |
++--------------------------------+------------------------------+
+
+
+
+Report RTL Partitions: 
++------+------------------+------------+----------+
+|      |RTL Partition     |Replication |Instances |
++------+------------------+------------+----------+
+|1     |cpu_fpga__GC0     |           1|     21088|
+|2     |dmem__GB0         |           1|     41375|
+|3     |dmem__GB1_#REUSE# |           1|         0|
+|4     |dmem__GB2_#REUSE# |           1|         0|
+|5     |dmem__GB3_#REUSE# |           1|         0|
++------+------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 4     
+	   3 Input   32 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 48    
+	                8 Bit    Registers := 252   
+	                5 Bit    Registers := 4     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 2     
+	                2 Bit    Registers := 5     
+	                1 Bit    Registers := 6     
++---Multipliers : 
+	              32x64  Multipliers := 1     
+	              32x32  Multipliers := 3     
++---ROMs : 
+	                    ROMs := 1     
++---Muxes : 
+	   2 Input   64 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 34    
+	   3 Input   32 Bit        Muxes := 1     
+	   4 Input    8 Bit        Muxes := 247   
+	   2 Input    8 Bit        Muxes := 371   
+	   3 Input    8 Bit        Muxes := 92    
+	   2 Input    3 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 36    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 3600 (col length:200)
+BRAMs: 2940 (col length: RAMB18 200 RAMB36 100)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-12192] Not enough pipeline registers after wide multiplier. Pipeline registers present is 0. Recommended levels of pipeline registers is 4. [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:47]
+INFO: [Synth 8-12192] Not enough pipeline registers after wide multiplier. Pipeline registers present is 0. Recommended levels of pipeline registers is 8. [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:45]
+INFO: [Synth 8-12192] Not enough pipeline registers after wide multiplier. Pipeline registers present is 0. Recommended levels of pipeline registers is 4. [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:43]
+INFO: [Synth 8-12192] Not enough pipeline registers after wide multiplier. Pipeline registers present is 0. Recommended levels of pipeline registers is 4. [/home/katta/fyp/e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v:41]
+DSP Report: Generating DSP mulhu_prod0, operation Mode is: A*B.
+DSP Report: operator mulhu_prod0 is absorbed into DSP mulhu_prod0.
+DSP Report: operator mulhu_prod0 is absorbed into DSP mulhu_prod0.
+DSP Report: Generating DSP mulhu_prod0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mulhu_prod0 is absorbed into DSP mulhu_prod0.
+DSP Report: operator mulhu_prod0 is absorbed into DSP mulhu_prod0.
+DSP Report: Generating DSP mulhu_prod0, operation Mode is: A*B.
+DSP Report: operator mulhu_prod0 is absorbed into DSP mulhu_prod0.
+DSP Report: operator mulhu_prod0 is absorbed into DSP mulhu_prod0.
+DSP Report: Generating DSP mulhu_prod0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mulhu_prod0 is absorbed into DSP mulhu_prod0.
+DSP Report: operator mulhu_prod0 is absorbed into DSP mulhu_prod0.
+DSP Report: Generating DSP mulh_prod0, operation Mode is: A*B.
+DSP Report: operator mulh_prod0 is absorbed into DSP mulh_prod0.
+DSP Report: operator mulh_prod0 is absorbed into DSP mulh_prod0.
+DSP Report: Generating DSP mulh_prod0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mulh_prod0 is absorbed into DSP mulh_prod0.
+DSP Report: operator mulh_prod0 is absorbed into DSP mulh_prod0.
+DSP Report: Generating DSP mulh_prod0, operation Mode is: A*B.
+DSP Report: operator mulh_prod0 is absorbed into DSP mulh_prod0.
+DSP Report: operator mulh_prod0 is absorbed into DSP mulh_prod0.
+DSP Report: Generating DSP mulh_prod0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mulh_prod0 is absorbed into DSP mulh_prod0.
+DSP Report: operator mulh_prod0 is absorbed into DSP mulh_prod0.
+DSP Report: Generating DSP mulhsu_prod0, operation Mode is: A*B.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: Generating DSP mulhsu_prod0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: Generating DSP mulhsu_prod0, operation Mode is: A*B.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: Generating DSP mulhsu_prod0, operation Mode is: PCIN+A*B.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: Generating DSP mulhsu_prod0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: Generating DSP mulhsu_prod0, operation Mode is: A*B.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: Generating DSP mulhsu_prod0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: Generating DSP mulhsu_prod0, operation Mode is: PCIN+A*B.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+DSP Report: operator mulhsu_prod0 is absorbed into DSP mulhsu_prod0.
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3886] merging instance 'cpu_inst/id_ex_pipeline_reg_inst/mem_write_out_reg[0]' (FDRE) to 'cpu_inst/id_ex_pipeline_reg_inst/mem_read_out_reg[0]'
+INFO: [Synth 8-3886] merging instance 'cpu_inst/ex_mem_pipeline_reg_inst/mem_write_out_reg[0]' (FDRE) to 'cpu_inst/ex_mem_pipeline_reg_inst/mem_read_out_reg[0]'
+INFO: [Synth 8-3886] merging instance 'cpu_inst/id_ex_pipeline_reg_inst/mem_write_out_reg[1]' (FDRE) to 'cpu_inst/id_ex_pipeline_reg_inst/mem_read_out_reg[1]'
+INFO: [Synth 8-3886] merging instance 'cpu_inst/ex_mem_pipeline_reg_inst/mem_write_out_reg[1]' (FDRE) to 'cpu_inst/ex_mem_pipeline_reg_inst/mem_read_out_reg[1]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:29 ; elapsed = 00:01:02 . Memory (MB): peak = 2533.141 ; gain = 817.570 ; free physical = 498 ; free virtual = 150365
+---------------------------------------------------------------------------------
+ Sort Area is cpu_fpga__GC0 mulhsu_prod0_6 : 0 0 : 3101 8980 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhsu_prod0_6 : 0 1 : 2778 8980 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhsu_prod0_6 : 0 2 : 3101 8980 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhsu_prod0_8 : 0 0 : 2759 8638 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhsu_prod0_8 : 0 1 : 3101 8638 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhsu_prod0_8 : 0 2 : 2778 8638 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhu_prod0_0 : 0 0 : 3101 5879 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhu_prod0_0 : 0 1 : 2778 5879 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulh_prod0_c : 0 0 : 3101 5754 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulh_prod0_c : 0 1 : 2653 5754 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhu_prod0_3 : 0 0 : 2759 5418 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhu_prod0_3 : 0 1 : 2659 5418 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulh_prod0_e : 0 0 : 2634 5119 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulh_prod0_e : 0 1 : 2485 5119 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhsu_prod0_9 : 0 0 : 2460 4839 : Used 1 time 0
+ Sort Area is cpu_fpga__GC0 mulhsu_prod0_9 : 0 1 : 2379 4839 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|alu         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B            | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 18     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B            | 18     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 16     | 14     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN+A*B       | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN+A*B       | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Stitch Unchanged AreaOpt Partitions
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Stitch Unchanged AreaOpt Partitions : Time (s): cpu = 00:00:29 ; elapsed = 00:01:03 . Memory (MB): peak = 2533.141 ; gain = 817.570 ; free physical = 490 ; free virtual = 150365
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:01:13 . Memory (MB): peak = 2533.219 ; gain = 817.648 ; free physical = 453 ; free virtual = 149859
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:01:14 . Memory (MB): peak = 2534.219 ; gain = 818.648 ; free physical = 577 ; free virtual = 149734
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_0/\cpu_inst/reg_files_inst/mem_reg[0][20] )
+INFO: [Synth 8-7052] The timing for the instance i_0/i_3717 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:01:26 . Memory (MB): peak = 2555.152 ; gain = 839.582 ; free physical = 516 ; free virtual = 149076
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Stitch Unchanged Partitions
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Stitch Unchanged Partitions : Time (s): cpu = 00:00:41 ; elapsed = 00:01:26 . Memory (MB): peak = 2555.152 ; gain = 839.582 ; free physical = 514 ; free virtual = 149076
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance i_13794 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:01:32 . Memory (MB): peak = 2698.059 ; gain = 982.488 ; free physical = 449 ; free virtual = 148983
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:01:32 . Memory (MB): peak = 2698.059 ; gain = 982.488 ; free physical = 448 ; free virtual = 148982
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:01:32 . Memory (MB): peak = 2698.059 ; gain = 982.488 ; free physical = 436 ; free virtual = 148975
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:01:32 . Memory (MB): peak = 2698.059 ; gain = 982.488 ; free physical = 435 ; free virtual = 148975
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:48 ; elapsed = 00:01:33 . Memory (MB): peak = 2710.934 ; gain = 995.363 ; free physical = 557 ; free virtual = 148979
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:48 ; elapsed = 00:01:33 . Memory (MB): peak = 2710.934 ; gain = 995.363 ; free physical = 557 ; free virtual = 148979
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping  | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|alu         | A*B          | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN>>17+A*B | 15     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN>>17+A*B | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B          | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN>>17+A*B | 30     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN>>17+A*B | 17     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B          | 17     | 13     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B          | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN+A*B     | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN>>17+A*B | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | A*B          | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN>>17+A*B | 17     | 15     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|alu         | PCIN+A*B     | 17     | 17     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     2|
+|2     |CARRY4   |   673|
+|3     |DSP48E1  |    15|
+|4     |LUT1     |   110|
+|5     |LUT2     |   450|
+|6     |LUT3     |  3034|
+|7     |LUT4     |  1249|
+|8     |LUT5     |   882|
+|9     |LUT6     |  6790|
+|10    |MUXF7    |  1919|
+|11    |MUXF8    |   290|
+|12    |RAMB36E1 |     1|
+|13    |FDRE     |  3710|
+|14    |FDSE     |    16|
+|15    |IBUF     |     2|
+|16    |OBUF     |     8|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:48 ; elapsed = 00:01:33 . Memory (MB): peak = 2710.934 ; gain = 995.363 ; free physical = 557 ; free virtual = 148979
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:45 ; elapsed = 00:01:28 . Memory (MB): peak = 2714.848 ; gain = 854.527 ; free physical = 3797 ; free virtual = 152241
+Synthesis Optimization Complete : Time (s): cpu = 00:00:51 ; elapsed = 00:01:35 . Memory (MB): peak = 2714.848 ; gain = 999.277 ; free physical = 3803 ; free virtual = 152242
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.12 . Memory (MB): peak = 2714.848 ; gain = 0.000 ; free physical = 3798 ; free virtual = 152255
+INFO: [Netlist 29-17] Analyzing 2898 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2758.957 ; gain = 0.000 ; free physical = 3759 ; free virtual = 152316
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 8506a764
+INFO: [Common 17-83] Releasing license: Synthesis
+149 Infos, 119 Warnings, 143 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:11 ; elapsed = 00:01:55 . Memory (MB): peak = 2758.957 ; gain = 1399.254 ; free physical = 3752 ; free virtual = 152311
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 5355.687; main = 1875.217; forked = 3661.391
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 8792.375; main = 2758.961; forked = 6134.125
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00.1 ; elapsed = 00:00:00.03 . Memory (MB): peak = 2782.969 ; gain = 0.000 ; free physical = 3750 ; free virtual = 152312
+INFO: [Common 17-1381] The checkpoint '/home/katta/fyp/RISC_CPU/RISC_CPU.runs/synth_1/cpu_fpga.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file cpu_fpga_utilization_synth.rpt -pb cpu_fpga_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 12 01:55:00 2025...

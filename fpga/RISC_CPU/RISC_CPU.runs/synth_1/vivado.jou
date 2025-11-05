@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:34:34 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Sat Jul 12 01:52:54 2025
+# Process ID         : 2493449
+# Current directory  : /home/katta/fyp/RISC_CPU/RISC_CPU.runs/synth_1
+# Command line       : vivado -log cpu_fpga.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source cpu_fpga.tcl
+# Log file           : /home/katta/fyp/RISC_CPU/RISC_CPU.runs/synth_1/cpu_fpga.vds
+# Journal file       : /home/katta/fyp/RISC_CPU/RISC_CPU.runs/synth_1/vivado.jou
+# Running On         : kyumaru
+# Platform           : Ubuntu
+# Operating System   : Ubuntu 24.04.2 LTS
+# Processor Detail   : Intel(R) Xeon(R) CPU E5-1630 v3 @ 3.70GHz
+# CPU Frequency      : 3788.260 MHz
+# CPU Physical cores : 4
+# CPU Logical cores  : 8
+# Host memory        : 33567 MB
+# Swap memory        : 146028 MB
+# Total Virtual      : 179595 MB
+# Available Virtual  : 161219 MB
+#-----------------------------------------------------------
+source cpu_fpga.tcl -notrace

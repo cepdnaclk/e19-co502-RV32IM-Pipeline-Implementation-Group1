@@ -1,0 +1,16 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Sat Jul 12 02:01:53 2025
+| Host         : kyumaru running 64-bit Ubuntu 24.04.2 LTS
+| Command      : report_bus_skew -warn_on_violation -file cpu_fpga_bus_skew_routed.rpt -pb cpu_fpga_bus_skew_routed.pb -rpx cpu_fpga_bus_skew_routed.rpx
+| Design       : cpu_fpga
+| Device       : 7vx690t-ffg1761
+| Speed File   : -2  PRODUCTION 1.11 2014-09-11
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+No bus skew constraints
+

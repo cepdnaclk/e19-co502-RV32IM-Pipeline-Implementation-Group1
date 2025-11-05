@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7vx690tffg1761-2" LaunchTime="1752265549">
+  <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="cpu_fpga_postroute_physopted.rqs"/>
+  <File Type="ROUTE-RQS" Name="cpu_fpga_routed.rqs"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="BG-BGN" Name="cpu_fpga.bgn"/>
+  <File Type="BITSTR-SYSDEF" Name="cpu_fpga.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="cpu_fpga.ltx"/>
+  <File Type="RBD_FILE" Name="cpu_fpga.rbd"/>
+  <File Type="NPI_FILE" Name="cpu_fpga.npi"/>
+  <File Type="RNPI_FILE" Name="cpu_fpga.rnpi"/>
+  <File Type="CFI_FILE" Name="cpu_fpga.cfi"/>
+  <File Type="RCFI_FILE" Name="cpu_fpga.rcfi"/>
+  <File Type="PL-PDI-FILE" Name="cpu_fpga_pld.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="cpu_fpga_boot.pdi"/>
+  <File Type="RDI-RDI" Name="cpu_fpga.vdi"/>
+  <File Type="PDI-FILE" Name="cpu_fpga.pdi"/>
+  <File Type="BITSTR-MMI" Name="cpu_fpga.mmi"/>
+  <File Type="BITSTR-BMM" Name="cpu_fpga_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="cpu_fpga.nky"/>
+  <File Type="BITSTR-RBT" Name="cpu_fpga.rbt"/>
+  <File Type="BITSTR-MSK" Name="cpu_fpga.msk"/>
+  <File Type="BG-BIN" Name="cpu_fpga.bin"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
+  <File Type="BG-BIT" Name="cpu_fpga.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="cpu_fpga_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="cpu_fpga_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="cpu_fpga_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="cpu_fpga_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="cpu_fpga_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="cpu_fpga_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="cpu_fpga_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="cpu_fpga_postroute_physopt.dcp"/>
+  <File Type="BG-DRC" Name="cpu_fpga.drc"/>
+  <File Type="ROUTE-RQS-PB" Name="cpu_fpga_rqs_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="cpu_fpga_bus_skew_routed.rpx"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="cpu_fpga_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW" Name="cpu_fpga_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="cpu_fpga_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="cpu_fpga_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="cpu_fpga_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="cpu_fpga_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="cpu_fpga_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="cpu_fpga_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="cpu_fpga_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="cpu_fpga_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="cpu_fpga_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="cpu_fpga_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="cpu_fpga_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="cpu_fpga_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="cpu_fpga_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="cpu_fpga_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="cpu_fpga_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="cpu_fpga_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="cpu_fpga_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="cpu_fpga_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="cpu_fpga_routed_error.dcp"/>
+  <File Type="PHYSOPT-TIMING" Name="cpu_fpga_timing_summary_physopted.rpt"/>
+  <File Type="PHYSOPT-DRC" Name="cpu_fpga_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="cpu_fpga_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="cpu_fpga_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="cpu_fpga_postplace_pwropt.dcp"/>
+  <File Type="PLACE-RQA-PB" Name="cpu_fpga_rqa_placed.pb"/>
+  <File Type="PLACE-TIMING" Name="cpu_fpga_timing_summary_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="cpu_fpga_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="cpu_fpga_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="cpu_fpga_control_sets_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="cpu_fpga_utilization_placed.pb"/>
+  <File Type="PLACE-UTIL" Name="cpu_fpga_utilization_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="cpu_fpga_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-IO" Name="cpu_fpga_io_placed.rpt"/>
+  <File Type="PLACE-DCP" Name="cpu_fpga_placed.dcp"/>
+  <File Type="PWROPT-TIMING" Name="cpu_fpga_timing_summary_pwropted.rpt"/>
+  <File Type="PWROPT-DRC" Name="cpu_fpga_drc_pwropted.rpt"/>
+  <File Type="PWROPT-DCP" Name="cpu_fpga_pwropt.dcp"/>
+  <File Type="OPT-RQA-PB" Name="cpu_fpga_rqa_opted.pb"/>
+  <File Type="OPT-HWDEF" Name="cpu_fpga.hwdef"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="cpu_fpga_methodology_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="cpu_fpga_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="cpu_fpga_opt.dcp"/>
+  <File Type="OPT-TIMING" Name="cpu_fpga_timing_summary_opted.rpt"/>
+  <File Type="REPORTS-TCL" Name="cpu_fpga_reports.tcl"/>
+  <File Type="INIT-TIMING" Name="cpu_fpga_timing_summary_init.rpt"/>
+  <File Type="PA-TCL" Name="cpu_fpga.tcl"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/encordings.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/branch/branch_logic.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_3b_2to1.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/control_unit/control_unit.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/control_unit/control_unit_tb.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_3to1.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_4to1.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/hazard_unit/hazard_unit.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/if_id_pipeline_reg.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/id_ex_pipeline_reg.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/adders/adder_32b_4.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/utils/muxes/mux_32b_2to1.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/pc/pc.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/ex_mem_pipeline_reg.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/pipeline_regs/mem_wb_pipeline_reg.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/sign_extender/sign_extender.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/MA_stage/dmem/dmem.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/imem.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/test_stage/fetch_stage_tb.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_fpga.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/cpu_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/sign_extender/sign_extender_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/reg_files/reg_files_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/test_stage/EX_stage_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/MA_stage/dmem/dmem_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/branch/branch_logic_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/EX_stage/alu/alu_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/MA_stage/dcache/dcache.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/ID_stage/test_stage/decode_stage_tb.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/icache/icache.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../e19-co502-RV32IM-Pipeline-Implementation-Group1/cpu/IF_stage/imem/memfile.mem">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="cpu_fpga"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/cpuXDC.xdc">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/cpuXDC.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/cpu_fpga.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

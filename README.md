@@ -4,7 +4,7 @@ A complete 5-stage pipelined RISC-V processor implementation supporting the RV32
 
 ## Overview
 
-This project implements a pipelined RISC-V processor with hazard detection and forwarding units, designed for the CO502 Advanced Computer Architecture course. The design has been verified through simulation and synthesized using Synopsys tools targeting the SKY130 open-source PDK.
+This project implements a pipelined RISC-V processor with hazard detection and forwarding units, designed for the CO502 Advanced Computer Architecture course. The design has been verified through simulation and synthesized using Synopsys tools targeting the SKY130 open-source PDK and others.
 
 ## Features
 
@@ -127,19 +127,6 @@ The script will:
 - Run power analysis
 - Generate comprehensive reports
 - Archive results with timestamp
-
-### Results Organization
-
-**Successful runs:**
-
-- Saved in `synopsys/cpu_sky130_fd_sc_hd/results/YYYYMMDD_HHMMSS/`
-- Each run creates a timestamped subdirectory
-- Includes all logs, reports, and metadata
-
-**Failed runs:**
-
-- Saved in `synopsys/cpu_sky130_fd_sc_hd/failed/`
-- Only the latest failure is kept for debugging
 
 **Generated Reports:**
 

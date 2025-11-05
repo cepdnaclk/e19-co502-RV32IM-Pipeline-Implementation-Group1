@@ -1,10 +1,10 @@
 # RV32IM Pipeline Processor Implementation
 
-A complete 5-stage pipelined RISC-V processor implementation supporting the RV32IM instruction set architecture, synthesized for the SKY130 130nm process technology.
+A complete 5-stage pipelined RISC-V processor implementation supporting the RV32IM instruction set architecture, synthesized for multiple process technologies.
 
 ## Overview
 
-This project implements a pipelined RISC-V processor with hazard detection and forwarding units, designed for the CO502 Advanced Computer Architecture course. The design has been verified through simulation and synthesized using Synopsys tools targeting the SKY130 open-source PDK and others.
+This project implements a pipelined RISC-V processor with hazard detection and forwarding units, designed for the CO502 Advanced Computer Architecture course. The design has been verified through simulation and synthesized using Synopsys tools targeting various process technologies including open-source PDKs.
 
 ## Features
 
@@ -13,7 +13,7 @@ This project implements a pipelined RISC-V processor with hazard detection and f
 - **Hazard Detection**: Hardware-based data hazard detection and control hazard handling
 - **Forwarding Unit**: Data forwarding to minimize pipeline stalls
 - **Memory System**: Separate instruction and data memory with cache support
-- **SKY130 Synthesis**: Optimized for 130nm SKY130 process technology
+- **Multi-Technology Support**: Synthesis scripts available for multiple process technologies
 
 ## Project Structure
 
@@ -38,11 +38,11 @@ This project implements a pipelined RISC-V processor with hazard detection and f
 │   ├── cpu_sky130_fd_sc_hd/
 │   │   ├── config.tcl     # Shared configuration variables
 │   │   ├── rtla.tcl       # RTL analysis and synthesis script
-│   │   ├── tz_setup.tcl   # Technology setup for SKY130
+│   │   ├── tz_setup.tcl   # Technology setup script
 │   │   ├── restore_new.tcl # Power analysis script
 │   │   ├── script.sh      # Automated synthesis flow
 │   │   └── sdc/           # Timing constraints
-│   └── libs/              # SKY130 technology libraries
+│   └── libs/              # Process technology libraries
 │
 ├── fpga/                   # FPGA implementation files
 │   ├── basic_cpu/         # Basic CPU without hazard handling
@@ -65,7 +65,7 @@ This project implements a pipelined RISC-V processor with hazard detection and f
 
 - Synopsys Design Compiler or RTL Compiler
 - Synopsys PrimeTime (for power analysis)
-- SKY130 PDK libraries
+- Process technology libraries (e.g., open-source PDKs or commercial libraries)
 
 **For FPGA:**
 
@@ -147,9 +147,9 @@ All synthesis parameters are centralized in `config.tcl`:
 set DESIGN_NAME "cpu"
 set CORES 8
 
-# Library paths
-set TECH_TF "../libs/sky130_fd_sc_hd/sky130_fd_sc_hd.tf"
-set TLU_NOMINAL "../libs/sky130_library/skywater130.nominal.tluplus"
+# Library paths (customize for your technology)
+set TECH_TF "../libs/technology_library/tech_file.tf"
+set TLU_NOMINAL "../libs/technology_library/parasitic_model.tluplus"
 
 # Constraints
 set SDC_FILE "./sdc/clocks.sdc"
@@ -274,11 +274,10 @@ Synthesis results from post-synthesis analysis:
 ## Acknowledgments
 
 - RISC-V Foundation for the open ISA specification
-- SkyWater and Google for the open-source SKY130 PDK
+- Open-source PDK communities and technology providers
 - Course instructors and teaching assistants
 
 ## References
 
 - [RISC-V ISA Specification](https://riscv.org/specifications/)
-- [SkyWater SKY130 PDK](https://github.com/google/skywater-pdk)
 - Course materials: CO502 Advanced Computer Architecture

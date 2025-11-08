@@ -12,38 +12,6 @@
 source config.tcl
 
 # -----------------------------------------------------------------------------
-# Robust Helper Procedures
-# -----------------------------------------------------------------------------
-
-# Convert attribute string with units to floating ns
-proc to_ns {val} {
-    if {[string length $val] == 0} { return -1 }
-    if {[regexp {^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$} $val]} {
-        return [expr {double($val)}]
-    }
-    set map { ns 1.0 ps 0.001 us 1000.0 ms 1000000.0 }
-    set s [string trim $val]
-    if {[regexp {^([-+]?[0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)\s*([a-zA-Z]+)$} $s -> num unit]} {
-        set num [expr {double($num)}]
-        set unit [string tolower $unit]
-        if {[dict exists $map $unit]} { return [expr {$num * [dict get $map $unit]}] }
-    }
-    # fallback: remove non-numeric chars then parse
-    set cleaned [regsub -all {[^0-9eE\+\-\.]} $s ""]
-    if {[regexp {^([-+]?[0-9]*\.?[0-9]+(?:[eE][-+]?[0-9]+)?)$} $cleaned -> n]} {
-        return [expr {double($n)}]
-    }
-    return -1
-}
-
-# Safe get_attribute wrapper
-proc safe_get_attr {obj attr} {
-    if {$obj eq ""} { return "" }
-    if {[catch {get_attribute $obj $attr} res]} { return "" }
-    return $res
-}
-
-# -----------------------------------------------------------------------------
 # Configuration and Setup
 # -----------------------------------------------------------------------------
 puts "========== Restoring Saved Design =========="
@@ -59,105 +27,31 @@ puts "Using $CORES cores for parallel processing"
 # -----------------------------------------------------------------------------
 puts "========== Opening Saved Library and Block =========="
 
-# Try to open library but don't assume command will throw if missing
-if {[catch {open_lib $LIB_NAME} lib_err]} {
-    puts "ERROR: open_lib failed: $lib_err"
-    puts ""
-    puts "Library directory may be corrupted or incomplete."
-    puts "To fix this, either:"
-    puts "  1. Delete the library directory: rm -rf $LIB_NAME"
-    puts "  2. Run rtla.tcl fresh to recreate it"
-    exit 1
-}
+# Open the saved library
+open_lib $LIB_NAME
 
-# Check libs via get_libs
-set libs [get_libs -quiet $LIB_NAME]
-if {[llength $libs] == 0} {
-    puts "ERROR: Library '$LIB_NAME' not found (get_libs returned nothing)."
+# Check if library exists
+if {[sizeof_collection [get_libs $LIB_NAME]] == 0} {
+    puts "ERROR: Library $LIB_NAME not found!"
     puts "Please run rtla.tcl first to create and save the initial design."
     exit 1
-} else {
-    puts "Library '$LIB_NAME' present."
 }
 
-# Find the block object and open it
-# Try multiple common block naming patterns and labels
-set block_patterns [list \
-    "${DESIGN_NAME}.design/rtla_optimized" \
-    "${DESIGN_NAME}/rtla_optimized" \
-    "${DESIGN_NAME}.design" \
-    "${DESIGN_NAME}" \
-    "${DESIGN_NAME}:${TOP_MODULE}.design" \
-    "${DESIGN_NAME}:${TOP_MODULE}" \
-    "*" \
-]
+# Open the saved block
+open_block ${DESIGN_NAME}.design
 
-set blocks {}
-set found_pattern ""
-foreach pattern $block_patterns {
-    set blocks [get_blocks -quiet $pattern]
-    if {[llength $blocks] > 0} {
-        set found_pattern $pattern
-        puts "Found blocks matching pattern '$pattern'"
-        break
-    }
-}
-
-if {[llength $blocks] == 0} {
-    puts "ERROR: No blocks found in library '$LIB_NAME'."
-    puts "Tried patterns: $block_patterns"
-    puts ""
-    puts "========== DIAGNOSIS =========="
-    puts "The library exists but contains no design blocks."
-    puts "This means rtla.tcl either:"
-    puts "  - Did not complete successfully (check for errors)"
-    puts "  - Failed during save_block step"
-    puts "  - Was interrupted before saving"
-    puts ""
-    puts "========== SOLUTION =========="
-    puts "1. Delete the incomplete library:"
-    puts "     rm -rf $LIB_NAME"
-    puts ""
-    puts "2. Run rtla.tcl completely:"
-    puts "     rtl_shell -f rtla.tcl | tee rtla_run.log"
-    puts ""
-    puts "3. Verify blocks were saved (check for this message):"
-    puts "     'Design saved successfully with label rtla_optimized'"
-    puts "     'Saved blocks in library: ...' (should list at least one block)"
-    puts ""
-    puts "4. Then retry this script:"
-    puts "     rtl_shell -f restore_and_analyze.tcl"
-    puts ""
-    puts "To manually check blocks:"
-    puts "  rtl_shell"
-    puts "  open_lib $LIB_NAME"
-    puts "  get_blocks *"
-    puts "==============================="
+# Check if block exists
+if {[current_block] == ""} {
+    puts "ERROR: Block ${DESIGN_NAME}.design not found!"
+    puts "Available blocks: [get_object_name [get_blocks *]]"
+    puts "Please run rtla.tcl first to create and save the initial design."
     exit 1
 }
 
-# If multiple blocks found, list them and use the first one
-if {[llength $blocks] > 1} {
-    puts "Multiple blocks found:"
-    foreach b $blocks { puts "  - [get_object_name $b]" }
-    puts "Using first block: [get_object_name [lindex $blocks 0]]"
-}
+puts "Successfully restored design from saved library"
 
-# open the first matching block object
-set blk [lindex $blocks 0]
-puts "Opening block: [get_object_name $blk]"
-if {[catch {open_block $blk} ob_err]} {
-    puts "ERROR: open_block failed: $ob_err"
-    exit 1
-}
-puts "Successfully restored design block: [get_object_name $blk]"
-
-# set top module (guarded)
-if {[catch {set_top_module $TOP_MODULE} st_err]} {
-    puts "Note: set_top_module failed or not supported: $st_err"
-} else {
-    puts "Set top module to $TOP_MODULE"
-}
+# Set the top module
+set_top_module $TOP_MODULE
 
 # -----------------------------------------------------------------------------
 # Technology Setup and Constraints
@@ -166,9 +60,7 @@ puts "========== Reloading Technology Setup =========="
 source tz_setup.tcl
 
 # Force timing update
-if {[catch {update_timing} ut_err]} { 
-    puts "Note: update_timing failed: $ut_err" 
-}
+update_timing
 
 # Verify clock constraints
 puts "========== Verifying Clock Constraints =========="
@@ -181,13 +73,8 @@ if {[llength $all_clocks] == 0} {
 puts "Clocks found in design:"
 foreach clk $all_clocks {
     set clk_name [get_object_name $clk]
-    set raw_period [safe_get_attr $clk period]
-    set clk_period [to_ns $raw_period]
-    if {$clk_period > 0} {
-        puts "  - $clk_name (period: $clk_period ns)"
-    } else {
-        puts "  - $clk_name (period: $raw_period [PARSING ERROR])"
-    }
+    set clk_period [get_attribute $clk period]
+    puts "  - $clk_name (period: $clk_period ns)"
 }
 
 # -----------------------------------------------------------------------------
@@ -196,158 +83,81 @@ foreach clk $all_clocks {
 puts "========== Setting up Power Analysis =========="
 
 # Create temp results directory if it doesn't exist
-if {![file exists $TEMP_RESULTS_DIR]} { 
-    file mkdir $TEMP_RESULTS_DIR 
-}
+file mkdir $TEMP_RESULTS_DIR
 
-# Configure RTL power analysis (guarded for tool compatibility)
-if {[catch {
-    set_rtl_power_analysis_options \
-        -scenario $SCENARIO_NAME \
-        -design $DESIGN_NAME \
-        -strip_path $STRIP_PATH \
-        -fsdb $FSDB_FILE \
-        -output_dir $OUTPUT_DIR
-} err]} {
-    puts "WARNING: set_rtl_power_analysis_options failed: $err"
-    puts "         (This may be expected if not in rtl_shell with power support)"
-} else {
-    if {[catch {export_power_data} exp_err]} {
-        puts "WARNING: export_power_data failed: $exp_err"
-    } else {
-        puts "Power analysis data exported"
-        puts "Note: Run pwr_shell with restore_new.tcl next for detailed power analysis"
-    }
-}
+# Configure RTL power analysis
+set_rtl_power_analysis_options \
+    -scenario $SCENARIO_NAME \
+    -design $DESIGN_NAME \
+    -strip_path $STRIP_PATH \
+    -fsdb $FSDB_FILE \
+    -output_dir $OUTPUT_DIR
+
+export_power_data
+puts "Power analysis data exported"
+puts "Note: Run pwr_shell with restore_new.tcl next for detailed power analysis"
 
 # -----------------------------------------------------------------------------
-# Maximum Frequency Characterization (Per-Clock Analysis)
+# Maximum Frequency Characterization
 # -----------------------------------------------------------------------------
 puts "========== Characterizing Maximum Operating Frequency =========="
 
 # Update timing for accurate analysis
-if {[catch {update_timing} ut_err]} { 
-    puts "Note: update_timing failed: $ut_err" 
-}
+update_timing
 
+# Get the first clock
 set all_clocks [get_clocks *]
-if {[llength $all_clocks] == 0} {
-    puts "ERROR: No clocks found after loading constraints!"
-    exit 1
+set current_clk [lindex $all_clocks 0]
+set clock_name [get_object_name $current_clk]
+puts "Analyzing clock: $clock_name"
+
+set current_period [get_attribute $current_clk period]
+puts "Current clock period: $current_period ns"
+
+# Get worst negative slack and critical path information
+set critical_paths [get_timing_paths -delay_type max -max_paths 1]
+if {[llength $critical_paths] == 0} {
+    puts "WARNING: No timing paths found"
+    set slack 0.0
+    set data_arrival 0.0
+} else {
+    set slack [get_attribute $critical_paths slack]
+    set data_arrival [get_attribute $critical_paths arrival]
 }
 
-# Create subdirectory for restore run reports
-set RESTORE_RESULTS_DIR "$TEMP_RESULTS_DIR/restore_run"
-if {![file exists $RESTORE_RESULTS_DIR]} { 
-    file mkdir $RESTORE_RESULTS_DIR 
-}
+puts "Current WNS (Worst Negative Slack): $slack ns"
 
-# Analyze every clock (safer) and produce a per-clock CSV
-set csv_file [open "$RESTORE_RESULTS_DIR/timing_metrics_per_clock.csv" w]
-puts $csv_file "Clock,Period_ns,WNS_ns,CriticalDelay_ns,Fmax_MHz,Fmax_margin_MHz,Status,Start,End"
-
-set MARGIN_PERCENT 2.0
-set global_worst_slack 1000.0
-set global_min_fmax 10000.0
-set global_clock_name ""
-
-foreach clk $all_clocks {
-    set clk_name [get_object_name $clk]
-    puts "Analyzing clock: $clk_name"
-
-    set raw_period [safe_get_attr $clk period]
-    set current_period [to_ns $raw_period]
-    if {$current_period <= 0} {
-        puts "  ERROR: invalid period for $clk_name ('$raw_period') - skipping"
-        continue
-    }
-    puts "  Current clock period: $current_period ns"
-
-    # Query top path for this clock domain
-    set paths {}
-    if {[catch {set paths [get_timing_paths -delay_type max -max_paths 1 -from_clocks $clk -to_clocks $clk]} p_err]} {
-        # fallback global query
-        if {[catch {set paths [get_timing_paths -delay_type max -max_paths 1]} p_err2]} {
-            puts "  WARNING: get_timing_paths failed: $p_err ; $p_err2"
-            set paths {}
-        }
-    }
-
-    if {[llength $paths] == 0} {
-        puts "  WARNING: No timing paths found for $clk_name"
-        puts $csv_file "$clk_name,$current_period,,,,,NO_PATH,,"
-        continue
-    }
-
-    # Get the first path object (index into list)
-    set p [lindex $paths 0]
-    set raw_slack [safe_get_attr $p slack]
-    set slack [to_ns $raw_slack]
-    if {$slack == -1} { 
-        puts "  WARNING: Could not parse slack ('$raw_slack'), assuming 0"
-        set slack 0 
-    }
-
-    # Calculate minimum period: Tmin = period - slack
+# Calculate minimum period and maximum frequency
+if {$slack >= 0} {
+    set Tmin $data_arrival
+    set timing_status "MET"
+} else {
     set Tmin [expr {$current_period - $slack}]
-    if {$Tmin <= 0} {
-        puts "  ERROR: computed Tmin non-positive ($Tmin ns) for $clk_name"
-        puts $csv_file "$clk_name,$current_period,$slack,INVALID,0,0,INVALID_TMIN,,"
-        continue
-    }
-
-    set Tmin_margin [expr {$Tmin * (1.0 + $MARGIN_PERCENT/100.0)}]
-    set Fmax [expr {1000.0 / $Tmin}]
-    set Fmax_margin [expr {1000.0 / $Tmin_margin}]
-    set status "MET"
-    if {$slack < 0} { set status "VIOLATED" }
-
-    # Get startpoint and endpoint
-    set sp [safe_get_attr $p startpoint]
-    set ep [safe_get_attr $p endpoint]
-    set spn [expr {$sp ne "" ? [get_object_name $sp] : ""}]
-    set epn [expr {$ep ne "" ? [get_object_name $ep] : ""}]
-
-    puts "  WNS: $slack ns"
-    puts "  Critical delay: [format %.4f $Tmin] ns"
-    puts "  Fmax: [format %.2f $Fmax] MHz"
-    puts "  Fmax (with ${MARGIN_PERCENT}% margin): [format %.2f $Fmax_margin] MHz"
-    puts "  Status: $status"
-    
-    puts $csv_file "$clk_name,$current_period,$slack,[format %.4f $Tmin],[format %.2f $Fmax],[format %.2f $Fmax_margin],$status,$spn,$epn"
-
-    # Track global worst case
-    if {$slack < $global_worst_slack} {
-        set global_worst_slack $slack
-        set global_min_fmax $Fmax_margin
-        set global_clock_name $clk_name
-    }
-
-    # Write small per-clock timing report (best-effort)
-    set rpt "$RESTORE_RESULTS_DIR/${clk_name}_critical_path.txt"
-    if {[catch {
-        report_timing -delay_type max -max_paths 1 -path_type full \
-            -from_clocks $clk -to_clocks $clk > $rpt
-    } r_err]} {
-        # Fallback without clock filters
-        catch {report_timing -delay_type max -max_paths 1 -path_type full > $rpt}
-    }
+    set timing_status "VIOLATED"
 }
 
-close $csv_file
+# Add safety margin
+set MARGIN_PERCENT 2.0
+set Tmin_with_margin [expr {$Tmin * (1.0 + $MARGIN_PERCENT/100.0)}]
+
+# Calculate frequencies
+set Fmax [expr {1000.0 / $Tmin}]
+set Fmax_with_margin [expr {1000.0 / $Tmin_with_margin}]
+
+# Format results
+set Fmax_formatted [format "%.2f" $Fmax]
+set Fmax_margin_formatted [format "%.2f" $Fmax_with_margin]
+set Tmin_formatted [format "%.4f" $Tmin]
+set Tmin_margin_formatted [format "%.4f" $Tmin_with_margin]
 
 puts "================================================"
 puts "MAXIMUM FREQUENCY CHARACTERIZATION RESULTS"
 puts "================================================"
-if {$global_clock_name ne ""} {
-    puts "Worst Clock: $global_clock_name"
-    puts "Worst Slack: $global_worst_slack ns"
-    puts "Recommended Maximum Frequency: [format %.2f $global_min_fmax] MHz (with ${MARGIN_PERCENT}% margin)"
-} else {
-    puts "No valid timing paths analyzed"
-}
-puts "================================================"
-puts "Per-clock details saved to: timing_metrics_per_clock.csv"
+puts "Timing Status: $timing_status at current period"
+puts "Critical Path Delay: $Tmin_formatted ns"
+puts "Maximum Frequency: $Fmax_formatted MHz"
+puts "Maximum Frequency (with ${MARGIN_PERCENT}% margin): $Fmax_margin_formatted MHz"
+puts "Recommended Clock Period: $Tmin_margin_formatted ns"
 puts "================================================"
 
 # -----------------------------------------------------------------------------
@@ -355,61 +165,37 @@ puts "================================================"
 # -----------------------------------------------------------------------------
 puts "========== Generating Reports =========="
 
-# Basic reports (with error handling)
-if {[catch {report_power > "$RESTORE_RESULTS_DIR/report_power.txt"} err]} {
-    puts "WARNING: report_power failed: $err"
-}
-if {[catch {report_area > "$RESTORE_RESULTS_DIR/report_area.txt"} err]} {
-    puts "WARNING: report_area failed: $err"
-}
-if {[catch {report_qor > "$RESTORE_RESULTS_DIR/report_qor.txt"} err]} {
-    puts "WARNING: report_qor failed: $err"
-}
+# Create subdirectory for restore run reports
+set RESTORE_RESULTS_DIR "$TEMP_RESULTS_DIR/restore_run"
+file mkdir $RESTORE_RESULTS_DIR
+
+# Basic reports
+report_power > "$RESTORE_RESULTS_DIR/report_power.txt"
+report_area > "$RESTORE_RESULTS_DIR/report_area.txt" 
+report_qor > "$RESTORE_RESULTS_DIR/report_qor.txt"
 
 # Detailed timing reports
-if {[catch {
-    report_timing -delay_type max -max_paths 1 -path_type full \
-        > "$RESTORE_RESULTS_DIR/report_timing_critical_path.txt"
-} err]} {
-    puts "WARNING: report_timing (critical path) failed: $err"
-}
+report_timing -delay_type max -max_paths 1 -path_type full \
+    > "$RESTORE_RESULTS_DIR/report_timing_critical_path.txt"
 
-if {[catch {
-    report_timing -delay_type max -max_paths 10 -path_type full \
-        > "$RESTORE_RESULTS_DIR/report_timing_top10_paths.txt"
-} err]} {
-    puts "WARNING: report_timing (top10) failed: $err"
-}
+report_timing -delay_type max -max_paths 10 -path_type full \
+    > "$RESTORE_RESULTS_DIR/report_timing_top10_paths.txt"
 
-if {[catch {
-    report_timing -delay_type max -max_paths 1 -nets -transition_time \
-        -capacitance -input_pins -significant_digits 4 \
-        > "$RESTORE_RESULTS_DIR/report_timing_detailed.txt"
-} err]} {
-    puts "WARNING: report_timing (detailed) failed: $err"
-}
+report_timing -delay_type max -max_paths 1 -nets -transition_time \
+    -capacitance -input_pins -significant_digits 4 \
+    > "$RESTORE_RESULTS_DIR/report_timing_detailed.txt"
 
 # Constraint and violation reports
-if {[catch {
-    report_constraint -all_violators > "$RESTORE_RESULTS_DIR/report_violations.txt"
-} err]} {
-    puts "WARNING: report_constraint failed: $err"
-}
+report_constraint -all_violators > "$RESTORE_RESULTS_DIR/report_violations.txt"
 
 # Clock reports
-if {[catch {
-    report_clock -skew > "$RESTORE_RESULTS_DIR/report_clock.txt"
-} err]} {
-    puts "WARNING: report_clock failed: $err"
-}
+report_clock -skew > "$RESTORE_RESULTS_DIR/report_clock.txt"
 
 # Additional reports
-catch {report_reference > "$RESTORE_RESULTS_DIR/report_reference.txt"}
-catch {report_hierarchy > "$RESTORE_RESULTS_DIR/report_hierarchy.txt"}
-catch {report_design > "$RESTORE_RESULTS_DIR/report_design_stats.txt"}
-catch {report_pvt > "$RESTORE_RESULTS_DIR/report_pvt.txt"}
-
-puts "All reports generated in $RESTORE_RESULTS_DIR/ directory"
+report_reference > "$RESTORE_RESULTS_DIR/report_reference.txt"
+report_hierarchy > "$RESTORE_RESULTS_DIR/report_hierarchy.txt"
+report_design > "$RESTORE_RESULTS_DIR/report_design_stats.txt"
+report_pvt > "$RESTORE_RESULTS_DIR/report_pvt.txt"
 
 # -----------------------------------------------------------------------------
 # Generate Publication-Ready Summary
@@ -429,63 +215,58 @@ puts $summary_file "  Technology:            45nm CMOS"
 puts $summary_file "  Analysis Date:         [clock format [clock seconds] -format "%Y-%m-%d %H:%M:%S"]"
 puts $summary_file "  Analysis Type:         Restored from saved design"
 puts $summary_file ""
-
-# Use global worst-case results from per-clock analysis
-if {$global_clock_name ne ""} {
-    puts $summary_file "TIMING ANALYSIS (WORST CASE):"
-    puts $summary_file "  Critical Clock:        $global_clock_name"
-    puts $summary_file "  Worst Slack (WNS):     [format %.4f $global_worst_slack] ns"
-    if {$global_worst_slack >= 0} {
-        puts $summary_file "  Timing Status:         MET"
-    } else {
-        puts $summary_file "  Timing Status:         VIOLATED"
-    }
-    puts $summary_file ""
-    puts $summary_file "MAXIMUM FREQUENCY CHARACTERIZATION:"
-    puts $summary_file "  Recommended Frequency: [format %.2f $global_min_fmax] MHz"
-    puts $summary_file "  Safety Margin:         ${MARGIN_PERCENT}%"
-    puts $summary_file ""
-} else {
-    puts $summary_file "TIMING ANALYSIS:"
-    puts $summary_file "  Status:                No timing paths found"
-    puts $summary_file ""
-}
-
-puts $summary_file "MULTI-CLOCK ANALYSIS:"
-puts $summary_file "  Number of Clocks:      [llength $all_clocks]"
-puts $summary_file "  Per-Clock Results:     See timing_metrics_per_clock.csv"
-foreach clk $all_clocks {
-    puts $summary_file "    - [get_object_name $clk]"
-}
+puts $summary_file "TIMING ANALYSIS:"
+puts $summary_file "  Current Clock Period:  $current_period ns"
+puts $summary_file "  Timing Status:         $timing_status"
+puts $summary_file "  Worst Slack (WNS):     $slack ns"
+puts $summary_file ""
+puts $summary_file "MAXIMUM FREQUENCY CHARACTERIZATION:"
+puts $summary_file "  Critical Path Delay:   $Tmin_formatted ns"
+puts $summary_file "  Maximum Frequency:     $Fmax_formatted MHz"
+puts $summary_file ""
+puts $summary_file "RECOMMENDED OPERATING POINT (${MARGIN_PERCENT}% margin):"
+puts $summary_file "  Clock Period:          $Tmin_margin_formatted ns"
+puts $summary_file "  Operating Frequency:   $Fmax_margin_formatted MHz"
 puts $summary_file ""
 
+# Get critical path details
+if {[llength $critical_paths] > 0} {
+    set startpoint [get_attribute $critical_paths startpoint]
+    set endpoint [get_attribute $critical_paths endpoint]
+    puts $summary_file "CRITICAL PATH:"
+    puts $summary_file "  Startpoint:            [get_object_name $startpoint]"
+    puts $summary_file "  Endpoint:              [get_object_name $endpoint]"
+    puts $summary_file ""
+}
+
+puts $summary_file ""
 puts $summary_file "PROCESS CORNER:"
 puts $summary_file "  Scenario:              $SCENARIO_NAME"
 puts $summary_file "  Corner:                Cmax (Worst Case)"
 puts $summary_file ""
 puts $summary_file "================================================================================"
-puts $summary_file "DETAILED REPORTS AVAILABLE:"
-puts $summary_file "  - timing_metrics_per_clock.csv        Per-clock frequency analysis"
-foreach clk $all_clocks {
-    set clk_name [get_object_name $clk]
-    puts $summary_file "  - ${clk_name}_critical_path.txt       Critical path for $clk_name"
-}
-puts $summary_file "  - report_timing_critical_path.txt     Overall critical path breakdown"
-puts $summary_file "  - report_timing_top10_paths.txt       Top 10 critical paths"
-puts $summary_file "  - report_timing_detailed.txt          Full timing details with nets"
-puts $summary_file "  - report_violations.txt               All timing violations"
-puts $summary_file "  - report_power.txt                    Power analysis"
-puts $summary_file "  - report_area.txt                     Area breakdown"
-puts $summary_file "  - report_qor.txt                      Quality of Results summary"
+puts $summary_file "For detailed timing analysis, see:"
+puts $summary_file "  - report_timing_critical_path.txt (Critical path breakdown)"
+puts $summary_file "  - report_timing_top10_paths.txt (Top 10 critical paths)"
+puts $summary_file "  - report_timing_detailed.txt (Full timing details with nets)"
 puts $summary_file "================================================================================"
 
 close $summary_file
 
+# Create CSV for easy import
+set csv_file [open "$RESTORE_RESULTS_DIR/timing_metrics.csv" w]
+puts $csv_file "Metric,Value,Unit"
+puts $csv_file "Critical_Path_Delay,$Tmin_formatted,ns"
+puts $csv_file "Maximum_Frequency,$Fmax_formatted,MHz"
+puts $csv_file "Recommended_Frequency,$Fmax_margin_formatted,MHz"
+puts $csv_file "Worst_Slack,$slack,ns"
+puts $csv_file "Current_Period,$current_period,ns"
+close $csv_file
+
+puts "All reports generated in $RESTORE_RESULTS_DIR/ directory"
 puts ""
-if {$global_clock_name ne ""} {
-    puts "KEY RESULT: Maximum Operating Frequency = [format %.2f $global_min_fmax] MHz (with ${MARGIN_PERCENT}% margin)"
-    puts "Critical Clock: $global_clock_name"
-}
+puts "KEY RESULT: Maximum Operating Frequency = $Fmax_formatted MHz"
+puts "RECOMMENDED: Use $Fmax_margin_formatted MHz (with ${MARGIN_PERCENT}% margin)"
 puts ""
 puts "========== Restore and Analysis Complete =========="
 

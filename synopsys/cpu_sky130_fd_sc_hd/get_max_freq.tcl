@@ -147,6 +147,10 @@ read_name_mapping
 # Update metrics to get timing information
 update_metrics
 
+# Update timing to enable timing path queries
+puts "Updating timing analysis..."
+update_timing
+
 puts "Design data loaded successfully"
 puts "Checking constraints and timing setup..."
 

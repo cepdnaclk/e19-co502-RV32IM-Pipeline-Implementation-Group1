@@ -3,13 +3,11 @@
 # Maximum Frequency Characterization Script for 45nm CMOS (PRODUCTION)
 # =============================================================================
 # Description: Production-ready script to calculate maximum operating frequency
-#              without power analysis (uses pwr_shell with restore)
-#              Fixes: tool-specific attributes, output redirection, Tcl quoting,
-#                     fallback parsing, robust error handling
+#              This script should be run in rtl_shell, not pwr_shell
 # Author: Neuromorphic Accelerator Team  
 # Technology: 45nm CMOS Process
 # Prerequisites: Run after rtla.tcl (design must be saved)
-# Usage: pwr_shell -f get_max_freq.tcl
+# Usage: rtl_shell -f get_max_freq.tcl
 # =============================================================================
 
 # Load shared configuration
@@ -136,22 +134,27 @@ file mkdir $TEMP_RESULTS_DIR
 # -----------------------------------------------------------------------------
 # Load Design Data
 # -----------------------------------------------------------------------------
-puts "========== Loading Design Data =========="
+puts "========== Loading Design from Library =========="
 
-# Read design data from synthesis workspace
-read_design_data $OUTPUT_DIR
+# Open the design library
+open_lib $LIB_NAME
 
-# Process name mapping
-read_name_mapping
+# Open the design block
+open_block ${DESIGN_NAME}_top_block
 
-# Update metrics to get timing information
-update_metrics
+# Load constraints if not already loaded
+if {[file exists $SDC_FILE]} {
+    puts "Loading constraints from $SDC_FILE"
+    source $SDC_FILE
+} else {
+    puts "WARNING: SDC file not found: $SDC_FILE"
+}
 
-# Update timing to enable timing path queries
-puts "Updating timing analysis..."
+# Update timing analysis
+puts "Updating timing..."
 update_timing
 
-puts "Design data loaded successfully"
+puts "Design loaded successfully"
 puts "Checking constraints and timing setup..."
 
 # Verify SDC constraints are loaded

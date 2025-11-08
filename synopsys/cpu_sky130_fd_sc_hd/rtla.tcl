@@ -102,10 +102,29 @@ puts "========== Starting RTL Optimization =========="
 rtl_opt
 puts "RTL optimization completed"
 
-# Save the optimized design
-save_block
-save_lib
-puts "Design saved successfully"
+# Save the optimized design with a clear label
+puts "========== Saving Design =========="
+set current_blk [current_block]
+if {$current_blk ne ""} {
+    puts "Current block: [get_object_name $current_blk]"
+    save_block -label "rtla_optimized" -force
+    save_lib
+    puts "Design saved successfully with label 'rtla_optimized'"
+    
+    # Verify save was successful
+    set saved_blocks [get_blocks *]
+    if {[llength $saved_blocks] > 0} {
+        puts "Saved blocks in library:"
+        foreach b $saved_blocks {
+            puts "  - [get_object_name $b]"
+        }
+    } else {
+        puts "WARNING: No blocks found after save (this may be normal)"
+    }
+} else {
+    puts "ERROR: No current block to save!"
+    exit 1
+}
 
 # -----------------------------------------------------------------------------
 # Power Analysis Setup

@@ -62,11 +62,16 @@ puts "========== Opening Saved Library and Block =========="
 # Try to open library but don't assume command will throw if missing
 if {[catch {open_lib $LIB_NAME} lib_err]} {
     puts "ERROR: open_lib failed: $lib_err"
-    # continue to check existence anyway
+    puts ""
+    puts "Library directory may be corrupted or incomplete."
+    puts "To fix this, either:"
+    puts "  1. Delete the library directory: rm -rf $LIB_NAME"
+    puts "  2. Run rtla.tcl fresh to recreate it"
+    exit 1
 }
 
 # Check libs via get_libs
-set libs [get_libs $LIB_NAME]
+set libs [get_libs -quiet $LIB_NAME]
 if {[llength $libs] == 0} {
     puts "ERROR: Library '$LIB_NAME' not found (get_libs returned nothing)."
     puts "Please run rtla.tcl first to create and save the initial design."
@@ -76,17 +81,71 @@ if {[llength $libs] == 0} {
 }
 
 # Find the block object and open it
-set blocks [get_blocks ${DESIGN_NAME}.design]
+# Try multiple common block naming patterns and labels
+set block_patterns [list \
+    "${DESIGN_NAME}.design/rtla_optimized" \
+    "${DESIGN_NAME}/rtla_optimized" \
+    "${DESIGN_NAME}.design" \
+    "${DESIGN_NAME}" \
+    "${DESIGN_NAME}:${TOP_MODULE}.design" \
+    "${DESIGN_NAME}:${TOP_MODULE}" \
+    "*" \
+]
+
+set blocks {}
+set found_pattern ""
+foreach pattern $block_patterns {
+    set blocks [get_blocks -quiet $pattern]
+    if {[llength $blocks] > 0} {
+        set found_pattern $pattern
+        puts "Found blocks matching pattern '$pattern'"
+        break
+    }
+}
+
 if {[llength $blocks] == 0} {
-    # try generic block query
-    set blocks [get_blocks *]
-    puts "ERROR: Block '${DESIGN_NAME}.design' not found. Available blocks:"
-    foreach b $blocks { puts "  - [get_object_name $b]" }
-    puts "Please run rtla.tcl first to create and save the initial design."
+    puts "ERROR: No blocks found in library '$LIB_NAME'."
+    puts "Tried patterns: $block_patterns"
+    puts ""
+    puts "========== DIAGNOSIS =========="
+    puts "The library exists but contains no design blocks."
+    puts "This means rtla.tcl either:"
+    puts "  - Did not complete successfully (check for errors)"
+    puts "  - Failed during save_block step"
+    puts "  - Was interrupted before saving"
+    puts ""
+    puts "========== SOLUTION =========="
+    puts "1. Delete the incomplete library:"
+    puts "     rm -rf $LIB_NAME"
+    puts ""
+    puts "2. Run rtla.tcl completely:"
+    puts "     rtl_shell -f rtla.tcl | tee rtla_run.log"
+    puts ""
+    puts "3. Verify blocks were saved (check for this message):"
+    puts "     'Design saved successfully with label rtla_optimized'"
+    puts "     'Saved blocks in library: ...' (should list at least one block)"
+    puts ""
+    puts "4. Then retry this script:"
+    puts "     rtl_shell -f restore_and_analyze.tcl"
+    puts ""
+    puts "To manually check blocks:"
+    puts "  rtl_shell"
+    puts "  open_lib $LIB_NAME"
+    puts "  get_blocks *"
+    puts "==============================="
     exit 1
 }
+
+# If multiple blocks found, list them and use the first one
+if {[llength $blocks] > 1} {
+    puts "Multiple blocks found:"
+    foreach b $blocks { puts "  - [get_object_name $b]" }
+    puts "Using first block: [get_object_name [lindex $blocks 0]]"
+}
+
 # open the first matching block object
 set blk [lindex $blocks 0]
+puts "Opening block: [get_object_name $blk]"
 if {[catch {open_block $blk} ob_err]} {
     puts "ERROR: open_block failed: $ob_err"
     exit 1
